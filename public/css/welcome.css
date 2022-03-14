@@ -80,19 +80,23 @@
     border-radius: 5px;
     border:1px solid black;
     width:25%;
-    padding:5px;
     margin-top: 50px;
+   
+    border-color: #ddd;
     
 }
 .home_block2_row_item_header{
 display:flex;
 font-weight: bold;
 font-size: 15px;
-border-bottom: 1px solid black;
+border-bottom: 1px solid #ddd;
+background-color: #F5F5F5;
+padding:5px;
 }
 
 .home_block2_row_item_content{
     display:flex;
     font-weight: 500;
     font-size: 12px;
+    padding:5px;
 }
