@@ -2,7 +2,7 @@
     <div class="container">
         <div class="navbar-brand">
             <a href="/" class="navbar-item">
-                <!-- <img class="navbar_logo"src="/images/lwm.png"></img> -->
+            <img src="https://lwmdev.service-now.com/f1580754dbf8b700a797298a48961940.iix" alt="Lambwaston img" class="img-fluid position-absolute start-0" style="width: 110px">
                 <strong><i class="fas fa-graduation-cap "></i> LWM</strong>
             </a>
             <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
@@ -12,7 +12,7 @@
             </a>
         </div>
         <div class="navbar-menu " id="navMenu" ">
-        <img src="https://lwmdev.service-now.com/f1580754dbf8b700a797298a48961940.iix" alt="Lambwaston img" class="img-fluid position-absolute start-0" style="width: 110px">
+        
             <div class="navbar-start">
                 <a  style="color:white;" href="/" class="navbar-item px-4 text-decoration-none">
                     To dos
