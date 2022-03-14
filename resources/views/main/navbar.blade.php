@@ -2,7 +2,7 @@
     <div class="container">
         <div class="navbar-brand">
             <a href="/" class="navbar-item">
-                <strong><i class="fas fa-graduation-cap"></i> LWM</strong>
+                <strong><i class="fas fa-graduation-cap "></i> LWM</strong>
             </a>
             <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
                 <span aria-hidden="true"></span>
@@ -12,27 +12,27 @@
         </div>
         <div class="navbar-menu " id="navMenu">
             <div class="navbar-start">
-                <a href="/" class="navbar-item px-4">
-                    to dos
+                <a href="/" class="navbar-item px-4 text-decoration-none">
+                    To dos
                 </a>
 
-                <a href="/" class="navbar-item px-4">
-                    my tickets
+                <a href="/" class="navbar-item px-4 text-decoration-none">
+                    My Tickets
                 </a>
 
-                <a href="/" class="navbar-item px-4">
-                    knowledge
+                <a href="/" class="navbar-item px-4 text-decoration-none">
+                    Knowledge
                 </a>
 
-                <a href="/" class="navbar-item px-4">
-                    catalog
+                <a href="/" class="navbar-item px-4 text-decoration-none">
+                    Catalog
                 </a>
 
-                <a href="/" class="navbar-item px-4">
-                    system status
+                <a href="/" class="navbar-item px-4 text-decoration-none">
+                    System status
                 </a>
 
-                <a href="/" class="navbar-item px-4">
+                <a href="/" class="navbar-item px-4 text-decoration-none">
                     Quick guide
                 </a>
                 
