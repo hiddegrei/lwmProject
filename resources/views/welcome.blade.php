@@ -41,6 +41,83 @@
 
                    </div>
 
+                   <div class="home_block2">
+                       <div class="home_block2_row">
+                         <div class="home_block2_row_item">
+                             <div class="home_block2_row_item_header">
+                                 Announchemnt
+                       
+                             </div>
+                             <div class="home_block2_row_item_content">
+                                     content
+                             </div>
+                       
+                         </div>
+
+                         <div class="home_block2_row_item">
+                            working from home?
+                       
+                         </div>
+
+                         <div class="home_block2_row_item">
+                             <div class="home_block2_row_item_header">
+                                 delegates
+                       
+                             </div>
+                             <div class="home_block2_row_item_content">
+                             No Delegates set.
+
+                            When you will be unavailable for some time, you can create a delegate allowing others to manage your approvals and tasks.
+
+                            To create one, click the "+" button on the top.
+                             </div>
+                       
+                         </div>
+                       
+                       </div>
+
+                       <div class="home_block2_row">
+                         <div class="home_block2_row_item">
+                             <div class="home_block2_row_item_header">
+                             Planned Maintenance
+                       
+                             </div>
+                             <div class="home_block2_row_item_content">
+                             We publish information on planned service availability below. This includes events occuring over the next 5 days.
+                             </div>
+                       
+                         </div>
+
+                         <div class="home_block2_row_item">
+                             <div class="home_block2_row_item_header">
+                             My Popular Requests
+                       
+                             </div>
+                             <div class="home_block2_row_item_content">
+                             You have not made any requests yet.
+                             </div>
+                       
+                         </div>
+
+                         <div class="home_block2_row_item">
+                             <div class="home_block2_row_item_header">
+                             Most Viewed Articles
+                             </div>
+                             <div class="home_block2_row_item_content">
+                             How To How does this portal works? Hoe werkt deze portal?
+ 7 Views
+Map Offices Kruiningen & Breda
+ 2 Views
+How To Save time with FindTime
+ 1 View
+                             </div>
+                       
+                         </div>
+                       
+                       </div>
+
+                   </div>
+
                    <div class="position-fixed bottom-0 end-0"><img src="https://lwmdev.service-now.com/farmer4.gif" class="img-fluid" alt="Slow" style="width:200px"></img></div>
 
 
