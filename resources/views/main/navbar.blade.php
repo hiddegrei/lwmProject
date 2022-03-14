@@ -1,4 +1,4 @@
-<nav class="navbar is-primary  has-text-white border-bottom border-primary" >
+<nav class="navbar is-primary  has-text-white border-bottom border-primary" style="background-color: #00385A;">
     <div class="container">
         <div class="navbar-brand">
             <a href="/" class="navbar-item">
@@ -10,29 +10,29 @@
                 <span aria-hidden="true"></span>
             </a>
         </div>
-        <div class="navbar-menu " id="navMenu">
+        <div class="navbar-menu " id="navMenu" ">
             <div class="navbar-start">
-                <a href="/" class="navbar-item px-4 text-decoration-none">
+                <a  style="color:white; href="/" class="navbar-item px-4 text-decoration-none">
                     To dos
                 </a>
 
-                <a href="/" class="navbar-item px-4 text-decoration-none">
+                <a  style="color:white; href="/" class="navbar-item px-4 text-decoration-none">
                     My Tickets
                 </a>
 
-                <a href="/" class="navbar-item px-4 text-decoration-none">
+                <a  style="color:white; href="/" class="navbar-item px-4 text-decoration-none">
                     Knowledge
                 </a>
 
-                <a href="/" class="navbar-item px-4 text-decoration-none">
+                <a  style="color:white; href="/" class="navbar-item px-4 text-decoration-none">
                     Catalog
                 </a>
 
-                <a href="/" class="navbar-item px-4 text-decoration-none">
+                <a  style="color:white; href="/" class="navbar-item px-4 text-decoration-none">
                     System status
                 </a>
 
-                <a href="/" class="navbar-item px-4 text-decoration-none">
+                <a  style="color:white; href="/" class="navbar-item px-4 text-decoration-none">
                     Quick guide
                 </a>
                 

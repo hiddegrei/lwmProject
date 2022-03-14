@@ -25,19 +25,28 @@
 
 
 }
+.home_firstBlock_top_greet_container{
+    display:flex;
+    flex-direction: column;
+    margin-right: auto;
+    padding:20px;
+    border:1px solid black;
+    margin-left: 50px;
+    margin-top: auto;
+    margin-bottom: 100px;
+    width:60%;
+}
 .home_firstBlock_top_greetUser{
     display:flex;
     font-weight: bold;
     font-size: 25px;
-    margin-right: auto;
-    padding:20px;
+   
    
 }
 .home_firstBlock_top_input{
     display:flex;
-    width:200px;
-    margin-right: auto;
-    padding:20px;
+    width:100%;
+    
    
 }
 .home_firstBlock_bottom{
@@ -45,6 +54,7 @@
     height:40%;
     border:1px solid black;
     justify-content: space-between;
+    align-items: center;
 
 
 }
@@ -52,4 +62,5 @@
     display:flex;
     margin-left: 50px;
     margin-right: 50px;
+    color:orange
 }

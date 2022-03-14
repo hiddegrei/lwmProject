@@ -24,8 +24,11 @@
 
                    <div class="home_firstBlock">
                        <div class="home_firstBlock_top">
-                           <div class="home_firstBlock_top_greetUser"> hi guest</div>
-                           <input class="home_firstBlock_top_input"></input>
+                           <div class="home_firstBlock_top_greet_container">
+                            <div class="home_firstBlock_top_greetUser"> Hi guest, need service?</div>
+                            <input placeholder="What are you looking for?" class="home_firstBlock_top_input"></input>
+                           </div>
+                           
                        </div>
                        <div class="home_firstBlock_bottom">
                             <div class="home_firstBlock_bottom_item">service catalog</div>
