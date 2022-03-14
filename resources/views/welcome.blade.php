@@ -16,26 +16,17 @@
 @extends('main.master')
 
 @section('content')
-    <section class="hero  is-medium  is-bold is-primary">
-        <div class="hero-body" style="
-            background: url('https://www.hz.nl/imager/uploads/images/3.-Werk-en-studie/Headers/docent-coacht-studenten-003_c8fa470484be7b69be5daae77a1602c5.jpg') no-repeat center center;
-            background-size: cover;"
-        ></div>
-    </section>
+   
 
-    <section class="section">
-        <div class="container">
-            <div class="columns">
+    
+        <div class="home">
+           
 
-                <div class="column is-8-desktop is-12-tablet">
-
-                    <div class="content">
-                       lwm yo
-                    </div>
-                </div>
-
-                
-            </div>
+                   <div class="home_firstBlock">
+                       hi guest
+                   </div>
+                    
+               
         </div>
-    </section>
+    
 @endsection
