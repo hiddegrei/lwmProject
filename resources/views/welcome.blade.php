@@ -23,7 +23,15 @@
            
 
                    <div class="home_firstBlock">
-                       hi guest
+                       <div class="home_firstBlock_top">
+                           <div class="home_firstBlock_top_greetUser"> hi guest</div>
+                           <input class="home_firstBlock_top_input"></input>
+                       </div>
+                       <div class="home_firstBlock_bottom">
+                            <div class="home_firstBlock_bottom_item">service catalog</div>
+                            <div class="home_firstBlock_bottom_item">knowledge base</div>
+                            <div class="home_firstBlock_bottom_item">report an issue</div>
+                       </div>
                    </div>
                     
                

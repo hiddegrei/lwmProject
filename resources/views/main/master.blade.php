@@ -11,7 +11,7 @@
 
 </head>
 
-<body>
+<body style="height:100%;">
 @include('main.navbar')
 
 @yield('content')
