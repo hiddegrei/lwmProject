@@ -16,11 +16,11 @@
 @extends('main.master')
 
 @section('content')
-   
 
-    
+
+
         <div class="home">
-           
+
 
                    <div class="home_firstBlock">
                        <div class="home_firstBlock_top">
@@ -28,7 +28,7 @@
                             <div class="home_firstBlock_top_greetUser"> Hi guest, need service?</div>
                             <input placeholder="What are you looking for?" class="home_firstBlock_top_input"></input>
                            </div>
-                           
+
                        </div>
                        <div class="home_firstBlock_bottom">
                             <div class="home_firstBlock_bottom_item">service catalog</div>
@@ -36,8 +36,10 @@
                             <div class="home_firstBlock_bottom_item">report an issue</div>
                        </div>
                    </div>
-                    
-               
+
+                   <div class="position-fixed bottom-0 end-0"><img src="http://i.stack.imgur.com/SBv4T.gif" class="img-fluid" alt="Slow"></img></div>
+
+
         </div>
-    
+
 @endsection
