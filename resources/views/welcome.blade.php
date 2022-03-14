@@ -37,7 +37,7 @@
                        </div>
                    </div>
 
-                   <div class="position-fixed bottom-0 end-0"><img src="http://i.stack.imgur.com/SBv4T.gif" class="img-fluid" alt="Slow"></img></div>
+                   <div class="position-fixed bottom-0 end-0"><img src="https://lwmdev.service-now.com/farmer4.gif" class="img-fluid" alt="Slow" style="width:200px"></img></div>
 
 
         </div>

@@ -12,6 +12,7 @@
             </a>
         </div>
         <div class="navbar-menu " id="navMenu" ">
+        <img src="https://lwmdev.service-now.com/f1580754dbf8b700a797298a48961940.iix" alt="Lambwaston img" class="img-fluid position-absolute start-0" style="width: 110px">
             <div class="navbar-start">
                 <a  style="color:white;" href="/" class="navbar-item px-4 text-decoration-none">
                     To dos
@@ -36,7 +37,7 @@
                 <a  style="color:white;" href="/" class="navbar-item px-4 text-decoration-none">
                     Quick guide
                 </a>
-                
+
             </div>
         </div>
     </div>
