@@ -35,9 +35,9 @@
                             <div class="home_firstBlock_bottom_item">report an issue</div>
                        </div>
 
-                       <img src="https://lwmdev.service-now.com/drone2.png" class="position-relative" style="width: 10%">
+                       <!-- <img src="https://lwmdev.service-now.com/drone2.png" class="position-relative" style="width: 10%">
                        <img src="https://lwmdev.service-now.com/bulb2.png" class="position-relative mx-auto d-block" style="width: 10%">
-                       <img src="https://lwmdev.service-now.com/dude4.png" class="float-end" style="width: 10%">
+                       <img src="https://lwmdev.service-now.com/dude4.png" class="float-end" style="width: 10%"> -->
 
                    </div>
 
@@ -118,7 +118,7 @@ How To Save time with FindTime
 
                    </div>
 
-                   <div class="position-fixed bottom-0 end-0"><img src="https://lwmdev.service-now.com/farmer4.gif" class="img-fluid" alt="Slow" style="width:200px"></img></div>
+                   <!-- <div class="position-fixed bottom-0 end-0"><img src="https://lwmdev.service-now.com/farmer4.gif" class="img-fluid" alt="Slow" style="width:200px"></img></div> -->
 
 
         </div>
