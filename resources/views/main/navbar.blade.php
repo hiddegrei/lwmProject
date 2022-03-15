@@ -16,19 +16,19 @@
         <div class="navbar-menu " id="navMenu">
 
             <div class="navbar-start">
-                <a  style="color:white;" href="/" class="navbar-item px-4 text-decoration-none">
+                <a  style="color:white;" href="/" class="navbar-item px-4 text-decoration-none" class="navelement">
                     To dos
                 </a>
 
-                <a  style="color:white;" href="/" class="navbar-item px-4 text-decoration-none">
+                <a  style="color:white;" href="/" class="navbar-item px-4 text-decoration-none" class="navelement">
                     My Tickets
                 </a>
 
-                <a  style="color:white;" href="/" class="navbar-item px-4 text-decoration-none">
+                <a  style="color:white;" href="/" class="navbar-item px-4 text-decoration-none" class="navelement">
                     Knowledge
                 </a>
 
-                <div class="dropdown">
+                <div class="dropdown" class="navelement">
                 <button class="dropbtn navbar-item px-4 text-decoration-none">Dropdown</button>
                  <div class="dropdown-content">
                     <a href="#">Business support</a>
@@ -41,19 +41,19 @@
                 </div>
                 </div>
 
-                <a  style="color:white;" href="/" class="navbar-item px-4 text-decoration-none">
+                <a  style="color:white;" href="/" class="navbar-item px-4 text-decoration-none" class="navelement">
                     System status
                 </a>
 
-                <a  style="color:white;" href="/" class="navbar-item px-4 text-decoration-none">
+                <a  style="color:white;" href="/" class="navbar-item px-4 text-decoration-none" class="navelement">
                     GRC
                 </a>
 
-                <a  style="color:white;" href="/" class="navbar-item px-4 text-decoration-none">
+                <a  style="color:white;" href="/" class="navbar-item px-4 text-decoration-none" class="navelement">
                     Cart
                 </a>
 
-                <a  style="color:white;" href="/" class="navbar-item px-4 text-decoration-none">
+                <a  style="color:white;" href="/" class="navbar-item px-4 text-decoration-none" class="navelement">
                     Quick guide
                 </a>
             </div>
