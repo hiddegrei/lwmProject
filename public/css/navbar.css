@@ -50,3 +50,6 @@
 #americanFlag{
     width: 5%;
 }
+.navHover:hover{
+    color:orange !important;
+}
