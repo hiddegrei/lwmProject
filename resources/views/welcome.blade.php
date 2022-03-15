@@ -41,7 +41,7 @@
                        <img src="https://lwmdev.service-now.com/bulb2.png" class="home_firstBlock_bottom_img" >
                        <img src="https://lwmdev.service-now.com/dude4.png" class="home_firstBlock_bottom_img" >
 
-</div>
+                        </div>
                            
                             
                        </div>
