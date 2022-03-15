@@ -54,7 +54,7 @@
                        <div class="home_block2_row">
                          <div class="home_block2_row_item">
                              <div class="home_block2_row_item_header">
-                                 Announchemnt
+                                🔊Announchemnt
 
                              </div>
                              <div class="home_block2_row_item_content">
@@ -70,7 +70,7 @@
 
                          <div class="home_block2_row_item">
                              <div class="home_block2_row_item_header">
-                                 delegates
+                                🕴Delegates
 
                              </div>
                              <div class="home_block2_row_item_content">
@@ -88,7 +88,7 @@
                        <div class="home_block2_row">
                          <div class="home_block2_row_item">
                              <div class="home_block2_row_item_header">
-                             Planned Maintenance
+                             ⋰Planned Maintenance
 
                              </div>
                              <div class="home_block2_row_item_content">
@@ -99,7 +99,7 @@
 
                          <div class="home_block2_row_item">
                              <div class="home_block2_row_item_header">
-                             My Popular Requests
+                             ★My Popular Requests
 
                              </div>
                              <div class="home_block2_row_item_content">
@@ -123,9 +123,9 @@ How To Save time with FindTime
 
                          </div>
 
-                         
 
-                         
+
+
 
                        </div>
                        <div class="home_block2_row">
