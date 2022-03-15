@@ -28,9 +28,13 @@
                     Knowledge
                 </a>
 
-                <a  style="color:white;" href="/" class="navbar-item px-4 text-decoration-none">
-                    Catalog
-                </a>
+                <div class="dropdown">
+                <button class="dropbtn navbar-item px-4 text-decoration-none">Dropdown</button>
+                 <div class="dropdown-content">
+                    <a href="#">Link 1</a>
+                    <a href="#">Link 2</a>
+                    <a href="#">Link 3</a>
+                </div>
 
                 <a  style="color:white;" href="/" class="navbar-item px-4 text-decoration-none">
                     System status
@@ -47,8 +51,11 @@
                 <a  style="color:white;" href="/" class="navbar-item px-4 text-decoration-none">
                     Quick guide
                 </a>
+               
+            </div>
 
             </div>
+           
         </div>
     </div>
 </nav>
