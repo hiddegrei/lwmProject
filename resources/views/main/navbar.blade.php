@@ -39,6 +39,7 @@
                     <a href="#">IT services</a>
                     <a href="#">Masterdata</a>
                 </div>
+                </div>
 
                 <a  style="color:white;" href="/" class="navbar-item px-4 text-decoration-none">
                     System status
@@ -56,7 +57,7 @@
                     Quick guide
                 </a>
                 <!-- <a><img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a4/Flag_of_the_United_States.svg/2560px-Flag_of_the_United_States.svg.png" style="" ></a> -->
-            </div>
+           
 
             </div>
 
