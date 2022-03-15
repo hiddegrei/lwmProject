@@ -50,7 +50,7 @@
                     System status
                 </a>
 
-                <a  style="color:white;" href="/" class="navbar-item px-4 text-decoration-none" class="navelement">
+                <a  style="color:white;" href="/" class="navbar-item px-4 text-decoration-none" class="navel    ement">
                     GRC
                 </a>
 
