@@ -39,6 +39,7 @@
                     <a href="#">IT services</a>
                     <a href="#">Masterdata</a>
                 </div>
+                </div>
 
                 <a  style="color:white;" href="/" class="navbar-item px-4 text-decoration-none">
                     System status
