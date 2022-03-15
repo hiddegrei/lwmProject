@@ -56,7 +56,7 @@
 
                          <div class="home_block2_row_item">
                             working from home?
-
+                            <img src="https://w7.pngwing.com/pngs/817/403/png-transparent-home-furnishings-home-furnishings-household-sofa.png">
                          </div>
 
                          <div class="home_block2_row_item">
