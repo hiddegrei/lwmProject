@@ -56,15 +56,14 @@
                 <a  style="color:white;" href="/" class="navbar-item px-4 text-decoration-none">
                     Quick guide
                 </a>
-                <!-- <a><img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a4/Flag_of_the_United_States.svg/2560px-Flag_of_the_United_States.svg.png" style="" ></a> -->
-
 
             </div>
 
         </div>
-        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a4/Flag_of_the_United_States.svg/2560px-Flag_of_the_United_States.svg.png" id="americanFlag">
-    <div class="text-light">Saif el pizza</div>
     </div>
+
+    <img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a4/Flag_of_the_United_States.svg/2560px-Flag_of_the_United_States.svg.png" id="americanFlag">
+    <div class="text-light">Saif el pizza</div>
 </nav>
 
 
