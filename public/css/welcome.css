@@ -138,13 +138,9 @@ padding:5px;
     height:auto;
    margin-left: 50px;
    margin-right: 50px;
-<<<<<<< HEAD
-}
-=======
    transition: all .2s ease-in-out;
 }
 
 .home_firstBlock_bottom_img:hover{
     transform: scale(1.3);
 }
->>>>>>> 7a244615da007c3266a4fcd224c9b6f387323f22
