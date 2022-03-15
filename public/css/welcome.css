@@ -6,7 +6,7 @@
     margin-left:auto;
     margin-right:auto;
     /* border:1px solid black; */
-    
+
 }
 .home_firstBlock{
     display:flex;
@@ -21,7 +21,7 @@
     height:60%;
     align-items: center ;
     border:1px solid black;
-   
+
 
 
 }
@@ -40,14 +40,14 @@
     display:flex;
     font-weight: bold;
     font-size: 25px;
-   
-   
+
+
 }
 .home_firstBlock_top_input{
     display:flex;
     width:100%;
-    
-   
+
+
 }
 .home_firstBlock_bottom{
     display:flex;
@@ -81,9 +81,9 @@
     border:1px solid black;
     width:25%;
     margin-top: 50px;
-   
+
     border-color: #ddd;
-    
+
 }
 .home_block2_row_item_header{
 display:flex;
@@ -99,4 +99,22 @@ padding:5px;
     font-weight: 500;
     font-size: 12px;
     padding:5px;
+}
+
+#drone2{
+    width: 10%;
+    top: 55%;
+    left: 17%;
+}
+
+#bulb2{
+    width: 10%;
+    top: 52%;
+    left: 45%;
+}
+
+#dude4{
+    width: 9%;
+    top: 53%;
+    left: 74%;
 }

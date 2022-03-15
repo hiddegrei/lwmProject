@@ -35,9 +35,9 @@
                             <div class="home_firstBlock_bottom_item">report an issue</div>
                        </div>
 
-                       <!-- <img src="https://lwmdev.service-now.com/drone2.png" class="position-relative" style="width: 10%">
-                       <img src="https://lwmdev.service-now.com/bulb2.png" class="position-relative mx-auto d-block" style="width: 10%">
-                       <img src="https://lwmdev.service-now.com/dude4.png" class="float-end" style="width: 10%"> -->
+                       <img src="https://lwmdev.service-now.com/drone2.png" class="position-absolute" id="drone2">
+                       <img src="https://lwmdev.service-now.com/bulb2.png" class="position-absolute" id="bulb2">
+                       <img src="https://lwmdev.service-now.com/dude4.png" class="position-absolute" id="dude4">
 
                    </div>
 
@@ -46,23 +46,23 @@
                          <div class="home_block2_row_item">
                              <div class="home_block2_row_item_header">
                                  Announchemnt
-                       
+
                              </div>
                              <div class="home_block2_row_item_content">
                                      content
                              </div>
-                       
+
                          </div>
 
                          <div class="home_block2_row_item">
                             working from home?
-                       
+
                          </div>
 
                          <div class="home_block2_row_item">
                              <div class="home_block2_row_item_header">
                                  delegates
-                       
+
                              </div>
                              <div class="home_block2_row_item_content">
                              No Delegates set.
@@ -71,32 +71,32 @@
 
                             To create one, click the "+" button on the top.
                              </div>
-                       
+
                          </div>
-                       
+
                        </div>
 
                        <div class="home_block2_row">
                          <div class="home_block2_row_item">
                              <div class="home_block2_row_item_header">
                              Planned Maintenance
-                       
+
                              </div>
                              <div class="home_block2_row_item_content">
                              We publish information on planned service availability below. This includes events occuring over the next 5 days.
                              </div>
-                       
+
                          </div>
 
                          <div class="home_block2_row_item">
                              <div class="home_block2_row_item_header">
                              My Popular Requests
-                       
+
                              </div>
                              <div class="home_block2_row_item_content">
                              You have not made any requests yet.
                              </div>
-                       
+
                          </div>
 
                          <div class="home_block2_row_item">
@@ -111,9 +111,9 @@ Map Offices Kruiningen & Breda
 How To Save time with FindTime
  1 View
                              </div>
-                       
+
                          </div>
-                       
+
                        </div>
 
                    </div>
