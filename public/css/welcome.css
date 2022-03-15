@@ -35,15 +35,9 @@
     margin-left: 50px;
     margin-top: auto;
     margin-bottom: 100px;
-<<<<<<< HEAD
-    width:60%;
-    background-color: #e6e6e6;
-    color:#00385A;
-=======
     width:90%;
     background-color: #00385A;
     color:white;
->>>>>>> 857e0159b570e9c35c5e18d59e0dea1b9f804ddd
 }
 .home_firstBlock_top_greetUser{
     display:flex;
