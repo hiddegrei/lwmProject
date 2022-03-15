@@ -16,20 +16,20 @@
         <div class="navbar-menu " id="navMenu">
 
             <div class="navbar-start">
-                <a  style="color:white;" href="/" class="navbar-item px-4 text-decoration-none">
+                <a  style="color:white;" href="/" class="navbar-item px-4 text-decoration-none navHover">
                     To dos
                 </a>
 
-                <a  style="color:white;" href="/" class="navbar-item px-4 text-decoration-none">
+                <a  style="color:white;" href="/" class="navbar-item px-4 text-decoration-none navHover">
                     My Tickets
                 </a>
 
-                <a  style="color:white;" href="/" class="navbar-item px-4 text-decoration-none">
+                <a  style="color:white;" href="/" class="navbar-item px-4 text-decoration-none navHover">
                     Knowledge
                 </a>
 
                 <div class="dropdown">
-                <button class="dropbtn navbar-item px-4 text-decoration-none">Services</button>
+                <button class="dropbtn navbar-item px-4 text-decoration-none navHover">Services</button>
                  <div class="dropdown-content">
                     <a href="#">Business support</a>
                     <a href="#">Facilities</a>
@@ -41,19 +41,19 @@
                 </div>
                 </div>
 
-                <a  style="color:white;" href="/" class="navbar-item px-4 text-decoration-none">
+                <a  style="color:white;" href="/" class="navbar-item px-4 text-decoration-none navHover">
                     System status
                 </a>
 
-                <a  style="color:white;" href="/" class="navbar-item px-4 text-decoration-none">
+                <a  style="color:white;" href="/" class="navbar-item px-4 text-decoration-none navHover">
                     GRC
                 </a>
 
-                <a  style="color:white;" href="/" class="navbar-item px-4 text-decoration-none">
+                <a  style="color:white;" href="/" class="navbar-item px-4 text-decoration-none navHover">
                     Cart
                 </a>
 
-                <a  style="color:white;" href="/" class="navbar-item px-4 text-decoration-none">
+                <a  style="color:white;" href="/" class="navbar-item px-4 text-decoration-none navHover">
                     Quick guide
                 </a>
 
