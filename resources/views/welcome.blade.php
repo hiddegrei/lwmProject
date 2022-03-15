@@ -123,7 +123,39 @@ How To Save time with FindTime
 
                          </div>
 
+                         
+
+                         
+
                        </div>
+                       <div class="home_block2_row">
+
+                       <div class="home_block2_row_container">
+                            <div class="home_block2_row_container_item">
+                                <div class="home_block2_row_container_item_imgCon">
+                                    <img class="home_block2_row_container_item_img" src="/img/safe.png"></img>
+                                </div>
+                                <div class="home_block2_row_container_item_textBlock">
+                                    <div class="home_block2_row_container_item_textBlock_h">Safetybase</div>
+                                    <div class="home_block2_row_container_item_textBlock_p">Incidents & observations</div>
+                                </div>
+                            </div>
+
+                            <div class="home_block2_row_container_item">
+                                <div class="home_block2_row_container_item_imgCon">
+                                    <img class="home_block2_row_container_item_img" src="/img/recycle.png"></img>
+                                </div>
+                                <div class="home_block2_row_container_item_textBlock">
+                                    <div class="home_block2_row_container_item_textBlock_h">Destruction request</div>
+                                    <div class="home_block2_row_container_item_textBlock_p">Cattle Feed, waste, Petfood etc</div>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+
+                        </div>
 
                    </div>
 
