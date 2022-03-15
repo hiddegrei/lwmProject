@@ -36,8 +36,8 @@
     margin-top: auto;
     margin-bottom: 100px;
     width:60%;
-    background-color: #00385A;
-    color:white;
+    background-color: #e6e6e6;
+    color:#00385A;
 }
 .home_firstBlock_top_greetUser{
     display:flex;
