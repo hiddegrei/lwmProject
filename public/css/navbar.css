@@ -42,8 +42,8 @@
 
   .dropdown:hover .dropbtn {
       /* background-color: #3e8e41; */
-<<<<<<< HEAD
-    }  
-=======
     }
->>>>>>> 1486f1cb9edfd5cef88b62742571b15f36e8acb9
+
+#americanFlag{
+    width: 5%;
+}
