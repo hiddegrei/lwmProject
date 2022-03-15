@@ -73,12 +73,12 @@
     display:flex;
     height:50%;
     width:80%;
-   
+
     justify-content: space-between;
     align-items: center;
     margin:auto auto;
-    
-    
+
+
 }
 .home_firstBlock_bottom_item{
     display:flex;
@@ -144,4 +144,9 @@ padding:5px;
     height:auto;
    margin-left: 50px;
    margin-right: 50px;
+   transition: all .2s ease-in-out;
+}
+
+.home_firstBlock_bottom_img:hover{
+    transform: scale(1.3);
 }
