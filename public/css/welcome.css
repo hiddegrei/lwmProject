@@ -25,6 +25,7 @@
 .container{
     margin-bottom: 10px;
 }
+
 .home_firstBlock_top_greet_container{
     display:flex;
     flex-direction: column;
@@ -35,6 +36,8 @@
     margin-top: auto;
     margin-bottom: 100px;
     width:60%;
+    background-color: #00385A;
+    color:white;
 }
 .home_firstBlock_top_greetUser{
     display:flex;
