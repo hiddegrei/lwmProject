@@ -11,7 +11,7 @@
                 <span aria-hidden="true"></span>
             </a>
         </div>
-        <div class="navbar-menu " id="navMenu" ">
+        <div class="navbar-menu " id="navMenu">
 
             <div class="navbar-start">
                 <a  style="color:white;" href="/" class="navbar-item px-4 text-decoration-none">
