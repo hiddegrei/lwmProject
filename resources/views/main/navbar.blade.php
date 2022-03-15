@@ -16,17 +16,31 @@
         <div class="navbar-menu " id="navMenu">
 
             <div class="navbar-start">
-                <a  style="color:white;" href="/" class="navbar-item px-4 text-decoration-none navHover">
-                    To dos
-                </a>
+            <div class="dropdown">
+                <button class="dropbtn navbar-item px-4 text-decoration-none navHover">To Dos</button>
+                 <div class="dropdown-content">
+                    <a href="#">Eat</a>
+                    <a href="#">Pet dog</a>
+                    <a href="#">Potato</a>
+                </div>
+                </div>
 
-                <a  style="color:white;" href="/" class="navbar-item px-4 text-decoration-none navHover">
-                    My Tickets
-                </a>
+                <div class="dropdown">
+                <button class="dropbtn navbar-item px-4 text-decoration-none navHover">My Tickets</button>
+                 <div class="dropdown-content">
+                    <a href="#">Train ticket</a>
+                    <a href="#">Car ticket</a>
+                </div>
+                </div>
 
-                <a  style="color:white;" href="/" class="navbar-item px-4 text-decoration-none navHover">
-                    Knowledge
-                </a>
+                <div class="dropdown">
+                <button class="dropbtn navbar-item px-4 text-decoration-none navHover">Knowledge</button>
+                 <div class="dropdown-content">
+                    <a href="#">Book of all</a>
+                    <a href="#">Book of nothing</a>
+                    <a href="#">Book of Book</a>
+                </div>
+                </div>
 
                 <div class="dropdown">
                 <button class="dropbtn navbar-item px-4 text-decoration-none navHover">Services</button>
@@ -41,21 +55,59 @@
                 </div>
                 </div>
 
-                <a  style="color:white;" href="/" class="navbar-item px-4 text-decoration-none navHover">
-                    System status
-                </a>
+                <div class="dropdown">
+                <button class="dropbtn navbar-item px-4 text-decoration-none navHover">System Status</button>
+                 <div class="dropdown-content">
+                    <a href="#">Business support</a>
+                    <a href="#">Facilities</a>
+                    <a href="#">Finance</a>
+                    <a href="#">Home office</a>
+                    <a href="#">HR & Payroll</a>
+                    <a href="#">IT services</a>
+                    <a href="#">Masterdata</a>
+                </div>
+                </div>
 
-                <a  style="color:white;" href="/" class="navbar-item px-4 text-decoration-none navHover">
-                    GRC
-                </a>
 
-                <a  style="color:white;" href="/" class="navbar-item px-4 text-decoration-none navHover">
-                    Cart
-                </a>
+                <div class="dropdown">
+                <button class="dropbtn navbar-item px-4 text-decoration-none navHover">GRC</button>
+                 <div class="dropdown-content">
+                    <a href="#">Business support</a>
+                    <a href="#">Facilities</a>
+                    <a href="#">Finance</a>
+                    <a href="#">Home office</a>
+                    <a href="#">HR & Payroll</a>
+                    <a href="#">IT services</a>
+                    <a href="#">Masterdata</a>
+                </div>
+                </div>
 
-                <a  style="color:white;" href="/" class="navbar-item px-4 text-decoration-none navHover">
-                    Quick guide
-                </a>
+
+                <div class="dropdown">
+                <button class="dropbtn navbar-item px-4 text-decoration-none navHover">Cart</button>
+                 <div class="dropdown-content">
+                    <a href="#">Business support</a>
+                    <a href="#">Facilities</a>
+                    <a href="#">Finance</a>
+                    <a href="#">Home office</a>
+                    <a href="#">HR & Payroll</a>
+                    <a href="#">IT services</a>
+                    <a href="#">Masterdata</a>
+                </div>
+                </div>
+
+                <div class="dropdown">
+                <button class="dropbtn navbar-item px-4 text-decoration-none navHover">Quick Guide</button>
+                 <div class="dropdown-content">
+                    <a href="#">Business support</a>
+                    <a href="#">Facilities</a>
+                    <a href="#">Finance</a>
+                    <a href="#">Home office</a>
+                    <a href="#">HR & Payroll</a>
+                    <a href="#">IT services</a>
+                    <a href="#">Masterdata</a>
+                </div>
+                </div>
 
             </div>
 
