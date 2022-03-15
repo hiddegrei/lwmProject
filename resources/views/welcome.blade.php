@@ -42,11 +42,11 @@
                        <img src="https://lwmdev.service-now.com/dude4.png" class="home_firstBlock_bottom_img" >
 
                         </div>
-                           
-                            
+
+
                        </div>
 
-                      
+
 
                    </div>
 
@@ -127,7 +127,7 @@ How To Save time with FindTime
 
                    </div>
 
-                   <!-- <div class="position-fixed bottom-0 end-0"><img src="https://lwmdev.service-now.com/farmer4.gif" class="img-fluid" alt="Slow" style="width:200px"></img></div> -->
+                   <div class="position-fixed bottom-0 end-0"><img src="https://lwmdev.service-now.com/farmer4.gif" class="img-fluid" alt="Slow" style="width:200px"></img></div>
 
 
         </div>
