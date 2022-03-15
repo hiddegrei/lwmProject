@@ -35,16 +35,11 @@
     margin-left: 50px;
     margin-top: auto;
     margin-bottom: 100px;
-<<<<<<< HEAD
     width:60%;
     background-color: #e6e6e6;
     color:#00385A;
     width:90%;
-=======
-    width:90%;
-    background-color: #00385A;
-    color:white;
->>>>>>> f445d23f5702f6f9a6113fc21c56a194ee26d272
+
 }
 .home_firstBlock_top_greetUser{
     display:flex;
