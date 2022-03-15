@@ -62,6 +62,8 @@
             </div>
 
         </div>
+        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a4/Flag_of_the_United_States.svg/2560px-Flag_of_the_United_States.svg.png" id="americanFlag">
+    <div class="text-light">Saif el pizza</div>
     </div>
 </nav>
 
