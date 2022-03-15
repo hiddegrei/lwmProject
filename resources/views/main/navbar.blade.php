@@ -31,9 +31,13 @@
                 <div class="dropdown">
                 <button class="dropbtn navbar-item px-4 text-decoration-none">Dropdown</button>
                  <div class="dropdown-content">
-                    <a href="#">Link 1</a>
-                    <a href="#">Link 2</a>
-                    <a href="#">Link 3</a>
+                    <a href="#">Business support</a>
+                    <a href="#">Facilities</a>
+                    <a href="#">Finance</a>
+                    <a href="#">Home office</a>
+                    <a href="#">HR & Payroll</a>
+                    <a href="#">IT services</a>
+                    <a href="#">Masterdata</a>
                 </div>
 
                 <a  style="color:white;" href="/" class="navbar-item px-4 text-decoration-none">

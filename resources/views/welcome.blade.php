@@ -30,14 +30,23 @@
                            </div>
                        </div>
                        <div class="home_firstBlock_bottom">
-                            <div class="home_firstBlock_bottom_item">service catalog</div>
+                           <div class="home_firstBlock_bottom_row">
+                           <div class="home_firstBlock_bottom_item">service catalog</div>
                             <div class="home_firstBlock_bottom_item">knowledge base</div>
                             <div class="home_firstBlock_bottom_item">report an issue</div>
+
+                           </div>
+                           <div class="home_firstBlock_bottom_row">
+                           <img src="https://lwmdev.service-now.com/drone2.png" class="home_firstBlock_bottom_img">
+                       <img src="https://lwmdev.service-now.com/bulb2.png" class="home_firstBlock_bottom_img" >
+                       <img src="https://lwmdev.service-now.com/dude4.png" class="home_firstBlock_bottom_img" >
+
+</div>
+                           
+                            
                        </div>
 
-                       <img src="https://lwmdev.service-now.com/drone2.png" class="position-absolute" id="drone2">
-                       <img src="https://lwmdev.service-now.com/bulb2.png" class="position-absolute" id="bulb2">
-                       <img src="https://lwmdev.service-now.com/dude4.png" class="position-absolute" id="dude4">
+                      
 
                    </div>
 
