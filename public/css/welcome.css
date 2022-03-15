@@ -21,9 +21,9 @@
     height:60%;
     align-items: center ;
     border:1px solid black;
-
-
-
+}
+.container{
+    margin-bottom: 10px;
 }
 .home_firstBlock_top_greet_container{
     display:flex;
