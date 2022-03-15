@@ -12,7 +12,7 @@
             </a>
         </div>
         <div class="navbar-menu " id="navMenu" ">
-        
+
             <div class="navbar-start">
                 <a  style="color:white;" href="/" class="navbar-item px-4 text-decoration-none">
                     To dos
@@ -32,6 +32,14 @@
 
                 <a  style="color:white;" href="/" class="navbar-item px-4 text-decoration-none">
                     System status
+                </a>
+
+                <a  style="color:white;" href="/" class="navbar-item px-4 text-decoration-none">
+                    GRC
+                </a>
+
+                <a  style="color:white;" href="/" class="navbar-item px-4 text-decoration-none">
+                    Cart
                 </a>
 
                 <a  style="color:white;" href="/" class="navbar-item px-4 text-decoration-none">
