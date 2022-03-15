@@ -10,11 +10,10 @@
                 <span aria-hidden="true"></span>
             </a>
         </div>
-<<<<<<< HEAD
+
         <div class="navbar-menu " id="navMenu" ">
-=======
+
         <div class="navbar-menu " id="navMenu">
->>>>>>> 915489b30eb3dfe3b9f2cf3654928321d8e2408d
 
             <div class="navbar-start">
                 <a  style="color:white;" href="/" class="navbar-item px-4 text-decoration-none">
