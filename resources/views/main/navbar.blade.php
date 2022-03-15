@@ -37,6 +37,14 @@
                 </a>
 
                 <a  style="color:white;" href="/" class="navbar-item px-4 text-decoration-none">
+                    GRC
+                </a>
+
+                <a  style="color:white;" href="/" class="navbar-item px-4 text-decoration-none">
+                    Cart
+                </a>
+
+                <a  style="color:white;" href="/" class="navbar-item px-4 text-decoration-none">
                     Quick guide
                 </a>
 
