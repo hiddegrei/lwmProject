@@ -54,7 +54,7 @@
                        <div class="home_block2_row">
                          <div class="home_block2_row_item">
                              <div class="home_block2_row_item_header">
-                                 Announchemnt
+                                 Announcement
 
                              </div>
                              <div class="home_block2_row_item_content">
@@ -123,9 +123,9 @@ How To Save time with FindTime
 
                          </div>
 
-                         
 
-                         
+
+
 
                        </div>
                        <div class="home_block2_row">
