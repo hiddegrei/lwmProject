@@ -19,149 +19,149 @@
 
 
 
-        <div class="home">
+    <div class="home">
 
 
-                   <div class="home_firstBlock">
-                       <div class="home_firstBlock_top">
-                           <div class="home_firstBlock_top_greet_container">
-                            <div class="home_firstBlock_top_greetUser"> Hi guest, need service?</div>
-                            <input placeholder="What are you looking for?" class="home_firstBlock_top_input"></input>
-                           </div>
-                       </div>
-                       <div class="home_firstBlock_bottom">
-                           <div class="home_firstBlock_bottom_row">
-                           <div class="home_firstBlock_bottom_item">service catalog</div>
-                            <div class="home_firstBlock_bottom_item">knowledge base</div>
-                            <div class="home_firstBlock_bottom_item">report an issue</div>
+        <div class="home_firstBlock">
+            <div class="home_firstBlock_top">
+                <div class="home_firstBlock_top_greet_container">
+                    <div class="home_firstBlock_top_greetUser"> Hi guest, need service?</div>
+                    <input placeholder="What are you looking for?" class="home_firstBlock_top_input"></input>
+                </div>
+            </div>
+            <div class="home_firstBlock_bottom">
+                <div class="home_firstBlock_bottom_row">
+                    <div class="home_firstBlock_bottom_item">service catalog</div>
+                    <div class="home_firstBlock_bottom_item">knowledge base</div>
+                    <div class="home_firstBlock_bottom_item">report an issue</div>
 
-                           </div>
-                           <div class="home_firstBlock_bottom_row">
-                           <img src="https://lwmdev.service-now.com/drone2.png" class="home_firstBlock_bottom_img">
-                       <img src="https://lwmdev.service-now.com/bulb2.png" class="home_firstBlock_bottom_img" >
-                       <img src="https://lwmdev.service-now.com/dude4.png" class="home_firstBlock_bottom_img" >
+                </div>
+                <div class="home_firstBlock_bottom_row">
+                    <img src="https://lwmdev.service-now.com/drone2.png" class="home_firstBlock_bottom_img">
+                    <img src="https://lwmdev.service-now.com/bulb2.png" class="home_firstBlock_bottom_img">
+                    <img src="https://lwmdev.service-now.com/dude4.png" class="home_firstBlock_bottom_img">
 
-                        </div>
-
-
-                       </div>
+                </div>
 
 
-
-                   </div>
-
-                   <div class="home_block2">
-                       <div class="home_block2_row">
-                         <div class="home_block2_row_item">
-                             <div class="home_block2_row_item_header">
-                                🔊Announchemnt
-
-                             </div>
-                             <div class="home_block2_row_item_content">
-                                     content
-                             </div>
-
-                         </div>
-
-                         <div class="home_block2_row_item">
-                            working from home?
-                            <img src="https://w7.pngwing.com/pngs/817/403/png-transparent-home-furnishings-home-furnishings-household-sofa.png">
-                         </div>
-
-                         <div class="home_block2_row_item">
-                             <div class="home_block2_row_item_header">
-                                🕴Delegates
-
-                             </div>
-                             <div class="home_block2_row_item_content">
-                             No Delegates set.
-
-                            When you will be unavailable for some time, you can create a delegate allowing others to manage your approvals and tasks.
-
-                            To create one, click the "+" button on the top.
-                             </div>
-
-                         </div>
-
-                       </div>
-
-                       <div class="home_block2_row">
-                         <div class="home_block2_row_item">
-                             <div class="home_block2_row_item_header">
-                             ⋰Planned Maintenance
-
-                             </div>
-                             <div class="home_block2_row_item_content">
-                             We publish information on planned service availability below. This includes events occuring over the next 5 days.
-                             </div>
-
-                         </div>
-
-                         <div class="home_block2_row_item">
-                             <div class="home_block2_row_item_header">
-                             ★My Popular Requests
-
-                             </div>
-                             <div class="home_block2_row_item_content">
-                             You have not made any requests yet.
-                             </div>
-
-                         </div>
-
-                         <div class="home_block2_row_item">
-                             <div class="home_block2_row_item_header">
-                             Most Viewed Articles
-                             </div>
-                             <div class="home_block2_row_item_content">
-                             How To How does this portal works? Hoe werkt deze portal?
- 7 Views
-Map Offices Kruiningen & Breda
- 2 Views
-How To Save time with FindTime
- 1 View
-                             </div>
-
-                         </div>
-
-
-
-
-
-                       </div>
-                       <div class="home_block2_row">
-
-                       <div class="home_block2_row_container">
-                            <div class="home_block2_row_container_item">
-                                <div class="home_block2_row_container_item_imgCon">
-                                    <img class="home_block2_row_container_item_img" src="/img/safe.png"></img>
-                                </div>
-                                <div class="home_block2_row_container_item_textBlock">
-                                    <div class="home_block2_row_container_item_textBlock_h">Safetybase</div>
-                                    <div class="home_block2_row_container_item_textBlock_p">Incidents & observations</div>
-                                </div>
-                            </div>
-
-                            <div class="home_block2_row_container_item">
-                                <div class="home_block2_row_container_item_imgCon">
-                                    <img class="home_block2_row_container_item_img" src="/img/recycle.png"></img>
-                                </div>
-                                <div class="home_block2_row_container_item_textBlock">
-                                    <div class="home_block2_row_container_item_textBlock_h">Destruction request</div>
-                                    <div class="home_block2_row_container_item_textBlock_p">Cattle Feed, waste, Petfood etc</div>
-                                </div>
-                            </div>
-
-                        </div>
-
-
-
-                        </div>
-
-                   </div>
-
-                   <div class="position-fixed bottom-0 end-0"><img src="https://lwmdev.service-now.com/farmer4.gif" class="img-fluid" alt="Slow" style="width:200px"></img></div>
+            </div>
 
 
         </div>
+
+        <div class="home_block2">
+            <div class="home_block2_row">
+                <div class="home_block2_row_item">
+                    <div class="home_block2_row_item_header">
+                        🔊Announchemnt
+
+                    </div>
+                    <div class="home_block2_row_item_content">
+                        content
+                    </div>
+
+                </div>
+
+                <div class="home_block2_row_item">
+                    working from home?
+                    <img
+                        src="https://w7.pngwing.com/pngs/817/403/png-transparent-home-furnishings-home-furnishings-household-sofa.png">
+                </div>
+
+                <div class="home_block2_row_item">
+                    <div class="home_block2_row_item_header">
+                        🕴Delegates
+
+                    </div>
+                    <div class="home_block2_row_item_content">
+                        No Delegates set.
+
+                        When you will be unavailable for some time, you can create a delegate allowing others to manage
+                        your approvals and tasks.
+
+                        To create one, click the "+" button on the top.
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="home_block2_row">
+                <div class="home_block2_row_item">
+                    <div class="home_block2_row_item_header">
+                        ⋰Planned Maintenance
+
+                    </div>
+                    <div class="home_block2_row_item_content">
+                        We publish information on planned service availability below. This includes events occuring over
+                        the next 5 days.
+                    </div>
+
+                </div>
+
+                <div class="home_block2_row_item">
+                    <div class="home_block2_row_item_header">
+                        ★My Popular Requests
+
+                    </div>
+                    <div class="home_block2_row_item_content">
+                        You have not made any requests yet.
+                    </div>
+
+                </div>
+
+                <div class="home_block2_row_item">
+                    <div class="home_block2_row_item_header">
+                        Most Viewed Articles
+                    </div>
+                    <div class="home_block2_row_item_content">
+                        How To How does this portal works? Hoe werkt deze portal?
+                        7 Views
+                        Map Offices Kruiningen & Breda
+                        2 Views
+                        How To Save time with FindTime
+                        1 View
+                    </div>
+
+                </div>
+
+
+            </div>
+            <div class="home_block2_row">
+
+                <div class="home_block2_row_container">
+                    <div class="home_block2_row_container_item">
+                        <div class="home_block2_row_container_item_imgCon">
+                            <img class="home_block2_row_container_item_img" src="/img/safe.png"></img>
+                        </div>
+                        <div class="home_block2_row_container_item_textBlock">
+                            <div class="home_block2_row_container_item_textBlock_h">Safetybase</div>
+                            <div class="home_block2_row_container_item_textBlock_p">Incidents & observations</div>
+                        </div>
+                    </div>
+
+                    <div class="home_block2_row_container_item">
+                        <div class="home_block2_row_container_item_imgCon">
+                            <img class="home_block2_row_container_item_img" src="/img/recycle.png"></img>
+                        </div>
+                        <div class="home_block2_row_container_item_textBlock">
+                            <div class="home_block2_row_container_item_textBlock_h">Destruction request</div>
+                            <div class="home_block2_row_container_item_textBlock_p">Cattle Feed, waste, Petfood etc
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+        <div class="position-fixed bottom-0 end-0"><img src="https://lwmdev.service-now.com/farmer4.gif"
+                                                        class="img-fluid" alt="Slow" style="width:200px"></img></div>
+
+
+    </div>
 
 @endsection

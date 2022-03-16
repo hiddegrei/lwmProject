@@ -45,13 +45,9 @@
                 <div class="dropdown">
                 <button class="dropbtn navbar-item px-4 text-decoration-none navHover">Services</button>
                  <div class="dropdown-content">
-                    <a href="#">Business support</a>
-                    <a href="#">Facilities</a>
-                    <a href="#">Finance</a>
-                    <a href="#">Home office</a>
-                    <a href="#">HR & Payroll</a>
-                    <a href="#">IT services</a>
-                    <a href="#">Masterdata</a>
+                    <a href="#">Food</a>
+                    <a href="#">Sunflower oil</a>
+                    <a href="#">Handyman</a>
                 </div>
                 </div>
 
@@ -72,13 +68,7 @@
                 <div class="dropdown">
                 <button class="dropbtn navbar-item px-4 text-decoration-none navHover">GRC</button>
                  <div class="dropdown-content">
-                    <a href="#">Business support</a>
-                    <a href="#">Facilities</a>
-                    <a href="#">Finance</a>
-                    <a href="#">Home office</a>
-                    <a href="#">HR & Payroll</a>
-                    <a href="#">IT services</a>
-                    <a href="#">Masterdata</a>
+                    <a href="#">Wat is GRC?</a>
                 </div>
                 </div>
 
@@ -86,26 +76,15 @@
                 <div class="dropdown">
                 <button class="dropbtn navbar-item px-4 text-decoration-none navHover">Cart</button>
                  <div class="dropdown-content">
-                    <a href="#">Business support</a>
-                    <a href="#">Facilities</a>
-                    <a href="#">Finance</a>
-                    <a href="#">Home office</a>
-                    <a href="#">HR & Payroll</a>
-                    <a href="#">IT services</a>
-                    <a href="#">Masterdata</a>
+                    <a href="#">Items</a>
+                     <a href="#">Buy</a>
                 </div>
                 </div>
 
                 <div class="dropdown">
                 <button class="dropbtn navbar-item px-4 text-decoration-none navHover">Quick Guide</button>
                  <div class="dropdown-content">
-                    <a href="#">Business support</a>
-                    <a href="#">Facilities</a>
-                    <a href="#">Finance</a>
-                    <a href="#">Home office</a>
-                    <a href="#">HR & Payroll</a>
-                    <a href="#">IT services</a>
-                    <a href="#">Masterdata</a>
+                     <a href="#">You have no quick guides</a>
                 </div>
                 </div>
 
