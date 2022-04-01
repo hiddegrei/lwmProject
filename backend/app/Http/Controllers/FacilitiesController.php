@@ -9,15 +9,15 @@ use Illuminate\Http\Request;
 
 class FacilitiesController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+    // /**
+    //  * Create a new controller instance.
+    //  *
+    //  * @return void
+    //  */
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    // }
     /**
      * Display a listing of the resource.
      *
@@ -27,7 +27,7 @@ class FacilitiesController extends Controller
     {
         $data = Facilities::orderBy('created_at', 'desc')->get();
         // dd($data);
-        return "hi";
+        return response()->json("hi");
         // return view('facilities.index', compact('data'));
     }
 

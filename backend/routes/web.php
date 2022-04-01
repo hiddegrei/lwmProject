@@ -5,6 +5,7 @@ use App\Http\Controllers\BusinessSupportController;
 use App\Http\Controllers\FacilitiesController;
 use App\Http\Controllers\TodoController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\Auth\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,7 +23,7 @@ use App\Http\Controllers\UserController;
 // });
 
 //businesssupport
-Route::get('/services/businesssupport',[BusinessSupportController::class, 'index'])->name('businesssupport.index');
+Route::get('/api/services/businesssupport',[BusinessSupportController::class, 'index'])->name('businesssupport.index');
 Route::get('/services/businesssupport/create',[BusinessSupportController::class,'create'])->name('businesssupport.create');;
 Route::get('/services/businesssupport/{id}/edit', [BusinessSupportController::class, 'edit'])->name('businesssupport.edit');
 Route::get('/services/businesssupport/{id}',[BusinessSupportController::class, 'show'])->name('businesssupport.show');
@@ -31,7 +32,7 @@ Route::post('/services/businesssupport/{id}/delete',[BusinessSupportController::
 Route::post('/services/businesssupport',[BusinessSupportController::class, 'store'])->name('businesssupport.store');
 
 //facilities
-Route::get('/services/facilities',[FacilitiesController::class, 'index'])->name('facilities.index');
+Route::get('/api/services/facilities',[FacilitiesController::class, 'index'])->name('facilities.index');
 Route::get('/services/facilities/create',[FacilitiesController::class,'create'])->name('facilities.create');;
 Route::get('/services/facilities/{id}/edit', [FacilitiesController::class, 'edit'])->name('facilities.edit');
 Route::get('/services/facilities/{id}',[FacilitiesController::class, 'show'])->name('facilities.show');
@@ -50,6 +51,8 @@ Route::post('/todos',[TodoController::class, 'store'])->name('todo.store');;
 
 Auth::routes();
 
-Route::get('/users',[UserController::class, 'index']);
+// Route::post('/api/login',[LoginController::class, 'login']);
+
+Route::get('/api/users',[UserController::class, 'index']);
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

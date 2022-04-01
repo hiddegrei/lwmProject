@@ -108,6 +108,7 @@ class BusinessSupportController extends Controller
      */
     public function update(Request $request, BusinessSupport $id)
     {
+        dd($request);
         $data = request()->validate([
             'name'=>'required',
             'body'=>'required',
