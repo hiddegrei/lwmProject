@@ -50,6 +50,6 @@ Route::post('/todos',[TodoController::class, 'store'])->name('todo.store');;
 
 Auth::routes();
 
-Route::get('/api/users',[UserController::class, 'index']);
+Route::get('/users',[UserController::class, 'index']);
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

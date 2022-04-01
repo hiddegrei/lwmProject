@@ -8,7 +8,13 @@ function Services(props) {
 
     useEffect(()=>{
         console.log(service)
+        fetchService()
     },[])
+    function fetchService(){
+        http.get(`/services/${service.service}`).then(res=>{
+            console.log(res.data)
+        })
+    }
     return (
         <div className='services'>
            {service.service}

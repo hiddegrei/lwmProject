@@ -27,8 +27,8 @@ class FacilitiesController extends Controller
     {
         $data = Facilities::orderBy('created_at', 'desc')->get();
         // dd($data);
-
-        return view('facilities.index', compact('data'));
+        return "hi";
+        // return view('facilities.index', compact('data'));
     }
 
     /**
