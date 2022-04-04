@@ -38,26 +38,26 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-    public function login(LoginRequest $request)
-    {
-        $validated = $request->validated();//array valid data
-        $credentials = request(['email', 'password']);
-        try {
-            $response = $this->client->post("{$this->oauth_server}/oauth/token", [
-                'form_params' => [
-                    'grant_type' => 'password',
-                    'client_id' => config('auth.oauth_client_id'),
-                    'client_secret' => config('auth.oauth_secret'),
-                    'username' => $request->email,
-                    'password' => $request->password,
-                ],
-            ]);
-        } catch (Exception $e) {
-            return responder()->error($e->getCode(), $e->getMessage())->respond();
-        }
+    // public function login(LoginRequest $request)
+    // {
+    //     $validated = $request->validated();//array valid data
+    //     $credentials = request(['email', 'password']);
+    //     try {
+    //         $response = $this->client->post("{$this->oauth_server}/oauth/token", [
+    //             'form_params' => [
+    //                 'grant_type' => 'password',
+    //                 'client_id' => config('auth.oauth_client_id'),
+    //                 'client_secret' => config('auth.oauth_secret'),
+    //                 'username' => $request->email,
+    //                 'password' => $request->password,
+    //             ],
+    //         ]);
+    //     } catch (Exception $e) {
+    //         return responder()->error($e->getCode(), $e->getMessage())->respond();
+    //     }
     
-        return responder()->success([
-            "oauth" => json_decode((string)$response->getBody(), true)
-        ])->respond();
-    }
+    //     return responder()->success([
+    //         "oauth" => json_decode((string)$response->getBody(), true)
+    //     ])->respond();
+    // }
 }

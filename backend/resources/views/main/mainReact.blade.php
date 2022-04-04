@@ -7,22 +7,20 @@
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <title>lwm project</title>
 
-    
+    <script defer src="/js/manifest.js"></script>
+  <script defer src="/js/vendor.js"></script>
+  <script defer src="/js/app.js"></script>
 
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/welcome.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/navbar.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/services.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/todo.css') }}" rel="stylesheet">
+    
 
 </head>
 
-<body style="height:100%;">
-@include('main.navbar')
-<div class="body_body">
-@yield('content')
+<body >
 
-</div>
+
+
+<div id="root"></div>
+<div id="example"></div>
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
