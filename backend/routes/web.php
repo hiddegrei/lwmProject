@@ -58,6 +58,8 @@ Route::post('/api/services/create',[ServiceController::class, 'create']);
 Route::get('/api/services',[ServiceController::class, 'index']);
 Route::get('/api/services/{service}',[ServiceController::class, 'show']);
 
+Route::get('/api/user/auth',[UserController::class, 'authUser']);
+
 // Route::post('/api/login',[LoginController::class, 'login']);
 
 // Route::get('/api/users',[UserController::class, 'index']);

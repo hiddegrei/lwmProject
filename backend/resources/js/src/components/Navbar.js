@@ -1,8 +1,25 @@
-import React from 'react';
+import React,{useLayoutEffect, useState} from 'react';
 import "../assets/css/Navbar.css";
 import {Link} from "react-router-dom";
+import http from "../axios/http";
 
 function Navbar(props) {
+    const[user,setUser]=useState()
+
+    useLayoutEffect(()=>{
+        fetchUser()
+
+    },[])
+    function fetchUser(){
+       
+       
+     http.get('/user/auth').then(res=>{
+         console.log(res.data);
+         setUser(res.data)
+     })
+    
+ 
+    }
     return (
         <div className='navbar'>
              <div className='navbar_brand'>
@@ -92,7 +109,7 @@ function Navbar(props) {
 
             </div>
             <div className='navbar_user'>
-                hi user
+                hi , {user?.name}
 
             </div>
 

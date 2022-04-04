@@ -19,6 +19,10 @@ class UserController extends Controller
         // return "hoi";
     }
 
+    public function authUser(){
+        return auth()->user();
+    }
+
     /**
      * Show the form for creating a new resource.
      *
