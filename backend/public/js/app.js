@@ -6086,7 +6086,7 @@ function Navbar(props) {
             to: "/services/facilities",
             children: "Facilities"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
-            to: "/service/finance",
+            to: "/services/finance",
             children: "Finance"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
             to: "/services/homeoffice",
@@ -6586,7 +6586,7 @@ function Services(props) {
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     console.log(service);
     fetchService();
-  }, []);
+  }, [service]);
 
   function fetchService() {
     _axios_http__WEBPACK_IMPORTED_MODULE_2__["default"].get("/services/".concat(service.service)).then(function (res) {

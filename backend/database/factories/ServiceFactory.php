@@ -16,8 +16,14 @@ class ServiceFactory extends Factory
      */
     public function definition()
     {
+        $serviceTypes=["businesssupport","homeoffice","facilities","finance","hrpayroll","itservices","masterdata"];
+       
         return [
-            //
+            'title' => $this->faker->name(),
+            'description' => $this->faker->paragraph(1),
+            'servicetype' => $serviceTypes[$this->faker->numberBetween(0, 6)],
+            'dropdowns' => [["title" => $this->faker->name(),"options"=>[$this->faker->name()]],["title" => $this->faker->name(),"options"=>[$this->faker->name()]]], 
+            
         ];
     }
 }

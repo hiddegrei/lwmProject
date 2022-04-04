@@ -69,7 +69,7 @@ function Navbar(props) {
                                      <div className="dropdown-content">
                                          <Link to="/services/businesssupport">Business support</Link>
                                          <Link to="/services/facilities">Facilities</Link>
-                                         <Link to="/service/finance">Finance</Link>
+                                         <Link to="/services/finance">Finance</Link>
                                          <Link to="/services/homeoffice">Home office</Link>
                                          <Link to="/services/hrpayroll">HR  Payroll</Link>
                                          <Link to="/services/itservices">IT services</Link>

@@ -11,7 +11,7 @@ function Services(props) {
     useEffect(()=>{
         console.log(service)
         fetchService()
-    },[])
+    },[service])
     function fetchService(){
         http.get(`/services/${service.service}`).then(res=>{
             console.log(res.data)
