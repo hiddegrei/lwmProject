@@ -1,6 +1,7 @@
 import React,{useEffect,useState} from 'react';
 import http from "../axios/http";
-import "../assets/css/Home.css"
+import "../assets/css/Home.css";
+import {Link} from "react-router-dom";
 
 function Home(props) {
     const [users,setUsers]=useState([]);
@@ -30,43 +31,43 @@ function Home(props) {
         <div className="home_firstBlock_bottom">
            
             <div className="home_firstBlock_bottom_grid">
-                <a href="/services/businesssupport">
+                <Link to="/services/businesssupport">
                 <div className="home_firstBlock_bottom_grid_item">
                     <div className="home_firstBlock_bottom_grid_item_imgCon"><img src="/img/lwmback.jpg" className="home_firstBlock_bottom_grid_item_imgCon_img" ></img></div>
                     <div className="home_firstBlock_bottom_grid_item_text">services</div>
                
                 </div>
-                </a>
-                <a href="/services/businesssupport">
+                </Link>
+                <Link to="/services/businesssupport">
                 <div className="home_firstBlock_bottom_grid_item">
                     <div className="home_firstBlock_bottom_grid_item_imgCon"><img src="/img/lwmback.jpg" className="home_firstBlock_bottom_grid_item_imgCon_img" ></img></div>
                     <div className="home_firstBlock_bottom_grid_item_text">services</div>
                
                 </div>
-                </a>
-                <a href="/services/businesssupport">
+                </Link>
+                <Link to="/services/businesssupport">
                 <div className="home_firstBlock_bottom_grid_item">
                     <div className="home_firstBlock_bottom_grid_item_imgCon"><img src="/img/lwmback.jpg" className="home_firstBlock_bottom_grid_item_imgCon_img" ></img></div>
                     <div className="home_firstBlock_bottom_grid_item_text">services</div>
                
                 </div>
-                </a>
+                </Link>
 
-                <a href="/services/businesssupport">
+                <Link to="/services/businesssupport">
                 <div className="home_firstBlock_bottom_grid_item">
                     <div className="home_firstBlock_bottom_grid_item_imgCon"><img src="/img/lwmback.jpg" className="home_firstBlock_bottom_grid_item_imgCon_img" ></img></div>
                     <div className="home_firstBlock_bottom_grid_item_text">services</div>
                
                 </div>
-                </a>
+                </Link>
 
-                <a href="/services/businesssupport">
+                <Link to="/services/businesssupport">
                 <div className="home_firstBlock_bottom_grid_item">
                     <div className="home_firstBlock_bottom_grid_item_imgCon"><img src="/img/lwmback.jpg" className="home_firstBlock_bottom_grid_item_imgCon_img" ></img></div>
                     <div className="home_firstBlock_bottom_grid_item_text">services</div>
                
                 </div>
-                </a>
+                </Link>
                
                
             </div>

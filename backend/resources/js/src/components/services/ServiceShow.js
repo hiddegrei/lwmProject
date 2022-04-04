@@ -8,11 +8,12 @@ function Services(props) {
     const [data,setData]=useState([]);
 
     useLayoutEffect(()=>{
+        console.log(serviceid)
        
         fetchService()
     },[])
     function fetchService(){
-        http.get(`/services/${serviceid.serviceid}`).then(res=>{
+        http.get(`/services/${serviceid.servicetype}/${serviceid.serviceid}`).then(res=>{
             // console.log(res.data)
             setData(res.data)
         })

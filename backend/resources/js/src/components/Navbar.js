@@ -20,6 +20,14 @@ function Navbar(props) {
     
  
     }
+    function logout(){
+        http.post('/user/logout').then(res=>{
+            console.log(res.data);
+            
+        })
+        location.reload();
+
+    }
     return (
         <div className='navbar'>
              <div className='navbar_brand'>
@@ -61,7 +69,7 @@ function Navbar(props) {
                                      <div className="dropdown-content">
                                          <Link to="/services/businesssupport">Business support</Link>
                                          <Link to="/services/facilities">Facilities</Link>
-                                         <Link to="/service/facilities">Finance</Link>
+                                         <Link to="/service/finance">Finance</Link>
                                          <Link to="/services/homeoffice">Home office</Link>
                                          <Link to="/services/hrpayroll">HR  Payroll</Link>
                                          <Link to="/services/itservices">IT services</Link>
@@ -109,9 +117,16 @@ function Navbar(props) {
 
             </div>
             <div className='navbar_user'>
-                hi , {user?.name}
+              
+                <div className="dropdown">
+                                     <button className="dropbtn navbar-item px-4 text-decoration-none navHover">  hi , {user?.name}</button>
+                                     <div className="dropdown-content">
+                                         <Link onClick={logout}>logout</Link>
+                                     </div>
+                                 </div>
 
             </div>
+           
 
         </div>
 

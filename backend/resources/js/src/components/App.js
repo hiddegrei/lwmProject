@@ -19,14 +19,7 @@ function App() {
       <Switch>
        
      
-        <Route path="/services/:service">
-        <Navbar/>
-        <div className='app_body'>
-        <Services/>
-
-        </div>
-          
-        </Route>
+        
 
         <Route path="/service/create">
         <Navbar/>
@@ -37,10 +30,19 @@ function App() {
           
         </Route>
 
-        <Route path="/service/:serviceid">
+        <Route path="/services/:servicetype/:serviceid">
         <Navbar/>
         <div className='app_body'>
         <ServiceShow/>
+
+        </div>
+          
+        </Route>
+
+        <Route path="/services/:service">
+        <Navbar/>
+        <div className='app_body'>
+        <Services/>
 
         </div>
           

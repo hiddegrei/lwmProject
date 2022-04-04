@@ -7,10 +7,14 @@ use App\Models\Service;
 
 class ServiceController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
-    public function index(){
+    public function index($servicetype){
 
-        $data = Service::orderBy('created_at', 'desc')->get();
+        $data = Service::where("servicetype",$servicetype)->orderBy('created_at', 'desc')->get();
         
 
         return $data;
@@ -30,12 +34,12 @@ class ServiceController extends Controller
 
     }
 
-    public function show(Service $service)
+    public function show(Service $serviceid)
     {
-        // dd($id);
+        //  dd($serviceid);
         
        
-        return $service;
+         return $serviceid;
  
     }
 }

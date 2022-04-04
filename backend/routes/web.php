@@ -55,10 +55,18 @@ Auth::routes();
 
 
 Route::post('/api/services/create',[ServiceController::class, 'create']);
-Route::get('/api/services',[ServiceController::class, 'index']);
-Route::get('/api/services/{service}',[ServiceController::class, 'show']);
+Route::get('/api/services/businesssupport/{serviceid}',[ServiceController::class, 'show']);
+Route::get('/api/services/facilities/{serviceid}',[ServiceController::class, 'show']);
+Route::get('/api/services/homeoffice/{serviceid}',[ServiceController::class, 'show']);
+Route::get('/api/services/finance/{serviceid}',[ServiceController::class, 'show']);
+Route::get('/api/services/hrpayroll/{serviceid}',[ServiceController::class, 'show']);
+Route::get('/api/services/itservices/{serviceid}',[ServiceController::class, 'show']);
+Route::get('/api/services/masterdata/{serviceid}',[ServiceController::class, 'show']);
+Route::get('/api/services/{servicetype}',[ServiceController::class, 'index']);
+
 
 Route::get('/api/user/auth',[UserController::class, 'authUser']);
+Route::post('/api/user/logout',[UserController::class, 'logout']);
 
 // Route::post('/api/login',[LoginController::class, 'login']);
 
