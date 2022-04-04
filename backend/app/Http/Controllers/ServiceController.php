@@ -20,6 +20,7 @@ class ServiceController extends Controller
         $data = request()->validate([
             'title'=> 'required',
             'description'=> 'required',
+            'servicetype'=> 'required',
             'dropdowns' => ''
 
         ]);

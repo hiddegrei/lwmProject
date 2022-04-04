@@ -1,8 +1,9 @@
 import { drop } from 'lodash';
 import React,{useEffect,useState} from 'react';
 import {useParams, useHistory} from "react-router-dom";
-import "../assets/css/ServiceCreate.css";
-import http from "../axios/http";
+import "../../assets/css/ServiceCreate.css";
+import "../../assets/css/ServiceShow.css";
+import http from "../../axios/http";
 
 function Services(props) {
     const service=useParams();
@@ -48,10 +49,12 @@ function Services(props) {
    }
 
    function createService(){
-    http.post('/services/create',{title:title,description:description,dropdowns:dropdowns}).then(res=>{
+       let serviceType=document.getElementById("serviceType").value;
+       console.log(serviceType)
+    http.post('/services/create',{title:title,description:description,servicetype:serviceType,dropdowns:dropdowns}).then(res=>{
         console.log(res)
     })
-    history.push('/services')
+    history.push(`/services/${serviceType}`)
 
    }
     return (
@@ -85,6 +88,24 @@ function Services(props) {
                                        
                                    
                                 </div>
+
+                                <div className="form-group row">
+                                <div className='sshow_dropdowns_item'>
+                    <label className='sshow_dropdowns_item'>service category</label>
+
+                    <select id="serviceType" >
+                       
+                        <option value="businesssupport">Business support </option>
+                        <option value="facilities">Facilities</option>
+                        <option value="finance">Finance</option>
+                        <option value="homeoffice">Home Office</option>
+                        <option value="hrpayroll">HR Payroll</option>
+                        <option value="itservices">IT services</option>
+                        <option value="masterdata">Masterdata</option>
+                        
+                    </select>
+                </div>
+                </div>
                
         
                                 <div onClick={addDropDown} className="create_add_dropdown_container_item bold hoverr">add dropdown +</div>

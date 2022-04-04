@@ -1,7 +1,7 @@
 import React,{useLayoutEffect,useEffect,useState} from 'react';
 import {useParams} from "react-router-dom";
-import "../assets/css/ServiceShow.css";
-import http from "../axios/http";
+import "../../assets/css/ServiceShow.css";
+import http from "../../axios/http";
 
 function Services(props) {
     const serviceid=useParams();

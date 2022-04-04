@@ -4,9 +4,9 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./Home";
 import Navbar from "./Navbar";
 import Login from "./Login";
-import Services from "./Services";
-import ServiceCreate from "./ServiceCreate";
-import ServiceShow from "./ServiceShow";
+import Services from "./services/Services";
+import ServiceCreate from "./services/ServiceCreate";
+import ServiceShow from "./services/ServiceShow";
 import {useStateValue} from "../Stateprovider";
 
 

@@ -1,7 +1,7 @@
 import React,{useEffect,useState} from 'react';
 import {useParams, useHistory} from "react-router-dom";
-import "../assets/css/Services.css";
-import http from "../axios/http";
+import "../../assets/css/Services.css";
+import http from "../../axios/http";
 
 function Services(props) {
     const service=useParams();
@@ -25,7 +25,7 @@ function Services(props) {
 <div class="service_grid_container">
     {data.map((doc,index)=>(
     
-            <div onClick={()=>history.push(`/service/${doc.id}`)} class="service_block"> 
+            <div key={index} onClick={()=>history.push(`/service/${doc.id}`)} class="service_block"> 
                 <div class="service_block_top">{doc.title} </div>
 
                     <div class="service_block_bottom">
