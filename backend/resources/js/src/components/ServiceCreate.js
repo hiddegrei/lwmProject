@@ -1,11 +1,12 @@
 import { drop } from 'lodash';
 import React,{useEffect,useState} from 'react';
-import {useParams} from "react-router-dom";
+import {useParams, useHistory} from "react-router-dom";
 import "../assets/css/ServiceCreate.css";
 import http from "../axios/http";
 
 function Services(props) {
     const service=useParams();
+    const history=useHistory();
     const[title,setTitle]=useState("");
     const[description,setDescription]=useState("");
 
@@ -50,6 +51,7 @@ function Services(props) {
     http.post('/services/create',{title:title,description:description,dropdowns:dropdowns}).then(res=>{
         console.log(res)
     })
+    history.push('/services')
 
    }
     return (

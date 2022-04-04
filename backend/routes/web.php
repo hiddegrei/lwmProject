@@ -53,7 +53,10 @@ use App\Http\Controllers\ServiceController;
 
 Auth::routes();
 
+
 Route::post('/api/services/create',[ServiceController::class, 'create']);
+Route::get('/api/services',[ServiceController::class, 'index']);
+Route::get('/api/services/{service}',[ServiceController::class, 'show']);
 
 // Route::post('/api/login',[LoginController::class, 'login']);
 

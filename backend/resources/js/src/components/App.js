@@ -6,6 +6,7 @@ import Navbar from "./Navbar";
 import Login from "./Login";
 import Services from "./Services";
 import ServiceCreate from "./ServiceCreate";
+import ServiceShow from "./ServiceShow";
 import {useStateValue} from "../Stateprovider";
 
 
@@ -31,6 +32,15 @@ function App() {
         <Navbar/>
         <div className='app_body'>
         <ServiceCreate/>
+
+        </div>
+          
+        </Route>
+
+        <Route path="/service/:serviceid">
+        <Navbar/>
+        <div className='app_body'>
+        <ServiceShow/>
 
         </div>
           

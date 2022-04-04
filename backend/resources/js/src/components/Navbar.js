@@ -49,6 +49,7 @@ function Navbar(props) {
                                          <Link to="/services/hrpayroll">HR  Payroll</Link>
                                          <Link to="/services/itservices">IT services</Link>
                                          <Link to="/services/masterdata">Masterdata</Link>
+                                         <Link to="/service/create">create service</Link>
                                      </div>
                                  </div>
 
