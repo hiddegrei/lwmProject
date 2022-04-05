@@ -5535,7 +5535,6 @@ function App() {
 
   function fetchUser() {
     _axios_http__WEBPACK_IMPORTED_MODULE_9__["default"].get('/user/auth').then(function (res) {
-      console.log(res.data);
       dispatch({
         type: 'SET_USER',
         user: res.data
@@ -6374,36 +6373,31 @@ function Services(props) {
     setDropDowns(newArr);
   }
 
-  function onImageChange(e) {
-    var files = e.target.files || e.dataTransfer.files;
-    if (!files.length) return;
-    createImage(files[0]);
-  }
-
-  function createImage(file) {
-    var reader = new FileReader();
-
-    reader.onload = function (e) {
-      setImage(e.target.result);
-    };
-
-    reader.readAsDataURL(file);
+  function onImageChange(file) {
+    // let files = e.target.files || e.dataTransfer.files;
+    // if (!files.length)
+    //       return;
+    // createImage(files[0]);
+    setImage(file[0]);
   }
 
   function createService() {
     var serviceType = document.getElementById("serviceType").value;
     var needsApprovalFrom = document.getElementById("needs_approval_from").value;
-    _axios_http__WEBPACK_IMPORTED_MODULE_4__["default"].post('/services/create', {
-      image: image,
-      title: title,
-      description: description,
-      servicetype: serviceType,
-      dropdowns: dropdowns,
-      needs_approval_from: needsApprovalFrom,
-      opened_by: openedBy,
-      opened_for: openedFor
-    }).then(function (res) {
+    var fData = new FormData();
+    fData.append('image', image);
+    fData.append('title', title);
+    fData.append('description', description);
+    fData.append('servicetype', serviceType);
+    fData.append('dropdowns', JSON.stringify(dropdowns));
+    fData.append('needs_approval_from', needsApprovalFrom);
+    fData.append('opened_by', +openedBy);
+    fData.append('opened_for', +openedFor); //   {image:image, title:title, description: description, servicetype: serviceType, dropdowns: dropdowns,needs_approval_from:needsApprovalFrom,opened_by:openedBy,opened_for:openedFor }
+
+    _axios_http__WEBPACK_IMPORTED_MODULE_4__["default"].post('/services/create', fData).then(function (res) {
       console.log(res);
+    })["catch"](function (err) {
+      return console.log(err);
     });
     history.push("/services/".concat(serviceType));
   }
@@ -6535,7 +6529,6 @@ function Services(props) {
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
           className: "form-group row",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("label", {
-            "for": "image",
             className: "col-md-4 col-form-label",
             children: "service image"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
@@ -6544,7 +6537,7 @@ function Services(props) {
             className: "form-control ",
             name: "image",
             onChange: function onChange(e) {
-              return onImageChange(e);
+              return onImageChange(e.target.files);
             }
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
@@ -6665,13 +6658,14 @@ function Services(props) {
 
   function fetchService() {
     _axios_http__WEBPACK_IMPORTED_MODULE_2__["default"].get("/services/".concat(serviceid.servicetype, "/").concat(serviceid.serviceid)).then(function (res) {
-      console.log(res.data);
       setData(res.data);
     });
   }
 
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     if ((data === null || data === void 0 ? void 0 : data.checks) != undefined) {
+      console.log(data.service.image);
+
       if (data.checks[0].opened_for) {
         _axios_http__WEBPACK_IMPORTED_MODULE_2__["default"].get('/allusers').then(function (res) {
           setUsersData(res.data);
@@ -6718,7 +6712,7 @@ function Services(props) {
           className: "sshow_checks_item_p",
           children: data.checks[0].needs_approval_from
         })]
-      }), data.checks[0].opened_by && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+      }), data.checks[0].opened_by === 1 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
         className: "sshow_checks_item",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
           className: "sshow_checks_item_h",
@@ -6727,7 +6721,7 @@ function Services(props) {
           className: "sshow_checks_item_p",
           children: user === null || user === void 0 ? void 0 : user.name
         })]
-      }), data.checks[0].opened_for && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+      }), data.checks[0].opened_for === 1 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
         className: "sshow_dropdowns_item",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
           className: "sshow_dropdowns_item",

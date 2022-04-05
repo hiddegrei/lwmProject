@@ -66,36 +66,42 @@ function Services(props) {
         setDropDowns(newArr)
 
     }
-    function onImageChange(e) {
-        let files = e.target.files || e.dataTransfer.files;
-        if (!files.length)
-              return;
-        createImage(files[0]);
+    function onImageChange(file) {
+        // let files = e.target.files || e.dataTransfer.files;
+        // if (!files.length)
+        //       return;
+        // createImage(files[0]);
+        setImage(file[0])
       }
    
-    function createImage(file) {
-        let reader = new FileReader();
-        reader.onload = (e) => {
-          
-          setImage(e.target.result)
-        };
-        reader.readAsDataURL(file);
-      }
+   
 
     function createService() {
         let serviceType = document.getElementById("serviceType").value;
         let needsApprovalFrom = document.getElementById("needs_approval_from").value;
         
+       
         
+      const fData= new FormData();
+      fData.append('image',image);
+      fData.append('title',title);
+      fData.append('description', description);
+      fData.append('servicetype', serviceType);
+       fData.append('dropdowns', JSON.stringify(dropdowns));
+      fData.append('needs_approval_from', needsApprovalFrom);
+      fData.append('opened_by', +openedBy);
+      fData.append('opened_for', +openedFor);
+ 
+
       
        
-        
+    //   {image:image, title:title, description: description, servicetype: serviceType, dropdowns: dropdowns,needs_approval_from:needsApprovalFrom,opened_by:openedBy,opened_for:openedFor }
        
         
         
-        http.post('/services/create', {image:image, title, description: description, servicetype: serviceType, dropdowns: dropdowns,needs_approval_from:needsApprovalFrom,opened_by:openedBy,opened_for:openedFor }).then(res => {
+        http.post('/services/create',fData ).then(res => {
             console.log(res)
-        })
+        }).catch((err)=>console.log(err));
         history.push(`/services/${serviceType}`)
 
     }
@@ -178,10 +184,10 @@ function Services(props) {
 
                    
                     <div className="form-group row">
-                            <label for="image" className="col-md-4 col-form-label">service image</label>
+                            <label  className="col-md-4 col-form-label">service image</label>
 
                            
-                                <input id="image" type="file" className="form-control " name="image" onChange={(e)=>onImageChange(e)} />
+                                <input id="image" type="file" className="form-control " name="image" onChange={(e)=>onImageChange(e.target.files)} />
 
                               
                            

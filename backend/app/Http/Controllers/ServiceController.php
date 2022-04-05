@@ -29,10 +29,11 @@ class ServiceController extends Controller
             'title'=> 'required',
             'description'=> 'required',
             'servicetype'=> 'required',
-            'dropdowns' => '',
+           
            
 
         ]);
+   $dropdowns=json_decode(request('dropdowns'));
         $data2 = request()->validate([
             'opened_for'=>'required',
         'opened_by'=>'required',
@@ -42,16 +43,19 @@ class ServiceController extends Controller
          $imagePath=request('image')->store('services','public');
         //  $imagePath=\Image::make($request->get('image'))->store('services','public');
         
-         dd($imagePath);
+        
         //  $image = Image::make(public_path("storage/{$imagePath}"))->fit(1000,100);
         //     $image->save();
 
-        $item = Service::create(array_merge($data,['image'=>$imagePath]));
+        $newData=array_merge($data,['dropdowns'=>$dropdowns]);
+
+        $item = Service::create(array_merge($newData,['image'=>$imagePath]));
         $item->checks()->create([
             'opened_for'=>$data2['opened_for'],
             'opened_by'=>$data2['opened_by'],
             'needs_approval_from'=>$data2['needs_approval_from'],
         ]);
+       
         $set=array_merge($data,$data2);
         return $set;
 

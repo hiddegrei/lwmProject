@@ -18,13 +18,13 @@ function Services(props) {
     },[])
     function fetchService(){
         http.get(`/services/${serviceid.servicetype}/${serviceid.serviceid}`).then(res=>{
-             console.log(res.data)
+            
             setData(res.data)
         })
     }
     useEffect(()=>{
         if(data?.checks!=undefined){
-           
+            console.log(data.service.image)
 
             if(data.checks[0].opened_for){
                 http.get('/allusers').then(res=>{
@@ -39,6 +39,7 @@ function Services(props) {
     },[data])
     return (
         <div className='sshow'>
+            {/* <img src={`/storage/${data?.service?.image}`}></img> */}
             
             <div className='sshow_title'>{data?.service?.title}</div>
             <div className='sshow_description'>{data?.service?.description}</div>
@@ -70,7 +71,7 @@ function Services(props) {
                                
                      </div>
 
-{data.checks[0].opened_by&&
+{data.checks[0].opened_by===1&&
                      <div className='sshow_checks_item'>
                         <div className='sshow_checks_item_h'>Opened by</div>
                         <div className='sshow_checks_item_p'>{user?.name}</div>
@@ -79,7 +80,7 @@ function Services(props) {
 
                     
 
-                     {data.checks[0].opened_for&&
+                     {data.checks[0].opened_for===1&&
                      <div className='sshow_dropdowns_item'>
                             <label className='sshow_dropdowns_item'>Opened for</label>
 

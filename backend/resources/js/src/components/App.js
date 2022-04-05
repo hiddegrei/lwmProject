@@ -22,7 +22,7 @@ function fetchUser(){
    
    
  http.get('/user/auth').then(res=>{
-     console.log(res.data);
+     
      
      dispatch({
       type:'SET_USER',
