@@ -33,37 +33,37 @@ function Home(props) {
             <div className="home_firstBlock_bottom_grid">
                 <Link to="/services/businesssupport">
                 <div className="home_firstBlock_bottom_grid_item">
-                    <div className="home_firstBlock_bottom_grid_item_imgCon"><img src="/img/lwmback.jpg" className="home_firstBlock_bottom_grid_item_imgCon_img" ></img></div>
+                    <div className="home_firstBlock_bottom_grid_item_imgCon"><img src="/img/checklist.png" className="home_firstBlock_bottom_grid_item_imgCon_img" ></img></div>
+                    <div className="home_firstBlock_bottom_grid_item_text">todos</div>
+               
+                </div>
+                </Link>
+                <Link to="/services/businesssupport">
+                <div className="home_firstBlock_bottom_grid_item">
+                    <div className="home_firstBlock_bottom_grid_item_imgCon"><img src="/img/customer-service.png" className="home_firstBlock_bottom_grid_item_imgCon_img" ></img></div>
                     <div className="home_firstBlock_bottom_grid_item_text">services</div>
                
                 </div>
                 </Link>
                 <Link to="/services/businesssupport">
                 <div className="home_firstBlock_bottom_grid_item">
-                    <div className="home_firstBlock_bottom_grid_item_imgCon"><img src="/img/lwmback.jpg" className="home_firstBlock_bottom_grid_item_imgCon_img" ></img></div>
-                    <div className="home_firstBlock_bottom_grid_item_text">services</div>
-               
-                </div>
-                </Link>
-                <Link to="/services/businesssupport">
-                <div className="home_firstBlock_bottom_grid_item">
-                    <div className="home_firstBlock_bottom_grid_item_imgCon"><img src="/img/lwmback.jpg" className="home_firstBlock_bottom_grid_item_imgCon_img" ></img></div>
-                    <div className="home_firstBlock_bottom_grid_item_text">services</div>
-               
-                </div>
-                </Link>
-
-                <Link to="/services/businesssupport">
-                <div className="home_firstBlock_bottom_grid_item">
-                    <div className="home_firstBlock_bottom_grid_item_imgCon"><img src="/img/lwmback.jpg" className="home_firstBlock_bottom_grid_item_imgCon_img" ></img></div>
-                    <div className="home_firstBlock_bottom_grid_item_text">services</div>
+                    <div className="home_firstBlock_bottom_grid_item_imgCon"><img src="/img/salary.png" className="home_firstBlock_bottom_grid_item_imgCon_img" ></img></div>
+                    <div className="home_firstBlock_bottom_grid_item_text">T&E</div>
                
                 </div>
                 </Link>
 
                 <Link to="/services/businesssupport">
                 <div className="home_firstBlock_bottom_grid_item">
-                    <div className="home_firstBlock_bottom_grid_item_imgCon"><img src="/img/lwmback.jpg" className="home_firstBlock_bottom_grid_item_imgCon_img" ></img></div>
+                    <div className="home_firstBlock_bottom_grid_item_imgCon"><img src="/img/statutory.png" className="home_firstBlock_bottom_grid_item_imgCon_img" ></img></div>
+                    <div className="home_firstBlock_bottom_grid_item_text">SSP</div>
+               
+                </div>
+                </Link>
+
+                <Link to="/services/businesssupport">
+                <div className="home_firstBlock_bottom_grid_item">
+                    <div className="home_firstBlock_bottom_grid_item_imgCon"><img src="/img/customer-service.png" className="home_firstBlock_bottom_grid_item_imgCon_img" ></img></div>
                     <div className="home_firstBlock_bottom_grid_item_text">services</div>
                
                 </div>
