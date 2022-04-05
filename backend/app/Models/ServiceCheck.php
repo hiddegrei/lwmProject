@@ -5,16 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Service extends Model
+class ServiceCheck extends Model
 {
     use HasFactory;
     protected $guarded=[];
-    protected $casts = [
-        'dropdowns' => 'array'
-    ];
-
-    public function checks()
+    public function service()
     {
-        return $this->hasMany(ServiceCheck::class);
+        return $this->belongsTo(Service::class);
     }
 }

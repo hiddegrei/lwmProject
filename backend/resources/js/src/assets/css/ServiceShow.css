@@ -36,3 +36,21 @@
 display:flex;
 font-weight: bold;
 }
+.sshow_checks{
+    display:flex;
+    flex-direction: column;
+    margin-top: 50px;
+}
+.sshow_checks_item{
+    display:flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+.sshow_checks_item_h{
+    display:flex;
+   font-weight: bold;
+}
+.sshow_checks_item_p{
+    display:flex;
+   font-weight: 500;
+}

@@ -8,9 +8,29 @@ import Services from "./services/Services";
 import ServiceCreate from "./services/ServiceCreate";
 import ServiceShow from "./services/ServiceShow";
 import {useStateValue} from "../Stateprovider";
+import http from "../axios/http";
 
 
 function App() {
+  const[{user},dispatch]=useStateValue();
+
+  useEffect(()=>{
+    fetchUser()
+
+},[])
+function fetchUser(){
+   
+   
+ http.get('/user/auth').then(res=>{
+     console.log(res.data);
+     
+     dispatch({
+      type:'SET_USER',
+      user:res.data})
+ })
+
+
+}
   
   return (
     <Router>

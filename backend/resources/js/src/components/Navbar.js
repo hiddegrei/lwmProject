@@ -121,7 +121,7 @@ function Navbar(props) {
                 <div className="dropdown">
                                      <button className="dropbtn navbar-item px-4 text-decoration-none navHover">  hi , {user?.name}</button>
                                      <div className="dropdown-content">
-                                         <Link onClick={logout}>logout</Link>
+                                         <a onClick={logout}>logout</a>
                                      </div>
                                  </div>
 

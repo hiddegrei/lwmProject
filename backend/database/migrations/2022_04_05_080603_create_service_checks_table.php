@@ -13,13 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('services', function (Blueprint $table) {
+        Schema::create('service_checks', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('image');
-            $table->string('description'); 
-            $table->string('servicetype');
-            $table->json('dropdowns');
+            $table->unsignedBigInteger('service_id');
+            $table->boolean("opened_by")->default(false);
+            $table->string("needs_approval_from")->default("jan");
+            $table->boolean("opened_for")->default(false);
+            $table->index('service_id');
             $table->timestamps();
         });
     }
@@ -31,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('services');
+        Schema::dropIfExists('service_checks');
     }
 };

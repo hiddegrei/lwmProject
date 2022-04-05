@@ -66,7 +66,9 @@ Route::get('/api/services/{servicetype}',[ServiceController::class, 'index']);
 
 
 Route::get('/api/user/auth',[UserController::class, 'authUser']);
+Route::get('/api/allusers',[UserController::class, 'allUsers']);
 Route::post('/api/user/logout',[UserController::class, 'logout']);
+
 
 // Route::post('/api/login',[LoginController::class, 'login']);
 

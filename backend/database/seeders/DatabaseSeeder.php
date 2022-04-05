@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
             TodoSeeder::class,
             UserSeeder::class,
             ServiceSeeder::class,
+            ServiceCheckSeeder::class,
             
         ]);
     }

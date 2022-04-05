@@ -25,6 +25,13 @@ class UserController extends Controller
         return auth()->user();
     }
 
+    public function allUsers(){
+        $user=auth()->user();
+        if($user){
+            return User::all();
+        }
+    }
+
     public function logout(){
         Session::flush();
         
