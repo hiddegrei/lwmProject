@@ -2,9 +2,12 @@ import React,{useEffect,useState} from 'react';
 import http from "../axios/http";
 import "../assets/css/Home.css";
 import {Link} from "react-router-dom";
+import {useStateValue} from "../Stateprovider";
 
 function Home(props) {
+    const[{user},dispatch]=useStateValue();
     const [users,setUsers]=useState([]);
+    const [input,setInput]=useState("")
 
     // useEffect(()=>{
     //     fetchAllUsers()
@@ -24,21 +27,21 @@ function Home(props) {
         
         <div className="home_firstBlock_top">
             <div className="home_firstBlock_top_greet_container">
-                <div className="home_firstBlock_top_greetUser"> Hi , need service?</div>
-                <input placeholder="What are you looking for?" className="home_firstBlock_top_input"></input>
+                <div className="home_firstBlock_top_greetUser"> Hi {user?.name} , need service?</div>
+                <input placeholder={`What are you looking for`} className="home_firstBlock_top_input" onChange={(e)=>setInput(e.target.value)} value={input}></input>
             </div>
         </div>
         <div className="home_firstBlock_bottom">
            
             <div className="home_firstBlock_bottom_grid">
-                <Link to="/services/businesssupport">
+                <Link to="/todos">
                 <div className="home_firstBlock_bottom_grid_item">
                     <div className="home_firstBlock_bottom_grid_item_imgCon"><img src="/img/checklist.png" className="home_firstBlock_bottom_grid_item_imgCon_img" ></img></div>
                     <div className="home_firstBlock_bottom_grid_item_text">todos</div>
                
                 </div>
                 </Link>
-                <Link to="/services/businesssupport">
+                <Link to="/services">
                 <div className="home_firstBlock_bottom_grid_item">
                     <div className="home_firstBlock_bottom_grid_item_imgCon"><img src="/img/customer-service.png" className="home_firstBlock_bottom_grid_item_imgCon_img" ></img></div>
                     <div className="home_firstBlock_bottom_grid_item_text">services</div>

@@ -47,7 +47,7 @@ Route::get('/api/todos/{type}',[TodoController::class, 'index'])->name('todo.ind
 // Route::get('/api/todos/create',[TodoController::class,'create'])->name('todo.create');;
 Route::get('/api/todos/{todo}/edit', [TodoController::class, 'edit'])->name('todo.edit');
 Route::get('/api/todos/{todo}',[TodoController::class, 'show'])->name('todo.show');
-Route::patch('/api/todos/{todo}', [TodoController::class, 'update'])->name('todo.update');
+Route::post('/api/todos/{todo}', [TodoController::class, 'update'])->name('todo.update');
 Route::post('/api/todos/{todo}/delete',[TodoController::class, 'destroy']);
 Route::post('/api/todos/store',[TodoController::class, 'store'])->name('todo.store');;
 
@@ -55,6 +55,7 @@ Auth::routes();
 
 
 Route::post('/api/services/create',[ServiceController::class, 'create']);
+Route::get('/api/services/',[ServiceController::class, 'getAll']);
 Route::get('/api/services/businesssupport/{serviceid}',[ServiceController::class, 'show']);
 Route::get('/api/services/facilities/{serviceid}',[ServiceController::class, 'show']);
 Route::get('/api/services/homeoffice/{serviceid}',[ServiceController::class, 'show']);
@@ -76,4 +77,4 @@ Route::post('/api/user/logout',[UserController::class, 'logout']);
 
 // Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::fallback([App\Http\Controllers\MainReactController::class, 'index']);
+ Route::fallback([App\Http\Controllers\MainReactController::class, 'index']);

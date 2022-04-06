@@ -39,49 +39,58 @@ function Services(props) {
     },[data])
     return (
         <div className='sshow'>
-            {/* <img src={`/storage/${data?.service?.image}`}></img> */}
-            
-            <div className='sshow_title'>{data?.service?.title}</div>
-            <div className='sshow_description'>{data?.service?.description}</div>
-           
-           <div className='sshow_dropdowns'>
-           {data?.service?.dropdowns!=undefined&&
-           <div>
-            {data.service.dropdowns.map(doc=>(
-               
-                <div className='sshow_dropdowns_item'>
-                    <label className='sshow_dropdowns_item'>{doc.title}</label>
+            <div className='sshow_top'>
+                <div className='sshow_top_imgCon'> <img className='sshow_top_img' src={`/storage/${data?.service?.image}`}></img></div>
+                <div className='sshow_top_text'>
+                    <div className='sshow_top_text_h'>{data?.service?.title}</div>
+                    <div className='sshow_top_text_p'>{data?.service?.description}</div>
 
-                    <select >
-                        {doc.options.map(option=>(
-                            <option value={option}>{option}</option>
-                        ))} 
-                    </select>
                 </div>
-            ))}
-            </div>}
-            </div>
 
-{data?.checks!=undefined&&
-            
-                 <div className='sshow_checks'>
-                     <div className='sshow_checks_item'>
+            </div>
+            <div className='sshow_body'>
+                <div className='sshow_grid_container'>
+                {data?.service?.dropdowns.map(doc=>(
+               <div className='sshow_block'>
+               <div className='sshow_dropdowns_item'>
+                   <label className='sshow_dropdowns_item'>{doc.title}</label>
+
+                   <select >
+                       {doc.options.map(option=>(
+                           <option value={option}>{option}</option>
+                       ))} 
+                   </select>
+               </div>
+               </div>
+           ))}
+           {data?.checks!=undefined&&
+           
+            <div className='sshow_block'>
+            <div className='sshow_checks_item'>
                         <div className='sshow_checks_item_h'>Needs approval from</div>
-                        <div className='sshow_checks_item_p'>{data.checks[0].needs_approval_from}</div>
+                        <div className='sshow_checks_item_p'>{data?.checks[0]?.needs_approval_from}</div>
                                
                      </div>
+                     </div>
 
-{data.checks[0].opened_by===1&&
-                     <div className='sshow_checks_item'>
+                     
+}
+{data?.checks!=undefined&&
+           
+           <div className='sshow_block'>
+           <div className='sshow_checks_item'>
                         <div className='sshow_checks_item_h'>Opened by</div>
                         <div className='sshow_checks_item_p'>{user?.name}</div>
                                
-                     </div>}
+                     </div>
+                    </div>
 
                     
-
-                     {data.checks[0].opened_for===1&&
-                     <div className='sshow_dropdowns_item'>
+}
+{data?.checks!=undefined&&
+           
+           <div className='sshow_block'>
+            <div className='sshow_dropdowns_item'>
                             <label className='sshow_dropdowns_item'>Opened for</label>
 
                             <select id="needs_approval_from" >
@@ -91,9 +100,20 @@ function Services(props) {
                                 
 
                             </select>
-                        </div>}
-                
-                </div>}
+                        </div>
+                    </div>
+
+                    
+}
+           
+           
+           
+
+
+           
+                </div>
+            </div>
+           
             
             
           

@@ -80,6 +80,15 @@ function fetchUser(){
           
         </Route>
 
+        <Route path="/services">
+        <Navbar/>
+        <div className='app_body'>
+        <Services/>
+
+        </div>
+          
+        </Route>
+
        
         
 

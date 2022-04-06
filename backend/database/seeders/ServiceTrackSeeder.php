@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class ServiceSeeder extends Seeder
+class ServiceTrackSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,6 +14,6 @@ class ServiceSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\Service::factory(50)->create();
+        \App\Models\ServiceTrack::factory(100)->create();
     }
 }

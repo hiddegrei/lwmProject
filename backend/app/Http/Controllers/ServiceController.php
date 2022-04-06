@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Service;
 use App\Models\ServiceCheck;
+use App\Models\ServiceTrack;
 use Intervention\Image\Facades\Image;
 
 class ServiceController extends Controller
@@ -21,6 +22,19 @@ class ServiceController extends Controller
 
         return $data;
 
+    }
+
+    public function getAll(){
+        $top10ids = ServiceTrack::orderBy('count', 'desc')->limit(10)->get();
+        $data=[];
+       
+
+        for ($x = 0; $x < count($top10ids); $x++) {
+            $data[$x]=Service::where("id",$top10ids[$x]->service_id)->get()[0];
+           
+          }
+        // return Service::all();
+        return $data;
     }
 
   
@@ -55,6 +69,10 @@ class ServiceController extends Controller
             'opened_by'=>$data2['opened_by'],
             'needs_approval_from'=>$data2['needs_approval_from'],
         ]);
+        $item->serviceTrack()->create([
+            'service_id'=>$item->id,
+            'count'=>0
+        ]);
        
         $set=array_merge($data,$data2);
         return $set;
@@ -70,9 +88,13 @@ class ServiceController extends Controller
             'service'=>$serviceid,
             'checks'=> $serviceChecks
         ];
+
+        $serviceid->serviceTrack()->update([
+            'count'=> $serviceid->serviceTrack()->get('count')[0]->count +1
+        ]);
         
        
-         return $data;
+         return $data ;
  
     }
 }

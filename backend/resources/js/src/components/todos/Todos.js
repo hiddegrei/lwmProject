@@ -7,56 +7,66 @@ import Todo from "./Todo"
 function Todos(props) {
     const history = useHistory();
     const [todos, setTodos] = useState([]);
-    const [todo,setTodo]=useState([])
+    const [todo,setTodo]=useState('');
+    const [done,setDone]=useState(false);
+    const [notDone,setNotDone]=useState(true);
+    const[loading,setLoading]=useState(true)
 
     useEffect(() => {
         const fData= new FormData();
-        fData.append('title',"test222");
-        fData.append('body',"body2222");
+        // fData.append('title',"test222");
+        // fData.append('body',"body2222");
        
         
-        http.post('/todos/store',fData ).then(res => {
-            console.log(res)
-        }).catch((err)=>console.log(err));
+        // http.post('/todos/store',fData ).then(res => {
+        //     console.log(res)
+        // }).catch((err)=>console.log(err));
         
         fetchTodosNotDone()
     }, [])
     function fetchTodosNotDone() {
+        setLoading(true)
         http.get('/todos/notdone').then(res => {
             console.log(res.data)
             setTodos(res.data)
+            setLoading(false)
         })
+        setNotDone(true)
+        setDone(false)
     }
     function fetchTodosDone() {
+        setLoading(true)
         http.get('/todos/done').then(res => {
             console.log(res.data)
             setTodos(res.data)
+            setLoading(false)
         })
+        setNotDone(false)
+        setDone(true)
     }
     return (
         <div className="todos">
             <div className="todos_l">
                 <div className="todos_l_top">
-                    <div onClick={fetchTodosDone} className="todos_l_top_item">done</div>
-                    <div onClick={fetchTodosNotDone} className="todos_l_top_item">not done</div>
+                    <div onClick={fetchTodosDone} className={`todos_l_top_item ${done&&"todos_active"}`}>done</div>
+                    <div onClick={fetchTodosNotDone} className={`todos_l_top_item ${notDone&&"todos_active"}`}>not done</div>
                 </div>
                 <div className="todos_l_items">
-                    {todos.map(todo => (
+                    
+                    {loading?<div className='todos_loading'>Loading...</div>:
+                    <div>{todos.map(todo => (
                         <div onClick={()=>setTodo(todo)} className="todos_l_items_item">{todo.title}</div>
-                    ))}
+                    ))}</div>}
 
-                    {/* @foreach($todos as $todo1)
-                <a href="{{ route('todo.show', $todo1) }}">
-                    <div className="todos_l_items_item">{{$todo1->title}}</div>
-                </a>
-                @endforeach */}
+                   
                 </div>
 
             </div>
             <div className="todos_r">
                 <div className="service_show">
 
-                   <Todo title={todo?.title} body={todo?.body}done={todo?.done}/>
+{todo!=''&&
+                   <Todo onclick={()=>fetchTodosNotDone()} id={todo?.id} title={todo?.title} body={todo?.body}done={todo?.done}/>}
 
                 </div>
             </div>
