@@ -43,13 +43,13 @@ use App\Http\Controllers\ServiceController;
 // Route::post('/services/facilities',[FacilitiesController::class, 'store'])->name('facilities.store');;
 
 //todos
-// Route::get('/todos',[TodoController::class, 'index'])->name('todo.index');
-// Route::get('/todos/create',[TodoController::class,'create'])->name('todo.create');;
-// Route::get('/todos/{todo}/edit', [TodoController::class, 'edit'])->name('todo.edit');
-// Route::get('/todos/{todo}',[TodoController::class, 'show'])->name('todo.show');
-// Route::patch('/todos/{todo}', [TodoController::class, 'update'])->name('todo.update');
-// Route::post('/todos/{todo}/delete',[TodoController::class, 'destroy']);
-// Route::post('/todos',[TodoController::class, 'store'])->name('todo.store');;
+Route::get('/api/todos/{type}',[TodoController::class, 'index'])->name('todo.index');
+// Route::get('/api/todos/create',[TodoController::class,'create'])->name('todo.create');;
+Route::get('/api/todos/{todo}/edit', [TodoController::class, 'edit'])->name('todo.edit');
+Route::get('/api/todos/{todo}',[TodoController::class, 'show'])->name('todo.show');
+Route::patch('/api/todos/{todo}', [TodoController::class, 'update'])->name('todo.update');
+Route::post('/api/todos/{todo}/delete',[TodoController::class, 'destroy']);
+Route::post('/api/todos/store',[TodoController::class, 'store'])->name('todo.store');;
 
 Auth::routes();
 

@@ -17,16 +17,21 @@ class TodoController extends Controller
         $this->middleware('auth');
     }
 
-    public function index()
+    public function index($type)
     {
-      $user = auth()->user()->id;
-      $todos= Todo::where('user_id',$user)->orderBy('created_at','DESC')->get();
-      $todo= $todos[0];
+      $userId = auth()->user()->id;
+      if($type==="done"){
+        $todos= Todo::where('user_id',$userId)->where('done',true)->orderBy('created_at','DESC')->get();
 
-      return view('todos.index', [
-        'todos'=>$todos,
-        'todo'=> $todo
-    ]);
+      }else  if($type==="notdone"){
+        $todos= Todo::where('user_id',$userId)->where('done',false)->orderBy('created_at','DESC')->get();
+
+      }
+      
+      
+     
+
+      return $todos;
 
 
     }
@@ -53,7 +58,7 @@ class TodoController extends Controller
             'body'=>$data['body'],
         ]);
         // \App\Models\Post::create($data);
-        return redirect('/todos/' . auth()->user()->id);
+        return $data;
     }
 
     public function show(\App\Models\Todo $todo)

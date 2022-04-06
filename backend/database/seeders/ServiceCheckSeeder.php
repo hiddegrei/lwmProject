@@ -14,6 +14,6 @@ class ServiceCheckSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\ServiceCheck::factory(100)->create();
+        \App\Models\ServiceCheck::factory(200)->create();
     }
 }

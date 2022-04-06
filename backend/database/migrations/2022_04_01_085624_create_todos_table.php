@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->string('title');
-            $table->boolean('done');
+            $table->boolean('done')->default(false);
             $table->string('body');
             $table->timestamps();
             $table->index('user_id');

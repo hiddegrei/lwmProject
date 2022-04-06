@@ -7,6 +7,7 @@ import Login from "./Login";
 import Services from "./services/Services";
 import ServiceCreate from "./services/ServiceCreate";
 import ServiceShow from "./services/ServiceShow";
+import Todos from "./todos/Todos";
 import {useStateValue} from "../Stateprovider";
 import http from "../axios/http";
 
@@ -38,6 +39,14 @@ function fetchUser(){
       
       <Switch>
        
+      <Route path="/todos">
+        <Navbar/>
+        <div className='app_body'>
+        <Todos/>
+
+        </div>
+          
+        </Route>
      
         
 
@@ -49,6 +58,8 @@ function fetchUser(){
         </div>
           
         </Route>
+
+
 
         <Route path="/services/:servicetype/:serviceid">
         <Navbar/>
