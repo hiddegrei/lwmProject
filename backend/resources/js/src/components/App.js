@@ -27,7 +27,9 @@ function fetchUser(){
      dispatch({
       type:'SET_USER',
       user:res.data})
+      
  })
+ 
 
 
 }

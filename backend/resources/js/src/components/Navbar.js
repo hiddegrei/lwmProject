@@ -14,7 +14,7 @@ function Navbar(props) {
        
        
      http.get('/user/auth').then(res=>{
-         console.log(res.data);
+        
          setUser(res.data)
      })
     
@@ -22,7 +22,7 @@ function Navbar(props) {
     }
     function logout(){
         http.post('/user/logout').then(res=>{
-            console.log(res.data);
+           
             
         })
         location.reload();

@@ -5893,15 +5893,12 @@ function Navbar(props) {
 
   function fetchUser() {
     _axios_http__WEBPACK_IMPORTED_MODULE_2__["default"].get('/user/auth').then(function (res) {
-      console.log(res.data);
       setUser(res.data);
     });
   }
 
   function logout() {
-    _axios_http__WEBPACK_IMPORTED_MODULE_2__["default"].post('/user/logout').then(function (res) {
-      console.log(res.data);
-    });
+    _axios_http__WEBPACK_IMPORTED_MODULE_2__["default"].post('/user/logout').then(function (res) {});
     location.reload();
   }
 

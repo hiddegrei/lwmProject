@@ -22,7 +22,8 @@ class UserController extends Controller
     }
 
     public function authUser(){
-        return auth()->user();
+       
+        return  auth()->user();
     }
 
     public function allUsers(){
