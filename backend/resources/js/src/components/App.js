@@ -3,7 +3,6 @@ import '../assets/css/App.css';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./Home";
 import Navbar from "./Navbar";
-import Login from "./Login";
 import Services from "./services/Services";
 import ServiceCreate from "./services/ServiceCreate";
 import ServiceShow from "./services/ServiceShow";
@@ -79,14 +78,7 @@ function fetchUser(){
           
         </Route>
 
-        <Route path="/login">
-        <Navbar/>
-        <div className='app_body'>
-        <Login/>
-
-        </div>
-          
-        </Route>
+       
         
 
         <Route path="/">

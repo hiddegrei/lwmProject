@@ -11,13 +11,13 @@ function Todos(props) {
 
     useEffect(() => {
         const fData= new FormData();
-        // fData.append('title',"test222");
-        // fData.append('body',"body2222");
+        fData.append('title',"test222");
+        fData.append('body',"body2222");
        
         
-        // http.post('/todos/store',fData ).then(res => {
-        //     console.log(res)
-        // }).catch((err)=>console.log(err));
+        http.post('/todos/store',fData ).then(res => {
+            console.log(res)
+        }).catch((err)=>console.log(err));
         
         fetchTodosNotDone()
     }, [])
