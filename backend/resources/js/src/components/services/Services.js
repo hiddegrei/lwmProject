@@ -64,7 +64,8 @@ function Services(props) {
 
                                     <div className="service_block_bottom">
                                         <div className="service_block_bottom_imgCon">
-                                            <img class="service_block_bottom_imgCon_img" src={`/storage/${doc.image}`}></img>
+                                            {doc.image!=""&&<img class="service_block_bottom_imgCon_img" src={`/storage/${doc.image}`}></img>}
+                                            
                                         </div>
                                         <div className="service_block_bottom_text">{doc.description} </div>
 

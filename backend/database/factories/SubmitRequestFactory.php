@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\ServiceTrack>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\SubmitRequest>
  */
-class ServiceTrackFactory extends Factory
+class SubmitRequestFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,9 +17,7 @@ class ServiceTrackFactory extends Factory
     public function definition()
     {
         return [
-            'count' => 0,
-            'service_id' =>$this->faker->numberBetween(0, 100),
+            //
         ];
-       
     }
 }

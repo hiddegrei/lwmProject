@@ -17,11 +17,11 @@ class DatabaseSeeder extends Seeder
         $this->call([
             BusinessSupportSeeder::class,
             FacilitiesSeeder::class,
-            TodoSeeder::class,
+            // TodoSeeder::class,
             UserSeeder::class,
             ServiceSeeder::class,
-            ServiceCheckSeeder::class,
-            ServiceTrackSeeder::class,
+            // ServiceCheckSeeder::class,
+            // ServiceTrackSeeder::class,
             
         ]);
     }

@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('services', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('image');
+            $table->string('image')->default("");
             $table->string('description'); 
             $table->string('servicetype');
             $table->json('dropdowns');

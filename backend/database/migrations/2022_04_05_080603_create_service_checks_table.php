@@ -17,8 +17,9 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('service_id');
             $table->boolean("opened_by")->default(false);
-            $table->string("needs_approval_from")->default("jan");
+            $table->string("needs_approval_from")->default(1);
             $table->boolean("opened_for")->default(false);
+            $table->string("question_title")->nullable();
             $table->index('service_id');
             $table->timestamps();
         });

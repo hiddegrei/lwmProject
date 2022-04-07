@@ -8,6 +8,8 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\MainReactController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\SubmitRequestController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -69,6 +71,12 @@ Route::get('/api/services/{servicetype}',[ServiceController::class, 'index']);
 Route::get('/api/user/auth',[UserController::class, 'authUser']);
 Route::get('/api/allusers',[UserController::class, 'allUsers']);
 Route::post('/api/user/logout',[UserController::class, 'logout']);
+
+//submit serivce request
+Route::get('/api/submitservicerequest',[SubmitRequestController::class, 'index']);
+Route::get('/api/submitservicerequest/{id}',[SubmitRequestController::class, 'show']);
+Route::post('/api/submitservicerequest',[SubmitRequestController::class, 'submit']);
+Route::post('/api/submitservicerequest/{id}', [SubmitRequestController::class, 'update']);
 
 
 // Route::post('/api/login',[LoginController::class, 'login']);

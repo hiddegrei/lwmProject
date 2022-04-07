@@ -3,22 +3,24 @@ import http from "../axios/http";
 import "../assets/css/Home.css";
 import {Link} from "react-router-dom";
 import {useStateValue} from "../Stateprovider";
+import HelpIcon from '@mui/icons-material/Help';
 
 function Home(props) {
     const[{user},dispatch]=useStateValue();
     const [users,setUsers]=useState([]);
-    const [input,setInput]=useState("")
+    const [input,setInput]=useState("");
+    const [myTickets,setMyTickets]=useState([]);
 
-    // useEffect(()=>{
-    //     fetchAllUsers()
+    useEffect(()=>{
+        fetchMyTickets()
 
-    // },[])
-    // function fetchAllUsers(){
-    //     http.get('/users').then(res=>{
-    //         setUsers(res.data);
-    //         console.log(res.data)
-    //     })
-    // }
+    },[])
+    function fetchMyTickets(){
+        http.get('/submitservicerequest').then(res=>{
+            setMyTickets(res.data);
+            console.log(res.data)
+        })
+    }
     return (
         <div className="home">
             <div className='home_background'></div>
@@ -66,8 +68,8 @@ function Home(props) {
 
                 <Link to="/services/businesssupport">
                 <div className="home_firstBlock_bottom_grid_item">
-                    <div className="home_firstBlock_bottom_grid_item_imgCon"><img src="/img/customer-service.png" className="home_firstBlock_bottom_grid_item_imgCon_img" ></img></div>
-                    <div className="home_firstBlock_bottom_grid_item_text">services</div>
+                    <div className="home_firstBlock_bottom_grid_item_imgCon"><img src="/img/shield.png" className="home_firstBlock_bottom_grid_item_imgCon_img" ></img></div>
+                    <div className="home_firstBlock_bottom_grid_item_text">Security request</div>
                
                 </div>
                 </Link>
@@ -82,7 +84,48 @@ function Home(props) {
     
 
     <div className="home_block2">
-        <div className="home_block2_row">
+        <div className='home_grid_container'>
+        <div className='home_grid_block'>
+            <div className='home_grid_block_h'>Knowledge center</div>
+            <div className='home_grid_block_row'>
+                <div className='home_grid_block_row_imgCon'><HelpIcon/></div>
+                <div className='home_grid_block_row_text'>Accessing payroll information</div>
+
+            </div>
+            <div className='home_grid_block_row'>
+                <div className='home_grid_block_row_imgCon'><HelpIcon/></div>
+                <div className='home_grid_block_row_text'>Guide to installing desktop applications</div>
+
+            </div>
+            <div className='home_grid_block_row'>
+                <div className='home_grid_block_row_imgCon'><HelpIcon/></div>
+                <div className='home_grid_block_row_text'>Where to find SSP</div>
+
+            </div>
+            <div className='home_grid_block_row'>
+                <div className='home_grid_block_row_imgCon'><HelpIcon/></div>
+                <div className='home_grid_block_row_text'>Where do I request employee verification?</div>
+
+            </div>
+
+        </div>
+
+        <div className='home_grid_block'>
+            <div className='home_grid_block_h'>My tickets</div>
+            {myTickets.map(ticket=>(
+                <div className='home_grid_block_row'>
+                <div className='home_grid_block_row_imgCon'><img className='home_grid_block_row_img' src={`/storage/${ticket.image}`} /></div>
+                <div className='home_grid_block_row_text'>{ticket.description}</div>
+
+            </div>
+
+            ))}
+            
+
+        </div>
+
+        </div>
+        {/* <div className="home_block2_row">
             <div className="home_block2_row_item">
                 <div className="home_block2_row_item_header">
                     🔊Announchemnt
@@ -186,11 +229,11 @@ function Home(props) {
             </div>
 
 
-        </div>
+        </div> */}
 
     </div>
 
-    <div className="position-fixed bottom-0 end-0"></div>
+    {/* <div className="position-fixed bottom-0 end-0"></div> */}
 
 
 </div>

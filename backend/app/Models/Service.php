@@ -15,7 +15,7 @@ class Service extends Model
 
     public function checks()
     {
-        return $this->hasMany(ServiceCheck::class);
+        return $this->hasOne(ServiceCheck::class);
     }
 
     public function serviceTrack()

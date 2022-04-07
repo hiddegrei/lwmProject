@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Service;
 use App\Models\ServiceCheck;
 use App\Models\ServiceTrack;
+use App\Models\User;
 use Intervention\Image\Facades\Image;
 
 class ServiceController extends Controller
@@ -48,27 +49,39 @@ class ServiceController extends Controller
 
         ]);
    $dropdowns=json_decode(request('dropdowns'));
+
         $data2 = request()->validate([
             'opened_for'=>'required',
         'opened_by'=>'required',
-        'needs_approval_from'=>'required',
+        'needs_approval_from'=>'',
+        'question_title'=>'',
         ]);
 
-         $imagePath=request('image')->store('services','public');
+        $newData=array_merge($data,['dropdowns'=>$dropdowns]);
+
+        if(request('image')){
+            $imagePath=request('image')->store('services','public');
+            $item = Service::create(array_merge($newData,['image'=>$imagePath]));
+        }else{
+
+            $item = Service::create($newData);
+
+        }
+         
         //  $imagePath=\Image::make($request->get('image'))->store('services','public');
         
         
         //  $image = Image::make(public_path("storage/{$imagePath}"))->fit(1000,100);
         //     $image->save();
 
-        $newData=array_merge($data,['dropdowns'=>$dropdowns]);
+       
 
-        $item = Service::create(array_merge($newData,['image'=>$imagePath]));
-        $item->checks()->create([
-            'opened_for'=>$data2['opened_for'],
-            'opened_by'=>$data2['opened_by'],
-            'needs_approval_from'=>$data2['needs_approval_from'],
-        ]);
+       
+            $item->checks()->create($data2);
+
+            
+       
+        
         $item->serviceTrack()->create([
             'service_id'=>$item->id,
             'count'=>0
@@ -88,6 +101,8 @@ class ServiceController extends Controller
             'service'=>$serviceid,
             'checks'=> $serviceChecks
         ];
+        // dd($data["checks"][0]->needs_approval_from);
+         $data["checks"][0]->needs_approval_from_name=User::findOrFail(intval($data["checks"][0]->needs_approval_from));
 
         $serviceid->serviceTrack()->update([
             'count'=> $serviceid->serviceTrack()->get('count')[0]->count +1

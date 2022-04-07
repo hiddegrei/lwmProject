@@ -4,33 +4,38 @@ import { useParams, useHistory } from "react-router-dom";
 import "../../assets/css/ServiceCreate.css";
 import "../../assets/css/ServiceShow.css";
 import http from "../../axios/http";
-import {useStateValue} from "../../Stateprovider";
+import { useStateValue } from "../../Stateprovider";
+import ClearIcon from '@mui/icons-material/Clear';
 
 function Services(props) {
-    const[{user},dispatch]=useStateValue();
+    const [{ user }, dispatch] = useStateValue();
     const service = useParams();
     const history = useHistory();
     const [title, setTitle] = useState("");
-    const [openedFor,setOpenedFor]=useState(false);
-    const [openedBy,setOpenedBy]=useState(false);
+    const [openedFor, setOpenedFor] = useState(false);
+    const [openedBy, setOpenedBy] = useState(false);
+    const [needsApproval, setNeedsApproval] = useState(false);
     const [description, setDescription] = useState("");
-    const [usersData,setUsersData]=useState([]);
-    const [image,setImage]=useState()
+    const [usersData, setUsersData] = useState([]);
+    const [image, setImage] = useState();
+    const [questionTitle,setQuestionTitle]=useState("")
+    const [question,setQuestion]=useState(false);
+    
 
-    const [dropdowns, setDropDowns] = useState([{ title: "default title", options: ["option1", "option2"] }])
+    const [dropdowns, setDropDowns] = useState([])
 
-    useEffect(()=>{
-        
-       
+    useEffect(() => {
+
+
         fetchAllUsers()
-        
-    },[])
 
-    function fetchAllUsers(){
-        http.get('/allusers').then(res=>{
+    }, [])
+
+    function fetchAllUsers() {
+        http.get('/allusers').then(res => {
             console.log(res.data)
-           setUsersData(res.data)
-       })
+            setUsersData(res.data)
+        })
     }
 
 
@@ -42,6 +47,15 @@ function Services(props) {
         let newArr = [...dropdowns];
         newArr.push({ title: "default title", options: ["option1", "option2"] });
         console.log(newArr)
+        setDropDowns(newArr)
+    }
+    function removeDropDown() {
+        //    setDropDowns([...dropdowns],[{title:"testtt",options:["asdf"]}])
+        //    let blankOption=[{title:"test",options:["hoi","yo"]}]
+        //    setDropDowns(oldArray => [...oldArray,blankOption]);
+
+        let newArr = [...dropdowns];
+        newArr.splice(newArr.length-1,1)
         setDropDowns(newArr)
     }
 
@@ -66,42 +80,63 @@ function Services(props) {
         setDropDowns(newArr)
 
     }
+    function removeOption(index) {
+        let newArr = [...dropdowns];
+        newArr[index].options.splice(newArr[index].options.length-1,1);
+        setDropDowns(newArr)
+
+    }
     function onImageChange(file) {
         // let files = e.target.files || e.dataTransfer.files;
         // if (!files.length)
         //       return;
         // createImage(files[0]);
         setImage(file[0])
-      }
-   
-   
+    }
+
+
 
     function createService() {
         let serviceType = document.getElementById("serviceType").value;
-        let needsApprovalFrom = document.getElementById("needs_approval_from").value;
-        
-       
-        
-      const fData= new FormData();
-      fData.append('image',image);
-      fData.append('title',title);
-      fData.append('description', description);
-      fData.append('servicetype', serviceType);
-       fData.append('dropdowns', JSON.stringify(dropdowns));
-      fData.append('needs_approval_from', needsApprovalFrom);
-      fData.append('opened_by', +openedBy);
-      fData.append('opened_for', +openedFor);
- 
 
-      
-       
-    //   {image:image, title:title, description: description, servicetype: serviceType, dropdowns: dropdowns,needs_approval_from:needsApprovalFrom,opened_by:openedBy,opened_for:openedFor }
-       
-        
-        
-        http.post('/services/create',fData ).then(res => {
+
+
+
+
+        const fData = new FormData();
+        if (image) {
+
+            fData.append('image', image);
+        }
+
+        fData.append('title', title);
+        fData.append('description', description);
+        fData.append('servicetype', serviceType);
+        fData.append('dropdowns', JSON.stringify(dropdowns));
+        if (needsApproval) {
+            let needsApprovalFrom = document.getElementById("needs_approval_from").value;
+            fData.append('needs_approval_from', needsApprovalFrom);
+
+        }
+        if (question) {
+            
+            fData.append('question_title', questionTitle);
+
+        }
+
+        fData.append('opened_by', +openedBy);
+        fData.append('opened_for', +openedFor);
+
+
+
+
+        //   {image:image, title:title, description: description, servicetype: serviceType, dropdowns: dropdowns,needs_approval_from:needsApprovalFrom,opened_by:openedBy,opened_for:openedFor }
+
+
+
+        http.post('/services/create', fData).then(res => {
             console.log(res)
-        }).catch((err)=>console.log(err));
+        }).catch((err) => console.log(err));
         history.push(`/services/${serviceType}`)
 
     }
@@ -149,24 +184,51 @@ function Services(props) {
 
 
                     </div>
-                    <div className="form-group row">
-                    <div className='sshow_dropdowns_item'>
-                            <label className='sshow_dropdowns_item'>needs approval from</label>
+                    <div className="form-group row checkbox">
+                        <label className="col-md-4 col-form-label">Needs approval</label>
+                        <input type="checkbox" checked={needsApproval} onChange={() => { setNeedsApproval(!needsApproval) }} />
 
-                            <select id="needs_approval_from" name="needs_approval_from"  >
-                               {usersData?.map(userr=>(
-                                   <option value={userr.name}>{userr.name}</option>
-                               ))}
-                                
 
-                            </select>
-                        </div>
                     </div>
-                    
+                    <div className="form-group row">
+
+
+                        {needsApproval &&
+                            <div className='sshow_dropdowns_item'>
+                                <label className='sshow_dropdowns_item'>Needs approval from</label>
+
+                                <select id="needs_approval_from" name="needs_approval_from"  >
+                                    {usersData?.map(userr => (
+                                        <option value={userr.id}>{userr.name}</option>
+                                    ))}
+
+
+                                </select>
+                            </div>}
+
+                    </div>
+                    <div className="form-group row checkbox">
+                        <label className="col-md-4 col-form-label">Add question</label>
+                        <input type="checkbox" checked={question} onChange={() => { setQuestion(!question) }} />
+
+
+                    </div>
+                    {question&&
+                    <div className="form-group row">
+                    <label className="col-md-4 col-form-label">Question title</label>
+
+
+                    <input id="image" type="text" className="form-control " name="question" value={questionTitle} onChange={(e) => setQuestionTitle(e.target.value)} />
+
+
+                        
+
+                    </div>}
+
 
                     <div className="form-group row">
                         <div className='sshow_dropdowns_item'>
-                            <label  className='sshow_dropdowns_item'>service category</label>
+                            <label className='sshow_dropdowns_item'>service category</label>
 
                             <select id="serviceType" name="serviceType" >
 
@@ -182,22 +244,27 @@ function Services(props) {
                         </div>
                     </div>
 
-                   
+
                     <div className="form-group row">
-                            <label  className="col-md-4 col-form-label">service image</label>
-
-                           
-                                <input id="image" type="file" className="form-control " name="image" onChange={(e)=>onImageChange(e.target.files)} />
-
-                              
-                           
-                        </div>
-                        
-                        
-                        
+                        <label className="col-md-4 col-form-label">service image</label>
 
 
-                    <div onClick={addDropDown} className="create_add_dropdown_container_item bold hoverr">add dropdown +</div>
+                        <input id="image" type="file" className="form-control " name="image" onChange={(e) => onImageChange(e.target.files)} />
+
+
+
+                    </div>
+
+
+
+
+
+                    <div className="create_add_dropdown_container_items ">
+                    <div onClick={addDropDown} className="create_add_dropdown_container_item btn btn-primary bold hoverr"> add dropdown +</div>
+                    {dropdowns.length>=1&&<div onClick={removeDropDown} className="create_add_dropdown_container_item btn btn-primary bold hoverr"> remove dropdown -</div>}
+                    
+                       
+                    </div>
 
 
                     {dropdowns.map((doc, index) => (
@@ -206,12 +273,14 @@ function Services(props) {
 
                             <input type="text" value={doc.title} onChange={(e) => { updateDropDownTitle(index, e.target.value) }} className="create_add_dropdown_container_item " placeholder='title dropdown'></input>
 
-                            <div for="dropdowns" className="create_add_dropdown_container_item bold">input options</div>
+                            <div  className="create_add_dropdown_container_item bold">input options</div>
                             {doc.options.map((option, index2) => (
                                 <input type="text" value={option} onChange={(e) => { updateDropDownOption(index, index2, e.target.value) }} className="create_add_dropdown_container_item " placeholder='option'></input>
 
                             ))}
-                            <div onClick={() => addOption(index)} for="dropdowns" className="create_add_dropdown_container_item bold hoverr">add option</div>
+                            <div onClick={() => addOption(index)}  className="create_add_dropdown_container_item  btn btn-primary bold hoverr">add option</div>
+                            {doc.options.length>2&& <div onClick={() => removeOption(index)}  className="create_add_dropdown_container_item  btn btn-primary bold hoverr">remove option</div>}
+                           
 
 
 

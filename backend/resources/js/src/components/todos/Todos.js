@@ -44,6 +44,8 @@ function Todos(props) {
         setNotDone(false)
         setDone(true)
     }
+
+    
     return (
         <div className="todos">
             <div className="todos_l">
@@ -54,8 +56,8 @@ function Todos(props) {
                 <div className="todos_l_items">
                     
                     {loading?<div className='todos_loading'>Loading...</div>:
-                    <div>{todos.map(todo => (
-                        <div onClick={()=>setTodo(todo)} className="todos_l_items_item">{todo.title}</div>
+                    <div>{todos.map((todo,index) => (
+                        <div key={index} onClick={()=>setTodo(todo)} className="todos_l_items_item">{todo.title}</div>
                     ))}</div>}
 
                    
@@ -66,7 +68,7 @@ function Todos(props) {
                 <div className="service_show">
 
 {todo!=''&&
-                   <Todo onclick={()=>fetchTodosNotDone()} id={todo?.id} title={todo?.title} body={todo?.body}done={todo?.done}/>}
+                   <Todo onclick={()=>fetchTodosNotDone()} id={todo?.id} title={todo?.title} description={todo?.description}done={todo?.done} approval_btn={todo?.approval_btn}submit_request_id={todo?.submit_request_id}/>}
 
                 </div>
             </div>

@@ -1,13 +1,22 @@
 .create_add_dropdown_container{
     display:flex;
     flex-direction: column;
-    border:3px solid black;
+    border:1px solid #ddd;
     margin-top: 20px;
+    padding:10px;
+}
+.create_add_dropdown_container_items{
+    display:flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    width:100%;
+    /* border:1px solid black; */
 }
 .create_add_dropdown_container_item{
     display:flex;
-    margin-top: 10px;
-    border:1px solid black;
+    width:45%;
+    margin-top: 5px;
+    /* border:1px solid black; */
 }
 .bold{
     font-weight: bold;
