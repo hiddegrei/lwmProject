@@ -14,9 +14,12 @@
     border-bottom: 1px solid #ddd;
 
 }
-.serviceSide_h>p{
+.serviceSide_item_text{
 display:flex;
 margin-left: 5px;
+}
+.serviceSide_item_text:hover{
+cursor: pointer;
 }
 .serviceSide_items{
 display:flex;

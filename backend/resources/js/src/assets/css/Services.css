@@ -23,18 +23,21 @@
 }
 .service_grid_container{
     display:grid;
-    grid-template: 300px/ auto auto auto auto ;
-    grid-template-rows: 200px 200px 200px 200px ;
+    grid-template: 25fr/ auto auto auto auto ;
+    /* grid-template-rows: 25fr 25fr 25fr 25fr ; */
+    grid-auto-columns: 1fr;
     gap: 10px;
     padding: 10px;
     margin-left: auto;
     margin-right: auto;
+    border:1px solid black;
+    width:100%;
 }
 .service_block{
     display:flex;
     flex-direction: column;
-    width:300px;
-    height:200px;
+    width:25fr;
+    height:25fr;
     border:1px solid #ddd;
     border-radius: 10px;
    color:black;

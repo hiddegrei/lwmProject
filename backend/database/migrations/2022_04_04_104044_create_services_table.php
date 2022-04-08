@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('image')->default("");
             $table->string('description'); 
             $table->string('servicetype');
-            $table->json('dropdowns');
+            $table->json('dropdowns')->nullable();
             $table->timestamps();
         });
     }
