@@ -1,10 +1,11 @@
 import React,{useLayoutEffect, useState} from 'react';
 import "../assets/css/Navbar.css";
-import {Link} from "react-router-dom";
+import {Link, useHistory} from "react-router-dom";
 import http from "../axios/http";
 
 function Navbar(props) {
-    const[user,setUser]=useState()
+    const[user,setUser]=useState();
+    const history=useHistory()
 
     useLayoutEffect(()=>{
         fetchUser()
@@ -65,7 +66,7 @@ function Navbar(props) {
                                 </div>
 
                                  <div className="dropdown">
-                                    <button className="dropbtn navbar-item px-4 text-decoration-none navHover">Services</button>
+                                    <button onClick={()=>history.push('/services')} className="dropbtn navbar-item px-4 text-decoration-none navHover">Services</button>
                                      <div className="dropdown-content">
                                          <Link to="/services/businesssupport">Business support</Link>
                                          <Link to="/services/facilities">Facilities</Link>

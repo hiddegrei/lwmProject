@@ -15,7 +15,7 @@ class SubmitRequestController extends Controller
         'opened_for'=>'',
         'needs_approval_from'=>'',
         'dropdowns'=>'',
-        'question_answer'=>'',
+        'questions'=>'',
         'title'=>'required',
         'description'=>'required',
         'image'=>''
@@ -53,9 +53,10 @@ class SubmitRequestController extends Controller
             $data["dropdowns"]=json_decode($data["dropdowns"]);
 
         }
-        if( $data["question_answer"]){
-        $data["question_answer"]=json_decode($data["question_answer"]);
+        if( $data["questions"]){
+            $data["questions"]=json_decode($data["questions"]);
         }
+        
         return $data;
 
     }

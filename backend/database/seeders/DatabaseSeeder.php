@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
             FacilitiesSeeder::class,
             // TodoSeeder::class,
             UserSeeder::class,
-            ServiceSeeder::class,
+            // ServiceSeeder::class,
             // ServiceCheckSeeder::class,
             // ServiceTrackSeeder::class,
             

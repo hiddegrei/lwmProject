@@ -44,24 +44,27 @@ class ServiceController extends Controller
             'title'=> 'required',
             'description'=> 'required',
             'servicetype'=> 'required',
+            'dropdowns'=>'',
+            'questions'=>''
            
            
 
         ]);
-   $dropdowns=json_decode(request('dropdowns'));
+//    $dropdowns=json_decode(request('dropdowns'));
+//    $questions=json_decode(request('questions'));
 
         $data2 = request()->validate([
             'opened_for'=>'required',
         'opened_by'=>'required',
         'needs_approval_from'=>'',
-        'question_title'=>'',
+        
         ]);
 
-        $newData=array_merge($data,['dropdowns'=>$dropdowns]);
+        // $newData=array_merge($data,['dropdowns'=>$dropdowns,'questions'=>$questions]);
 
         if(request('image')){
             $imagePath=request('image')->store('services','public');
-            $item = Service::create(array_merge($newData,['image'=>$imagePath]));
+            $item = Service::create(array_merge($data,['image'=>$imagePath]));
         }else{
 
             $item = Service::create($newData);
@@ -96,6 +99,13 @@ class ServiceController extends Controller
     {
         //  dd($serviceid);
         $serviceChecks= ServiceCheck::where('service_id',$serviceid->id)->get();
+        if( $serviceid["dropdowns"]){
+            $serviceid["dropdowns"]=json_decode($serviceid["dropdowns"]);
+
+        }
+        if( $serviceid["questions"]){
+            $serviceid["questions"]=json_decode($serviceid["questions"]);
+        }
 
         $data=[
             'service'=>$serviceid,

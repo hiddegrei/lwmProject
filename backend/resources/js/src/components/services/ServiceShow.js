@@ -1,26 +1,31 @@
 import React, { useLayoutEffect, useEffect, useState } from 'react';
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import "../../assets/css/ServiceShow.css";
 import http from "../../axios/http";
 import { useStateValue } from "../../Stateprovider";
 
 function Services(props) {
     const [{ user }, dispatch] = useStateValue();
+    const history=useHistory()
     const serviceid = useParams();
     const [data, setData] = useState([]);
     const [usersData, setUsersData] = useState([]);
-    const [answer, setAnswer] = useState()
+    const [answer, setAnswer] = useState();
+    const [questionsAnswers,setQuestionsAnswers]=useState([]);
+    const [received,setReceived]=useState(false)
 
     useLayoutEffect(() => {
 
 
         fetchService()
 
+
     }, [])
     function fetchService() {
         http.get(`/services/${serviceid.servicetype}/${serviceid.serviceid}`).then(res => {
 
             setData(res.data)
+            setReceived(true)
         })
     }
     useEffect(() => {
@@ -36,13 +41,25 @@ function Services(props) {
 
     }, [])
 
+    useEffect(()=>{
+        if(received){
+            let arr=[]
+            data?.service?.questions.map((doc,index)=>{
+                arr[index]={title:doc.title,answer:""}
+
+            })
+            setQuestionsAnswers(arr)
+
+        }
+    },[received])
+
     function submitRequest(){
         // let serviceType = document.getElementById("serviceType").value;
 
         const fData = new FormData();
         fData.append('opened_by',user?.id)
-        if(answer){
-            fData.append('question_answer', JSON.stringify({question:data?.checks[0]?.question_title, answer:answer}));
+        if(questionsAnswers.length>=1){
+            fData.append('questions', JSON.stringify(questionsAnswers));
 
         }
         fData.append('title',data?.service?.title)
@@ -70,7 +87,17 @@ function Services(props) {
 
         http.post('/submitservicerequest', fData).then(res => {
             console.log(res)
+            history.push("/services")
         }).catch((err) => console.log(err));
+
+        
+
+    }
+    function updateQuestionAnswer(index, value) {
+
+        let newArr = [...questionsAnswers];
+        newArr[index].answer = value;
+        setQuestionsAnswers(newArr)
 
     }
     return (
@@ -99,6 +126,15 @@ function Services(props) {
                                 </select>
                             </div>
                         </div>
+                    ))}
+                    {questionsAnswers.map((doc,index) => (
+                        <div className='sshow_block'>
+                        <div className='sshow_checks_item'>
+                            <div className='sshow_checks_item_h'>{doc.title}</div>
+                            <input type="text" value={doc.answer} onChange={(e) => updateQuestionAnswer(index,e.target.value)} className='sshow_checks_item_p'></input>
+
+                        </div>
+                    </div>
                     ))}
                     {(data?.checks != undefined && data?.checks[0]?.needs_approval_from) &&
 
@@ -142,7 +178,7 @@ function Services(props) {
 
 
                     }
-                    {(data?.checks != undefined&&data?.checks[0]?.question_title) &&
+                    {/* {(data?.checks != undefined&&data?.checks[0]?.question_title) &&
 
 
                         <div className='sshow_block'>
@@ -154,7 +190,7 @@ function Services(props) {
                         </div>
 
 
-                    }
+                    } */}
                     
 
 

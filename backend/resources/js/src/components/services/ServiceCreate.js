@@ -23,6 +23,7 @@ function Services(props) {
     
 
     const [dropdowns, setDropDowns] = useState([])
+    const [questions, setQuestions] = useState([])
 
     useEffect(() => {
 
@@ -93,6 +94,35 @@ function Services(props) {
         // createImage(files[0]);
         setImage(file[0])
     }
+    //
+    //questions 
+    function addQuestion() {
+       
+
+        let newArr = [...questions];
+        newArr.push({ title: "default title"});
+        console.log(newArr)
+        setQuestions(newArr)
+    }
+    function removeQuestion() {
+        //    setDropDowns([...dropdowns],[{title:"testtt",options:["asdf"]}])
+        //    let blankOption=[{title:"test",options:["hoi","yo"]}]
+        //    setDropDowns(oldArray => [...oldArray,blankOption]);
+
+        let newArr = [...questions];
+        newArr.splice(newArr.length-1,1)
+        setQuestions(newArr)
+    }
+
+    function updateQuestionTitle(index, value) {
+
+        let newArr = [...questions];
+        newArr[index].title = value;
+        setQuestions(newArr)
+
+    }
+
+    
 
 
 
@@ -118,9 +148,9 @@ function Services(props) {
             fData.append('needs_approval_from', needsApprovalFrom);
 
         }
-        if (question) {
+        if (questions.length>=1) {
             
-            fData.append('question_title', questionTitle);
+            fData.append('questions', JSON.stringify(questions));
 
         }
 
@@ -207,23 +237,28 @@ function Services(props) {
                             </div>}
 
                     </div>
-                    <div className="form-group row checkbox">
-                        <label className="col-md-4 col-form-label">Add question</label>
-                        <input type="checkbox" checked={question} onChange={() => { setQuestion(!question) }} />
-
-
+                    <div className="create_add_dropdown_container_items ">
+                    <div onClick={addQuestion} className="create_add_dropdown_container_item btn btn-primary bold hoverr"> add question +</div>
+                    {questions.length>=1&&<div onClick={removeQuestion} className="create_add_dropdown_container_item btn btn-primary bold hoverr"> remove question -</div>}
+                    
+                       
                     </div>
-                    {question&&
-                    <div className="form-group row">
-                    <label className="col-md-4 col-form-label">Question title</label>
 
 
-                    <input id="image" type="text" className="form-control " name="question" value={questionTitle} onChange={(e) => setQuestionTitle(e.target.value)} />
+                    {questions.map((doc, index) => (
+                        <div className="create_add_dropdown_container">
 
 
-                        
+                            <input type="text" value={doc.title} onChange={(e) => { updateQuestionTitle(index, e.target.value) }} className="create_add_dropdown_container_item " placeholder='title question'></input>
 
-                    </div>}
+                           
+                           
+
+
+
+                        </div>
+
+                    ))}
 
 
                     <div className="form-group row">

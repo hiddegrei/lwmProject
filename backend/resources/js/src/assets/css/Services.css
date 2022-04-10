@@ -36,8 +36,10 @@
 .service_block{
     display:flex;
     flex-direction: column;
+    /* max-width: 300px; */
     width:25fr;
-    height:25fr;
+    /* min-height: 200px; */
+    height:30fr;
     border:1px solid #ddd;
     border-radius: 10px;
    color:black;

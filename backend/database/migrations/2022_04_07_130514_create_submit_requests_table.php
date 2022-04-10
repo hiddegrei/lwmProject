@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string("image")->nullable();
             $table->string("description")->nullable();
             $table->json('dropdowns')->nullalbe();
-            $table->json('question_answer')->nullable();
+            $table->json('questions')->nullable();
             $table->boolean('approved')->default(false);
             $table->boolean('approved_status')->default(false);
             $table->timestamps();

@@ -66,8 +66,8 @@ function Todo({onclick,id,title,description,approval_btn,submit_request_id,done}
                         </div>
 
                     {submitRequestData.dropdowns&&<div>
-                        {submitRequestData.dropdowns.map(doc=>(
-                           <div className='todo_body_reqCon_block'>
+                        {submitRequestData.dropdowns.map((doc,index)=>(
+                           <div key={index} className='todo_body_reqCon_block'>
                         
                            <div className='todo_body_reqCon_block_row '>
                              <div className='todo_body_reqCon_block_item bold '>Title: </div>
@@ -89,7 +89,31 @@ function Todo({onclick,id,title,description,approval_btn,submit_request_id,done}
                         
                         </div>}
 
-                        {submitRequestData.question_answer&&<div className='todo_body_reqCon_block'>
+                        {submitRequestData.questions&&<div>
+                        {submitRequestData.questions.map((doc,index)=>(
+                           <div key={index+1000} className='todo_body_reqCon_block'>
+                        
+                           <div className='todo_body_reqCon_block_row '>
+                             <div className='todo_body_reqCon_block_item bold '>Title: </div>
+                             <div className='todo_body_reqCon_block_item '>{doc.title}</div>
+                          
+                           </div>
+
+                           <div className='todo_body_reqCon_block_row '>
+                             <div className='todo_body_reqCon_block_item bold '>Answer: </div>
+                             <div className='todo_body_reqCon_block_item '>{doc.answer}</div>
+                          
+                           </div>
+                           
+                          
+                       
+                   
+                   </div>
+                        ))}
+                        
+                        </div>}
+
+                        {/* {submitRequestData.question_answer&&<div className='todo_body_reqCon_block'>
                         
                                 <div className='todo_body_reqCon_block_row '>
                                   <div className='todo_body_reqCon_block_item bold '>Question: </div>
@@ -106,7 +130,7 @@ function Todo({onclick,id,title,description,approval_btn,submit_request_id,done}
                                
                             
                         
-                        </div>}
+                        </div>} */}
 
                 </div>
                 }

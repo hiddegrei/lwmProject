@@ -27,13 +27,13 @@ use App\Http\Controllers\SubmitRequestController;
 // });
 
 //businesssupport
-// Route::get('/services/businesssupport',[BusinessSupportController::class, 'index'])->name('businesssupport.index');
-// Route::get('/services/businesssupport/create',[BusinessSupportController::class,'create'])->name('businesssupport.create');;
-// Route::get('/services/businesssupport/{id}/edit', [BusinessSupportController::class, 'edit'])->name('businesssupport.edit');
-// Route::get('/services/businesssupport/{id}',[BusinessSupportController::class, 'show'])->name('businesssupport.show');
-// Route::patch('/services/businesssupport/{id}', [BusinessSupportController::class, 'update'])->name('businesssupport.update');
-// Route::post('/services/businesssupport/{id}/delete',[BusinessSupportController::class, 'destroy']);
-// Route::post('/services/businesssupport',[BusinessSupportController::class, 'store'])->name('businesssupport.store');
+// Route::get('/foos',[BusinessSupportController::class, 'index'])->name('businesssupport.index');
+// Route::get('/foos/create',[BusinessSupportController::class,'create'])->name('businesssupport.create');;
+// Route::get('/foos/{id}/edit', [BusinessSupportController::class, 'edit'])->name('businesssupport.edit');
+// Route::get('/foos/{id}',[BusinessSupportController::class, 'show'])->name('businesssupport.show');
+// Route::patch('/foos/{id}', [BusinessSupportController::class, 'update'])->name('businesssupport.update');
+// Route::post('/foost/{id}/delete',[BusinessSupportController::class, 'destroy']);
+// Route::post('/foos',[BusinessSupportController::class, 'store'])->name('businesssupport.store');
 
 //facilities
 // Route::get('/services/facilities',[FacilitiesController::class, 'index'])->name('facilities.index');
