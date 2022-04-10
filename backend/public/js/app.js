@@ -14224,7 +14224,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 function Services(props) {
-  var _data$service10, _data$service11, _data$service12, _data$service13, _data$service14, _data$checks$4, _data$checks$5, _data$checks$6, _data$checks$7;
+  var _data$service9, _data$service10, _data$service11, _data$service12, _data$service13, _data$checks$4, _data$checks$5, _data$checks$6, _data$checks$7;
 
   var _useStateValue = (0,_Stateprovider__WEBPACK_IMPORTED_MODULE_3__.useStateValue)(),
       _useStateValue2 = _slicedToArray(_useStateValue, 2),
@@ -14266,7 +14266,10 @@ function Services(props) {
   function fetchService() {
     _axios_http__WEBPACK_IMPORTED_MODULE_2__["default"].get("/services/".concat(serviceid.servicetype, "/").concat(serviceid.serviceid)).then(function (res) {
       setData(res.data);
-      setReceived(true);
+
+      if (res.data.service.questions != undefined) {
+        setQuestionsAnswers(res.data.service.questions);
+      }
     });
   }
 
@@ -14275,23 +14278,17 @@ function Services(props) {
       setUsersData(res.data);
     });
   }, []);
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    if (received) {
-      var _data$service;
-
-      var arr = [];
-      data === null || data === void 0 ? void 0 : (_data$service = data.service) === null || _data$service === void 0 ? void 0 : _data$service.questions.map(function (doc, index) {
-        arr[index] = {
-          title: doc.title,
-          answer: ""
-        };
-      });
-      setQuestionsAnswers(arr);
-    }
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {// if(received){
+    //     let arr=[]
+    //     data?.service?.questions.map((doc,index)=>{
+    //         arr[index]={title:doc.title,answer:""}
+    //     })
+    //     setQuestionsAnswers(arr)
+    // }
   }, [received]);
 
   function submitRequest() {
-    var _data$service2, _data$service3, _data$service4, _data$service5, _data$checks$, _data$checks$3;
+    var _data$service, _data$service2, _data$service3, _data$service4, _data$checks$, _data$checks$3;
 
     // let serviceType = document.getElementById("serviceType").value;
     var fData = new FormData();
@@ -14301,20 +14298,20 @@ function Services(props) {
       fData.append('questions', JSON.stringify(questionsAnswers));
     }
 
-    fData.append('title', data === null || data === void 0 ? void 0 : (_data$service2 = data.service) === null || _data$service2 === void 0 ? void 0 : _data$service2.title);
-    fData.append('image', data === null || data === void 0 ? void 0 : (_data$service3 = data.service) === null || _data$service3 === void 0 ? void 0 : _data$service3.image);
-    fData.append('description', data === null || data === void 0 ? void 0 : (_data$service4 = data.service) === null || _data$service4 === void 0 ? void 0 : _data$service4.description);
+    fData.append('title', data === null || data === void 0 ? void 0 : (_data$service = data.service) === null || _data$service === void 0 ? void 0 : _data$service.title);
+    fData.append('image', data === null || data === void 0 ? void 0 : (_data$service2 = data.service) === null || _data$service2 === void 0 ? void 0 : _data$service2.image);
+    fData.append('description', data === null || data === void 0 ? void 0 : (_data$service3 = data.service) === null || _data$service3 === void 0 ? void 0 : _data$service3.description);
 
-    if ((data === null || data === void 0 ? void 0 : (_data$service5 = data.service) === null || _data$service5 === void 0 ? void 0 : _data$service5.dropdowns.length) >= 1) {
+    if ((data === null || data === void 0 ? void 0 : (_data$service4 = data.service) === null || _data$service4 === void 0 ? void 0 : _data$service4.dropdowns.length) >= 1) {
       var dropdowns = [];
 
-      for (var i = 0; i < (data === null || data === void 0 ? void 0 : (_data$service6 = data.service) === null || _data$service6 === void 0 ? void 0 : _data$service6.dropdowns.length); i++) {
-        var _data$service6, _data$service7, _data$service8, _data$service9;
+      for (var i = 0; i < (data === null || data === void 0 ? void 0 : (_data$service5 = data.service) === null || _data$service5 === void 0 ? void 0 : _data$service5.dropdowns.length); i++) {
+        var _data$service5, _data$service6, _data$service7, _data$service8;
 
-        console.log(document.getElementById("".concat(data === null || data === void 0 ? void 0 : (_data$service7 = data.service) === null || _data$service7 === void 0 ? void 0 : _data$service7.dropdowns[i].title)));
+        console.log(document.getElementById("".concat(data === null || data === void 0 ? void 0 : (_data$service6 = data.service) === null || _data$service6 === void 0 ? void 0 : _data$service6.dropdowns[i].title)));
         dropdowns.push({
-          title: data === null || data === void 0 ? void 0 : (_data$service8 = data.service) === null || _data$service8 === void 0 ? void 0 : _data$service8.dropdowns[i].title,
-          answer: document.getElementById("".concat(data === null || data === void 0 ? void 0 : (_data$service9 = data.service) === null || _data$service9 === void 0 ? void 0 : _data$service9.dropdowns[i].title)).value
+          title: data === null || data === void 0 ? void 0 : (_data$service7 = data.service) === null || _data$service7 === void 0 ? void 0 : _data$service7.dropdowns[i].title,
+          answer: document.getElementById("".concat(data === null || data === void 0 ? void 0 : (_data$service8 = data.service) === null || _data$service8 === void 0 ? void 0 : _data$service8.dropdowns[i].title)).value
         });
       }
 
@@ -14352,18 +14349,18 @@ function Services(props) {
       className: "sshow_top",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
         className: "sshow_top_imgCon",
-        children: [(data === null || data === void 0 ? void 0 : (_data$service10 = data.service) === null || _data$service10 === void 0 ? void 0 : _data$service10.image) && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
+        children: [(data === null || data === void 0 ? void 0 : (_data$service9 = data.service) === null || _data$service9 === void 0 ? void 0 : _data$service9.image) && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
           className: "sshow_top_img",
-          src: "/storage/".concat(data === null || data === void 0 ? void 0 : (_data$service11 = data.service) === null || _data$service11 === void 0 ? void 0 : _data$service11.image)
+          src: "/storage/".concat(data === null || data === void 0 ? void 0 : (_data$service10 = data.service) === null || _data$service10 === void 0 ? void 0 : _data$service10.image)
         }), " "]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
         className: "sshow_top_text",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
           className: "sshow_top_text_h",
-          children: data === null || data === void 0 ? void 0 : (_data$service12 = data.service) === null || _data$service12 === void 0 ? void 0 : _data$service12.title
+          children: data === null || data === void 0 ? void 0 : (_data$service11 = data.service) === null || _data$service11 === void 0 ? void 0 : _data$service11.title
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
           className: "sshow_top_text_p",
-          children: data === null || data === void 0 ? void 0 : (_data$service13 = data.service) === null || _data$service13 === void 0 ? void 0 : _data$service13.description
+          children: data === null || data === void 0 ? void 0 : (_data$service12 = data.service) === null || _data$service12 === void 0 ? void 0 : _data$service12.description
         })]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
         className: " sshow_submit",
@@ -14377,7 +14374,7 @@ function Services(props) {
       className: "sshow_body",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
         className: "sshow_grid_container",
-        children: [data === null || data === void 0 ? void 0 : (_data$service14 = data.service) === null || _data$service14 === void 0 ? void 0 : _data$service14.dropdowns.map(function (doc) {
+        children: [data === null || data === void 0 ? void 0 : (_data$service13 = data.service) === null || _data$service13 === void 0 ? void 0 : _data$service13.dropdowns.map(function (doc) {
           return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
             className: "sshow_block",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
@@ -14698,7 +14695,7 @@ function Services(props) {
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
                 className: "service_block_bottom_imgCon",
                 children: doc.image != "" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
-                  "class": "service_block_bottom_imgCon_img",
+                  className: "service_block_bottom_imgCon_img",
                   src: "/storage/".concat(doc.image)
                 })
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {

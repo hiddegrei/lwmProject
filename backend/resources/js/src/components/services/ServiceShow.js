@@ -25,7 +25,11 @@ function Services(props) {
         http.get(`/services/${serviceid.servicetype}/${serviceid.serviceid}`).then(res => {
 
             setData(res.data)
-            setReceived(true)
+            if(res.data.service.questions!=undefined){
+                setQuestionsAnswers(res.data.service.questions)
+
+            }
+           
         })
     }
     useEffect(() => {
@@ -42,15 +46,15 @@ function Services(props) {
     }, [])
 
     useEffect(()=>{
-        if(received){
-            let arr=[]
-            data?.service?.questions.map((doc,index)=>{
-                arr[index]={title:doc.title,answer:""}
+        // if(received){
+        //     let arr=[]
+        //     data?.service?.questions.map((doc,index)=>{
+        //         arr[index]={title:doc.title,answer:""}
 
-            })
-            setQuestionsAnswers(arr)
+        //     })
+        //     setQuestionsAnswers(arr)
 
-        }
+        // }
     },[received])
 
     function submitRequest(){
