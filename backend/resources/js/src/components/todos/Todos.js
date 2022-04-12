@@ -12,6 +12,8 @@ function Todos(props) {
     const [notDone,setNotDone]=useState(true);
     const[loading,setLoading]=useState(true)
 
+   
+
     useEffect(() => {
         const fData= new FormData();
         // fData.append('title',"test222");
@@ -45,6 +47,10 @@ function Todos(props) {
         setDone(true)
     }
 
+    useEffect(()=>{
+        console.log(todo)
+    },[todo])
+
     
     return (
         <div className="todos">
@@ -68,7 +74,7 @@ function Todos(props) {
                 <div className="service_show">
 
 {todo!=''&&
-                   <Todo onclick={()=>fetchTodosNotDone()} id={todo?.id} title={todo?.title} description={todo?.description}done={todo?.done} approval_btn={todo?.approval_btn}submit_request_id={todo?.submit_request_id}/>}
+                   <Todo key={todo?.id} onclick={()=>fetchTodosNotDone()} id={todo?.id} title={todo?.title} description={todo?.description}done={todo?.done} approval_btn={todo?.approval_btn}submit_request_id={todo?.submit_request_id}/>}
 
                 </div>
             </div>

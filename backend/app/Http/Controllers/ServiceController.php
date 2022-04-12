@@ -111,7 +111,7 @@ class ServiceController extends Controller
             'service'=>$serviceid,
             'checks'=> $serviceChecks
         ];
-        // dd($data["checks"][0]->needs_approval_from);
+        //  dd($data["checks"][0]->needs_approval_from);
          $data["checks"][0]->needs_approval_from_name=User::findOrFail(intval($data["checks"][0]->needs_approval_from));
 
         $serviceid->serviceTrack()->update([

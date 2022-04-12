@@ -14771,9 +14771,8 @@ function Todo(_ref) {
       setSubmitRequestData = _useState4[1];
 
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    if (approval_btn) {
-      fetchServiceRequest();
-    }
+    //if(approval_btn){
+    fetchServiceRequest(); //}
   }, []);
 
   function fetchServiceRequest() {
@@ -15011,6 +15010,9 @@ function Todos(props) {
     setDone(true);
   }
 
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    console.log(todo);
+  }, [todo]);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
     className: "todos",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
@@ -15057,7 +15059,7 @@ function Todos(props) {
           done: todo === null || todo === void 0 ? void 0 : todo.done,
           approval_btn: todo === null || todo === void 0 ? void 0 : todo.approval_btn,
           submit_request_id: todo === null || todo === void 0 ? void 0 : todo.submit_request_id
-        })
+        }, todo === null || todo === void 0 ? void 0 : todo.id)
       })
     })]
   });

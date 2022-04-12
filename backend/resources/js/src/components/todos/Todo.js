@@ -11,11 +11,12 @@ function Todo({onclick,id,title,description,approval_btn,submit_request_id,done}
     
 
     useEffect(()=>{
-        if(approval_btn){
+        
+        //if(approval_btn){
             fetchServiceRequest()
             
            
-        }
+        //}
 
     },[])
 
