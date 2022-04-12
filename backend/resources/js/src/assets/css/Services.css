@@ -18,7 +18,12 @@
 .services_right_header{
     display:flex;
     width:100%;
-    border:1px solid black;
+    /* border:1px solid black; */
+
+}
+.services_right_header_text{
+   padding:10px;
+    /* border:1px solid black; */
 
 }
 .service_grid_container{

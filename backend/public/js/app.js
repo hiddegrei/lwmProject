@@ -13935,7 +13935,7 @@ function Services(props) {
     })["catch"](function (err) {
       return console.log(err);
     });
-    history.push("/services/".concat(serviceType));
+    history.push("/services");
   }
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
@@ -14499,7 +14499,10 @@ function ServiceSideBar(_ref) {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
       className: "serviceSide_h",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
-        children: "Categories"
+        onClick: function onClick() {
+          return history.push('/services');
+        },
+        children: "Services"
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
       className: "serviceSide_items",
@@ -14632,6 +14635,8 @@ function Services(props) {
   }, [service]);
 
   function fetchService() {
+    setData([]);
+
     if (isEmpty(service)) {
       _axios_http__WEBPACK_IMPORTED_MODULE_2__["default"].get("/services").then(function (res) {
         console.log(res.data);
@@ -14672,8 +14677,10 @@ function Services(props) {
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
         className: "services_right_header",
         children: isEmpty(service) ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+          className: "services_right_header_text",
           children: "Popular items"
         }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+          className: "services_right_header_text",
           children: service.service
         })
       }), loading ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
@@ -20388,7 +20395,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".serviceSide{\r\n    display:flex;\r\n    flex-direction: column;\r\n    width:100%;\r\n    height:-webkit-fit-content;\r\n    height:-moz-fit-content;\r\n    height:fit-content;\r\n    border:1px solid #ddd;\r\n}\r\n.serviceSide_h{\r\n    display:flex;\r\n    width:100%;\r\n    height:50px;\r\n    align-items: center;\r\n    background-color: #1E90FF;\r\n    border-bottom: 1px solid #ddd;\r\n\r\n}\r\n.serviceSide_item_text{\r\ndisplay:flex;\r\nmargin-left: 5px;\r\n}\r\n.serviceSide_item_text:hover{\r\ncursor: pointer;\r\n}\r\n.serviceSide_items{\r\ndisplay:flex;\r\nflex-direction: column;\r\n}\r\n.serviceSide_item{\r\n    display:flex;\r\n   font-weight: 600;\r\n   font-size: 18px;\r\n   align-items: center;\r\n   border-left:3px solid white;\r\n}\r\n.serviceSide_item>p{\r\n    display:flex;\r\n  margin-left: 5px;\r\n  \r\n}\r\n.serviceSide_item:hover{\r\nborder-left: 3px solid #1E90FF ;\r\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".serviceSide{\r\n    display:flex;\r\n    flex-direction: column;\r\n    width:100%;\r\n    height:-webkit-fit-content;\r\n    height:-moz-fit-content;\r\n    height:fit-content;\r\n    border:1px solid #ddd;\r\n}\r\n.serviceSide_h{\r\n    display:flex;\r\n    width:100%;\r\n    height:50px;\r\n    align-items: center;\r\n    background-color: #1E90FF;\r\n    border-bottom: 1px solid #ddd;\r\n    \r\n\r\n}\r\n.serviceSide_h>p{\r\nmargin-left: 10px;\r\n}\r\n.serviceSide_h>p:hover{\r\n    cursor: pointer;\r\n    }\r\n.serviceSide_item_text{\r\ndisplay:flex;\r\nmargin-left: 5px;\r\n}\r\n.serviceSide_item_text:hover{\r\ncursor: pointer;\r\n}\r\n.serviceSide_items{\r\ndisplay:flex;\r\nflex-direction: column;\r\n}\r\n.serviceSide_item{\r\n    display:flex;\r\n   font-weight: 600;\r\n   font-size: 18px;\r\n   align-items: center;\r\n   border-left:3px solid white;\r\n}\r\n.serviceSide_item>p{\r\n    display:flex;\r\n  margin-left: 5px;\r\n  \r\n}\r\n.serviceSide_item:hover{\r\nborder-left: 3px solid #1E90FF ;\r\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -20412,7 +20419,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".services{\r\n    display:flex;\r\n   margin-top: 50px;\r\n    width:100%;\r\n}\r\n.services_left{\r\n    display:flex;\r\n    width:20%;\r\n    height:100%;\r\n}\r\n.services_right{\r\n    display:flex;\r\n    flex-direction: column;\r\n    width:80%;\r\n    border:1px solid black;\r\n    height:100%;\r\n}\r\n.services_right_header{\r\n    display:flex;\r\n    width:100%;\r\n    border:1px solid black;\r\n\r\n}\r\n.service_grid_container{\r\n    display:grid;\r\n    grid-template: 25fr/ auto auto auto auto ;\r\n    /* grid-template-rows: 25fr 25fr 25fr 25fr ; */\r\n    grid-auto-columns: 1fr;\r\n    gap: 10px;\r\n    padding: 10px;\r\n    margin-left: auto;\r\n    margin-right: auto;\r\n    /* border:1px solid black; */\r\n    width:100%;\r\n}\r\n.service_block{\r\n    display:flex;\r\n    flex-direction: column;\r\n    /* max-width: 300px; */\r\n    width:25fr;\r\n    /* min-height: 200px; */\r\n    height:30fr;\r\n    border:1px solid #ddd;\r\n    border-radius: 10px;\r\n   color:black;\r\n   transition: transform .2s; /* Animation */\r\n  \r\n  \r\n}\r\na{\r\n    text-decoration: none;\r\n}\r\n.service_block:hover{\r\n    cursor: pointer;\r\n    transform: scale(1.2); \r\n    background-color: white;\r\n}\r\n.service_block_top{\r\n    display:flex;\r\n    font-weight: bold;\r\n    font-size: 20px;\r\n    align-items: center;\r\n    place-content: center;\r\n    border-bottom: 1px solid #ddd;\r\n    height:20%;\r\n    \r\n\r\n}\r\n.service_block_bottom{\r\n    display:flex;\r\n    height:80%;\r\n    width:95%;\r\n    margin-left: auto;\r\n    margin-right: auto;\r\n    \r\n    \r\n}\r\n.service_block_bottom_imgCon{\r\n    display:flex;\r\n    width:40%;\r\n    align-items: center;\r\n   \r\n    \r\n    \r\n    \r\n    \r\n}\r\n.service_block_bottom_imgCon_img{\r\n    display:flex;\r\n    \r\n    margin-left: auto;\r\n    margin-right: auto;\r\n    height:50%;\r\n    max-width:100%;\r\n    width:auto;\r\n   \r\n\r\n}\r\n.service_block_bottom_text{\r\n    display:flex;\r\n    width:55%;\r\n    font-weight: 500;\r\n    font-size: 14px;\r\n    align-items: center;\r\n    height:100%;\r\n    margin-left: auto;\r\n    \r\n   \r\n    \r\n}\r\n.service_loading{\r\n    display:flex;\r\n    width:100%;\r\n    height:20%;\r\n    margin-top: auto;\r\n    align-items: center;\r\n    place-content: center;\r\n    font-weight: bold;\r\n    font-size: 20px;\r\n\r\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".services{\r\n    display:flex;\r\n   margin-top: 50px;\r\n    width:100%;\r\n}\r\n.services_left{\r\n    display:flex;\r\n    width:20%;\r\n    height:100%;\r\n}\r\n.services_right{\r\n    display:flex;\r\n    flex-direction: column;\r\n    width:80%;\r\n    border:1px solid black;\r\n    height:100%;\r\n}\r\n.services_right_header{\r\n    display:flex;\r\n    width:100%;\r\n    /* border:1px solid black; */\r\n\r\n}\r\n.services_right_header_text{\r\n   padding:10px;\r\n    /* border:1px solid black; */\r\n\r\n}\r\n.service_grid_container{\r\n    display:grid;\r\n    grid-template: 25fr/ auto auto auto auto ;\r\n    /* grid-template-rows: 25fr 25fr 25fr 25fr ; */\r\n    grid-auto-columns: 1fr;\r\n    gap: 10px;\r\n    padding: 10px;\r\n    margin-left: auto;\r\n    margin-right: auto;\r\n    /* border:1px solid black; */\r\n    width:100%;\r\n}\r\n.service_block{\r\n    display:flex;\r\n    flex-direction: column;\r\n    /* max-width: 300px; */\r\n    width:25fr;\r\n    /* min-height: 200px; */\r\n    height:30fr;\r\n    border:1px solid #ddd;\r\n    border-radius: 10px;\r\n   color:black;\r\n   transition: transform .2s; /* Animation */\r\n  \r\n  \r\n}\r\na{\r\n    text-decoration: none;\r\n}\r\n.service_block:hover{\r\n    cursor: pointer;\r\n    transform: scale(1.2); \r\n    background-color: white;\r\n}\r\n.service_block_top{\r\n    display:flex;\r\n    font-weight: bold;\r\n    font-size: 20px;\r\n    align-items: center;\r\n    place-content: center;\r\n    border-bottom: 1px solid #ddd;\r\n    height:20%;\r\n    \r\n\r\n}\r\n.service_block_bottom{\r\n    display:flex;\r\n    height:80%;\r\n    width:95%;\r\n    margin-left: auto;\r\n    margin-right: auto;\r\n    \r\n    \r\n}\r\n.service_block_bottom_imgCon{\r\n    display:flex;\r\n    width:40%;\r\n    align-items: center;\r\n   \r\n    \r\n    \r\n    \r\n    \r\n}\r\n.service_block_bottom_imgCon_img{\r\n    display:flex;\r\n    \r\n    margin-left: auto;\r\n    margin-right: auto;\r\n    height:50%;\r\n    max-width:100%;\r\n    width:auto;\r\n   \r\n\r\n}\r\n.service_block_bottom_text{\r\n    display:flex;\r\n    width:55%;\r\n    font-weight: 500;\r\n    font-size: 14px;\r\n    align-items: center;\r\n    height:100%;\r\n    margin-left: auto;\r\n    \r\n   \r\n    \r\n}\r\n.service_loading{\r\n    display:flex;\r\n    width:100%;\r\n    height:20%;\r\n    margin-top: auto;\r\n    align-items: center;\r\n    place-content: center;\r\n    font-weight: bold;\r\n    font-size: 20px;\r\n\r\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

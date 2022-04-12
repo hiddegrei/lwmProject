@@ -12,8 +12,15 @@
     align-items: center;
     background-color: #1E90FF;
     border-bottom: 1px solid #ddd;
+    
 
 }
+.serviceSide_h>p{
+margin-left: 10px;
+}
+.serviceSide_h>p:hover{
+    cursor: pointer;
+    }
 .serviceSide_item_text{
 display:flex;
 margin-left: 5px;

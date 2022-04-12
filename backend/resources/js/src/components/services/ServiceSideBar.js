@@ -13,7 +13,7 @@ function ServiceSideBar({onclick}) {
     }
     return (
         <div className='serviceSide'>
-            <div className='serviceSide_h'><p>Categories</p></div>
+            <div className='serviceSide_h'><p onClick={()=>history.push('/services')}>Services</p></div>
             <div className='serviceSide_items'>
                 <div onClick={()=>handleClick("businesssupport")} className='serviceSide_item'><p className='serviceSide_item_text'>Business support</p></div>
                 <div onClick={()=>handleClick("facilities")} className='serviceSide_item'><p className='serviceSide_item_text'>Facilities</p></div>

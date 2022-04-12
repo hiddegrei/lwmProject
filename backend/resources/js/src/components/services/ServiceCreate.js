@@ -167,7 +167,7 @@ function Services(props) {
         http.post('/services/create', fData).then(res => {
             console.log(res)
         }).catch((err) => console.log(err));
-        history.push(`/services/${serviceType}`)
+        history.push(`/services`)
 
     }
     return (

@@ -15,6 +15,7 @@ function Services(props) {
         fetchService()
     }, [service])
     function fetchService() {
+        setData([])
         if (isEmpty(service)) {
             http.get(`/services`).then(res => {
                 console.log(res.data)
@@ -51,7 +52,7 @@ function Services(props) {
             </div>
             <div className="services_right">
                 <div className='services_right_header'>
-                {isEmpty(service)?<div>Popular items</div>:<div>{service.service}</div>}
+                {isEmpty(service)?<div className='services_right_header_text'>Popular items</div>:<div className='services_right_header_text'>{service.service}</div>}
                 </div>
                 
                 
