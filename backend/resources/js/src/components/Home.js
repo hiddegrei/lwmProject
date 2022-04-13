@@ -61,7 +61,7 @@ function Home(props) {
                 <Link to="/services/businesssupport">
                 <div className="home_firstBlock_bottom_grid_item">
                     <div className="home_firstBlock_bottom_grid_item_imgCon"><img src="/img/statutory.png" className="home_firstBlock_bottom_grid_item_imgCon_img" ></img></div>
-                    <div className="home_firstBlock_bottom_grid_item_text">SSP</div>
+                    <div className="home_firstBlock_bottom_grid_item_text">Statutory sick pay</div>
                
                 </div>
                 </Link>

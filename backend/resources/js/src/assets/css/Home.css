@@ -334,6 +334,7 @@ align-items: center;
     border-radius: 10px;
    color:black;
    background-color: white;
+   /* overflow-y: scroll; */
    
    
   
