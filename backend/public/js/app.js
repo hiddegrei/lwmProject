@@ -13289,9 +13289,9 @@ function Home(props) {
           value: input
         })]
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
       className: "home_firstBlock_bottom",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
         className: "home_firstBlock_bottom_grid",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Link, {
           to: "/todos",
@@ -13369,7 +13369,7 @@ function Home(props) {
             })]
           })
         })]
-      })
+      }), "f"]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
       className: "home_block2",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
@@ -20275,7 +20275,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n\n* {\n  margin: 0;\n}\n\nbody {\n  --twitter-color: #50b7f5;\n  --twitter-background: #e6ecf0;\n}\n.app {\n  display: flex;\n  flex-direction: column;\n  height: 100vh;\n\n  margin-left: auto;\n  margin-right: auto;\n  /* background-image: linear-gradient(to right, #1E90FF , #B0E0E6); */\n  \n  \n}\n.app_body{\n  display:flex;\n  width:80%;\n  margin-left: auto;\n  margin-right: auto;\n  height:100%;\n \n}\n.bold{\n  font-weight: bold;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\r\n\r\n* {\r\n  margin: 0;\r\n}\r\n\r\nbody {\r\n  --twitter-color: #50b7f5;\r\n  --twitter-background: #e6ecf0;\r\n}\r\n.app {\r\n  display: flex;\r\n  flex-direction: column;\r\n  height: 100vh;\r\n\r\n  margin-left: auto;\r\n  margin-right: auto;\r\n  /* background-image: linear-gradient(to right, #1E90FF , #B0E0E6); */\r\n  \r\n  \r\n}\r\n.app_body{\r\n  display:flex;\r\n  width:80%;\r\n  margin-left: auto;\r\n  margin-right: auto;\r\n  height:100%;\r\n \r\n}\r\n.bold{\r\n  font-weight: bold;\r\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -20491,7 +20491,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "body {\n  margin: 0;\n  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',\n    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',\n    sans-serif;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n}\n\ncode {\n  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',\n    monospace;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "body {\r\n  margin: 0;\r\n  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',\r\n    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',\r\n    sans-serif;\r\n  -webkit-font-smoothing: antialiased;\r\n  -moz-osx-font-smoothing: grayscale;\r\n}\r\n\r\ncode {\r\n  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',\r\n    monospace;\r\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
