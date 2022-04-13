@@ -18,9 +18,9 @@ function Services(props) {
     const [description, setDescription] = useState("");
     const [usersData, setUsersData] = useState([]);
     const [image, setImage] = useState();
-    const [questionTitle,setQuestionTitle]=useState("")
-    const [question,setQuestion]=useState(false);
-    
+    const [questionTitle, setQuestionTitle] = useState("")
+    const [question, setQuestion] = useState(false);
+
 
     const [dropdowns, setDropDowns] = useState([])
     const [questions, setQuestions] = useState([])
@@ -56,7 +56,7 @@ function Services(props) {
         //    setDropDowns(oldArray => [...oldArray,blankOption]);
 
         let newArr = [...dropdowns];
-        newArr.splice(newArr.length-1,1)
+        newArr.splice(newArr.length - 1, 1)
         setDropDowns(newArr)
     }
 
@@ -83,7 +83,7 @@ function Services(props) {
     }
     function removeOption(index) {
         let newArr = [...dropdowns];
-        newArr[index].options.splice(newArr[index].options.length-1,1);
+        newArr[index].options.splice(newArr[index].options.length - 1, 1);
         setDropDowns(newArr)
 
     }
@@ -97,10 +97,10 @@ function Services(props) {
     //
     //questions 
     function addQuestion() {
-       
+
 
         let newArr = [...questions];
-        newArr.push({ title: "default title"});
+        newArr.push({ title: "default title" });
         console.log(newArr)
         setQuestions(newArr)
     }
@@ -110,7 +110,7 @@ function Services(props) {
         //    setDropDowns(oldArray => [...oldArray,blankOption]);
 
         let newArr = [...questions];
-        newArr.splice(newArr.length-1,1)
+        newArr.splice(newArr.length - 1, 1)
         setQuestions(newArr)
     }
 
@@ -122,7 +122,7 @@ function Services(props) {
 
     }
 
-    
+
 
 
 
@@ -148,8 +148,8 @@ function Services(props) {
             fData.append('needs_approval_from', needsApprovalFrom);
 
         }
-        if (questions.length>=1) {
-            
+        if (questions.length >= 1) {
+
             fData.append('questions', JSON.stringify(questions));
 
         }
@@ -238,10 +238,10 @@ function Services(props) {
 
                     </div>
                     <div className="create_add_dropdown_container_items ">
-                    <div onClick={addQuestion} className="create_add_dropdown_container_item btn btn-primary bold hoverr"> add question +</div>
-                    {questions.length>=1&&<div onClick={removeQuestion} className="create_add_dropdown_container_item btn btn-primary bold hoverr"> remove question -</div>}
-                    
-                       
+                        <div onClick={addQuestion} className="create_add_dropdown_container_item btn btn-primary bold hoverr"> add question +</div>
+                        {questions.length >= 1 && <div onClick={removeQuestion} className="create_add_dropdown_container_item btn btn-primary bold hoverr"> remove question -</div>}
+
+
                     </div>
 
 
@@ -251,8 +251,8 @@ function Services(props) {
 
                             <input type="text" value={doc.title} onChange={(e) => { updateQuestionTitle(index, e.target.value) }} className="create_add_dropdown_container_item " placeholder='title question'></input>
 
-                           
-                           
+
+
 
 
 
@@ -295,10 +295,10 @@ function Services(props) {
 
 
                     <div className="create_add_dropdown_container_items ">
-                    <div onClick={addDropDown} className="create_add_dropdown_container_item btn btn-primary bold hoverr"> add dropdown +</div>
-                    {dropdowns.length>=1&&<div onClick={removeDropDown} className="create_add_dropdown_container_item btn btn-primary bold hoverr"> remove dropdown -</div>}
-                    
-                       
+                        <div onClick={addDropDown} className="create_add_dropdown_container_item btn btn-primary bold hoverr"> add dropdown +</div>
+                        {dropdowns.length >= 1 && <div onClick={removeDropDown} className="create_add_dropdown_container_item btn btn-primary bold hoverr"> remove dropdown -</div>}
+
+
                     </div>
 
 
@@ -308,14 +308,14 @@ function Services(props) {
 
                             <input type="text" value={doc.title} onChange={(e) => { updateDropDownTitle(index, e.target.value) }} className="create_add_dropdown_container_item " placeholder='title dropdown'></input>
 
-                            <div  className="create_add_dropdown_container_item bold">input options</div>
+                            <div className="create_add_dropdown_container_item bold">input options</div>
                             {doc.options.map((option, index2) => (
                                 <input type="text" value={option} onChange={(e) => { updateDropDownOption(index, index2, e.target.value) }} className="create_add_dropdown_container_item " placeholder='option'></input>
 
                             ))}
-                            <div onClick={() => addOption(index)}  className="create_add_dropdown_container_item  btn btn-primary bold hoverr">add option</div>
-                            {doc.options.length>2&& <div onClick={() => removeOption(index)}  className="create_add_dropdown_container_item  btn btn-primary bold hoverr">remove option</div>}
-                           
+                            <div onClick={() => addOption(index)} className="create_add_dropdown_container_item  btn btn-primary bold hoverr">add option</div>
+                            {doc.options.length > 2 && <div onClick={() => removeOption(index)} className="create_add_dropdown_container_item  btn btn-primary bold hoverr">remove option</div>}
+
 
 
 

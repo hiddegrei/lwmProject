@@ -6,13 +6,13 @@ import { useStateValue } from "../../Stateprovider";
 
 function Services(props) {
     const [{ user }, dispatch] = useStateValue();
-    const history=useHistory()
+    const history = useHistory()
     const serviceid = useParams();
     const [data, setData] = useState([]);
     const [usersData, setUsersData] = useState([]);
     const [answer, setAnswer] = useState();
-    const [questionsAnswers,setQuestionsAnswers]=useState([]);
-    const [received,setReceived]=useState(false)
+    const [questionsAnswers, setQuestionsAnswers] = useState([]);
+    const [received, setReceived] = useState(false)
 
     useLayoutEffect(() => {
 
@@ -25,11 +25,11 @@ function Services(props) {
         http.get(`/services/${serviceid.servicetype}/${serviceid.serviceid}`).then(res => {
 
             setData(res.data)
-            if(res.data.service.questions!=undefined){
+            if (res.data.service.questions != undefined) {
                 setQuestionsAnswers(res.data.service.questions)
 
             }
-           
+
         })
     }
     useEffect(() => {
@@ -45,7 +45,7 @@ function Services(props) {
 
     }, [])
 
-    useEffect(()=>{
+    useEffect(() => {
         // if(received){
         //     let arr=[]
         //     data?.service?.questions.map((doc,index)=>{
@@ -55,46 +55,46 @@ function Services(props) {
         //     setQuestionsAnswers(arr)
 
         // }
-    },[received])
+    }, [received])
 
-    function submitRequest(){
+    function submitRequest() {
         // let serviceType = document.getElementById("serviceType").value;
 
         const fData = new FormData();
-        fData.append('opened_by',user?.id)
-        if(questionsAnswers.length>=1){
+        fData.append('opened_by', user?.id)
+        if (questionsAnswers.length >= 1) {
             fData.append('questions', JSON.stringify(questionsAnswers));
 
         }
-        fData.append('title',data?.service?.title)
-        fData.append('image',data?.service?.image)
-        fData.append('description',data?.service?.description)
-        if(data?.service?.dropdowns.length>=1){
-            
-            let dropdowns=[]
-            for(let i=0;i<data?.service?.dropdowns.length;i++){
+        fData.append('title', data?.service?.title)
+        fData.append('image', data?.service?.image)
+        fData.append('description', data?.service?.description)
+        if (data?.service?.dropdowns.length >= 1) {
+
+            let dropdowns = []
+            for (let i = 0; i < data?.service?.dropdowns.length; i++) {
                 console.log(document.getElementById(`${data?.service?.dropdowns[i].title}`))
-                dropdowns.push({title:data?.service?.dropdowns[i].title,answer:document.getElementById(`${data?.service?.dropdowns[i].title}`).value})
+                dropdowns.push({ title: data?.service?.dropdowns[i].title, answer: document.getElementById(`${data?.service?.dropdowns[i].title}`).value })
 
             }
             fData.append('dropdowns', JSON.stringify(dropdowns));
 
         }
-        if(data?.checks[0]?.needs_approval_from){
-            fData.append('needs_approval_from',data?.checks[0]?.needs_approval_from)
+        if (data?.checks[0]?.needs_approval_from) {
+            fData.append('needs_approval_from', data?.checks[0]?.needs_approval_from)
         }
-        if(data?.checks[0]?.opened_for){
-            fData.append('opened_for',document.getElementById("opened_for").value)
+        if (data?.checks[0]?.opened_for) {
+            fData.append('opened_for', document.getElementById("opened_for").value)
         }
 
-           
+
 
         http.post('/submitservicerequest', fData).then(res => {
             console.log(res)
             history.push("/services")
         }).catch((err) => console.log(err));
 
-        
+
 
     }
     function updateQuestionAnswer(index, value) {
@@ -131,14 +131,14 @@ function Services(props) {
                             </div>
                         </div>
                     ))}
-                    {questionsAnswers.map((doc,index) => (
+                    {questionsAnswers.map((doc, index) => (
                         <div className='sshow_block'>
-                        <div className='sshow_checks_item'>
-                            <div className='sshow_checks_item_h'>{doc.title}</div>
-                            <input type="text" value={doc.answer} onChange={(e) => updateQuestionAnswer(index,e.target.value)} className='sshow_checks_item_p'></input>
+                            <div className='sshow_checks_item'>
+                                <div className='sshow_checks_item_h'>{doc.title}</div>
+                                <input type="text" value={doc.answer} onChange={(e) => updateQuestionAnswer(index, e.target.value)} className='sshow_checks_item_p'></input>
 
+                            </div>
                         </div>
-                    </div>
                     ))}
                     {(data?.checks != undefined && data?.checks[0]?.needs_approval_from) &&
 
@@ -152,7 +152,7 @@ function Services(props) {
 
 
                     }
-                    {(data?.checks != undefined&&data?.checks[0]?.opened_by===1) &&
+                    {(data?.checks != undefined && data?.checks[0]?.opened_by === 1) &&
 
                         <div className='sshow_block'>
                             <div className='sshow_checks_item'>
@@ -164,7 +164,7 @@ function Services(props) {
 
 
                     }
-                    {(data?.checks != undefined&&data?.checks[0]?.opened_for===1) &&
+                    {(data?.checks != undefined && data?.checks[0]?.opened_for === 1) &&
 
                         <div className='sshow_block'>
                             <div className='sshow_dropdowns_item'>
@@ -195,7 +195,7 @@ function Services(props) {
 
 
                     } */}
-                    
+
 
 
 
@@ -203,9 +203,9 @@ function Services(props) {
 
 
                 </div>
-                
+
             </div>
-            
+
 
 
 

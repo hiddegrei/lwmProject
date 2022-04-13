@@ -52,39 +52,39 @@ function Services(props) {
             </div>
             <div className="services_right">
                 <div className='services_right_header'>
-                {isEmpty(service)?<div className='services_right_header_text'>Popular items</div>:<div className='services_right_header_text'>{service.service}</div>}
+                    {isEmpty(service) ? <div className='services_right_header_text'>Popular items</div> : <div className='services_right_header_text'>{service.service}</div>}
                 </div>
-                
-                
-                    {loading ? <div className="service_loading">Loading...</div> :
-                        <div className="service_grid_container">
-                            {data.map((doc, index) => (
 
-                                <div key={index} onClick={() => history.push(`/services/${doc.servicetype}/${doc.id}`)} className="service_block">
-                                    <div className="service_block_top">{doc.title} </div>
 
-                                    <div className="service_block_bottom">
-                                        <div className="service_block_bottom_imgCon">
-                                            {doc.image!=""&&<img className="service_block_bottom_imgCon_img" src={`/storage/${doc.image}`}></img>}
-                                            
-                                        </div>
-                                        <div className="service_block_bottom_text">{doc.description} </div>
+                {loading ? <div className="service_loading">Loading...</div> :
+                    <div className="service_grid_container">
+                        {data.map((doc, index) => (
+
+                            <div key={index} onClick={() => history.push(`/services/${doc.servicetype}/${doc.id}`)} className="service_block">
+                                <div className="service_block_top">{doc.title} </div>
+
+                                <div className="service_block_bottom">
+                                    <div className="service_block_bottom_imgCon">
+                                        {doc.image != "" && <img className="service_block_bottom_imgCon_img" src={`/storage/${doc.image}`}></img>}
 
                                     </div>
-
-
+                                    <div className="service_block_bottom_text">{doc.description} </div>
 
                                 </div>
-                            ))}
-                        </div>
-                    }
+
+
+
+                            </div>
+                        ))}
+                    </div>
+                }
 
 
 
 
 
 
-                
+
             </div>
 
 
