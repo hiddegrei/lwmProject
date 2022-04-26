@@ -46,8 +46,8 @@ function Services(props) {
         <div className='services'>
             <div className="services_left">
                 <ServiceSideBar onclick={() => {
-                    fetchService()
                     setLoading(true)
+                    fetchService()
                 }} />
             </div>
             <div className="services_right">

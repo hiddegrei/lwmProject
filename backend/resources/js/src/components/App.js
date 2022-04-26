@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./Home";
 import Navbar from "./Navbar";
 import Services from "./services/Services";
+import ServicesBeta from "./services/ServicesBeta";
 import ServiceCreate from "./services/ServiceCreate";
 import ServiceShow from "./services/ServiceShow";
 import Todos from "./todos/Todos";
@@ -76,6 +77,15 @@ function App() {
             <Navbar />
             <div className='app_body'>
               <Services />
+
+            </div>
+
+          </Route>
+
+          <Route path="/servicebeta">
+            <Navbar />
+            <div className='app_body'>
+              <ServicesBeta />
 
             </div>
 
