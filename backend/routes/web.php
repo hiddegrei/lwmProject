@@ -66,6 +66,7 @@ Route::get('/api/services/hrpayroll/{serviceid}',[ServiceController::class, 'sho
 Route::get('/api/services/itservices/{serviceid}',[ServiceController::class, 'show']);
 Route::get('/api/services/masterdata/{serviceid}',[ServiceController::class, 'show']);
 Route::get('/api/services/{servicetype}',[ServiceController::class, 'index']);
+Route::post('/api/services/{query}',[ServiceController::class, 'search']);
 
 
 Route::get('/api/user/auth',[UserController::class, 'authUser']);

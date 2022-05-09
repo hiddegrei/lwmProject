@@ -14624,14 +14624,20 @@ function Services(props) {
       data = _useState2[0],
       setData = _useState2[1];
 
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(true),
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
       _useState4 = _slicedToArray(_useState3, 2),
-      loading = _useState4[0],
-      setLoading = _useState4[1];
+      results = _useState4[0],
+      setResults = _useState4[1];
+
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(true),
+      _useState6 = _slicedToArray(_useState5, 2),
+      loading = _useState6[0],
+      setLoading = _useState6[1];
 
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     console.log("hoi", service);
     fetchService();
+    search('valentine');
   }, [service]);
 
   function fetchService() {
@@ -14662,6 +14668,19 @@ function Services(props) {
     return JSON.stringify(obj) === JSON.stringify({});
   }
 
+  function search(query) {
+    _axios_http__WEBPACK_IMPORTED_MODULE_2__["default"].post("/services/".concat(query)).then(function (res) {
+      // for (let i = 0; i < res.data.length; i++) {
+      //     setResults([...results, res.data[i].title]);
+      //     // console.log(res.data[i].title);
+      // }
+      setResults(res.data);
+    })["catch"](function (err) {
+      return console.log(err);
+    });
+    return results;
+  }
+
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
     className: "services",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
@@ -14679,9 +14698,13 @@ function Services(props) {
         children: isEmpty(service) ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
           className: "services_right_header_text",
           children: "Popular items"
-        }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+        }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
           className: "services_right_header_text",
-          children: service.service
+          children: [service.service, " ", results.map(function (doc) {
+            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+              children: doc.title
+            });
+          }), " "]
         })
       }), loading ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
         className: "service_loading",
