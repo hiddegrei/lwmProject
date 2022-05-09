@@ -30,7 +30,7 @@
     display:grid;
     grid-template: 25fr/ auto auto auto auto ;
     /* grid-template-rows: 25fr 25fr 25fr 25fr ; */
-    grid-auto-columns: 1fr;
+    grid-auto-columns: 25fr;
     gap: 10px;
     padding: 10px;
     margin-left: auto;
@@ -44,7 +44,7 @@
     /* max-width: 300px; */
     width:25fr;
     /* min-height: 200px; */
-    height:30fr;
+    height:fit-content;
     border:1px solid #ddd;
     border-radius: 10px;
    color:black;
@@ -75,6 +75,7 @@ a{
     display:flex;
     height:80%;
     width:95%;
+    min-height: 100px;
     margin-left: auto;
     margin-right: auto;
     

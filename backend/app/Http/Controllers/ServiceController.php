@@ -120,7 +120,7 @@ class ServiceController extends Controller
         // ]);
         
        
-         return $data ;
+         return $data;
  
     }
 

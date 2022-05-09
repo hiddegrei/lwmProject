@@ -1,7 +1,7 @@
 import React, {useLayoutEffect, useEffect, useState } from 'react';
 import { useParams, useHistory } from "react-router-dom";
 import "../../assets/css/ServicesBeta.css";
-import "../../assets/css/Services.css";
+
 import http from "../../axios/http";
 import ServiceSideBar from './ServiceSideBar';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
@@ -14,8 +14,9 @@ function ServicesBeta(props) {
     const [loading, setLoading] = useState(true);
     const [topText,setTopText]=useState(["What are you looking for?"]);
     const [qs,setQs]=useState([
-        [["Do you want to order lunch"]],
-        [["Do you need hardware for your office space"],["Do you need something for your laptop?", "Do you need something for your phone?"]]
+        {id:"lunch",data:[["Do you want to order lunch"]]},
+        {id:"laptop",data:[["Do you need hardware for your office space"],["Do you need something for your laptop?", "Do you need something for your phone?"]]},
+        {id:"visitor",data:[["Register a visitor"]]}
     ])
     const [curQsIndex,setCurQsIndex]=useState()
     const [step,setStep]=useState(1)
@@ -30,7 +31,7 @@ function ServicesBeta(props) {
     function firstQs(){
         let arr=[]
         qs.map((doc)=>{
-            arr.push(doc[0][0])
+            arr.push(doc.data[0][0])
         })
        
         setCurQs(arr)
@@ -44,7 +45,7 @@ function ServicesBeta(props) {
         if(step2===1){
             firstQs()
         }else{
-            setCurQs(qs[curQsIndex][step2])
+            setCurQs(qs[curQsIndex].data[step2])
 
         }
         
@@ -72,13 +73,15 @@ function ServicesBeta(props) {
     }
 
     function updateQs(index){
-        if(qs[index].length>=step+1){
-            setCurQs(qs[index][step])
+        setCurQsIndex(index)
+        if(qs[index].data.length>=step+1){
+            setCurQs(qs[index].data[step])
             setStep(step+1)
-            setCurQsIndex(index)
+            // setCurQsIndex(index)
         }else{
             console.log("hi")
-            fetchService("laptop")
+            fetchService(qs[index].id)
+            console.log(index)
         }
         
 
@@ -103,18 +106,18 @@ function ServicesBeta(props) {
                 </div>
             </div></div>:
 
-<div className="service_grid_container">
+<div className="sb_grid_container">
 {data.map((doc, index) => (
 
-    <div key={index} onClick={() => history.push(`/services/${doc.servicetype}/${doc.id}`)} className="service_block">
-        <div className="service_block_top">{doc.title} </div>
+    <div key={index} onClick={() => history.push(`/services/${doc.servicetype}/${doc.id}`)} className="sb_block">
+        <div className="sb_block_top">{doc.title} </div>
 
-        <div className="service_block_bottom">
-            <div className="service_block_bottom_imgCon">
-                {doc.image != "" && <img className="service_block_bottom_imgCon_img" src={`/storage/${doc.image}`}></img>}
+        <div className="sb_block_bottom">
+            <div className="sb_block_bottom_imgCon">
+                {doc.image != "" && <img className="sb_block_bottom_imgCon_img" src={`/storage/${doc.image}`}></img>}
 
             </div>
-            <div className="service_block_bottom_text">{doc.description} </div>
+            <div className="sb_block_bottom_text">{doc.description} </div>
 
         </div>
 
