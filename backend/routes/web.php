@@ -67,6 +67,8 @@ Route::get('/api/services/itservices/{serviceid}',[ServiceController::class, 'sh
 Route::get('/api/services/masterdata/{serviceid}',[ServiceController::class, 'show']);
 Route::get('/api/services/{servicetype}',[ServiceController::class, 'index']);
 
+Route::get('/api/services/search/{key}',[ServiceController::class, 'search']);
+
 
 Route::get('/api/user/auth',[UserController::class, 'authUser']);
 Route::get('/api/allusers',[UserController::class, 'allUsers']);

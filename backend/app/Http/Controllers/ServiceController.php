@@ -81,6 +81,7 @@ class ServiceController extends Controller
 
        
             $item->checks()->create($data2);
+            $item->serviceRoles()->create([]);
 
             
        
@@ -111,15 +112,26 @@ class ServiceController extends Controller
             'service'=>$serviceid,
             'checks'=> $serviceChecks
         ];
-        //  dd($data["checks"][0]->needs_approval_from);
+        //   dd($data["checks"][0]->needs_approval_from);
          $data["checks"][0]->needs_approval_from_name=User::findOrFail(intval($data["checks"][0]->needs_approval_from));
 
-        $serviceid->serviceTrack()->update([
-            'count'=> $serviceid->serviceTrack()->get('count')[0]->count +1
-        ]);
+        // $serviceid->serviceTrack()->update([
+        //     'count'=> $serviceid->serviceTrack()->get('count')[0]->count +1
+        // ]);
         
        
          return $data ;
  
+    }
+
+    public function search($key)
+    {
+        $service = Service::query()
+   ->where('title', 'LIKE', "%{$key}%") 
+   ->orWhere('description', 'LIKE', "%{$key}%") 
+   ->get();
+
+   return $service;
+
     }
 }
