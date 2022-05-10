@@ -127,6 +127,7 @@ class ServiceController extends Controller
         $service = Service::query()
             ->where('title', 'LIKE', "%{$query}%")
             ->orWhere('description', 'LIKE', "%{$query}%")
+            ->limit(5)
             ->get();
 
         return $service;

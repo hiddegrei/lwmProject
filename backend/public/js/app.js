@@ -13496,6 +13496,11 @@ function Navbar(props) {
       results = _useState4[0],
       setResults = _useState4[1];
 
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)("Search"),
+      _useState6 = _slicedToArray(_useState5, 2),
+      query = _useState6[0],
+      setQuery = _useState6[1];
+
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useLayoutEffect)(function () {
     fetchUser();
   }, []);
@@ -13520,16 +13525,13 @@ function Navbar(props) {
     return results;
   }
 
-  function changeHandler() {
-    var query = document.getElementById('query').value;
-
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     if (query.length <= 0) {
       setResults([]);
     } else if (query.length >= 2) {
       search(query);
     }
-  }
-
+  }, [query]);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
     className: "navbar",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
@@ -13695,11 +13697,12 @@ function Navbar(props) {
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
         className: "dropdown",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
-          placeholder: "What are you looking for?",
+          size: "7",
+          value: query,
           type: "search",
           id: "query",
-          onChange: function onChange() {
-            return changeHandler();
+          onChange: function onChange(e) {
+            return setQuery(e.target.value);
           }
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
           className: "query-results",
