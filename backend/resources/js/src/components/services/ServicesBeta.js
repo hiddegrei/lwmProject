@@ -16,7 +16,8 @@ function ServicesBeta(props) {
     const [qs, setQs] = useState([
         { id: "lunch", data: [["Order lunch"]] },
         { id: "laptop", data: [["Hardware for your office space"], ["Something for your laptop?", "Something for your phone?"]] },
-        { id: "visitor", data: [["Register a visitor"]] }
+        { id: "visitor", data: [["Register a visitor"]] },
+        { id: "issue", data: [["Report an issue"]] }
     ])
     const [curQsIndex, setCurQsIndex] = useState()
     const [step, setStep] = useState(1)
