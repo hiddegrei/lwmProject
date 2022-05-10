@@ -189,17 +189,12 @@ function Services(props) {
 
                     }
                     {/* {(data?.checks != undefined&&data?.checks[0]?.question_title) &&
-
-
                         <div className='sshow_block'>
                             <div className='sshow_checks_item'>
                                 <div className='sshow_checks_item_h'>{data?.checks[0]?.question_title}</div>
                                 <input type="text" value={answer} onChange={(e) => setAnswer(e.target.value)} className='sshow_checks_item_p'></input>
-
                             </div>
                         </div>
-
-
                     } */}
 
 

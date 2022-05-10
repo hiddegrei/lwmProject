@@ -18,10 +18,10 @@ class DatabaseSeeder extends Seeder
            
             // TodoSeeder::class,
             UserSeeder::class,
-            // ServiceSeeder::class,
-            // ServiceCheckSeeder::class,
-            // ServiceTrackSeeder::class,
-            
+            ServiceSeeder::class,
+            ServiceCheckSeeder::class,
+            ServiceTrackSeeder::class,
+
         ]);
     }
 }
