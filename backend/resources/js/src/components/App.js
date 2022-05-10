@@ -4,8 +4,10 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./Home";
 import Navbar from "./Navbar";
 import Services from "./services/Services";
+import ServicesBeta from "./services/ServicesBeta";
 import ServiceCreate from "./services/ServiceCreate";
 import ServiceShow from "./services/ServiceShow";
+import ServiceEdit from "./services/ServiceEdit";
 import Todos from "./todos/Todos";
 import { useStateValue } from "../Stateprovider";
 import http from "../axios/http";
@@ -50,6 +52,15 @@ function App() {
 
           </Route>
 
+          <Route path="/service/edit/:service">
+            <Navbar />
+            <div className='app_body'>
+              <ServiceEdit />
+
+            </div>
+
+          </Route>
+
 
 
           <Route path="/service/create">
@@ -76,6 +87,15 @@ function App() {
             <Navbar />
             <div className='app_body'>
               <Services />
+
+            </div>
+
+          </Route>
+
+          <Route path="/servicebeta">
+            <Navbar />
+            <div className='app_body'>
+              <ServicesBeta />
 
             </div>
 

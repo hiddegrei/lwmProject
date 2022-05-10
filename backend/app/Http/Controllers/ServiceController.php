@@ -69,7 +69,7 @@ class ServiceController extends Controller
             $item = Service::create(array_merge($data, ['image' => $imagePath]));
         } else {
 
-            $item = Service::create($newData);
+            $item = Service::create($data);
 
         }
 
@@ -80,8 +80,9 @@ class ServiceController extends Controller
         //     $image->save();
 
 
-        $item->checks()->create($data2);
-
+       
+            $item->checks()->create($data2);
+            
 
         $item->serviceTrack()->create([
             'service_id' => $item->id,
@@ -109,18 +110,48 @@ class ServiceController extends Controller
             'service' => $serviceid,
             'checks' => $serviceChecks
         ];
-        //  dd($data["checks"][0]->needs_approval_from);
-        $data["checks"][0]->needs_approval_from_name = User::findOrFail(intval($data["checks"][0]->needs_approval_from));
+        //   dd($data["checks"][0]->needs_approval_from);
+         $data["checks"][0]->needs_approval_from_name=User::findOrFail(intval($data["checks"][0]->needs_approval_from));
 
-        $serviceid->serviceTrack()->update([
-            'count' => $serviceid->serviceTrack()->get('count')[0]->count + 1
-        ]);
+        // $serviceid->serviceTrack()->update([
+        //     'count'=> $serviceid->serviceTrack()->get('count')[0]->count +1
+        // ]);
+        
+       
+         return $data;
+ 
+    }
 
-
-        return $data;
+    public function edit(Service $service)
+    {
+        return $service;
 
     }
 
+    public function update(Service $service)
+    {
+        $data = request()->validate([
+            'title'=> '',
+            'description'=> '',
+
+           
+           
+
+        ]);
+        $service->update($data);
+        
+    }
+
+    public function searchKey($key)
+    {
+        $service = Service::query()
+   ->where('title', 'LIKE', "%{$key}%") 
+   ->orWhere('description', 'LIKE', "%{$key}%") 
+   ->get();
+
+   return $service;
+
+    }
 
     public function search($query)
     {
@@ -136,5 +167,4 @@ class ServiceController extends Controller
 //        $services = Service::search('valen')->get();
 //        return $services;
     }
-
 }

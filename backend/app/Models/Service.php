@@ -41,5 +41,4 @@ class Service extends Model
             'title' => $this->title,
         ];
     }
-
 }
