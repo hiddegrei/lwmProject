@@ -21,7 +21,7 @@ class ServiceController extends Controller
 
         $data = Service::where("servicetype", $servicetype)->orderBy('created_at', 'desc')->get();
 
-
+dd($data);
         return $data;
 
     }
