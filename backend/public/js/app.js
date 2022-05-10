@@ -13482,6 +13482,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
 function Navbar(props) {
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
       _useState2 = _slicedToArray(_useState, 2),
@@ -13489,6 +13490,12 @@ function Navbar(props) {
       setUser = _useState2[1];
 
   var history = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_4__.useHistory)();
+
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+      _useState4 = _slicedToArray(_useState3, 2),
+      results = _useState4[0],
+      setResults = _useState4[1];
+
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useLayoutEffect)(function () {
     fetchUser();
   }, []);
@@ -13502,6 +13509,25 @@ function Navbar(props) {
   function logout() {
     _axios_http__WEBPACK_IMPORTED_MODULE_2__["default"].post('/user/logout').then(function (res) {});
     location.reload();
+  }
+
+  function search(query) {
+    _axios_http__WEBPACK_IMPORTED_MODULE_2__["default"].post("/services/".concat(query)).then(function (res) {
+      setResults(res.data);
+    })["catch"](function (err) {
+      return console.log(err);
+    });
+    return results;
+  }
+
+  function changeHandler() {
+    var query = document.getElementById('query').value;
+
+    if (query.length <= 0) {
+      setResults([]);
+    } else if (query.length >= 2) {
+      search(query);
+    }
   }
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
@@ -13585,7 +13611,7 @@ function Navbar(props) {
             children: "Home office"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Link, {
             to: "/services/hrpayroll",
-            children: "HR  Payroll"
+            children: "HR Payroll"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Link, {
             to: "/services/itservices",
             children: "IT services"
@@ -13618,7 +13644,7 @@ function Navbar(props) {
             children: "Home office"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Link, {
             to: "#",
-            children: "HR  Payroll"
+            children: "HR Payroll"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Link, {
             to: "#",
             children: "IT services"
@@ -13666,6 +13692,29 @@ function Navbar(props) {
             children: "You have no quick guides"
           })
         })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        className: "dropdown",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+          placeholder: "What are you looking for?",
+          type: "search",
+          id: "query",
+          onChange: function onChange() {
+            return changeHandler();
+          }
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          className: "query-results",
+          children: [" ", results.map(function (doc) {
+            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
+                href: "/services/".concat(doc.servicetype, "/").concat(doc.id),
+                children: doc.title
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
+                src: doc.image,
+                className: "query-image"
+              }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("br", {})]
+            });
+          })]
+        })]
       })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
       className: "navbar_user",
@@ -13673,7 +13722,7 @@ function Navbar(props) {
         className: "dropdown",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("button", {
           className: "dropbtn navbar-item px-4 text-decoration-none navHover",
-          children: ["  hi , ", user === null || user === void 0 ? void 0 : user.name]
+          children: [" hi , ", user === null || user === void 0 ? void 0 : user.name]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
           className: "dropdown-content",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
@@ -14624,20 +14673,14 @@ function Services(props) {
       data = _useState2[0],
       setData = _useState2[1];
 
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(true),
       _useState4 = _slicedToArray(_useState3, 2),
-      results = _useState4[0],
-      setResults = _useState4[1];
-
-  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(true),
-      _useState6 = _slicedToArray(_useState5, 2),
-      loading = _useState6[0],
-      setLoading = _useState6[1];
+      loading = _useState4[0],
+      setLoading = _useState4[1];
 
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     console.log("hoi", service);
     fetchService();
-    search('valentine');
   }, [service]);
 
   function fetchService() {
@@ -14668,19 +14711,6 @@ function Services(props) {
     return JSON.stringify(obj) === JSON.stringify({});
   }
 
-  function search(query) {
-    _axios_http__WEBPACK_IMPORTED_MODULE_2__["default"].post("/services/".concat(query)).then(function (res) {
-      // for (let i = 0; i < res.data.length; i++) {
-      //     setResults([...results, res.data[i].title]);
-      //     // console.log(res.data[i].title);
-      // }
-      setResults(res.data);
-    })["catch"](function (err) {
-      return console.log(err);
-    });
-    return results;
-  }
-
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
     className: "services",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
@@ -14698,13 +14728,9 @@ function Services(props) {
         children: isEmpty(service) ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
           className: "services_right_header_text",
           children: "Popular items"
-        }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+        }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
           className: "services_right_header_text",
-          children: [service.service, " ", results.map(function (doc) {
-            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-              children: doc.title
-            });
-          }), " "]
+          children: service.service
         })
       }), loading ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
         className: "service_loading",
@@ -20346,7 +20372,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".navbar {\r\n    display: flex;\r\n    height: -webkit-fit-content;\r\n    height: -moz-fit-content;\r\n    height: fit-content;\r\n    width: 100%;\r\n    position: -webkit-sticky;\r\n    position: sticky;\r\n    background-color: #00385A;\r\n    color: white;\r\n    top:0;\r\n    \r\n   \r\n    /* margin-bottom: 50px; */\r\n}\r\n.navbar_brand{\r\n    display:flex;\r\nwidth:30%;\r\n\r\nalign-items: center left;\r\n\r\n\r\n\r\n}\r\n.navbar-item_img{\r\n    display:flex;\r\n    max-height: 90%;\r\n    width:auto;\r\n}\r\n.navbar_menu{\r\n    display:flex;\r\nwidth:55%;\r\nalign-items: center;\r\njustify-content: space-between;\r\n\r\n\r\n}\r\n.navbar_user{\r\ndisplay:flex;\r\nwidth:15%;\r\n\r\nalign-items: center;\r\nplace-content: center;\r\n}\r\n\r\n.dropbtn {\r\n    /* background-color: #04AA6D; */\r\n    color: white;\r\n    /* padding: 16px;\r\n   font-size: 16px; */\r\n    border: none;\r\n    background-color: #00385A;\r\n    font-weight: bold;\r\n}\r\n\r\n.dropdown {\r\n    position: relative;\r\n    display: inline-block;\r\n\r\n\r\n}\r\n\r\n.dropdown-content {\r\n    display: none;\r\n    position: absolute;\r\n    background-color: #f1f1f1;\r\n    min-width: 160px;\r\n    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);\r\n    z-index: 1;\r\n    font-weight: 600;\r\n    \r\n}\r\n\r\n.dropdown-content a {\r\n    color: black;\r\n    padding: 12px 16px;\r\n    text-decoration: none;\r\n    display: block;\r\n}\r\n\r\n.dropdown-content a:hover {\r\n    background-color: #ddd;\r\n}\r\n\r\n.dropdown:hover .dropdown-content {\r\n    display: block;\r\n}\r\n\r\n.dropdown:hover .dropbtn {\r\n    /* background-color: #3e8e41; */\r\n}\r\n\r\n#americanFlag {\r\n    width: 5%;\r\n}\r\n\r\n.navHover:hover {\r\n    color: orange !important;\r\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".navbar {\n    display: flex;\n    height: -webkit-fit-content;\n    height: -moz-fit-content;\n    height: fit-content;\n    width: 100%;\n    position: -webkit-sticky;\n    position: sticky;\n    background-color: #00385A;\n    color: white;\n    top:0;\n\n\n    /* margin-bottom: 50px; */\n}\n.navbar_brand{\n    display:flex;\nwidth:30%;\n\nalign-items: center left;\n\n\n\n}\n.navbar-item_img{\n    display:flex;\n    max-height: 90%;\n    width:auto;\n}\n.navbar_menu{\n    display:flex;\nwidth:55%;\nalign-items: center;\njustify-content: space-between;\n\n\n}\n.navbar_user{\ndisplay:flex;\nwidth:15%;\n\nalign-items: center;\nplace-content: center;\n}\n\n.dropbtn {\n    /* background-color: #04AA6D; */\n    color: white;\n    /* padding: 16px;\n   font-size: 16px; */\n    border: none;\n    background-color: #00385A;\n    font-weight: bold;\n}\n\n.dropdown {\n    position: relative;\n    display: inline-block;\n\n\n}\n\n.dropdown-content {\n    display: none;\n    position: absolute;\n    background-color: #f1f1f1;\n    min-width: 160px;\n    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);\n    z-index: 1;\n    font-weight: 600;\n\n}\n\n.dropdown-content a {\n    color: black;\n    padding: 12px 16px;\n    text-decoration: none;\n    display: block;\n}\n\n.dropdown-content a:hover {\n    background-color: #ddd;\n}\n\n.dropdown:hover .dropdown-content {\n    display: block;\n}\n\n.dropdown:hover .dropbtn {\n    /* background-color: #3e8e41; */\n}\n\n.query-results {\n    position: absolute;\n    outline-color: black;\n    background-color: #f1f1f1;\n    min-width: 160px;\n    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);\n    z-index: 1;\n    font-weight: 600;\n}\n\n.query-image {\n    width: -moz-max-content;\n    height: 20px;\n}\n\n#americanFlag {\n    width: 5%;\n}\n\n.navHover:hover {\n    color: orange !important;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
