@@ -15031,6 +15031,11 @@ function ServicesBeta(props) {
       curQs = _useState16[0],
       setCurQs = _useState16[1];
 
+  var _useState17 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
+      _useState18 = _slicedToArray(_useState17, 2),
+      keyIndex = _useState18[0],
+      setKeyIndex = _useState18[1];
+
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useLayoutEffect)(function () {
     firstQs();
   }, [service]);
@@ -15074,6 +15079,10 @@ function ServicesBeta(props) {
   }
 
   function updateQs(index) {
+    if (step === 1) {
+      setKeyIndex(index);
+    }
+
     setCurQsIndex(index);
 
     if (qs[index].data.length >= step + 1) {
@@ -15082,7 +15091,13 @@ function ServicesBeta(props) {
     } else {
       setLoading(true);
       console.log("hi");
-      fetchService(qs[index].id);
+
+      if (step === 1) {
+        fetchService(qs[index].id);
+      } else {
+        fetchService(qs[keyIndex].id);
+      }
+
       console.log(index);
     }
   }

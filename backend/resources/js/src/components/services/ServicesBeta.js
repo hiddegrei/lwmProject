@@ -23,6 +23,8 @@ function ServicesBeta(props) {
     const [step, setStep] = useState(1)
     const [curQs, setCurQs] = useState([])
 
+    const [keyIndex,setKeyIndex]=useState(0)
+
     useLayoutEffect(() => {
         firstQs()
 
@@ -76,6 +78,9 @@ function ServicesBeta(props) {
     }
 
     function updateQs(index) {
+        if(step===1){
+            setKeyIndex(index)
+        }
         setCurQsIndex(index)
         if (qs[index].data.length >= step + 1) {
             setCurQs(qs[index].data[step])
@@ -84,7 +89,14 @@ function ServicesBeta(props) {
         } else {
             setLoading(true)
             console.log("hi")
-            fetchService(qs[index].id)
+            if(step===1){
+                fetchService(qs[index].id)
+
+            }else{
+                fetchService(qs[keyIndex].id)
+
+            }
+            
             console.log(index)
         }
 
