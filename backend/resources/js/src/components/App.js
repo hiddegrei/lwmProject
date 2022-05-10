@@ -7,6 +7,7 @@ import Services from "./services/Services";
 import ServicesBeta from "./services/ServicesBeta";
 import ServiceCreate from "./services/ServiceCreate";
 import ServiceShow from "./services/ServiceShow";
+import ServiceEdit from "./services/ServiceEdit";
 import Todos from "./todos/Todos";
 import { useStateValue } from "../Stateprovider";
 import http from "../axios/http";
@@ -46,6 +47,15 @@ function App() {
             <Navbar />
             <div className='app_body'>
               <Todos />
+
+            </div>
+
+          </Route>
+
+          <Route path="/service/edit/:service">
+            <Navbar />
+            <div className='app_body'>
+              <ServiceEdit />
 
             </div>
 

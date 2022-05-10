@@ -23,7 +23,5 @@ class Service extends Model
         return $this->hasOne(ServiceTrack::class);
     }
 
-    public function serviceRoles(){
-        return $this->hasOne(ServiceRoles::class);
-    }
+   
 }

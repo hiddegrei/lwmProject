@@ -1,0 +1,9 @@
+.sedit{
+    display:flex;
+    flex-direction: column;
+}
+.sedit_item{
+display:flex;
+padding:20px;
+align-items: center;
+}

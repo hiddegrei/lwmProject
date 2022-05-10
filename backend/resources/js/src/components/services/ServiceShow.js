@@ -104,6 +104,10 @@ function Services(props) {
         setQuestionsAnswers(newArr)
 
     }
+
+    function editService(){
+        history.push(`/service/edit/${serviceid.serviceid}`)
+    }
     return (
         <div className='sshow'>
             <div className='sshow_top'>
@@ -113,7 +117,9 @@ function Services(props) {
                     <div className='sshow_top_text_p'>{data?.service?.description}</div>
 
                 </div>
-                <div className=' sshow_submit'><div onClick={submitRequest} className='btn btn-primary'>submit request</div></div>
+                <div className=' sshow_submit'><div onClick={submitRequest} className='btn btn-primary'>submit request</div>
+                <div onClick={editService} className='btn btn-primary'>Edit</div>
+                </div>
 
             </div>
             <div className='sshow_body'>

@@ -67,7 +67,7 @@ class ServiceController extends Controller
             $item = Service::create(array_merge($data,['image'=>$imagePath]));
         }else{
 
-            $item = Service::create($newData);
+            $item = Service::create($data);
 
         }
          
@@ -81,7 +81,7 @@ class ServiceController extends Controller
 
        
             $item->checks()->create($data2);
-            $item->serviceRoles()->create([]);
+            
 
             
        
@@ -122,6 +122,26 @@ class ServiceController extends Controller
        
          return $data;
  
+    }
+
+    public function edit(Service $service)
+    {
+        return $service;
+
+    }
+
+    public function update(Service $service)
+    {
+        $data = request()->validate([
+            'title'=> '',
+            'description'=> '',
+
+           
+           
+
+        ]);
+        $service->update($data);
+        
     }
 
     public function search($key)
