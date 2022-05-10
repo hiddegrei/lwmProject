@@ -69,7 +69,7 @@ Route::get('/api/services/{servicetype}',[ServiceController::class, 'index']);
 Route::get('/api/service/edit/{service}',[ServiceController::class, 'edit']);
 Route::post('/api/service/edit/{service}',[ServiceController::class, 'update']);
 
-Route::get('/api/services/search/{key}',[ServiceController::class, 'search']);
+Route::get('/api/services/search/{key}',[ServiceController::class, 'searchKey']);
 
 
 Route::get('/api/user/auth',[UserController::class, 'authUser']);

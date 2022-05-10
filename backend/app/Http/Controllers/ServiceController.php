@@ -144,7 +144,7 @@ class ServiceController extends Controller
         
     }
 
-    public function search($key)
+    public function searchKey($key)
     {
         $service = Service::query()
    ->where('title', 'LIKE', "%{$key}%") 
@@ -153,5 +153,20 @@ class ServiceController extends Controller
 
    return $service;
 
+    }
+
+    public function search($query)
+    {
+        $service = Service::query()
+            ->where('title', 'LIKE', "%{$query}%")
+            ->orWhere('description', 'LIKE', "%{$query}%")
+            ->limit(5)
+            ->get();
+
+        return $service;
+
+//        https://laravel.com/docs/9.x/scout
+//        $services = Service::search('valen')->get();
+//        return $services;
     }
 }
