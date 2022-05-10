@@ -23,5 +23,18 @@ class Service extends Model
         return $this->hasOne(ServiceTrack::class);
     }
 
+     /**
+     * Get the indexable data array for the model.
+     *
+     * @return array
+     */
+    #[SearchUsingPrefix(['id'])]
+    public function toSearchableArray()
+    {
+        return [
+            'id' => $this->id,
+            'title' => $this->title,
+        ];
+    }
    
 }
