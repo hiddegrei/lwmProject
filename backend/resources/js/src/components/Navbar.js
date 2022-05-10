@@ -2,6 +2,7 @@ import React, {useLayoutEffect, useState, useEffect} from 'react';
 import "../assets/css/Navbar.css";
 import {Link, useHistory} from "react-router-dom";
 import http from "../axios/http";
+import Searchbar from "./Searchbar";
 import {auto} from "@popperjs/core";
 
 function Navbar(props) {
@@ -12,44 +13,19 @@ function Navbar(props) {
 
     useLayoutEffect(() => {
         fetchUser()
-
     }, [])
 
     function fetchUser() {
-
-
         http.get('/user/auth').then(res => {
-
             setUser(res.data)
         })
-
-
     }
 
     function logout() {
         http.post('/user/logout').then(res => {
-
-
         })
         location.reload();
-
     }
-
-    function search(query) {
-        http.post(`/services/${query}`).then(res => {
-            setResults(res.data);
-        }).catch((err) => console.log(err));
-
-        return results;
-    }
-
-    useEffect(() => {
-        if (query.length <= 0) {
-            setResults([]);
-        } else if (query.length >= 2) {
-            search(query);
-        }
-    }, [query])
 
 
 return (<div className='navbar'>
@@ -134,13 +110,7 @@ return (<div className='navbar'>
         </div>
 
         <div className="dropdown">
-            <input size="7" value={query} type="search" id={"query"}
-                   onChange={(e) => setQuery(e.target.value)}></input>
-            <div className="query-results"> {results.map(doc => (<div>
-                <a href={`/services/${doc.servicetype}/${doc.id}`}>{doc.title}</a>
-                <img src={doc.image} className="query-image"></img> <br></br>
-            </div>))}
-            </div>
+            <Searchbar/>
         </div>
     </div>
 
