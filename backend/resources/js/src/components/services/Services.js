@@ -14,6 +14,7 @@ function Services(props) {
         console.log("hoi", service)
         fetchService()
     }, [service])
+    
     function fetchService() {
         setData([])
         if (isEmpty(service)) {
