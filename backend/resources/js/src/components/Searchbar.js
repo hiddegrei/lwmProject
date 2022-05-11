@@ -11,7 +11,7 @@ function Searchbar(classOverride) {
     const service = useParams();
     const history = useHistory();
     const [results, setResults] = useState([]);
-    const [query, setQuery] = useState("Search");
+    const [query, setQuery] = useState("");
 
     useEffect(() => {
         fetchAllUsers()
@@ -40,13 +40,15 @@ function Searchbar(classOverride) {
         }
     }, [query])
 
-    return (<div className="container">
-        <input size="7" value={query} type="search" id={"query"} className="searchBar"
-               onChange={(e) => setQuery(e.target.value)}/>
-        <div className="query-results"> {results.map(doc => (<div>
-            <a href={`/services/${doc.servicetype}/${doc.id}`}>{doc.title}</a>
-            <img src={doc.image} className="query-image"/> <br/>
-        </div>))}
+    return (
+        <div className="sbar">
+            <input placeholder='search' className="sbar_input" size="7" value={query} type="search" id={"query"}
+                   onChange={(e) => setQuery(e.target.value)}/>
+            <div className="query-results"> {results.map(doc => (<div>
+                <a href={`/services/${doc.servicetype}/${doc.id}`}>{doc.title}</a>
+                <img src={doc.image} className="query-image"></img> <br/>
+            </div>))}
+            </div>
         </div>
     </div>);
 }

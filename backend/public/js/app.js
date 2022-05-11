@@ -13804,7 +13804,7 @@ function Searchbar(classOverride) {
       results = _useState2[0],
       setResults = _useState2[1];
 
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)("Search"),
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(""),
       _useState4 = _slicedToArray(_useState3, 2),
       query = _useState4[0],
       setQuery = _useState4[1];
@@ -13839,6 +13839,7 @@ function Searchbar(classOverride) {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
     className: "sbar",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
+      placeholder: "search",
       className: "sbar_input",
       size: "7",
       value: query,
