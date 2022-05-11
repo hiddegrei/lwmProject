@@ -95,3 +95,9 @@ place-content: center;
 .navHover:hover {
     color: orange !important;
 }
+
+.navbar_search{
+    display:flex;
+    width:200px;
+    
+}

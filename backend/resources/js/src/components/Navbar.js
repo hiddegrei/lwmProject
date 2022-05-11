@@ -109,7 +109,7 @@ return (<div className='navbar'>
             </div>
         </div>
 
-        <div className="dropdown">
+        <div className="navbar_search">
             <Searchbar/>
         </div>
     </div>
