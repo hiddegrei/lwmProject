@@ -13282,7 +13282,16 @@ function Home(props) {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
           className: "home_firstBlock_top_greetUser",
           children: [" Hi ", user === null || user === void 0 ? void 0 : user.name, " , need service?"]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_Searchbar__WEBPACK_IMPORTED_MODULE_3__["default"], {})]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_Searchbar__WEBPACK_IMPORTED_MODULE_3__["default"], {
+          className: "home_firstBlock_top_input"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
+          placeholder: "What are you looking for",
+          className: "home_firstBlock_top_input",
+          onChange: function onChange(e) {
+            return setInput(e.target.value);
+          },
+          value: input
+        })]
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
       className: "home_firstBlock_bottom",
@@ -13796,6 +13805,7 @@ function Searchbar(classOverride) {
       value: query,
       type: "search",
       id: "query",
+      className: "searchBar",
       onChange: function onChange(e) {
         return setQuery(e.target.value);
       }
@@ -20477,7 +20487,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".query-results {\n    position: absolute;\n    top: inherit;\n    margin-top: 30px;\n    outline-color: black;\n    background-color: #f1f1f1;\n    min-width: 160px;\n    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);\n    z-index: 1;\n    font-weight: 600;\n}\n\n.query-image {\n    width: -moz-max-content;\n    height: 20px;\n}\n\n.container {\n    display: flex;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".query-results {\n    position: absolute;\n    top: inherit;\n    margin-top: 30px;\n    outline-color: black;\n    background-color: #f1f1f1;\n    min-width: 160px;\n    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);\n    z-index: 1;\n    font-weight: 600;\n}\n\n.query-image {\n    width: -moz-max-content;\n    height: 20px;\n}\n\n.container {\n    display: flex;\n}\n\n.searchBar {\n    /*all: inherit;*/\n    min-width: 25px;\n    /*background-color: revert;*/\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

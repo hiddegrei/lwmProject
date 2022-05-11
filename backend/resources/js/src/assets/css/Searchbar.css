@@ -18,3 +18,9 @@
 .container {
     display: flex;
 }
+
+.searchBar {
+    /*all: inherit;*/
+    min-width: 25px;
+    /*background-color: revert;*/
+}
