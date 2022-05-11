@@ -11,7 +11,7 @@ function Searchbar(classOverride) {
     const service = useParams();
     const history = useHistory();
     const [results, setResults] = useState([]);
-    const [query, setQuery] = useState("Search");
+    const [query, setQuery] = useState("");
 
     useEffect(() => {
         fetchAllUsers()
@@ -42,7 +42,7 @@ function Searchbar(classOverride) {
 
     return (
         <div className="sbar">
-            <input className="sbar_input" size="7" value={query} type="search" id={"query"}
+            <input placeholder='search' className="sbar_input" size="7" value={query} type="search" id={"query"}
                    onChange={(e) => setQuery(e.target.value)}/>
             <div className="query-results"> {results.map(doc => (<div>
                 <a href={`/services/${doc.servicetype}/${doc.id}`}>{doc.title}</a>
