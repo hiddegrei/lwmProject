@@ -20,7 +20,12 @@
 }
 
 .searchBar {
-    /*all: inherit;*/
-    min-width: 25px;
+    display: inherit;
+    width: inherit;
+    height: inherit;
+    border-radius: inherit;
+    background: inherit;
+    color: inherit;
+    min-width: 80px;
     /*background-color: revert;*/
 }
