@@ -5,40 +5,43 @@
     position: sticky;
     background-color: #00385A;
     color: white;
-    top:0;
+    top: 0;
 
 
     /* margin-bottom: 50px; */
 }
-.navbar_brand{
-    display:flex;
-width:30%;
 
-align-items: center left;
+.navbar_brand {
+    display: flex;
+    width: 30%;
 
+    align-items: center left;
 
 
 }
-.navbar-item_img{
-    display:flex;
+
+.navbar-item_img {
+    display: flex;
     max-height: 90%;
-    width:auto;
+    width: auto;
     margin-left: 10px;
 }
-.navbar_menu{
-    display:flex;
-width:55%;
-align-items: center;
-justify-content: space-between;
+
+.navbar_menu {
+    display: flex;
+    width: 55%;
+    align-items: center;
+    justify-content: space-between;
 
 
 }
-.navbar_user{
-display:flex;
-width:15%;
 
-align-items: center;
-place-content: center;
+.navbar_user {
+    display: flex;
+    width: 15%;
+
+    align-items: center;
+    place-content: center;
 }
 
 .dropbtn {
@@ -96,8 +99,8 @@ place-content: center;
     color: orange !important;
 }
 
-.navbar_search{
-    display:flex;
-    width:200px;
-    
+.navbar_search {
+    display: flex;
+    width: 200px;
+
 }

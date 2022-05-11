@@ -46,11 +46,10 @@ function Searchbar(classOverride) {
                    onChange={(e) => setQuery(e.target.value)}/>
             <div className="query-results"> {results.map(doc => (<div>
                 <a href={`/services/${doc.servicetype}/${doc.id}`}>{doc.title}</a>
-                <img src={doc.image} className="query-image"></img> <br/>
+                <img src={`/storage/${doc.image}`} className="query-image"></img> <br/>
             </div>))}
             </div>
-        </div>
-    </div>);
+        </div>);
 }
 
 export default Searchbar;
