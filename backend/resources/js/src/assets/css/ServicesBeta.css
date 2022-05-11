@@ -1,0 +1,149 @@
+.sb_main{
+    display:flex;
+    width:100%;
+    height:100%;
+}
+.sb{
+    display:flex;
+    flex-direction: column;
+    width:100%;
+    height:100%;
+}
+.sb_top{
+    width:100%;
+    display:flex;
+    align-items: center;
+    place-content: center;
+    font-weight: bold;
+    font-size: 22px;
+    height:100px;
+}
+.sb_mid{
+    display:flex;
+    width: 100%;
+    height:40px;
+    /* border:2px solid black; */
+    align-items: center;
+}
+.sb_mid_icon{
+    display:flex;
+    color:black;
+    padding:15px;
+
+}
+.sb_body{
+    display:flex;
+    width: 100%;
+    height:100%;
+    border:1px solid #ddd;
+}
+.sb_grid_container{
+    display:grid;
+    /* grid-template: 25fr/ auto auto auto auto ; */
+    grid-template-columns: repeat(4, 23%);
+    /* grid-auto-rows:25fr; */
+    /* grid-template-rows: repeat(4, fit-content(25%)); */
+    /* grid-template-columns: repeat(4, fit-content(25%)); */
+    /* grid-auto-columns: 1fr; */
+    
+    gap: 2%;
+    padding: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    /* border:1px solid red; */
+    width:100%;
+}
+.sb_block1{
+    display:flex;
+    border:1px solid #ddd;
+    align-items: center;
+    place-content: center;
+    height:100px;
+    border-radius: 10px;
+}
+.sb_block1:hover{
+    cursor: pointer;
+}
+.sb_block1>p{
+display: flex;
+font-weight: bold;
+}
+.sb_block{
+    display:flex;
+    flex-direction: column;
+   
+    width:100%;
+   
+    height:100px;
+    border:1px solid #ddd;
+    border-radius: 10px;
+   color:black;
+   transition: transform .2s; /* Animation */
+  
+  
+  
+}
+
+.sb_block_top{
+    display:flex;
+    font-weight: bold;
+    font-size: 20px;
+    align-items: center;
+    place-content: center;
+    border-bottom: 1px solid #ddd;
+    height:20%;
+    
+
+}
+.sb_block_bottom{
+    display:flex;
+    height:80%;
+    width:95%;
+    margin-left: auto;
+    margin-right: auto;
+    
+    
+}
+.sb_block_bottom_imgCon{
+    display:flex;
+    width:40%;
+    align-items: center;
+   
+    
+    
+    
+    
+}
+.sb_block_bottom_imgCon_img{
+    display:flex;
+    
+    margin-left: auto;
+    margin-right: auto;
+    height:50%;
+    max-width:100%;
+    width:auto;
+   
+
+}
+.sb_block_bottom_text{
+    display:flex;
+    width:55%;
+    font-weight: 500;
+    font-size: 14px;
+    align-items: center;
+    height:100%;
+    margin-left: auto;
+    
+   
+    
+}
+.sb_block:hover{
+    cursor: pointer;
+}
+
+.sb_loading{
+    display:flex;
+    align-items: center;
+    font-weight: bold;
+    font-size: 20px;
+}

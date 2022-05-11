@@ -23,6 +23,7 @@ align-items: center left;
     display:flex;
     max-height: 90%;
     width:auto;
+    margin-left: 10px;
 }
 .navbar_menu{
     display:flex;
