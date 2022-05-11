@@ -41,8 +41,8 @@ function Searchbar(classOverride) {
     }, [query])
 
     return (
-        <div className="container">
-            <input size="7" value={query} type="search" id={"query"}
+        <div className="sbar">
+            <input className="sbar_input" size="7" value={query} type="search" id={"query"}
                    onChange={(e) => setQuery(e.target.value)}/>
             <div className="query-results"> {results.map(doc => (<div>
                 <a href={`/services/${doc.servicetype}/${doc.id}`}>{doc.title}</a>

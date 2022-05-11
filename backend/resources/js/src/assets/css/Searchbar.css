@@ -15,6 +15,16 @@
     height: 20px;
 }
 
-.container {
+.sbar {
     display: flex;
+    width:100%;
+}
+.sbar_input{
+    display:flex;
+    width:100%;
+    border-radius: 20px;
+    background: transparent;
+    color:white;
+    padding:10px;
+    /* background-color: black; */
 }

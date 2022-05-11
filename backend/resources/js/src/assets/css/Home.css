@@ -92,6 +92,7 @@ a{
     background: transparent;
     color:white;
     padding:10px;
+    /* background-color: black; */
     
 }
 ::placeholder { 

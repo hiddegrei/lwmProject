@@ -30,7 +30,8 @@ function Home(props) {
         <div className="home_firstBlock_top">
             <div className="home_firstBlock_top_greet_container">
                 <div className="home_firstBlock_top_greetUser"> Hi {user?.name} , need service?</div>
-                <Searchbar/>
+                <div className="home_firstBlock_top_input"><Searchbar/></div>
+                
                 {/*<input placeholder={`What are you looking for`} className="home_firstBlock_top_input" onChange={(e) => setInput(e.target.value)} value={input}></input>*/}
             </div>
         </div>
