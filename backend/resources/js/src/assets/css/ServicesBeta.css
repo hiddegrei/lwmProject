@@ -37,6 +37,22 @@
     height:100%;
     border:1px solid #ddd;
 }
+.sb_page{
+    display:flex;
+    flex-direction: column;
+    margin-top:50px ;
+    width:100%;
+}
+.sb_page_top{
+    display:flex;
+    height:50px;
+}
+.sb_page_bottom{
+    display:flex;
+    width:100%;
+    height:100%;
+    
+}
 .sb_grid_container{
     display:grid;
     /* grid-template: 25fr/ auto auto auto auto ; */
@@ -52,6 +68,8 @@
     margin-right: auto;
     /* border:1px solid red; */
     width:100%;
+    height:100%;
+    border:1px solid #ddd;
 }
 .sb_block1{
     display:flex;

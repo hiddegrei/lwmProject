@@ -13628,6 +13628,9 @@ function Navbar(props) {
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
           className: "dropdown-content",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Link, {
+            to: "/servicebeta",
+            children: "Service Guide"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Link, {
             to: "/services/businesssupport",
             children: "Business support"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Link, {
@@ -13856,7 +13859,7 @@ function Searchbar(classOverride) {
             href: "/services/".concat(doc.servicetype, "/").concat(doc.id),
             children: doc.title
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("img", {
-            src: doc.image,
+            src: "/storage/".concat(doc.image),
             className: "query-image"
           }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("br", {})]
         });
@@ -15015,53 +15018,65 @@ function Services(props) {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
     className: "services",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-      className: "services_left",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_ServiceSideBar__WEBPACK_IMPORTED_MODULE_3__["default"], {
-        onclick: function onclick() {
-          setLoading(true);
-          fetchService();
-        }
+      className: "services_top",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+        onClick: function onClick() {
+          return history.push("/servicebeta");
+        },
+        className: "btn btn-primary services_btn",
+        children: "service beta"
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-      className: "services_right",
+      className: "services_bottom",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-        className: "services_right_header",
-        children: isEmpty(service) ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-          className: "services_right_header_text",
-          children: "Popular items"
+        className: "services_left",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_ServiceSideBar__WEBPACK_IMPORTED_MODULE_3__["default"], {
+          onclick: function onclick() {
+            setLoading(true);
+            fetchService();
+          }
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+        className: "services_right",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+          className: "services_right_header",
+          children: isEmpty(service) ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+            className: "services_right_header_text",
+            children: "Popular items"
+          }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+            className: "services_right_header_text",
+            children: service.service
+          })
+        }), loading ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+          className: "service_loading",
+          children: "Loading..."
         }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-          className: "services_right_header_text",
-          children: service.service
-        })
-      }), loading ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-        className: "service_loading",
-        children: "Loading..."
-      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-        className: "service_grid_container",
-        children: data.map(function (doc, index) {
-          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-            onClick: function onClick() {
-              return history.push("/services/".concat(doc.servicetype, "/").concat(doc.id));
-            },
-            className: "service_block",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-              className: "service_block_top",
-              children: [doc.title, " "]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-              className: "service_block_bottom",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-                className: "service_block_bottom_imgCon",
-                children: doc.image != "" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
-                  className: "service_block_bottom_imgCon_img",
-                  src: "/storage/".concat(doc.image)
-                })
+          className: "service_grid_container",
+          children: data.map(function (doc, index) {
+            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+              onClick: function onClick() {
+                return history.push("/services/".concat(doc.servicetype, "/").concat(doc.id));
+              },
+              className: "service_block",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+                className: "service_block_top",
+                children: [doc.title, " "]
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-                className: "service_block_bottom_text",
-                children: [doc.description, " "]
+                className: "service_block_bottom",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                  className: "service_block_bottom_imgCon",
+                  children: doc.image != "" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
+                    className: "service_block_bottom_imgCon_img",
+                    src: "/storage/".concat(doc.image)
+                  })
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+                  className: "service_block_bottom_text",
+                  children: [doc.description, " "]
+                })]
               })]
-            })]
-          }, index);
-        })
+            }, index);
+          })
+        })]
       })]
     })]
   });
@@ -15270,32 +15285,47 @@ function ServicesBeta(props) {
           })
         })
       })]
-    }), showData && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-      className: "sb_grid_container",
-      children: data.map(function (doc, index) {
-        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+    }), showData && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+      className: "sb_page",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+        className: "sb_page_top",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_mui_icons_material_ArrowBackIosNew__WEBPACK_IMPORTED_MODULE_6__["default"], {
           onClick: function onClick() {
-            return history.push("/services/".concat(doc.servicetype, "/").concat(doc.id));
+            return window.location.reload();
           },
-          className: "sb_block",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-            className: "sb_block_top",
-            children: [doc.title, " "]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-            className: "sb_block_bottom",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-              className: "sb_block_bottom_imgCon",
-              children: doc.image != "" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
-                className: "sb_block_bottom_imgCon_img",
-                src: "/storage/".concat(doc.image)
-              })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-              className: "sb_block_bottom_text",
-              children: [doc.description, " "]
-            })]
-          })]
-        }, index);
-      })
+          color: "primary",
+          className: "hover"
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+        className: "sb_page_bottom",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+          className: "sb_grid_container",
+          children: data.map(function (doc, index) {
+            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+              onClick: function onClick() {
+                return history.push("/services/".concat(doc.servicetype, "/").concat(doc.id));
+              },
+              className: "sb_block",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+                className: "sb_block_top",
+                children: [doc.title, " "]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+                className: "sb_block_bottom",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                  className: "sb_block_bottom_imgCon",
+                  children: doc.image != "" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
+                    className: "sb_block_bottom_imgCon_img",
+                    src: "/storage/".concat(doc.image)
+                  })
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+                  className: "sb_block_bottom_text",
+                  children: [doc.description, " "]
+                })]
+              })]
+            }, index);
+          })
+        })
+      })]
     })]
   });
 }
@@ -20906,7 +20936,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".navbar {\r\n    display: flex;\r\n    height: -webkit-fit-content;\r\n    height: -moz-fit-content;\r\n    height: fit-content;\r\n    width: 100%;\r\n    position: -webkit-sticky;\r\n    position: sticky;\r\n    background-color: #00385A;\r\n    color: white;\r\n    top:0;\r\n\r\n\r\n    /* margin-bottom: 50px; */\r\n}\r\n.navbar_brand{\r\n    display:flex;\r\nwidth:30%;\r\n\r\nalign-items: center left;\r\n\r\n\r\n\r\n}\r\n.navbar-item_img{\r\n    display:flex;\r\n    max-height: 90%;\r\n    width:auto;\r\n    margin-left: 10px;\r\n}\r\n.navbar_menu{\r\n    display:flex;\r\nwidth:55%;\r\nalign-items: center;\r\njustify-content: space-between;\r\n\r\n\r\n}\r\n.navbar_user{\r\ndisplay:flex;\r\nwidth:15%;\r\n\r\nalign-items: center;\r\nplace-content: center;\r\n}\r\n\r\n.dropbtn {\r\n    /* background-color: #04AA6D; */\r\n    color: white;\r\n    /* padding: 16px;\r\n   font-size: 16px; */\r\n    border: none;\r\n    background-color: #00385A;\r\n    font-weight: bold;\r\n}\r\n\r\n.dropdown {\r\n    position: relative;\r\n    display: inline-block;\r\n\r\n\r\n}\r\n\r\n.dropdown-content {\r\n    display: none;\r\n    position: absolute;\r\n    background-color: #f1f1f1;\r\n    min-width: 160px;\r\n    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);\r\n    z-index: 1;\r\n    font-weight: 600;\r\n\r\n}\r\n\r\n.dropdown-content a {\r\n    color: black;\r\n    padding: 12px 16px;\r\n    text-decoration: none;\r\n    display: block;\r\n}\r\n\r\n.dropdown-content a:hover {\r\n    background-color: #ddd;\r\n}\r\n\r\n.dropdown:hover .dropdown-content {\r\n    display: block;\r\n}\r\n\r\n.dropdown:hover .dropbtn {\r\n    /* background-color: #3e8e41; */\r\n}\r\n\r\n#americanFlag {\r\n    width: 5%;\r\n}\r\n\r\n.navHover:hover {\r\n    color: orange !important;\r\n}\r\n\r\n.navbar_search{\r\n    display:flex;\r\n    width:200px;\r\n    \r\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".navbar {\r\n    display: flex;\r\n    height: -webkit-fit-content;\r\n    height: -moz-fit-content;\r\n    height: fit-content;\r\n    width: 100%;\r\n    position: -webkit-sticky;\r\n    position: sticky;\r\n    background-color: #00385A;\r\n    color: white;\r\n    top:0;\r\n\r\n\r\n    /* margin-bottom: 50px; */\r\n}\r\n.navbar_brand{\r\n    display:flex;\r\nwidth:20%;\r\n\r\nalign-items: center left;\r\n/* border:1px solid black; */\r\n\r\n\r\n\r\n}\r\n.navbar-item_img{\r\n    display:flex;\r\n    max-height: 90%;\r\n    width:auto;\r\n    margin-left: 10px;\r\n}\r\n.navbar_menu{\r\n    display:flex;\r\nwidth:65%;\r\nalign-items: center;\r\njustify-content: space-between;\r\n/* border:1px solid black; */\r\n\r\n\r\n}\r\n.navbar_user{\r\ndisplay:flex;\r\nwidth:15%;\r\n\r\nalign-items: center;\r\nplace-content: center;\r\n}\r\n\r\n.dropbtn {\r\n    /* background-color: #04AA6D; */\r\n    color: white;\r\n    /* padding: 16px;\r\n   font-size: 16px; */\r\n    border: none;\r\n    background-color: #00385A;\r\n    font-weight: bold;\r\n}\r\n\r\n.dropdown {\r\n    position: relative;\r\n    display: inline-block;\r\n\r\n\r\n}\r\n\r\n.dropdown-content {\r\n    display: none;\r\n    position: absolute;\r\n    background-color: #f1f1f1;\r\n    min-width: 160px;\r\n    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);\r\n    z-index: 1;\r\n    font-weight: 600;\r\n\r\n}\r\n\r\n.dropdown-content a {\r\n    color: black;\r\n    padding: 12px 16px;\r\n    text-decoration: none;\r\n    display: block;\r\n}\r\n\r\n.dropdown-content a:hover {\r\n    background-color: #ddd;\r\n}\r\n\r\n.dropdown:hover .dropdown-content {\r\n    display: block;\r\n}\r\n\r\n.dropdown:hover .dropbtn {\r\n    /* background-color: #3e8e41; */\r\n}\r\n\r\n#americanFlag {\r\n    width: 5%;\r\n}\r\n\r\n.navHover:hover {\r\n    color: orange !important;\r\n}\r\n\r\n.navbar_search{\r\n    display:flex;\r\n    width:200px;\r\n    \r\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -21050,7 +21080,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".services{\r\n    display:flex;\r\n   margin-top: 50px;\r\n    width:100%;\r\n}\r\n.services_left{\r\n    display:flex;\r\n    width:20%;\r\n    height:100%;\r\n}\r\n.services_right{\r\n    display:flex;\r\n    flex-direction: column;\r\n    width:80%;\r\n    border:1px solid black;\r\n    height:100%;\r\n}\r\n.services_right_header{\r\n    display:flex;\r\n    width:100%;\r\n    /* border:1px solid black; */\r\n\r\n}\r\n.services_right_header_text{\r\n   padding:10px;\r\n    /* border:1px solid black; */\r\n\r\n}\r\n.service_grid_container{\r\n    display:grid;\r\n    /* grid-template: 25fr/ auto auto auto auto ; */\r\n    /* grid-template-rows: 25fr 25fr 25fr 25fr ; */\r\n    /* grid-auto-columns: 25fr; */\r\n    grid-template-columns: repeat(4, 25%);\r\n    gap: 10px;\r\n    padding: 10px;\r\n    margin-left: auto;\r\n    margin-right: auto;\r\n    /* border:1px solid black; */\r\n    width:100%;\r\n}\r\n.service_block{\r\n    display:flex;\r\n    flex-direction: column;\r\n    /* max-width: 300px; */\r\n    /* width:25fr; */\r\n    /* min-height: 200px; */\r\n    height:-webkit-fit-content;\r\n    height:-moz-fit-content;\r\n    height:fit-content;\r\n    border:1px solid #ddd;\r\n    border-radius: 10px;\r\n   color:black;\r\n   transition: transform .2s; /* Animation */\r\n  \r\n  \r\n}\r\na{\r\n    text-decoration: none;\r\n}\r\n.service_block:hover{\r\n    cursor: pointer;\r\n    transform: scale(1.2); \r\n    background-color: white;\r\n}\r\n.service_block_top{\r\n    display:flex;\r\n    font-weight: bold;\r\n    font-size: 20px;\r\n    align-items: center;\r\n    place-content: center;\r\n    border-bottom: 1px solid #ddd;\r\n    height:20%;\r\n    \r\n\r\n}\r\n.service_block_bottom{\r\n    display:flex;\r\n    height:80%;\r\n    width:95%;\r\n    min-height: 100px;\r\n    margin-left: auto;\r\n    margin-right: auto;\r\n    \r\n    \r\n}\r\n.service_block_bottom_imgCon{\r\n    display:flex;\r\n    width:40%;\r\n    align-items: center;\r\n   \r\n    \r\n    \r\n    \r\n    \r\n}\r\n.service_block_bottom_imgCon_img{\r\n    display:flex;\r\n    \r\n    margin-left: auto;\r\n    margin-right: auto;\r\n    height:50%;\r\n    max-width:100%;\r\n    width:auto;\r\n   \r\n\r\n}\r\n.service_block_bottom_text{\r\n    display:flex;\r\n    width:55%;\r\n    font-weight: 500;\r\n    font-size: 14px;\r\n    align-items: center;\r\n    height:100%;\r\n    margin-left: auto;\r\n    \r\n   \r\n    \r\n}\r\n.service_loading{\r\n    display:flex;\r\n    width:100%;\r\n    height:20%;\r\n    margin-top: auto;\r\n    align-items: center;\r\n    place-content: center;\r\n    font-weight: bold;\r\n    font-size: 20px;\r\n\r\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\r\n.services{\r\n    display:flex;\r\n    margin-top: 50px;\r\n    flex-direction: column;\r\n     width:100%;\r\n}\r\n.services_top{\r\n    display:flex;\r\n    height:60px;\r\n    margin-bottom: 10px;\r\n     width:100%;\r\n}\r\n.services_bottom{\r\n    display:flex;\r\n    \r\n     width:100%;\r\n}\r\n.services_btn{\r\n    margin-left:auto;\r\n    \r\n}\r\n.services_left{\r\n    display:flex;\r\n    width:20%;\r\n    height:100%;\r\n}\r\n.services_right{\r\n    display:flex;\r\n    flex-direction: column;\r\n    width:80%;\r\n    border:1px solid black;\r\n    height:100%;\r\n}\r\n.services_right_header{\r\n    display:flex;\r\n    width:100%;\r\n    /* border:1px solid black; */\r\n\r\n}\r\n.services_right_header_text{\r\n   padding:10px;\r\n    /* border:1px solid black; */\r\n\r\n}\r\n.service_grid_container{\r\n    display:grid;\r\n    /* grid-template: 25fr/ auto auto auto auto ; */\r\n    /* grid-template-rows: 25fr 25fr 25fr 25fr ; */\r\n    /* grid-auto-columns: 25fr; */\r\n    grid-template-columns: repeat(4, 23%);\r\n    gap: 2%;\r\n    padding: 10px;\r\n    margin-left: auto;\r\n    margin-right: auto;\r\n    /* border:1px solid black; */\r\n    width:100%;\r\n}\r\n.service_block{\r\n    display:flex;\r\n    flex-direction: column;\r\n    /* max-width: 300px; */\r\n    /* width:25fr; */\r\n    /* min-height: 200px; */\r\n    height:-webkit-fit-content;\r\n    height:-moz-fit-content;\r\n    height:fit-content;\r\n    border:1px solid #ddd;\r\n    border-radius: 10px;\r\n   color:black;\r\n   transition: transform .2s; /* Animation */\r\n  \r\n  \r\n}\r\na{\r\n    text-decoration: none;\r\n}\r\n.service_block:hover{\r\n    cursor: pointer;\r\n    transform: scale(1.2); \r\n    background-color: white;\r\n}\r\n.service_block_top{\r\n    display:flex;\r\n    font-weight: bold;\r\n    font-size: 20px;\r\n    align-items: center;\r\n    place-content: center;\r\n    border-bottom: 1px solid #ddd;\r\n    height:20%;\r\n    \r\n\r\n}\r\n.service_block_bottom{\r\n    display:flex;\r\n    height:80%;\r\n    width:95%;\r\n    min-height: 100px;\r\n    margin-left: auto;\r\n    margin-right: auto;\r\n    \r\n    \r\n}\r\n.service_block_bottom_imgCon{\r\n    display:flex;\r\n    width:40%;\r\n    align-items: center;\r\n   \r\n    \r\n    \r\n    \r\n    \r\n}\r\n.service_block_bottom_imgCon_img{\r\n    display:flex;\r\n    \r\n    margin-left: auto;\r\n    margin-right: auto;\r\n    height:50%;\r\n    max-width:100%;\r\n    width:auto;\r\n   \r\n\r\n}\r\n.service_block_bottom_text{\r\n    display:flex;\r\n    width:55%;\r\n    font-weight: 500;\r\n    font-size: 14px;\r\n    align-items: center;\r\n    height:100%;\r\n    margin-left: auto;\r\n    \r\n   \r\n    \r\n}\r\n.service_loading{\r\n    display:flex;\r\n    width:100%;\r\n    height:20%;\r\n    margin-top: auto;\r\n    align-items: center;\r\n    place-content: center;\r\n    font-weight: bold;\r\n    font-size: 20px;\r\n\r\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -21074,7 +21104,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".sb_main{\r\n    display:flex;\r\n    width:100%;\r\n    height:100%;\r\n}\r\n.sb{\r\n    display:flex;\r\n    flex-direction: column;\r\n    width:100%;\r\n    height:100%;\r\n}\r\n.sb_top{\r\n    width:100%;\r\n    display:flex;\r\n    align-items: center;\r\n    place-content: center;\r\n    font-weight: bold;\r\n    font-size: 22px;\r\n    height:100px;\r\n}\r\n.sb_mid{\r\n    display:flex;\r\n    width: 100%;\r\n    height:40px;\r\n    /* border:2px solid black; */\r\n    align-items: center;\r\n}\r\n.sb_mid_icon{\r\n    display:flex;\r\n    color:black;\r\n    padding:15px;\r\n\r\n}\r\n.sb_body{\r\n    display:flex;\r\n    width: 100%;\r\n    height:100%;\r\n    border:1px solid #ddd;\r\n}\r\n.sb_grid_container{\r\n    display:grid;\r\n    /* grid-template: 25fr/ auto auto auto auto ; */\r\n    grid-template-columns: repeat(4, 23%);\r\n    /* grid-auto-rows:25fr; */\r\n    /* grid-template-rows: repeat(4, fit-content(25%)); */\r\n    /* grid-template-columns: repeat(4, fit-content(25%)); */\r\n    /* grid-auto-columns: 1fr; */\r\n    \r\n    gap: 2%;\r\n    padding: 10px;\r\n    margin-left: auto;\r\n    margin-right: auto;\r\n    /* border:1px solid red; */\r\n    width:100%;\r\n}\r\n.sb_block1{\r\n    display:flex;\r\n    border:1px solid #ddd;\r\n    align-items: center;\r\n    place-content: center;\r\n    height:100px;\r\n    border-radius: 10px;\r\n}\r\n.sb_block1:hover{\r\n    cursor: pointer;\r\n}\r\n.sb_block1>p{\r\ndisplay: flex;\r\nfont-weight: bold;\r\n}\r\n.sb_block{\r\n    display:flex;\r\n    flex-direction: column;\r\n   \r\n    width:100%;\r\n   \r\n    height:100px;\r\n    border:1px solid #ddd;\r\n    border-radius: 10px;\r\n   color:black;\r\n   transition: transform .2s; /* Animation */\r\n  \r\n  \r\n  \r\n}\r\n\r\n.sb_block_top{\r\n    display:flex;\r\n    font-weight: bold;\r\n    font-size: 20px;\r\n    align-items: center;\r\n    place-content: center;\r\n    border-bottom: 1px solid #ddd;\r\n    height:20%;\r\n    \r\n\r\n}\r\n.sb_block_bottom{\r\n    display:flex;\r\n    height:80%;\r\n    width:95%;\r\n    margin-left: auto;\r\n    margin-right: auto;\r\n    \r\n    \r\n}\r\n.sb_block_bottom_imgCon{\r\n    display:flex;\r\n    width:40%;\r\n    align-items: center;\r\n   \r\n    \r\n    \r\n    \r\n    \r\n}\r\n.sb_block_bottom_imgCon_img{\r\n    display:flex;\r\n    \r\n    margin-left: auto;\r\n    margin-right: auto;\r\n    height:50%;\r\n    max-width:100%;\r\n    width:auto;\r\n   \r\n\r\n}\r\n.sb_block_bottom_text{\r\n    display:flex;\r\n    width:55%;\r\n    font-weight: 500;\r\n    font-size: 14px;\r\n    align-items: center;\r\n    height:100%;\r\n    margin-left: auto;\r\n    \r\n   \r\n    \r\n}\r\n.sb_block:hover{\r\n    cursor: pointer;\r\n}\r\n\r\n.sb_loading{\r\n    display:flex;\r\n    align-items: center;\r\n    font-weight: bold;\r\n    font-size: 20px;\r\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".sb_main{\r\n    display:flex;\r\n    width:100%;\r\n    height:100%;\r\n}\r\n.sb{\r\n    display:flex;\r\n    flex-direction: column;\r\n    width:100%;\r\n    height:100%;\r\n}\r\n.sb_top{\r\n    width:100%;\r\n    display:flex;\r\n    align-items: center;\r\n    place-content: center;\r\n    font-weight: bold;\r\n    font-size: 22px;\r\n    height:100px;\r\n}\r\n.sb_mid{\r\n    display:flex;\r\n    width: 100%;\r\n    height:40px;\r\n    /* border:2px solid black; */\r\n    align-items: center;\r\n}\r\n.sb_mid_icon{\r\n    display:flex;\r\n    color:black;\r\n    padding:15px;\r\n\r\n}\r\n.sb_body{\r\n    display:flex;\r\n    width: 100%;\r\n    height:100%;\r\n    border:1px solid #ddd;\r\n}\r\n.sb_page{\r\n    display:flex;\r\n    flex-direction: column;\r\n    margin-top:50px ;\r\n    width:100%;\r\n}\r\n.sb_page_top{\r\n    display:flex;\r\n    height:50px;\r\n}\r\n.sb_page_bottom{\r\n    display:flex;\r\n    width:100%;\r\n    height:100%;\r\n    \r\n}\r\n.sb_grid_container{\r\n    display:grid;\r\n    /* grid-template: 25fr/ auto auto auto auto ; */\r\n    grid-template-columns: repeat(4, 23%);\r\n    /* grid-auto-rows:25fr; */\r\n    /* grid-template-rows: repeat(4, fit-content(25%)); */\r\n    /* grid-template-columns: repeat(4, fit-content(25%)); */\r\n    /* grid-auto-columns: 1fr; */\r\n    \r\n    gap: 2%;\r\n    padding: 10px;\r\n    margin-left: auto;\r\n    margin-right: auto;\r\n    /* border:1px solid red; */\r\n    width:100%;\r\n    height:100%;\r\n    border:1px solid #ddd;\r\n}\r\n.sb_block1{\r\n    display:flex;\r\n    border:1px solid #ddd;\r\n    align-items: center;\r\n    place-content: center;\r\n    height:100px;\r\n    border-radius: 10px;\r\n}\r\n.sb_block1:hover{\r\n    cursor: pointer;\r\n}\r\n.sb_block1>p{\r\ndisplay: flex;\r\nfont-weight: bold;\r\n}\r\n.sb_block{\r\n    display:flex;\r\n    flex-direction: column;\r\n   \r\n    width:100%;\r\n   \r\n    height:100px;\r\n    border:1px solid #ddd;\r\n    border-radius: 10px;\r\n   color:black;\r\n   transition: transform .2s; /* Animation */\r\n  \r\n  \r\n  \r\n}\r\n\r\n.sb_block_top{\r\n    display:flex;\r\n    font-weight: bold;\r\n    font-size: 20px;\r\n    align-items: center;\r\n    place-content: center;\r\n    border-bottom: 1px solid #ddd;\r\n    height:20%;\r\n    \r\n\r\n}\r\n.sb_block_bottom{\r\n    display:flex;\r\n    height:80%;\r\n    width:95%;\r\n    margin-left: auto;\r\n    margin-right: auto;\r\n    \r\n    \r\n}\r\n.sb_block_bottom_imgCon{\r\n    display:flex;\r\n    width:40%;\r\n    align-items: center;\r\n   \r\n    \r\n    \r\n    \r\n    \r\n}\r\n.sb_block_bottom_imgCon_img{\r\n    display:flex;\r\n    \r\n    margin-left: auto;\r\n    margin-right: auto;\r\n    height:50%;\r\n    max-width:100%;\r\n    width:auto;\r\n   \r\n\r\n}\r\n.sb_block_bottom_text{\r\n    display:flex;\r\n    width:55%;\r\n    font-weight: 500;\r\n    font-size: 14px;\r\n    align-items: center;\r\n    height:100%;\r\n    margin-left: auto;\r\n    \r\n   \r\n    \r\n}\r\n.sb_block:hover{\r\n    cursor: pointer;\r\n}\r\n\r\n.sb_loading{\r\n    display:flex;\r\n    align-items: center;\r\n    font-weight: bold;\r\n    font-size: 20px;\r\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

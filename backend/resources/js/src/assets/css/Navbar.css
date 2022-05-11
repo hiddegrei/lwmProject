@@ -12,9 +12,10 @@
 }
 .navbar_brand{
     display:flex;
-width:30%;
+width:20%;
 
 align-items: center left;
+/* border:1px solid black; */
 
 
 
@@ -27,9 +28,10 @@ align-items: center left;
 }
 .navbar_menu{
     display:flex;
-width:55%;
+width:65%;
 align-items: center;
 justify-content: space-between;
+/* border:1px solid black; */
 
 
 }
