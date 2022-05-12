@@ -1,7 +1,24 @@
+
 .services{
     display:flex;
-   margin-top: 50px;
-    width:100%;
+    margin-top: 50px;
+    flex-direction: column;
+     width:100%;
+}
+.services_top{
+    display:flex;
+    height:60px;
+    margin-bottom: 10px;
+     width:100%;
+}
+.services_bottom{
+    display:flex;
+    
+     width:100%;
+}
+.services_btn{
+    margin-left:auto;
+    
 }
 .services_left{
     display:flex;
@@ -31,8 +48,8 @@
     /* grid-template: 25fr/ auto auto auto auto ; */
     /* grid-template-rows: 25fr 25fr 25fr 25fr ; */
     /* grid-auto-columns: 25fr; */
-    grid-template-columns: repeat(4, 25%);
-    gap: 10px;
+    grid-template-columns: repeat(4, 23%);
+    gap: 2%;
     padding: 10px;
     margin-left: auto;
     margin-right: auto;

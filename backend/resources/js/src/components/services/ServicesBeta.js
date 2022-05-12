@@ -126,6 +126,12 @@ function ServicesBeta(props) {
                 </div>}
 
             {showData &&
+            <div className='sb_page'>
+                <div className='sb_page_top'>
+                <ArrowBackIosNewIcon onClick={() =>window.location.reload()} color="primary" className='hover' />
+                </div>
+
+                <div className='sb_page_bottom'>
                 <div className="sb_grid_container">
                     {data.map((doc, index) => (
 
@@ -145,7 +151,10 @@ function ServicesBeta(props) {
 
                         </div>
                     ))}
-                </div>}
+                </div>
+                </div>
+                </div>
+                }
 
 
 

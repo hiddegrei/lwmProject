@@ -44,7 +44,14 @@ function Services(props) {
         return JSON.stringify(obj) === JSON.stringify({});
     }
     return (
-        <div className='services'>
+        
+            <div className='services'>
+
+                <div className='services_top'>
+                    <div onClick={()=>history.push("/servicebeta")} className='btn btn-primary services_btn'>service beta</div>
+                </div>
+
+                <div className='services_bottom'>
             <div className="services_left">
                 <ServiceSideBar onclick={() => {
                     setLoading(true)
@@ -88,9 +95,9 @@ function Services(props) {
 
             </div>
 
-
-
-        </div>
+           </div>
+            </div>
+      
     );
 }
 

@@ -10,10 +10,19 @@
 
     /* margin-bottom: 50px; */
 }
+<<<<<<< HEAD
 
 .navbar_brand {
     display: flex;
     width: 30%;
+=======
+.navbar_brand{
+    display:flex;
+width:20%;
+
+align-items: center left;
+/* border:1px solid black; */
+>>>>>>> 5dbf28580d6938beb4708763ab9fb845b9c7b0f8
 
     align-items: center left;
 
@@ -26,12 +35,21 @@
     width: auto;
     margin-left: 10px;
 }
+<<<<<<< HEAD
 
 .navbar_menu {
     display: flex;
     width: 55%;
     align-items: center;
     justify-content: space-between;
+=======
+.navbar_menu{
+    display:flex;
+width:65%;
+align-items: center;
+justify-content: space-between;
+/* border:1px solid black; */
+>>>>>>> 5dbf28580d6938beb4708763ab9fb845b9c7b0f8
 
 
 }

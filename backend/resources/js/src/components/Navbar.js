@@ -63,6 +63,7 @@ return (<div className='navbar'>
                     className="dropbtn navbar-item px-4 text-decoration-none navHover">Services
             </button>
             <div className="dropdown-content">
+            <Link to="/servicebeta">Service Guide</Link>
                 <Link to="/services/businesssupport">Business support</Link>
                 <Link to="/services/facilities">Facilities</Link>
                 <Link to="/services/finance">Finance</Link>
