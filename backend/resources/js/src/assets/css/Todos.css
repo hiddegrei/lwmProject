@@ -37,9 +37,13 @@
     border-bottom: 2px solid black;
     align-items: center;
     place-content: center;
+    transition: transform .2s; /* Animation */
 }
 .todos_l_items_item:hover{
     cursor: pointer;
+    transform: scale(1.2); 
+    background-color:#00385A ;
+    color:white;
 }
 .todos_l_top_item{
     display:flex;

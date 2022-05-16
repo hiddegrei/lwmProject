@@ -13309,7 +13309,7 @@ function Home(props) {
   }, []);
 
   function fetchMyTickets() {
-    _axios_http__WEBPACK_IMPORTED_MODULE_1__["default"].get('/submitservicerequest').then(function (res) {
+    _axios_http__WEBPACK_IMPORTED_MODULE_1__["default"].get("/submitservicerequest").then(function (res) {
       setMyTickets(res.data);
       console.log(res.data);
     });
@@ -13325,7 +13325,7 @@ function Home(props) {
         className: "home_firstBlock_top_greet_container",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
           className: "home_firstBlock_top_greetUser",
-          children: [" Hi ", user === null || user === void 0 ? void 0 : user.name, " , need service?"]
+          children: [" ", "Hi ", user === null || user === void 0 ? void 0 : user.name, " , need service?"]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
           className: "home_firstBlock_top_input",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_Searchbar__WEBPACK_IMPORTED_MODULE_3__["default"], {})
@@ -13550,13 +13550,13 @@ function Navbar(props) {
   }, []);
 
   function fetchUser() {
-    _axios_http__WEBPACK_IMPORTED_MODULE_2__["default"].get('/user/auth').then(function (res) {
+    _axios_http__WEBPACK_IMPORTED_MODULE_2__["default"].get("/user/auth").then(function (res) {
       setUser(res.data);
     });
   }
 
   function logout() {
-    _axios_http__WEBPACK_IMPORTED_MODULE_2__["default"].post('/user/logout').then(function (res) {});
+    _axios_http__WEBPACK_IMPORTED_MODULE_2__["default"].post("/user/logout").then(function (res) {});
     location.reload();
   }
 
@@ -13621,7 +13621,7 @@ function Navbar(props) {
         className: "dropdown",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
           onClick: function onClick() {
-            return history.push('/services');
+            return history.push("/services");
           },
           className: "dropbtn navbar-item px-4 text-decoration-none navHover",
           children: "Services"
@@ -13735,7 +13735,7 @@ function Navbar(props) {
         className: "dropdown",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("button", {
           className: "dropbtn navbar-item px-4 text-decoration-none navHover",
-          children: [" hi , ", user === null || user === void 0 ? void 0 : user.name]
+          children: [" ", "hi , ", user === null || user === void 0 ? void 0 : user.name]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
           className: "dropdown-content",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
@@ -14536,6 +14536,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var _assets_css_ServiceShow_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../assets/css/ServiceShow.css */ "./resources/js/src/assets/css/ServiceShow.css");
 /* harmony import */ var _axios_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../axios/http */ "./resources/js/src/axios/http.js");
 /* harmony import */ var _Stateprovider__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../Stateprovider */ "./resources/js/src/Stateprovider.js");
@@ -14715,12 +14716,18 @@ function Services(props) {
         className: " sshow_submit",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
           onClick: submitRequest,
-          className: "btn btn-primary",
+          className: "btn btn-primary sshow_btn ",
           children: "submit request"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
           onClick: editService,
-          className: "btn btn-primary",
+          className: "btn btn-warning sshow_btn",
           children: "Edit"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Link, {
+          to: "/servicebeta",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+            className: "btn btn-danger sshow_btn",
+            children: "Cancel"
+          })
         })]
       })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
@@ -15578,7 +15585,7 @@ function Todos(props) {
       todos = _useState2[0],
       setTodos = _useState2[1];
 
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
       _useState4 = _slicedToArray(_useState3, 2),
       todo = _useState4[0],
       setTodo = _useState4[1];
@@ -15610,7 +15617,7 @@ function Todos(props) {
 
   function fetchTodosNotDone() {
     setLoading(true);
-    _axios_http__WEBPACK_IMPORTED_MODULE_2__["default"].get('/todos/notdone').then(function (res) {
+    _axios_http__WEBPACK_IMPORTED_MODULE_2__["default"].get("/todos/notdone").then(function (res) {
       console.log(res.data);
       setTodos(res.data);
       setLoading(false);
@@ -15621,7 +15628,7 @@ function Todos(props) {
 
   function fetchTodosDone() {
     setLoading(true);
-    _axios_http__WEBPACK_IMPORTED_MODULE_2__["default"].get('/todos/done').then(function (res) {
+    _axios_http__WEBPACK_IMPORTED_MODULE_2__["default"].get("/todos/done").then(function (res) {
       console.log(res.data);
       setTodos(res.data);
       setLoading(false);
@@ -15669,7 +15676,7 @@ function Todos(props) {
       className: "todos_r",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
         className: "service_show",
-        children: todo != '' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Todo__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        children: todo != "" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Todo__WEBPACK_IMPORTED_MODULE_3__["default"], {
           onclick: function onclick() {
             return fetchTodosNotDone();
           },
@@ -15681,6 +15688,12 @@ function Todos(props) {
           submit_request_id: todo === null || todo === void 0 ? void 0 : todo.submit_request_id
         }, todo === null || todo === void 0 ? void 0 : todo.id)
       })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("ul", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("li", {
+        children: "asdf"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("li", {
+        children: "asdfasdf"
+      })]
     })]
   });
 }
@@ -21032,7 +21045,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".sshow{\r\n    display:flex;\r\n    flex-direction: column;\r\n    border:1px solid black;\r\n    width:100%;\r\n    height:-webkit-fit-content;\r\n    height:-moz-fit-content;\r\n    height:fit-content;\r\n    border:1px solid black;\r\n    margin-top: 50px;\r\n}\r\n.sshow_title{\r\n    display:flex;\r\n    font-weight: bold;\r\n    font-size: 20px;\r\n    margin-bottom: 10px;\r\n\r\n}\r\n.sshow_description{\r\n    display:flex;\r\n    font-weight: 400;\r\n    font-size: 16px;\r\n\r\n}\r\n.sshow_dropdowns{\r\n    display:flex;\r\n    flex-direction: column;\r\n\r\n\r\n}\r\n.sshow_dropdowns_item{\r\n    display:flex;\r\n    flex-direction: column;\r\n    margin-top: 10px;\r\n    /* border:1px solid black; */\r\n    width:-webkit-fit-content;\r\n    width:-moz-fit-content;\r\n    width:fit-content;\r\n\r\n}\r\n.sshow_dropdowns_item_title{\r\ndisplay:flex;\r\nfont-weight: bold;\r\n}\r\n.sshow_checks{\r\n    display:flex;\r\n    flex-direction: column;\r\n    margin-top: 50px;\r\n}\r\n.sshow_checks_item{\r\n    display:flex;\r\n    flex-direction: column;\r\n    margin-top: 10px;\r\n}\r\n.sshow_checks_item_h{\r\n    display:flex;\r\n   font-weight: bold;\r\n}\r\n.sshow_checks_item_p{\r\n    display:flex;\r\n   font-weight: 500;\r\n}\r\n\r\n\r\n\r\n\r\n.sshow_top{\r\ndisplay:flex;\r\nwidth:100%;\r\nheight:250px;\r\nborder-bottom: 1px solid black;\r\n}\r\n\r\n.sshow_top_imgCon{\r\n    display:flex;\r\n    width:30%;\r\n    align-items: center;\r\n    place-content: center;\r\n    \r\n\r\n}\r\n.sshow_top_img{\r\n    display:flex;\r\n    height:70%;\r\n    width:auto;\r\n    /* border:1px solid black; */\r\n\r\n}\r\n.sshow_top_text{\r\n    display:flex;\r\n    flex-direction: column;\r\n    width:70%;\r\n    height:70%;\r\n    margin-top: auto;\r\n    margin-bottom: auto;\r\n    border-left:1px solid black;\r\n    padding:10px;\r\n\r\n}\r\n.sshow_submit{\r\n    display:flex;\r\n    flex-direction: column;\r\n    width:-webkit-fit-content;\r\n    width:-moz-fit-content;\r\n    width:fit-content;\r\n    padding:10px;\r\n    height:-webkit-fit-content;\r\n    height:-moz-fit-content;\r\n    height:fit-content;\r\n    margin-top: auto;\r\n    margin-bottom: auto;\r\n    margin-right: 10px;\r\n}\r\n.sshow_top_text_h{\r\n    display:flex;\r\n    font-weight: bold;\r\n    font-size: 25px;\r\n}\r\n.sshow_top_text_p{\r\n    display:flex;\r\n    font-weight: 500;\r\n    font-size: 18px;\r\n}\r\n.sshow_body{\r\n    display:flex;\r\n    width:100%;\r\n    height:-webkit-fit-content;\r\n    height:-moz-fit-content;\r\n    height:fit-content;\r\n}\r\n.sshow_grid_container{\r\n    display:grid;\r\n    grid-template: 400px/ auto auto auto  ;\r\n    grid-template-rows: 200px 200px 200px 200px ;\r\n    gap: 10px;\r\n    padding: 10px;\r\n    margin-left: auto;\r\n    margin-right: auto;\r\n}\r\n.sshow_block{\r\n    display:flex;\r\n    flex-direction: column;\r\n    width:400px;\r\n    height:200px;\r\n    border:1px solid #ddd;\r\n    border-radius: 10px;\r\n   color:black;\r\n   padding:10px;\r\n  \r\n  \r\n  \r\n}\r\n\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".sshow{\r\n    display:flex;\r\n    flex-direction: column;\r\n    border:1px solid black;\r\n    width:100%;\r\n    height:-webkit-fit-content;\r\n    height:-moz-fit-content;\r\n    height:fit-content;\r\n    border:1px solid black;\r\n    border-radius: 10px;\r\n    margin-top: 50px;\r\n}\r\n.sshow_title{\r\n    display:flex;\r\n    font-weight: bold;\r\n    font-size: 20px;\r\n    margin-bottom: 10px;\r\n\r\n}\r\n.sshow_description{\r\n    display:flex;\r\n    font-weight: 400;\r\n    font-size: 16px;\r\n\r\n}\r\n.sshow_dropdowns{\r\n    display:flex;\r\n    flex-direction: column;\r\n\r\n\r\n}\r\n.sshow_dropdowns_item{\r\n    display:flex;\r\n    flex-direction: column;\r\n    margin-top: 10px;\r\n    /* border:1px solid black; */\r\n    width:-webkit-fit-content;\r\n    width:-moz-fit-content;\r\n    width:fit-content;\r\n\r\n}\r\n.sshow_dropdowns_item_title{\r\ndisplay:flex;\r\nfont-weight: bold;\r\n}\r\n.sshow_checks{\r\n    display:flex;\r\n    flex-direction: column;\r\n    margin-top: 50px;\r\n}\r\n.sshow_checks_item{\r\n    display:flex;\r\n    flex-direction: column;\r\n    margin-top: 10px;\r\n}\r\n.sshow_checks_item_h{\r\n    display:flex;\r\n   font-weight: bold;\r\n}\r\n.sshow_checks_item_p{\r\n    display:flex;\r\n   font-weight: 500;\r\n}\r\n\r\n\r\n\r\n\r\n.sshow_top{\r\ndisplay:flex;\r\nwidth:100%;\r\nheight:250px;\r\nborder-bottom: 1px solid black;\r\n}\r\n\r\n.sshow_top_imgCon{\r\n    display:flex;\r\n    width:30%;\r\n    align-items: center;\r\n    place-content: center;\r\n    \r\n\r\n}\r\n.sshow_top_img{\r\n    display:flex;\r\n    height:70%;\r\n    width:auto;\r\n    /* border:1px solid black; */\r\n\r\n}\r\n.sshow_top_text{\r\n    display:flex;\r\n    flex-direction: column;\r\n    width:70%;\r\n    height:70%;\r\n    margin-top: auto;\r\n    margin-bottom: auto;\r\n    border-left:1px solid black;\r\n    padding:10px;\r\n\r\n}\r\n.sshow_submit{\r\n    display:flex;\r\n    flex-direction: column;\r\n    width:-webkit-fit-content;\r\n    width:-moz-fit-content;\r\n    width:fit-content;\r\n    padding:10px;\r\n    height:-webkit-fit-content;\r\n    height:-moz-fit-content;\r\n    height:fit-content;\r\n    margin-top: auto;\r\n    margin-bottom: auto;\r\n    margin-right: 10px;\r\n  \r\n    \r\n}\r\n.sshow_btn{\r\n    display:flex;\r\n    padding:10px;\r\n    margin-top: 10px;\r\n    align-items: center;\r\n    place-content: center;\r\n}\r\n.sshow_top_text_h{\r\n    display:flex;\r\n    font-weight: bold;\r\n    font-size: 25px;\r\n}\r\n.sshow_top_text_p{\r\n    display:flex;\r\n    font-weight: 500;\r\n    font-size: 18px;\r\n}\r\n.sshow_body{\r\n    display:flex;\r\n    width:100%;\r\n    height:-webkit-fit-content;\r\n    height:-moz-fit-content;\r\n    height:fit-content;\r\n}\r\n.sshow_grid_container{\r\n    display:grid;\r\n    grid-template: 400px/ auto auto auto  ;\r\n    grid-template-rows: 200px 200px 200px 200px ;\r\n    gap: 10px;\r\n    padding: 10px;\r\n    margin-left: auto;\r\n    margin-right: auto;\r\n}\r\n.sshow_block{\r\n    display:flex;\r\n    flex-direction: column;\r\n    width:400px;\r\n    height:200px;\r\n    border:1px solid #ddd;\r\n    border-radius: 10px;\r\n   color:black;\r\n   padding:10px;\r\n  \r\n  \r\n  \r\n}\r\n\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -21104,7 +21117,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".sb_main{\r\n    display:flex;\r\n    width:100%;\r\n    height:100%;\r\n}\r\n.sb{\r\n    display:flex;\r\n    flex-direction: column;\r\n    width:100%;\r\n    height:100%;\r\n}\r\n.sb_top{\r\n    width:100%;\r\n    display:flex;\r\n    align-items: center;\r\n    place-content: center;\r\n    font-weight: bold;\r\n    font-size: 22px;\r\n    height:100px;\r\n}\r\n.sb_mid{\r\n    display:flex;\r\n    width: 100%;\r\n    height:40px;\r\n    /* border:2px solid black; */\r\n    align-items: center;\r\n}\r\n.sb_mid_icon{\r\n    display:flex;\r\n    color:black;\r\n    padding:15px;\r\n\r\n}\r\n.sb_body{\r\n    display:flex;\r\n    width: 100%;\r\n    height:100%;\r\n    border:1px solid #ddd;\r\n}\r\n.sb_page{\r\n    display:flex;\r\n    flex-direction: column;\r\n    margin-top:50px ;\r\n    width:100%;\r\n}\r\n.sb_page_top{\r\n    display:flex;\r\n    height:50px;\r\n}\r\n.sb_page_bottom{\r\n    display:flex;\r\n    width:100%;\r\n    height:100%;\r\n    \r\n}\r\n.sb_grid_container{\r\n    display:grid;\r\n    /* grid-template: 25fr/ auto auto auto auto ; */\r\n    grid-template-columns: repeat(4, 23%);\r\n    /* grid-auto-rows:25fr; */\r\n    /* grid-template-rows: repeat(4, fit-content(25%)); */\r\n    /* grid-template-columns: repeat(4, fit-content(25%)); */\r\n    /* grid-auto-columns: 1fr; */\r\n    \r\n    gap: 2%;\r\n    padding: 10px;\r\n    margin-left: auto;\r\n    margin-right: auto;\r\n    /* border:1px solid red; */\r\n    width:100%;\r\n    height:100%;\r\n    border:1px solid #ddd;\r\n}\r\n.sb_block1{\r\n    display:flex;\r\n    border:1px solid #ddd;\r\n    align-items: center;\r\n    place-content: center;\r\n    height:100px;\r\n    border-radius: 10px;\r\n}\r\n.sb_block1:hover{\r\n    cursor: pointer;\r\n}\r\n.sb_block1>p{\r\ndisplay: flex;\r\nfont-weight: bold;\r\n}\r\n.sb_block{\r\n    display:flex;\r\n    flex-direction: column;\r\n   \r\n    width:100%;\r\n   \r\n    height:100px;\r\n    border:1px solid #ddd;\r\n    border-radius: 10px;\r\n   color:black;\r\n   transition: transform .2s; /* Animation */\r\n  \r\n  \r\n  \r\n}\r\n\r\n.sb_block_top{\r\n    display:flex;\r\n    font-weight: bold;\r\n    font-size: 20px;\r\n    align-items: center;\r\n    place-content: center;\r\n    border-bottom: 1px solid #ddd;\r\n    height:20%;\r\n    \r\n\r\n}\r\n.sb_block_bottom{\r\n    display:flex;\r\n    height:80%;\r\n    width:95%;\r\n    margin-left: auto;\r\n    margin-right: auto;\r\n    \r\n    \r\n}\r\n.sb_block_bottom_imgCon{\r\n    display:flex;\r\n    width:40%;\r\n    align-items: center;\r\n   \r\n    \r\n    \r\n    \r\n    \r\n}\r\n.sb_block_bottom_imgCon_img{\r\n    display:flex;\r\n    \r\n    margin-left: auto;\r\n    margin-right: auto;\r\n    height:50%;\r\n    max-width:100%;\r\n    width:auto;\r\n   \r\n\r\n}\r\n.sb_block_bottom_text{\r\n    display:flex;\r\n    width:55%;\r\n    font-weight: 500;\r\n    font-size: 14px;\r\n    align-items: center;\r\n    height:100%;\r\n    margin-left: auto;\r\n    \r\n   \r\n    \r\n}\r\n.sb_block:hover{\r\n    cursor: pointer;\r\n}\r\n\r\n.sb_loading{\r\n    display:flex;\r\n    align-items: center;\r\n    font-weight: bold;\r\n    font-size: 20px;\r\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".sb_main{\r\n    display:flex;\r\n    width:100%;\r\n    height:100%;\r\n}\r\n.sb{\r\n    display:flex;\r\n    flex-direction: column;\r\n    width:100%;\r\n    height:100%;\r\n}\r\n.sb_top{\r\n    width:100%;\r\n    display:flex;\r\n    align-items: center;\r\n    place-content: center;\r\n    font-weight: bold;\r\n    font-size: 22px;\r\n    height:100px;\r\n    color:#00385A;\r\n}\r\n.sb_mid{\r\n    display:flex;\r\n    width: 100%;\r\n    height:40px;\r\n    /* border:2px solid black; */\r\n    align-items: center;\r\n}\r\n.sb_mid_icon{\r\n    display:flex;\r\n    color:black;\r\n    padding:15px;\r\n\r\n}\r\n.sb_body{\r\n    display:flex;\r\n    width: 100%;\r\n    height:100%;\r\n    border:1px solid #ddd;\r\n}\r\n.sb_page{\r\n    display:flex;\r\n    flex-direction: column;\r\n    margin-top:50px ;\r\n    width:100%;\r\n}\r\n.sb_page_top{\r\n    display:flex;\r\n    height:50px;\r\n}\r\n.sb_page_bottom{\r\n    display:flex;\r\n    width:100%;\r\n    height:100%;\r\n    \r\n}\r\n.sb_grid_container{\r\n    display:grid;\r\n    /* grid-template: 25fr/ auto auto auto auto ; */\r\n    grid-template-columns: repeat(4, 23%);\r\n    /* grid-auto-rows:25fr; */\r\n    /* grid-template-rows: repeat(4, fit-content(25%)); */\r\n    /* grid-template-columns: repeat(4, fit-content(25%)); */\r\n    /* grid-auto-columns: 1fr; */\r\n    \r\n    gap: 2%;\r\n    padding: 10px;\r\n    margin-left: auto;\r\n    margin-right: auto;\r\n    /* border:1px solid red; */\r\n    width:100%;\r\n    height:100%;\r\n    border:1px solid #ddd;\r\n}\r\n.sb_block1{\r\n    display:flex;\r\n    border:1px solid #ddd;\r\n    align-items: center;\r\n    place-content: center;\r\n    height:100px;\r\n    border-radius: 10px;\r\n    background-color:#00385A;\r\n    color:white;\r\n}\r\n.sb_block1:hover{\r\n    cursor: pointer;\r\n}\r\n.sb_block1>p{\r\ndisplay: flex;\r\nfont-weight: bold;\r\n}\r\n.sb_block{\r\n    display:flex;\r\n    flex-direction: column;\r\n   \r\n    width:100%;\r\n   \r\n    height:100px;\r\n    border:1px solid #ddd;\r\n    border-radius: 10px;\r\n   color:black;\r\n   transition: transform .2s; /* Animation */\r\n  \r\n  \r\n  \r\n}\r\n\r\n.sb_block_top{\r\n    display:flex;\r\n    font-weight: bold;\r\n    font-size: 20px;\r\n    align-items: center;\r\n    place-content: center;\r\n    border-bottom: 1px solid #ddd;\r\n    height:20%;\r\n    \r\n\r\n}\r\n.sb_block_bottom{\r\n    display:flex;\r\n    height:80%;\r\n    width:95%;\r\n    margin-left: auto;\r\n    margin-right: auto;\r\n    \r\n    \r\n}\r\n.sb_block_bottom_imgCon{\r\n    display:flex;\r\n    width:40%;\r\n    align-items: center;\r\n   \r\n    \r\n    \r\n    \r\n    \r\n}\r\n.sb_block_bottom_imgCon_img{\r\n    display:flex;\r\n    \r\n    margin-left: auto;\r\n    margin-right: auto;\r\n    height:50%;\r\n    max-width:100%;\r\n    width:auto;\r\n   \r\n\r\n}\r\n.sb_block_bottom_text{\r\n    display:flex;\r\n    width:55%;\r\n    font-weight: 500;\r\n    font-size: 14px;\r\n    align-items: center;\r\n    height:100%;\r\n    margin-left: auto;\r\n    \r\n   \r\n    \r\n}\r\n.sb_block:hover{\r\n    cursor: pointer;\r\n}\r\n\r\n.sb_loading{\r\n    display:flex;\r\n    align-items: center;\r\n    font-weight: bold;\r\n    font-size: 20px;\r\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -21152,7 +21165,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".todos{\r\n    display:flex;\r\n    width:100%;\r\n    height:600px;\r\n    margin-top: 50px;\r\n}\r\n.todos_l{\r\n    display:flex;\r\n    flex-direction: column;\r\n    width:20%;\r\n    border:1px solid black;\r\n    \r\n}\r\n.todos_l_top{\r\n    display:flex;\r\n    width:100%;\r\n    height:50px;\r\n   \r\n}\r\n.todos_active{\r\n    border-bottom: 3px solid orange !important;\r\n\r\n}\r\n.todos_l_items{\r\n    display:flex;\r\n    flex-direction: column;\r\n    width:100%;\r\n    height:100%;\r\n    overflow-y: scroll;\r\n    overflow: hidden;\r\n   \r\n}\r\n.todos_l_items_item{\r\n    display:flex;\r\n    width:100%;\r\n    height:60px;\r\n    border-bottom: 2px solid black;\r\n    align-items: center;\r\n    place-content: center;\r\n}\r\n.todos_l_items_item:hover{\r\n    cursor: pointer;\r\n}\r\n.todos_l_top_item{\r\n    display:flex;\r\n    width:50%;\r\n    height:100%;\r\n    border-right: 1px solid black;\r\n    border-bottom: 1px solid black;\r\n    align-items: center;\r\n    place-content: center;\r\n    font-size: 13px;\r\n    font-weight: bold;\r\n}\r\n.todos_l_top_item:hover{\r\n    cursor: pointer;\r\n}\r\n.todos_r{\r\n    display:flex;\r\n    flex-direction: column;\r\n    \r\n    width:80%;\r\n    border:1px solid black;\r\n    \r\n}\r\n.todos_loading{\r\n    display:flex;\r\n    width:100%;\r\n    margin-top: 20px;\r\n    align-items: center;\r\n    place-content: center;\r\n    font-size: 18px;\r\n    font-weight: 600;\r\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".todos{\r\n    display:flex;\r\n    width:100%;\r\n    height:600px;\r\n    margin-top: 50px;\r\n}\r\n.todos_l{\r\n    display:flex;\r\n    flex-direction: column;\r\n    width:20%;\r\n    border:1px solid black;\r\n    \r\n}\r\n.todos_l_top{\r\n    display:flex;\r\n    width:100%;\r\n    height:50px;\r\n   \r\n}\r\n.todos_active{\r\n    border-bottom: 3px solid orange !important;\r\n\r\n}\r\n.todos_l_items{\r\n    display:flex;\r\n    flex-direction: column;\r\n    width:100%;\r\n    height:100%;\r\n    overflow-y: scroll;\r\n    overflow: hidden;\r\n   \r\n}\r\n.todos_l_items_item{\r\n    display:flex;\r\n    width:100%;\r\n    height:60px;\r\n    border-bottom: 2px solid black;\r\n    align-items: center;\r\n    place-content: center;\r\n    transition: transform .2s; /* Animation */\r\n}\r\n.todos_l_items_item:hover{\r\n    cursor: pointer;\r\n    transform: scale(1.2); \r\n    background-color:#00385A ;\r\n    color:white;\r\n}\r\n.todos_l_top_item{\r\n    display:flex;\r\n    width:50%;\r\n    height:100%;\r\n    border-right: 1px solid black;\r\n    border-bottom: 1px solid black;\r\n    align-items: center;\r\n    place-content: center;\r\n    font-size: 13px;\r\n    font-weight: bold;\r\n}\r\n.todos_l_top_item:hover{\r\n    cursor: pointer;\r\n}\r\n.todos_r{\r\n    display:flex;\r\n    flex-direction: column;\r\n    \r\n    width:80%;\r\n    border:1px solid black;\r\n    \r\n}\r\n.todos_loading{\r\n    display:flex;\r\n    width:100%;\r\n    margin-top: 20px;\r\n    align-items: center;\r\n    place-content: center;\r\n    font-size: 18px;\r\n    font-weight: 600;\r\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

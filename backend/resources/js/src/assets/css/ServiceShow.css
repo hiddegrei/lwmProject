@@ -5,6 +5,7 @@
     width:100%;
     height:fit-content;
     border:1px solid black;
+    border-radius: 10px;
     margin-top: 50px;
 }
 .sshow_title{
@@ -102,6 +103,15 @@ border-bottom: 1px solid black;
     margin-top: auto;
     margin-bottom: auto;
     margin-right: 10px;
+  
+    
+}
+.sshow_btn{
+    display:flex;
+    padding:10px;
+    margin-top: 10px;
+    align-items: center;
+    place-content: center;
 }
 .sshow_top_text_h{
     display:flex;

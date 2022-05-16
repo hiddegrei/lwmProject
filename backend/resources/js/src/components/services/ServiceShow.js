@@ -1,5 +1,5 @@
 import React, { useLayoutEffect, useEffect, useState } from 'react';
-import { useParams, useHistory } from "react-router-dom";
+import { useParams, useHistory, Link } from "react-router-dom";
 import "../../assets/css/ServiceShow.css";
 import http from "../../axios/http";
 import { useStateValue } from "../../Stateprovider";
@@ -105,7 +105,7 @@ function Services(props) {
 
     }
 
-    function editService(){
+    function editService() {
         history.push(`/service/edit/${serviceid.serviceid}`)
     }
     return (
@@ -117,8 +117,11 @@ function Services(props) {
                     <div className='sshow_top_text_p'>{data?.service?.description}</div>
 
                 </div>
-                <div className=' sshow_submit'><div onClick={submitRequest} className='btn btn-primary'>submit request</div>
-                <div onClick={editService} className='btn btn-primary'>Edit</div>
+                <div className=' sshow_submit'><div onClick={submitRequest} className='btn btn-primary sshow_btn '>submit request</div>
+                    <div onClick={editService} className='btn btn-warning sshow_btn'>Edit</div>
+                    <Link to="/servicebeta">
+                        <div className='btn btn-danger sshow_btn'>Cancel</div>
+                    </Link>
                 </div>
 
             </div>
