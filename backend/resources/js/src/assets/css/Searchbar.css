@@ -28,3 +28,14 @@
     padding:10px;
     /* background-color: black; */
 }
+
+.searchBar {
+    display: inherit;
+    width: inherit;
+    height: inherit;
+    border-radius: inherit;
+    background: inherit;
+    color: inherit;
+    min-width: 80px;
+    /*background-color: revert;*/
+}

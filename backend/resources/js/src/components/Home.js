@@ -11,6 +11,7 @@ function Home(props) {
     const [users, setUsers] = useState([]);
     const [input, setInput] = useState("");
     const [myTickets, setMyTickets] = useState([]);
+    const [showMaintenance, setShowMaintenance] = useState(false);
 
     useEffect(() => {
         fetchMyTickets();
@@ -23,10 +24,26 @@ function Home(props) {
         });
     }
 
+    useEffect(()=>{
+        window.addEventListener('click',checkClick);
+        return()=>{
+            window.removeEventListener('click',checkClick)
+        }
+    },[])
+    function checkClick(e){
+        setShowMaintenance(false)
+    }
+
     return (
         <div className="home">
             <div className="home_background"></div>
-
+            <div className="maintenance_block" onClick={(e)=>{
+                e.stopPropagation();
+                setShowMaintenance(!showMaintenance)}}>Maintenance▼</div>
+            {showMaintenance && <div className="maintenance_results">Current: none</div>}
+            {showMaintenance && <div className="maintenance_results">Upcoming:</div>}
+            {showMaintenance && <div className="maintenance_results">August 7th</div>}
+            {showMaintenance && <div className="maintenance_results">April 24th</div>}
             <div className="home_firstBlock_top">
                 <div className="home_firstBlock_top_greet_container">
                     <div className="home_firstBlock_top_greetUser">
