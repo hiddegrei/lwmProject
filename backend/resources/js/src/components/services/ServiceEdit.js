@@ -14,8 +14,8 @@ function ServiceEdit(props) {
     const [questionsAnswers, setQuestionsAnswers] = useState([]);
     const [received, setReceived] = useState(false);
 
-    const [title,setTitle]=useState("");
-    const [description,setDescription]=useState("")
+    const [title, setTitle] = useState("");
+    const [description, setDescription] = useState("")
 
     useLayoutEffect(() => {
 
@@ -31,7 +31,7 @@ function ServiceEdit(props) {
             console.log(res.data)
             setTitle(res.data.title)
             setDescription(res.data.description)
-           
+
 
         })
     }
@@ -64,10 +64,10 @@ function ServiceEdit(props) {
         // let serviceType = document.getElementById("serviceType").value;
 
         const fData = new FormData();
-       
+
         fData.append('title', title)
         fData.append('description', description)
-        
+
 
 
 
@@ -87,17 +87,17 @@ function ServiceEdit(props) {
 
     }
 
-    
+
     return (
         <div className='sedit'>
             {/* {data.map((doc)=>(
                 <div>{doc}</div>
             ))} */}
-            <input className='sedit_item' value={title} onChange={(e)=>setTitle(e.target.value)}></input>
-            <input className='sedit_item' value={description} onChange={(e)=>setDescription(e.target.value)}></input>
+            <input className='sedit_item' value={title} onChange={(e) => setTitle(e.target.value)}></input>
+            <input className='sedit_item' value={description} onChange={(e) => setDescription(e.target.value)}></input>
 
             <div><div onClick={submitUpdate} className='btn btn-primary'>Submit</div></div>
-           
+
 
 
         </div>

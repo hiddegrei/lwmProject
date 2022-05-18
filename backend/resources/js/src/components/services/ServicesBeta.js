@@ -23,7 +23,7 @@ function ServicesBeta(props) {
     const [step, setStep] = useState(1)
     const [curQs, setCurQs] = useState([])
 
-    const [keyIndex,setKeyIndex]=useState(0)
+    const [keyIndex, setKeyIndex] = useState(0)
 
     useLayoutEffect(() => {
         firstQs()
@@ -61,8 +61,6 @@ function ServicesBeta(props) {
             console.log(res.data)
             setLoading(false)
             setShowData(true)
-
-
         })
 
     }
@@ -78,7 +76,7 @@ function ServicesBeta(props) {
     }
 
     function updateQs(index) {
-        if(step===1){
+        if (step === 1) {
             setKeyIndex(index)
         }
         setCurQsIndex(index)
@@ -89,19 +87,16 @@ function ServicesBeta(props) {
         } else {
             setLoading(true)
             console.log("hi")
-            if(step===1){
+            if (step === 1) {
                 fetchService(qs[index].id)
 
-            }else{
+            } else {
                 fetchService(qs[keyIndex].id)
 
             }
-            
+
             console.log(index)
         }
-
-
-
     }
     return (
         <div className='sb_main'>
@@ -126,35 +121,35 @@ function ServicesBeta(props) {
                 </div>}
 
             {showData &&
-            <div className='sb_page'>
-                <div className='sb_page_top'>
-                <ArrowBackIosNewIcon onClick={() =>window.location.reload()} color="primary" className='hover' />
-                </div>
+                <div className='sb_page'>
+                    <div className='sb_page_top'>
+                        <ArrowBackIosNewIcon onClick={() => window.location.reload()} color="primary" className='hover' />
+                    </div>
 
-                <div className='sb_page_bottom'>
-                <div className="sb_grid_container">
-                    {data.map((doc, index) => (
+                    <div className='sb_page_bottom'>
+                        <div className="sb_grid_container">
+                            {data.map((doc, index) => (
 
-                        <div key={index} onClick={() => history.push(`/services/${doc.servicetype}/${doc.id}`)} className="sb_block">
-                            <div className="sb_block_top">{doc.title} </div>
+                                <div key={index} onClick={() => history.push(`/services/${doc.servicetype}/${doc.id}`)} className="sb_block">
+                                    <div className="sb_block_top">{doc.title} </div>
 
-                            <div className="sb_block_bottom">
-                                <div className="sb_block_bottom_imgCon">
-                                    {doc.image != "" && <img className="sb_block_bottom_imgCon_img" src={`/storage/${doc.image}`}></img>}
+                                    <div className="sb_block_bottom">
+                                        <div className="sb_block_bottom_imgCon">
+                                            {doc.image != "" && <img className="sb_block_bottom_imgCon_img" src={`/storage/${doc.image}`}></img>}
+
+                                        </div>
+                                        <div className="sb_block_bottom_text">{doc.description} </div>
+
+                                    </div>
+
+
 
                                 </div>
-                                <div className="sb_block_bottom_text">{doc.description} </div>
-
-                            </div>
-
-
-
+                            ))}
                         </div>
-                    ))}
+                    </div>
                 </div>
-                </div>
-                </div>
-                }
+            }
 
 
 
