@@ -101,10 +101,6 @@ function Todos(props) {
                     )}
                 </div>
             </div>
-            <ul>
-                <li>asdf</li>
-                <li>asdfasdf</li>
-            </ul>
         </div>
     );
 }
