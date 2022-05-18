@@ -9,13 +9,16 @@
     flex-direction: column;
     width:20%;
     border:1px solid black;
-    
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+
+
 }
 .todos_l_top{
     display:flex;
     width:100%;
     height:50px;
-   
+
 }
 .todos_active{
     border-bottom: 3px solid orange !important;
@@ -28,7 +31,7 @@
     height:100%;
     overflow-y: scroll;
     overflow: hidden;
-   
+
 }
 .todos_l_items_item{
     display:flex;
@@ -41,7 +44,7 @@
 }
 .todos_l_items_item:hover{
     cursor: pointer;
-    transform: scale(1.2); 
+    transform: scale(1.2);
     background-color:#00385A ;
     color:white;
 }
@@ -62,10 +65,14 @@
 .todos_r{
     display:flex;
     flex-direction: column;
-    
+
     width:80%;
     border:1px solid black;
-    
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+
+
+
 }
 .todos_loading{
     display:flex;

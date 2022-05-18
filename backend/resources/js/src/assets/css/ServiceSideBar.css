@@ -3,7 +3,8 @@
     flex-direction: column;
     width:100%;
     height:fit-content;
-    border:1px solid #ddd;
+    border:1px solid #1E90FF;
+    border-top-left-radius: 10px;
 }
 .serviceSide_h{
     display:flex;
@@ -11,10 +12,9 @@
     height:50px;
     align-items: center;
     background-color: #1E90FF;
-    border-bottom: 1px solid #ddd;
-    
-
-}
+    border-bottom: 1px solid #1E90FF;
+    border-top-left-radius: 10px;
+    }
 .serviceSide_h>p{
 margin-left: 10px;
 }
@@ -42,7 +42,7 @@ flex-direction: column;
 .serviceSide_item>p{
     display:flex;
   margin-left: 5px;
-  
+
 }
 .serviceSide_item:hover{
 border-left: 3px solid #1E90FF ;

@@ -115,29 +115,29 @@ function Todo({ onclick, id, title, description, approval_btn, submit_request_id
                         </div>}
 
                         {/* {submitRequestData.question_answer&&<div className='todo_body_reqCon_block'>
-                        
+
                                 <div className='todo_body_reqCon_block_row '>
                                   <div className='todo_body_reqCon_block_item bold '>Question: </div>
                                   <div className='todo_body_reqCon_block_item '>{submitRequestData.question_answer.question}</div>
-                               
+
                                 </div>
 
                                 <div className='todo_body_reqCon_block_row '>
                                   <div className='todo_body_reqCon_block_item bold '>Answer: </div>
                                   <div className='todo_body_reqCon_block_item '>{submitRequestData.question_answer.answer}</div>
-                               
+
                                 </div>
-                                
-                               
-                            
-                        
+
+
+
+
                         </div>} */}
 
                     </div>
                 }
 
                 {(approval_btn === 1 && !submitRequestData.approved) && <div className="todo_body_elm"><button onClick={() => handleApproval(1)} className=" todo_btn btn btn-primary">accept</button>
-                    <button onClick={() => handleApproval(0)} className="todo_btn btn btn-primary">denie</button>
+                    <button onClick={() => handleApproval(0)} className="todo_btn btn btn-primary">deny</button>
                 </div>}
 
 
