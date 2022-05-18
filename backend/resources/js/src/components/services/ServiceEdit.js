@@ -35,30 +35,7 @@ function ServiceEdit(props) {
 
         })
     }
-    useEffect(() => {
-
-        // http.get('/allusers').then(res => {
-
-        //     setUsersData(res.data)
-        // })
-
-
-
-
-
-    }, [])
-
-    useEffect(() => {
-        // if(received){
-        //     let arr=[]
-        //     data?.service?.questions.map((doc,index)=>{
-        //         arr[index]={title:doc.title,answer:""}
-
-        //     })
-        //     setQuestionsAnswers(arr)
-
-        // }
-    }, [received])
+    
 
     function submitUpdate() {
         // let serviceType = document.getElementById("serviceType").value;
@@ -93,8 +70,23 @@ function ServiceEdit(props) {
             {/* {data.map((doc)=>(
                 <div>{doc}</div>
             ))} */}
-            <input className='sedit_item' value={title} onChange={(e) => setTitle(e.target.value)}></input>
-            <input className='sedit_item' value={description} onChange={(e) => setDescription(e.target.value)}></input>
+            <div className='sedit_block'>
+                <div className='sedit_block_title'>Title</div>
+                <div className='sedit_block_input'>
+                     <input className='sedit_item' value={title} onChange={(e) => setTitle(e.target.value)}></input>
+                </div>
+
+            </div>
+
+             <div className='sedit_block'>
+                <div className='sedit_block_title'>Description</div>
+                <div className='sedit_block_input'>
+                     <input className='sedit_item' value={description} onChange={(e) => setDescription(e.target.value)}></input>
+                </div>
+
+            </div>
+           
+            
 
             <div><div onClick={submitUpdate} className='btn btn-primary'>Submit</div></div>
 

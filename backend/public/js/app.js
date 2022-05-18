@@ -14497,19 +14497,6 @@ function ServiceEdit(props) {
     });
   }
 
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {// http.get('/allusers').then(res => {
-    //     setUsersData(res.data)
-    // })
-  }, []);
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {// if(received){
-    //     let arr=[]
-    //     data?.service?.questions.map((doc,index)=>{
-    //         arr[index]={title:doc.title,answer:""}
-    //     })
-    //     setQuestionsAnswers(arr)
-    // }
-  }, [received]);
-
   function submitUpdate() {
     // let serviceType = document.getElementById("serviceType").value;
     var fData = new FormData();
@@ -14532,18 +14519,36 @@ function ServiceEdit(props) {
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
     className: "sedit",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
-      className: "sedit_item",
-      value: title,
-      onChange: function onChange(e) {
-        return setTitle(e.target.value);
-      }
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
-      className: "sedit_item",
-      value: description,
-      onChange: function onChange(e) {
-        return setDescription(e.target.value);
-      }
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+      className: "sedit_block",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+        className: "sedit_block_title",
+        children: "Title"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+        className: "sedit_block_input",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+          className: "sedit_item",
+          value: title,
+          onChange: function onChange(e) {
+            return setTitle(e.target.value);
+          }
+        })
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+      className: "sedit_block",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+        className: "sedit_block_title",
+        children: "Description"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+        className: "sedit_block_input",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+          className: "sedit_item",
+          value: description,
+          onChange: function onChange(e) {
+            return setDescription(e.target.value);
+          }
+        })
+      })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
         onClick: submitUpdate,
@@ -21056,7 +21061,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".sedit{\r\n    display:flex;\r\n    flex-direction: column;\r\n}\r\n.sedit_item{\r\ndisplay:flex;\r\npadding:20px;\r\nalign-items: center;\r\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".sedit{\r\n    display:flex;\r\n    flex-direction: column;\r\n}\r\n.sedit_block{\r\n    display:flex;\r\n    flex-direction: column;\r\n    padding:20px;\r\n    \r\n\r\n}\r\n.sedit_block_title {\r\n    display:flex;\r\n    font-weight: bold;\r\n    font-size: 18px;\r\n\r\n}\r\n.sedit_block_input {\r\n    display:flex;\r\n\r\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
