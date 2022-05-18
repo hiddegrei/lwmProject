@@ -39,17 +39,26 @@ a {
     color: white;
     font-size: 20px;
     background: linear-gradient(to top, #d9e8ea, #1E90FF) no-repeat;
+    position: absolute;
+    top:20%;
 }
 
 
 .maintenance_results {
     display: flex;
+    flex-direction: column;
+    position: absolute;
+    top:24%;
     border: 0px;
     width: 200px;
     align-self: end;
     color: white;
     font-size: 20px;
     background-color: #d9e8ea;
+}
+.maintenance_results_elm {
+    display:flex;
+
 }
 
 .home_firstBlock {

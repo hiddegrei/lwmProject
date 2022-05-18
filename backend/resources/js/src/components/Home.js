@@ -12,6 +12,7 @@ function Home(props) {
     const [input, setInput] = useState("");
     const [myTickets, setMyTickets] = useState([]);
     const [showMaintenance, setShowMaintenance] = useState(false);
+    const [maintenanceArr,setMaintenanceArr]=useState(["Current: none","Upcoming:","August 7th","April 24th"])
 
     useEffect(() => {
         fetchMyTickets();
@@ -40,10 +41,13 @@ function Home(props) {
             <div className="maintenance_block" onClick={(e)=>{
                 e.stopPropagation();
                 setShowMaintenance(!showMaintenance)}}>Maintenance▼</div>
-            {showMaintenance && <div className="maintenance_results">Current: none</div>}
-            {showMaintenance && <div className="maintenance_results">Upcoming:</div>}
-            {showMaintenance && <div className="maintenance_results">August 7th</div>}
-            {showMaintenance && <div className="maintenance_results">April 24th</div>}
+                {showMaintenance&&<div className="maintenance_results">
+                    {maintenanceArr.map((doc)=>(
+                        <div className="maintenance_results_elm">{doc}</div>
+                    ))}
+                    
+                    </div>}
+           
             <div className="home_firstBlock_top">
                 <div className="home_firstBlock_top_greet_container">
                     <div className="home_firstBlock_top_greetUser">
