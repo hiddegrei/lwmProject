@@ -27,6 +27,7 @@ function ServicesBeta(props) {
 
     useLayoutEffect(() => {
         firstQs()
+        getPath()
 
 
     }, [service])
@@ -62,6 +63,18 @@ function ServicesBeta(props) {
             setLoading(false)
             setShowData(true)
         })
+
+    }
+
+    function getPath(){
+         const fData = new FormData();
+      
+        fData.append('main_index', 0);
+        fData.append('path_index', 0);
+
+         http.post('/serviceguide', fData).then(res => {
+            console.log(res.data)
+        }).catch((err) => console.log(err));
 
     }
 

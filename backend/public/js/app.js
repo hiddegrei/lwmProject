@@ -15236,6 +15236,7 @@ function ServicesBeta(props) {
 
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useLayoutEffect)(function () {
     firstQs();
+    getPath();
   }, [service]);
 
   function firstQs() {
@@ -15263,6 +15264,17 @@ function ServicesBeta(props) {
       console.log(res.data);
       setLoading(false);
       setShowData(true);
+    });
+  }
+
+  function getPath() {
+    var fData = new FormData();
+    fData.append('main_index', 0);
+    fData.append('path_index', 0);
+    _axios_http__WEBPACK_IMPORTED_MODULE_2__["default"].post('/serviceguide', fData).then(function (res) {
+      console.log(res.data);
+    })["catch"](function (err) {
+      return console.log(err);
     });
   }
 

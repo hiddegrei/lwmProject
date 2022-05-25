@@ -8,6 +8,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\MainReactController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\ServiceGuideController;
 use App\Http\Controllers\SubmitRequestController;
 
 
@@ -71,6 +72,9 @@ Route::post('/api/service/edit/{service}',[ServiceController::class, 'update']);
 Route::post('/api/services/{query}',[ServiceController::class, 'search']);
 
 Route::get('/api/services/search/{key}',[ServiceController::class, 'searchKey']);
+
+//serviceguide
+Route::post('/api/serviceguide',[ServiceGuideController::class, 'index']);
 
 
 Route::get('/api/user/auth',[UserController::class, 'authUser']);
