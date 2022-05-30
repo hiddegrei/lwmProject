@@ -12,7 +12,7 @@ function ServicesBeta(props) {
     const [elements, setElements] = useState([]);
     const [data, setData] = useState([]);
     const [showData, setShowData] = useState(false);
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
     const [topText, setTopText] = useState(["What are you looking for?"]);
     const [qs, setQs] = useState([
         { id: "lunch", data: [["Order lunch"]] },
@@ -40,6 +40,7 @@ function ServicesBeta(props) {
         http.get(`/serviceguide`).then((res) => {
             setElements(res.data);
             firstQs();
+            setLoading(false);
             console.log(res.data);
         });
     }
@@ -142,6 +143,7 @@ function ServicesBeta(props) {
                     </div>
 
                     <div className="sb_body">
+                        {loading && <div>loading...</div>}
                         <div className="sb_grid_container">
                             {curQs.map((doc, index) => (
                                 <div

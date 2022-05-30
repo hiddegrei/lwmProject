@@ -74,43 +74,51 @@ export default function BetaEdit() {
         });
     }
     return (
-        <div>
-            {data.map((doc, index) => (
-                <div className="be_item">
-                    <div className="be_con">
-                        <div className="be_con_title">main index</div>
-                        <div className="be_con_inp">{doc.main_index}</div>
+        <div className="be">
+            <div className="be_grid_container">
+                {data.map((doc, index) => (
+                    <div className="be_block">
+                        <div className="be_con">
+                            <div className="be_con_title">main index</div>
+                            <div className="be_con_inp">{doc.main_index}</div>
+                        </div>
+                        <div className="be_con">
+                            <div className="be_con_title">path index</div>
+                            <div className="be_con_inp">{doc.path_index}</div>
+                        </div>
+                        <div className="be_con">
+                            <div className="be_con_title">question</div>
+                            <input
+                                value={doc.question}
+                                onChange={(e) =>
+                                    changeQs(index, e.target.value)
+                                }
+                                className="be_con_inp"
+                            ></input>
+                        </div>
+                        <div className="be_con">
+                            <div className="be_con_title">service key</div>
+                            <input
+                                value={doc.service_key}
+                                onChange={(e) =>
+                                    changeSk(index, e.target.value)
+                                }
+                                className="be_con_inp"
+                            ></input>
+                        </div>
+                        <div className="be_con">
+                            <div className="be_con_title">is end</div>
+                            <input
+                                value={doc.is_end}
+                                onChange={(e) =>
+                                    changeIsEnd(index, e.target.value)
+                                }
+                                className="be_con_inp"
+                            ></input>
+                        </div>
                     </div>
-                    <div className="be_con">
-                        <div className="be_con_title">path index</div>
-                        <div className="be_con_inp">{doc.path_index}</div>
-                    </div>
-                    <div className="be_con">
-                        <div className="be_con_title">question</div>
-                        <input
-                            value={doc.question}
-                            onChange={(e) => changeQs(index, e.target.value)}
-                            className="be_con_inp"
-                        ></input>
-                    </div>
-                    <div className="be_con">
-                        <div className="be_con_title">service key</div>
-                        <input
-                            value={doc.service_key}
-                            onChange={(e) => changeSk(index, e.target.value)}
-                            className="be_con_inp"
-                        ></input>
-                    </div>
-                    <div className="be_con">
-                        <div className="be_con_title">is end</div>
-                        <input
-                            value={doc.is_end}
-                            onChange={(e) => changeIsEnd(index, e.target.value)}
-                            className="be_con_inp"
-                        ></input>
-                    </div>
-                </div>
-            ))}
+                ))}
+            </div>
 
             <div className="be_con">
                 <div className="be_con_title">main index</div>

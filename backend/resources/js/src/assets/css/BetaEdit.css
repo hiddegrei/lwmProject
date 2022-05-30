@@ -1,3 +1,7 @@
+.be{
+    
+    width:100%;
+}
 .be_con{
     display:flex;
     flex-direction: column;
@@ -18,4 +22,35 @@
     flex-direction: column;
     border:1px solid black;
     margin-bottom: 10px;
+}
+.be_grid_container {
+    display: grid;
+    /* grid-template: 25fr/ auto auto auto auto ; */
+    /* grid-template-rows: 25fr 25fr 25fr 25fr ; */
+    /* grid-auto-columns: 25fr; */
+    grid-template-columns: repeat(4, 23%);
+    gap: 2%;
+    padding: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    /* border:1px solid black; */
+    width: 100%;
+}
+
+.be_block {
+    display: flex;
+    flex-direction: column;
+    /* max-width: 300px; */
+    /* width:25fr; */
+    /* min-height: 200px; */
+    height: fit-content;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    color: black;
+    transition: transform .2s;
+    width:fit-content;
+   
+    /* Animation */
+
+
 }

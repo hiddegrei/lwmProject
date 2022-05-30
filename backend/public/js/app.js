@@ -14059,65 +14059,69 @@ function BetaEdit() {
   }
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-    children: [data.map(function (doc, index) {
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-        className: "be_item",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-          className: "be_con",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-            className: "be_con_title",
-            children: "main index"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-            className: "be_con_inp",
-            children: doc.main_index
+    className: "be",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      className: "be_grid_container",
+      children: data.map(function (doc, index) {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          className: "be_block",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+            className: "be_con",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+              className: "be_con_title",
+              children: "main index"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+              className: "be_con_inp",
+              children: doc.main_index
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+            className: "be_con",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+              className: "be_con_title",
+              children: "path index"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+              className: "be_con_inp",
+              children: doc.path_index
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+            className: "be_con",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+              className: "be_con_title",
+              children: "question"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+              value: doc.question,
+              onChange: function onChange(e) {
+                return changeQs(index, e.target.value);
+              },
+              className: "be_con_inp"
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+            className: "be_con",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+              className: "be_con_title",
+              children: "service key"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+              value: doc.service_key,
+              onChange: function onChange(e) {
+                return changeSk(index, e.target.value);
+              },
+              className: "be_con_inp"
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+            className: "be_con",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+              className: "be_con_title",
+              children: "is end"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+              value: doc.is_end,
+              onChange: function onChange(e) {
+                return changeIsEnd(index, e.target.value);
+              },
+              className: "be_con_inp"
+            })]
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-          className: "be_con",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-            className: "be_con_title",
-            children: "path index"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-            className: "be_con_inp",
-            children: doc.path_index
-          })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-          className: "be_con",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-            className: "be_con_title",
-            children: "question"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
-            value: doc.question,
-            onChange: function onChange(e) {
-              return changeQs(index, e.target.value);
-            },
-            className: "be_con_inp"
-          })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-          className: "be_con",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-            className: "be_con_title",
-            children: "service key"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
-            value: doc.service_key,
-            onChange: function onChange(e) {
-              return changeSk(index, e.target.value);
-            },
-            className: "be_con_inp"
-          })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-          className: "be_con",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-            className: "be_con_title",
-            children: "is end"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
-            value: doc.is_end,
-            onChange: function onChange(e) {
-              return changeIsEnd(index, e.target.value);
-            },
-            className: "be_con_inp"
-          })]
-        })]
-      });
+        });
+      })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
       className: "be_con",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
@@ -15476,7 +15480,7 @@ function ServicesBeta(props) {
       showData = _useState6[0],
       setShowData = _useState6[1];
 
-  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(true),
       _useState8 = _slicedToArray(_useState7, 2),
       loading = _useState8[0],
       setLoading = _useState8[1];
@@ -15531,6 +15535,7 @@ function ServicesBeta(props) {
     _axios_http__WEBPACK_IMPORTED_MODULE_2__["default"].get("/serviceguide").then(function (res) {
       setElements(res.data);
       firstQs();
+      setLoading(false);
       console.log(res.data);
     });
   }
@@ -15633,9 +15638,11 @@ function ServicesBeta(props) {
           color: "primary",
           className: "hover"
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
         className: "sb_body",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+        children: [loading && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+          children: "loading..."
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
           className: "sb_grid_container",
           children: curQs.map(function (doc, index) {
             return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
@@ -15648,7 +15655,7 @@ function ServicesBeta(props) {
               })
             }, index);
           })
-        })
+        })]
       })]
     }), showData && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
       className: "sb_page",
@@ -21277,7 +21284,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".be_con{\r\n    display:flex;\r\n    flex-direction: column;\r\n    margin-bottom: 10px;\r\n\r\n}\r\n.be_con_title{\r\n    display:flex;\r\n    font-weight: bold;\r\n\r\n}\r\n.be_con_inp{\r\n    display:flex;\r\n\r\n}\r\n.be_item{\r\n    display:flex;\r\n    flex-direction: column;\r\n    border:1px solid black;\r\n    margin-bottom: 10px;\r\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".be{\r\n    \r\n    width:100%;\r\n}\r\n.be_con{\r\n    display:flex;\r\n    flex-direction: column;\r\n    margin-bottom: 10px;\r\n\r\n}\r\n.be_con_title{\r\n    display:flex;\r\n    font-weight: bold;\r\n\r\n}\r\n.be_con_inp{\r\n    display:flex;\r\n\r\n}\r\n.be_item{\r\n    display:flex;\r\n    flex-direction: column;\r\n    border:1px solid black;\r\n    margin-bottom: 10px;\r\n}\r\n.be_grid_container {\r\n    display: grid;\r\n    /* grid-template: 25fr/ auto auto auto auto ; */\r\n    /* grid-template-rows: 25fr 25fr 25fr 25fr ; */\r\n    /* grid-auto-columns: 25fr; */\r\n    grid-template-columns: repeat(4, 23%);\r\n    gap: 2%;\r\n    padding: 10px;\r\n    margin-left: auto;\r\n    margin-right: auto;\r\n    /* border:1px solid black; */\r\n    width: 100%;\r\n}\r\n\r\n.be_block {\r\n    display: flex;\r\n    flex-direction: column;\r\n    /* max-width: 300px; */\r\n    /* width:25fr; */\r\n    /* min-height: 200px; */\r\n    height: -webkit-fit-content;\r\n    height: -moz-fit-content;\r\n    height: fit-content;\r\n    border: 1px solid #ddd;\r\n    border-radius: 10px;\r\n    color: black;\r\n    transition: transform .2s;\r\n    width:-webkit-fit-content;\r\n    width:-moz-fit-content;\r\n    width:fit-content;\r\n   \r\n    /* Animation */\r\n\r\n\r\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
