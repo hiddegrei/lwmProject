@@ -1,0 +1,21 @@
+.be_con{
+    display:flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+
+}
+.be_con_title{
+    display:flex;
+    font-weight: bold;
+
+}
+.be_con_inp{
+    display:flex;
+
+}
+.be_item{
+    display:flex;
+    flex-direction: column;
+    border:1px solid black;
+    margin-bottom: 10px;
+}

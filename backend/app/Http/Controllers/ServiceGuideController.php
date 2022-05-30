@@ -16,15 +16,14 @@ class ServiceGuideController extends Controller
      */
     public function index(Request $request)
     {
-        $data = request()->validate([
-            'main_index' => 'required',
-            'path_index' => 'required',
-           
-        ]);
+        $data = ServiceGuide::all();
+
 
         return $data;
 
     }
+
+    
 
     /**
      * Show the form for creating a new resource.
@@ -33,7 +32,17 @@ class ServiceGuideController extends Controller
      */
     public function create()
     {
-        //
+         $data = request()->validate([
+            'main_index' => 'required',
+            'path_index' => 'required',
+            'question' => 'required',
+            'is_end' => 'required',
+            'service_key' => 'required'
+
+
+        ]);
+         $item = ServiceGuide::create($data);
+         return $item;
     }
 
     /**
@@ -53,9 +62,15 @@ class ServiceGuideController extends Controller
      * @param  \App\Models\ServiceGuide  $serviceGuide
      * @return \Illuminate\Http\Response
      */
-    public function show(ServiceGuide $serviceGuide)
+    public function show(Request $request)
     {
-        //
+         $data = request()->validate([
+            'main_index' => 'required',
+            'path_index' => 'required',
+           
+        ]);
+
+        return $data;
     }
 
     /**
@@ -76,9 +91,22 @@ class ServiceGuideController extends Controller
      * @param  \App\Models\ServiceGuide  $serviceGuide
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateServiceGuideRequest $request, ServiceGuide $serviceGuide)
+    public function update(Request $request, ServiceGuide $serviceGuide)
     {
-        //
+         $data = request()->validate([
+             'main_index' => 'required',
+            'path_index' => 'required',
+            'question' => 'required',
+            'is_end' => 'required',
+            'service_key' => 'required'
+
+           
+           
+
+        ]);
+        
+        $serviceGuide->update($data);
+        return $serviceGuide;
     }
 
     /**

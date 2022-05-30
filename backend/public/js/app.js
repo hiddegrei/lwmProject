@@ -13120,8 +13120,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _assets_css_App_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../assets/css/App.css */ "./resources/js/src/assets/css/App.css");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
 /* harmony import */ var _Home__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Home */ "./resources/js/src/components/Home.js");
 /* harmony import */ var _Navbar__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Navbar */ "./resources/js/src/components/Navbar.js");
 /* harmony import */ var _services_Services__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./services/Services */ "./resources/js/src/components/services/Services.js");
@@ -13129,10 +13129,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _services_ServiceCreate__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./services/ServiceCreate */ "./resources/js/src/components/services/ServiceCreate.js");
 /* harmony import */ var _services_ServiceShow__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./services/ServiceShow */ "./resources/js/src/components/services/ServiceShow.js");
 /* harmony import */ var _services_ServiceEdit__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./services/ServiceEdit */ "./resources/js/src/components/services/ServiceEdit.js");
-/* harmony import */ var _todos_Todos__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./todos/Todos */ "./resources/js/src/components/todos/Todos.js");
-/* harmony import */ var _Stateprovider__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../Stateprovider */ "./resources/js/src/Stateprovider.js");
-/* harmony import */ var _axios_http__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../axios/http */ "./resources/js/src/axios/http.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _services_BetaEdit__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./services/BetaEdit */ "./resources/js/src/components/services/BetaEdit.js");
+/* harmony import */ var _todos_Todos__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./todos/Todos */ "./resources/js/src/components/todos/Todos.js");
+/* harmony import */ var _Stateprovider__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../Stateprovider */ "./resources/js/src/Stateprovider.js");
+/* harmony import */ var _axios_http__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../axios/http */ "./resources/js/src/axios/http.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -13161,8 +13162,9 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
 function App() {
-  var _useStateValue = (0,_Stateprovider__WEBPACK_IMPORTED_MODULE_10__.useStateValue)(),
+  var _useStateValue = (0,_Stateprovider__WEBPACK_IMPORTED_MODULE_11__.useStateValue)(),
       _useStateValue2 = _slicedToArray(_useStateValue, 2),
       user = _useStateValue2[0].user,
       dispatch = _useStateValue2[1];
@@ -13172,65 +13174,71 @@ function App() {
   }, []);
 
   function fetchUser() {
-    _axios_http__WEBPACK_IMPORTED_MODULE_11__["default"].get('/user/auth').then(function (res) {
+    _axios_http__WEBPACK_IMPORTED_MODULE_12__["default"].get("/user/auth").then(function (res) {
       dispatch({
-        type: 'SET_USER',
+        type: "SET_USER",
         user: res.data
       });
     });
   }
 
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.BrowserRouter, {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_14__.BrowserRouter, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("div", {
       className: "app",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_14__.Switch, {
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_14__.Route, {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_15__.Switch, {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_15__.Route, {
           path: "/todos",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_Navbar__WEBPACK_IMPORTED_MODULE_3__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_Navbar__WEBPACK_IMPORTED_MODULE_3__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("div", {
             className: "app_body",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_todos_Todos__WEBPACK_IMPORTED_MODULE_9__["default"], {})
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_todos_Todos__WEBPACK_IMPORTED_MODULE_10__["default"], {})
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_14__.Route, {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_15__.Route, {
           path: "/service/edit/:service",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_Navbar__WEBPACK_IMPORTED_MODULE_3__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_Navbar__WEBPACK_IMPORTED_MODULE_3__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("div", {
             className: "app_body",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_services_ServiceEdit__WEBPACK_IMPORTED_MODULE_8__["default"], {})
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_services_ServiceEdit__WEBPACK_IMPORTED_MODULE_8__["default"], {})
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_14__.Route, {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_15__.Route, {
           path: "/service/create",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_Navbar__WEBPACK_IMPORTED_MODULE_3__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_Navbar__WEBPACK_IMPORTED_MODULE_3__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("div", {
             className: "app_body",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_services_ServiceCreate__WEBPACK_IMPORTED_MODULE_6__["default"], {})
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_services_ServiceCreate__WEBPACK_IMPORTED_MODULE_6__["default"], {})
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_14__.Route, {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_15__.Route, {
           path: "/services/:servicetype/:serviceid",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_Navbar__WEBPACK_IMPORTED_MODULE_3__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_Navbar__WEBPACK_IMPORTED_MODULE_3__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("div", {
             className: "app_body",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_services_ServiceShow__WEBPACK_IMPORTED_MODULE_7__["default"], {})
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_services_ServiceShow__WEBPACK_IMPORTED_MODULE_7__["default"], {})
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_14__.Route, {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_15__.Route, {
           path: "/services/:service",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_Navbar__WEBPACK_IMPORTED_MODULE_3__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_Navbar__WEBPACK_IMPORTED_MODULE_3__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("div", {
             className: "app_body",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_services_Services__WEBPACK_IMPORTED_MODULE_4__["default"], {})
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_services_Services__WEBPACK_IMPORTED_MODULE_4__["default"], {})
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_14__.Route, {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_15__.Route, {
+          path: "/servicebeta/edit",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_Navbar__WEBPACK_IMPORTED_MODULE_3__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("div", {
+            className: "app_body",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_services_BetaEdit__WEBPACK_IMPORTED_MODULE_9__["default"], {})
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_15__.Route, {
           path: "/servicebeta",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_Navbar__WEBPACK_IMPORTED_MODULE_3__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_Navbar__WEBPACK_IMPORTED_MODULE_3__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("div", {
             className: "app_body",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_services_ServicesBeta__WEBPACK_IMPORTED_MODULE_5__["default"], {})
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_services_ServicesBeta__WEBPACK_IMPORTED_MODULE_5__["default"], {})
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_14__.Route, {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_15__.Route, {
           path: "/services",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_Navbar__WEBPACK_IMPORTED_MODULE_3__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_Navbar__WEBPACK_IMPORTED_MODULE_3__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("div", {
             className: "app_body",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_services_Services__WEBPACK_IMPORTED_MODULE_4__["default"], {})
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_services_Services__WEBPACK_IMPORTED_MODULE_4__["default"], {})
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_14__.Route, {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_15__.Route, {
           path: "/",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_Navbar__WEBPACK_IMPORTED_MODULE_3__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_Navbar__WEBPACK_IMPORTED_MODULE_3__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("div", {
             className: "app_body",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_Home__WEBPACK_IMPORTED_MODULE_2__["default"], {})
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_Home__WEBPACK_IMPORTED_MODULE_2__["default"], {})
           })]
         })]
       })
@@ -13905,6 +13913,263 @@ function Searchbar(classOverride) {
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Searchbar);
+
+/***/ }),
+
+/***/ "./resources/js/src/components/services/BetaEdit.js":
+/*!**********************************************************!*\
+  !*** ./resources/js/src/components/services/BetaEdit.js ***!
+  \**********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ BetaEdit)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _axios_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../axios/http */ "./resources/js/src/axios/http.js");
+/* harmony import */ var _assets_css_BetaEdit_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../assets/css/BetaEdit.css */ "./resources/js/src/assets/css/BetaEdit.css");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+
+
+
+function BetaEdit() {
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+      _useState2 = _slicedToArray(_useState, 2),
+      data = _useState2[0],
+      setData = _useState2[1];
+
+  var history = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_4__.useHistory)();
+
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
+      _useState4 = _slicedToArray(_useState3, 2),
+      mainIndex = _useState4[0],
+      setMainIndex = _useState4[1];
+
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
+      _useState6 = _slicedToArray(_useState5, 2),
+      pathIndex = _useState6[0],
+      setPathIndex = _useState6[1];
+
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
+      _useState8 = _slicedToArray(_useState7, 2),
+      qs = _useState8[0],
+      setQs = _useState8[1];
+
+  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
+      _useState10 = _slicedToArray(_useState9, 2),
+      isEnd = _useState10[0],
+      setIsEnd = _useState10[1];
+
+  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
+      _useState12 = _slicedToArray(_useState11, 2),
+      serviceKey = _useState12[0],
+      setServiceKey = _useState12[1];
+
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    getAll();
+  }, []);
+
+  function getAll() {
+    _axios_http__WEBPACK_IMPORTED_MODULE_1__["default"].get("/serviceguide").then(function (res) {
+      setData(res.data);
+    });
+  }
+
+  function createNew() {
+    var fData = new FormData();
+    fData.append("main_index", mainIndex);
+    fData.append("path_index", pathIndex);
+    fData.append("question", qs);
+    fData.append("is_end", isEnd);
+    fData.append("service_key", serviceKey);
+    _axios_http__WEBPACK_IMPORTED_MODULE_1__["default"].post("/serviceguide/create", fData).then(function (res) {
+      console.log(res);
+      setMainIndex("");
+      setPathIndex("");
+      setQs("");
+      setIsEnd("");
+      setServiceKey("");
+    })["catch"](function (err) {
+      return console.log(err);
+    });
+  }
+
+  function changeQs(index, value) {
+    var newArr = _toConsumableArray(data);
+
+    newArr[index].question = value;
+    setData(newArr);
+  }
+
+  function changeSk(index, value) {
+    var newArr = _toConsumableArray(data);
+
+    newArr[index].service_key = value;
+    setData(newArr);
+  }
+
+  function saveChanges() {
+    data.map(function (doc, index) {
+      var fData = new FormData();
+      fData.append("main_index", doc.main_index);
+      fData.append("path_index", doc.path_index);
+      fData.append("question", doc.question);
+      fData.append("is_end", doc.is_end);
+      fData.append("service_key", doc.service_key);
+      _axios_http__WEBPACK_IMPORTED_MODULE_1__["default"].post("/serviceguide/update/".concat(doc.id), fData).then(function (res) {
+        console.log(res);
+        history.push("/servicebeta");
+      })["catch"](function (err) {
+        return console.log(err);
+      });
+    });
+  }
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+    children: [data.map(function (doc, index) {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        className: "be_item",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          className: "be_con",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+            className: "be_con_title",
+            children: "main index"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+            className: "be_con_inp",
+            children: doc.main_index
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          className: "be_con",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+            className: "be_con_title",
+            children: "path index"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+            className: "be_con_inp",
+            children: doc.path_index
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          className: "be_con",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+            className: "be_con_title",
+            children: "question"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+            value: doc.question,
+            onChange: function onChange(e) {
+              return changeQs(index, e.target.value);
+            },
+            className: "be_con_inp"
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          className: "be_con",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+            className: "be_con_title",
+            children: "service key"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+            value: doc.service_key,
+            onChange: function onChange(e) {
+              return changeSk(index, e.target.value);
+            },
+            className: "be_con_inp"
+          })]
+        })]
+      });
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+      className: "be_con",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+        className: "be_con_title",
+        children: "main index"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+        value: mainIndex,
+        onChange: function onChange(e) {
+          return setMainIndex(e.target.value);
+        },
+        className: "be_con_inp"
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+      className: "be_con",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+        className: "be_con_title",
+        children: "path index"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+        value: pathIndex,
+        onChange: function onChange(e) {
+          return setPathIndex(e.target.value);
+        },
+        className: "be_con_inp"
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+      className: "be_con",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+        className: "be_con_title",
+        children: "question"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+        value: qs,
+        onChange: function onChange(e) {
+          return setQs(e.target.value);
+        },
+        className: "be_con_inp"
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+      className: "be_con",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+        className: "be_con_title",
+        children: "is end"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+        value: isEnd,
+        onChange: function onChange(e) {
+          return setIsEnd(e.target.value);
+        },
+        className: "be_con_inp"
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+      className: "be_con",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+        className: "be_con_title",
+        children: "service key"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+        value: serviceKey,
+        onChange: function onChange(e) {
+          return setServiceKey(e.target.value);
+        },
+        className: "be_con_inp"
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      onClick: createNew,
+      className: "btn btn-warning sshow_btn",
+      children: "create"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      onClick: saveChanges,
+      className: "btn btn-warning sshow_btn",
+      children: "save"
+    })]
+  });
+}
 
 /***/ }),
 
@@ -15179,25 +15444,30 @@ function ServicesBeta(props) {
 
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
       _useState2 = _slicedToArray(_useState, 2),
-      data = _useState2[0],
-      setData = _useState2[1];
+      elements = _useState2[0],
+      setElements = _useState2[1];
 
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
       _useState4 = _slicedToArray(_useState3, 2),
-      showData = _useState4[0],
-      setShowData = _useState4[1];
+      data = _useState4[0],
+      setData = _useState4[1];
 
   var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
       _useState6 = _slicedToArray(_useState5, 2),
-      loading = _useState6[0],
-      setLoading = _useState6[1];
+      showData = _useState6[0],
+      setShowData = _useState6[1];
 
-  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(["What are you looking for?"]),
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
       _useState8 = _slicedToArray(_useState7, 2),
-      topText = _useState8[0],
-      setTopText = _useState8[1];
+      loading = _useState8[0],
+      setLoading = _useState8[1];
 
-  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([{
+  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(["What are you looking for?"]),
+      _useState10 = _slicedToArray(_useState9, 2),
+      topText = _useState10[0],
+      setTopText = _useState10[1];
+
+  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([{
     id: "lunch",
     data: [["Order lunch"]]
   }, {
@@ -15210,40 +15480,50 @@ function ServicesBeta(props) {
     id: "issue",
     data: [["Report an issue"]]
   }]),
-      _useState10 = _slicedToArray(_useState9, 2),
-      qs = _useState10[0],
-      setQs = _useState10[1];
-
-  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
       _useState12 = _slicedToArray(_useState11, 2),
-      curQsIndex = _useState12[0],
-      setCurQsIndex = _useState12[1];
+      qs = _useState12[0],
+      setQs = _useState12[1];
 
-  var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(1),
+  var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
       _useState14 = _slicedToArray(_useState13, 2),
-      step = _useState14[0],
-      setStep = _useState14[1];
+      curQsIndex = _useState14[0],
+      setCurQsIndex = _useState14[1];
 
-  var _useState15 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+  var _useState15 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(1),
       _useState16 = _slicedToArray(_useState15, 2),
-      curQs = _useState16[0],
-      setCurQs = _useState16[1];
+      step = _useState16[0],
+      setStep = _useState16[1];
 
-  var _useState17 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
+  var _useState17 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
       _useState18 = _slicedToArray(_useState17, 2),
-      keyIndex = _useState18[0],
-      setKeyIndex = _useState18[1];
+      curQs = _useState18[0],
+      setCurQs = _useState18[1];
 
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useLayoutEffect)(function () {
-    firstQs();
-    getPath();
+  var _useState19 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
+      _useState20 = _slicedToArray(_useState19, 2),
+      keyIndex = _useState20[0],
+      setKeyIndex = _useState20[1];
+
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    getAll();
   }, [service]);
 
-  function firstQs() {
-    var arr = [];
-    qs.map(function (doc) {
-      arr.push(doc.data[0][0]);
+  function getAll() {
+    _axios_http__WEBPACK_IMPORTED_MODULE_2__["default"].get("/serviceguide").then(function (res) {
+      setElements(res.data);
+      firstQs();
+      console.log(res.data);
     });
+  }
+
+  function firstQs() {
+    // qs.map((doc) => {
+    //     arr.push(doc.data[0][0]);
+    // });
+    var arr = elements.filter(function (doc) {
+      return doc.path_index === 0;
+    });
+    console.log(arr);
     setCurQs(arr);
   }
 
@@ -15261,20 +15541,8 @@ function ServicesBeta(props) {
   function fetchService(key) {
     _axios_http__WEBPACK_IMPORTED_MODULE_2__["default"].get("/services/search/".concat(key)).then(function (res) {
       setData(res.data);
-      console.log(res.data);
       setLoading(false);
       setShowData(true);
-    });
-  }
-
-  function getPath() {
-    var fData = new FormData();
-    fData.append('main_index', 0);
-    fData.append('path_index', 0);
-    _axios_http__WEBPACK_IMPORTED_MODULE_2__["default"].post('/serviceguide', fData).then(function (res) {
-      console.log(res.data);
-    })["catch"](function (err) {
-      return console.log(err);
     });
   }
 
@@ -15312,6 +15580,18 @@ function ServicesBeta(props) {
     }
   }
 
+  function updatePath(index, doc) {
+    if (doc.is_end) {
+      fetchService(doc.service_key);
+    } else {
+      var arr = elements.filter(function (elm) {
+        return elm.main_index === doc.main_index && elm.path_index === doc.path_index + 1;
+      });
+      console.log(arr);
+      setCurQs(arr);
+    }
+  }
+
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
     className: "sb_main",
     children: [!showData && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
@@ -15319,6 +15599,12 @@ function ServicesBeta(props) {
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
         className: "sb_top",
         children: topText[0]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+        onClick: function onClick() {
+          return history.push("/servicebeta/edit");
+        },
+        className: "btn btn-warning sshow_btn",
+        children: "Edit"
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
         className: "sb_mid ",
         children: step > 1 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_mui_icons_material_ArrowBackIosNew__WEBPACK_IMPORTED_MODULE_6__["default"], {
@@ -15335,11 +15621,11 @@ function ServicesBeta(props) {
           children: curQs.map(function (doc, index) {
             return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
               onClick: function onClick() {
-                return updateQs(index);
+                return updatePath(index, doc);
               },
               className: "sb_block1",
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
-                children: doc
+                children: doc.question
               })
             }, index);
           })
@@ -20949,6 +21235,30 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, "\r\n\r\n* {\r\n  margin: 0;\r\n}\r\n\r\nbody {\r\n  --twitter-color: #50b7f5;\r\n  --twitter-background: #e6ecf0;\r\n}\r\n.app {\r\n  display: flex;\r\n  flex-direction: column;\r\n  height: 100vh;\r\n\r\n  margin-left: auto;\r\n  margin-right: auto;\r\n  /* background-image: linear-gradient(to right, #1E90FF , #B0E0E6); */\r\n  \r\n  \r\n}\r\n.app_body{\r\n  display:flex;\r\n  width:80%;\r\n  margin-left: auto;\r\n  margin-right: auto;\r\n  height:100%;\r\n \r\n}\r\n.bold{\r\n  font-weight: bold;\r\n}\r\n.hover:hover{\r\n  cursor: pointer;\r\n}", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[2]!./resources/js/src/assets/css/BetaEdit.css":
+/*!************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[2]!./resources/js/src/assets/css/BetaEdit.css ***!
+  \************************************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, ".be_con{\r\n    display:flex;\r\n    flex-direction: column;\r\n    margin-bottom: 10px;\r\n\r\n}\r\n.be_con_title{\r\n    display:flex;\r\n    font-weight: bold;\r\n\r\n}\r\n.be_con_inp{\r\n    display:flex;\r\n\r\n}\r\n.be_item{\r\n    display:flex;\r\n    flex-direction: column;\r\n    border:1px solid black;\r\n    margin-bottom: 10px;\r\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -73780,6 +74090,36 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_2_App_css__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+
+/***/ }),
+
+/***/ "./resources/js/src/assets/css/BetaEdit.css":
+/*!**************************************************!*\
+  !*** ./resources/js/src/assets/css/BetaEdit.css ***!
+  \**************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_2_BetaEdit_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[1]!../../../../../node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[2]!./BetaEdit.css */ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[2]!./resources/js/src/assets/css/BetaEdit.css");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_2_BetaEdit_css__WEBPACK_IMPORTED_MODULE_1__["default"], options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_2_BetaEdit_css__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
 
 /***/ }),
 

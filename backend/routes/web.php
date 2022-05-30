@@ -74,7 +74,10 @@ Route::post('/api/services/{query}',[ServiceController::class, 'search']);
 Route::get('/api/services/search/{key}',[ServiceController::class, 'searchKey']);
 
 //serviceguide
-Route::post('/api/serviceguide',[ServiceGuideController::class, 'index']);
+Route::get('/api/serviceguide',[ServiceGuideController::class, 'index']);
+Route::post('/api/serviceguide/show',[ServiceGuideController::class, 'show']);
+Route::post('/api/serviceguide/create',[ServiceGuideController::class, 'create']);
+Route::post('/api/serviceguide/update/{serviceGuide}',[ServiceGuideController::class, 'update']);
 
 
 Route::get('/api/user/auth',[UserController::class, 'authUser']);
