@@ -51,6 +51,11 @@ export default function BetaEdit() {
         newArr[index].service_key = value;
         setData(newArr);
     }
+    function changeIsEnd(index, value) {
+        let newArr = [...data];
+        newArr[index].is_end = value;
+        setData(newArr);
+    }
 
     function saveChanges() {
         data.map((doc, index) => {
@@ -93,6 +98,14 @@ export default function BetaEdit() {
                         <input
                             value={doc.service_key}
                             onChange={(e) => changeSk(index, e.target.value)}
+                            className="be_con_inp"
+                        ></input>
+                    </div>
+                    <div className="be_con">
+                        <div className="be_con_title">is end</div>
+                        <input
+                            value={doc.is_end}
+                            onChange={(e) => changeIsEnd(index, e.target.value)}
                             className="be_con_inp"
                         ></input>
                     </div>

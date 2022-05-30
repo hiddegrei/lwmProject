@@ -14034,6 +14034,13 @@ function BetaEdit() {
     setData(newArr);
   }
 
+  function changeIsEnd(index, value) {
+    var newArr = _toConsumableArray(data);
+
+    newArr[index].is_end = value;
+    setData(newArr);
+  }
+
   function saveChanges() {
     data.map(function (doc, index) {
       var fData = new FormData();
@@ -14094,6 +14101,18 @@ function BetaEdit() {
             value: doc.service_key,
             onChange: function onChange(e) {
               return changeSk(index, e.target.value);
+            },
+            className: "be_con_inp"
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          className: "be_con",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+            className: "be_con_title",
+            children: "is end"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+            value: doc.is_end,
+            onChange: function onChange(e) {
+              return changeIsEnd(index, e.target.value);
             },
             className: "be_con_inp"
           })]
