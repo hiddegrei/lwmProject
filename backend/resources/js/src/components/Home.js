@@ -45,9 +45,9 @@ function Home(props) {
                     {maintenanceArr.map((doc)=>(
                         <div className="maintenance_results_elm">{doc}</div>
                     ))}
-                    
+
                     </div>}
-           
+
             <div className="home_firstBlock_top">
                 <div className="home_firstBlock_top_greet_container">
                     <div className="home_firstBlock_top_greetUser">
@@ -55,7 +55,7 @@ function Home(props) {
                         Hi {user?.name} , need service?
                     </div>
                     <div className="home_firstBlock_top_input">
-                        <Searchbar />
+                        <Searchbar/>
                     </div>
 
                     {/*<input placeholder={`What are you looking for`} className="home_firstBlock_top_input" onChange={(e) => setInput(e.target.value)} value={input}></input>*/}
