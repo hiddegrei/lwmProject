@@ -56,7 +56,7 @@ function Navbar(props) {
                 </div>
 
                 <div className="dropdown">
-                    <button className="dropbtn navbar-item px-4 text-decoration-none navHover">
+                    <button className="dropbtn navbar-item px-4 text-decoration-none navHover text-muted">
                         Knowledge
                     </button>
                     <div className="dropdown-content">
@@ -89,7 +89,7 @@ function Navbar(props) {
                 </div>
 
                 <div className="dropdown">
-                    <button className="dropbtn navbar-item px-4 text-decoration-none navHover">
+                    <button className="dropbtn navbar-item px-4 text-decoration-none navHover text-muted">
                         System Status
                     </button>
                     <div className="dropdown-content">
@@ -104,7 +104,7 @@ function Navbar(props) {
                 </div>
 
                 <div className="dropdown">
-                    <button className="dropbtn navbar-item px-4 text-decoration-none navHover">
+                    <button className="dropbtn navbar-item px-4 text-decoration-none navHover text-muted">
                         GRC
                     </button>
                     <div className="dropdown-content">
@@ -113,7 +113,7 @@ function Navbar(props) {
                 </div>
 
                 <div className="dropdown">
-                    <button className="dropbtn navbar-item px-4 text-decoration-none navHover">
+                    <button className="dropbtn navbar-item px-4 text-decoration-none navHover text-muted">
                         Cart
                     </button>
                     <div className="dropdown-content">
