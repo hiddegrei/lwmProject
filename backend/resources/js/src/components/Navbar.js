@@ -123,7 +123,7 @@ function Navbar(props) {
                 </div>
 
                 <div className="dropdown">
-                    <button className="dropbtn navbar-item px-4 text-decoration-none navHover">
+                    <button className="dropbtn navbar-item px-4 text-decoration-none navHover text-muted">
                         Quick Guide
                     </button>
                     <div className="dropdown-content">
