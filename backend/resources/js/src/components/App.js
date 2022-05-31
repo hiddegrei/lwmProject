@@ -14,7 +14,7 @@ import { useStateValue } from "../Stateprovider";
 import http from "../axios/http";
 
 function App() {
-    const [{ user }, dispatch] = useStateValue();
+    const [{ user, isAdmin }, dispatch] = useStateValue();
 
     useEffect(() => {
         fetchUser();
@@ -24,6 +24,14 @@ function App() {
             dispatch({
                 type: "SET_USER",
                 user: res.data,
+            });
+        });
+
+        http.get("/user/isadmin").then((res) => {
+            console.log(res.data);
+            dispatch({
+                type: "SET_ADMIN",
+                isAdmin: res.data,
             });
         });
     }
@@ -67,7 +75,7 @@ function App() {
                         </div>
                     </Route>
 
-                     <Route path="/servicebeta/edit">
+                    <Route path="/servicebeta/edit">
                         <Navbar />
                         <div className="app_body">
                             <BetaEdit />

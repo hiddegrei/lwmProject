@@ -13166,7 +13166,9 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 function App() {
   var _useStateValue = (0,_Stateprovider__WEBPACK_IMPORTED_MODULE_11__.useStateValue)(),
       _useStateValue2 = _slicedToArray(_useStateValue, 2),
-      user = _useStateValue2[0].user,
+      _useStateValue2$ = _useStateValue2[0],
+      user = _useStateValue2$.user,
+      isAdmin = _useStateValue2$.isAdmin,
       dispatch = _useStateValue2[1];
 
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
@@ -13178,6 +13180,13 @@ function App() {
       dispatch({
         type: "SET_USER",
         user: res.data
+      });
+    });
+    _axios_http__WEBPACK_IMPORTED_MODULE_12__["default"].get("/user/isadmin").then(function (res) {
+      console.log(res.data);
+      dispatch({
+        type: "SET_ADMIN",
+        isAdmin: res.data
       });
     });
   }
@@ -13854,18 +13863,16 @@ function Searchbar(classOverride) {
   var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(""),
       _useState4 = _slicedToArray(_useState3, 2),
       query = _useState4[0],
-      setQuery = _useState4[1];
+      setQuery = _useState4[1]; // useEffect(() => {
+  //     fetchAllUsers()
+  // }, [])
+  // function fetchAllUsers() {
+  //     http.get('/allusers').then(res => {
+  //         console.log(res.data)
+  //         setUsersData(res.data)
+  //     })
+  // }
 
-  (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
-    fetchAllUsers();
-  }, []);
-
-  function fetchAllUsers() {
-    _axios_http__WEBPACK_IMPORTED_MODULE_3__["default"].get('/allusers').then(function (res) {
-      console.log(res.data);
-      setUsersData(res.data);
-    });
-  }
 
   function search(query) {
     _axios_http__WEBPACK_IMPORTED_MODULE_3__["default"].post("/services/".concat(query)).then(function (res) {
@@ -14015,6 +14022,7 @@ function BetaEdit() {
       setQs("");
       setIsEnd("");
       setServiceKey("");
+      history.push("/servicebeta");
     })["catch"](function (err) {
       return console.log(err);
     });
@@ -15434,12 +15442,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
 /* harmony import */ var _assets_css_ServicesBeta_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../assets/css/ServicesBeta.css */ "./resources/js/src/assets/css/ServicesBeta.css");
 /* harmony import */ var _axios_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../axios/http */ "./resources/js/src/axios/http.js");
 /* harmony import */ var _ServiceSideBar__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ServiceSideBar */ "./resources/js/src/components/services/ServiceSideBar.js");
-/* harmony import */ var _mui_icons_material_ArrowBackIosNew__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @mui/icons-material/ArrowBackIosNew */ "./node_modules/@mui/icons-material/ArrowBackIosNew.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _mui_icons_material_ArrowBackIosNew__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @mui/icons-material/ArrowBackIosNew */ "./node_modules/@mui/icons-material/ArrowBackIosNew.js");
+/* harmony import */ var _Stateprovider__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../Stateprovider */ "./resources/js/src/Stateprovider.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -15461,9 +15470,17 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
 function ServicesBeta(props) {
-  var service = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_5__.useParams)();
-  var history = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_5__.useHistory)();
+  var _useStateValue = (0,_Stateprovider__WEBPACK_IMPORTED_MODULE_4__.useStateValue)(),
+      _useStateValue2 = _slicedToArray(_useStateValue, 2),
+      _useStateValue2$ = _useStateValue2[0],
+      user = _useStateValue2$.user,
+      isAdmin = _useStateValue2$.isAdmin,
+      dispatch = _useStateValue2[1];
+
+  var service = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_6__.useParams)();
+  var history = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_6__.useHistory)();
 
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
       _useState2 = _slicedToArray(_useState, 2),
@@ -15490,55 +15507,32 @@ function ServicesBeta(props) {
       topText = _useState10[0],
       setTopText = _useState10[1];
 
-  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([{
-    id: "lunch",
-    data: [["Order lunch"]]
-  }, {
-    id: "laptop",
-    data: [["Hardware for your office space"], ["Something for your laptop?", "Something for your phone?"]]
-  }, {
-    id: "visitor",
-    data: [["Register a visitor"]]
-  }, {
-    id: "issue",
-    data: [["Report an issue"]]
-  }]),
+  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(1),
       _useState12 = _slicedToArray(_useState11, 2),
-      qs = _useState12[0],
-      setQs = _useState12[1];
+      step = _useState12[0],
+      setStep = _useState12[1];
 
-  var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
+  var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
       _useState14 = _slicedToArray(_useState13, 2),
-      curQsIndex = _useState14[0],
-      setCurQsIndex = _useState14[1];
-
-  var _useState15 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(1),
-      _useState16 = _slicedToArray(_useState15, 2),
-      step = _useState16[0],
-      setStep = _useState16[1];
-
-  var _useState17 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
-      _useState18 = _slicedToArray(_useState17, 2),
-      curQs = _useState18[0],
-      setCurQs = _useState18[1];
-
-  var _useState19 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
-      _useState20 = _slicedToArray(_useState19, 2),
-      keyIndex = _useState20[0],
-      setKeyIndex = _useState20[1];
+      curQs = _useState14[0],
+      setCurQs = _useState14[1];
 
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     getAll();
-  }, [service]);
+    console.log("hi");
+  }, []);
 
   function getAll() {
     _axios_http__WEBPACK_IMPORTED_MODULE_2__["default"].get("/serviceguide").then(function (res) {
       setElements(res.data);
-      firstQs();
       setLoading(false);
       console.log(res.data);
     });
   }
+
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    firstQs();
+  }, [elements]);
 
   function firstQs() {
     // qs.map((doc) => {
@@ -15551,57 +15545,12 @@ function ServicesBeta(props) {
     setCurQs(arr);
   }
 
-  function updateStep() {
-    var step2 = step - 1;
-    setStep(step2);
-
-    if (step2 === 1) {
-      firstQs();
-    } else {
-      setCurQs(qs[curQsIndex].data[step2]);
-    }
-  }
-
   function fetchService(key) {
     _axios_http__WEBPACK_IMPORTED_MODULE_2__["default"].get("/services/search/".concat(key)).then(function (res) {
       setData(res.data);
       setLoading(false);
       setShowData(true);
     });
-  }
-
-  function isEmpty(obj) {
-    for (var prop in obj) {
-      if (Object.prototype.hasOwnProperty.call(obj, prop)) {
-        return false;
-      }
-    }
-
-    return JSON.stringify(obj) === JSON.stringify({});
-  }
-
-  function updateQs(index) {
-    if (step === 1) {
-      setKeyIndex(index);
-    }
-
-    setCurQsIndex(index);
-
-    if (qs[index].data.length >= step + 1) {
-      setCurQs(qs[index].data[step]);
-      setStep(step + 1); // setCurQsIndex(index)
-    } else {
-      setLoading(true);
-      console.log("hi");
-
-      if (step === 1) {
-        fetchService(qs[index].id);
-      } else {
-        fetchService(qs[keyIndex].id);
-      }
-
-      console.log(index);
-    }
   }
 
   function updatePath(index, doc) {
@@ -15616,85 +15565,85 @@ function ServicesBeta(props) {
     }
   }
 
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
     className: "sb_main",
-    children: [!showData && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+    children: [!showData && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
       className: "sb",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
         className: "sb_top",
         children: topText[0]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+      }), isAdmin === 1 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
         onClick: function onClick() {
           return history.push("/servicebeta/edit");
         },
         className: "btn btn-warning sshow_btn",
         children: "Edit"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
         className: "sb_mid ",
-        children: step > 1 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_mui_icons_material_ArrowBackIosNew__WEBPACK_IMPORTED_MODULE_6__["default"], {
+        children: step > 1 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_mui_icons_material_ArrowBackIosNew__WEBPACK_IMPORTED_MODULE_7__["default"], {
           onClick: function onClick() {
             updateStep();
           },
           color: "primary",
           className: "hover"
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
         className: "sb_body",
-        children: [loading && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+        children: [loading && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
           children: "loading..."
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
           className: "sb_grid_container",
           children: curQs.map(function (doc, index) {
-            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
               onClick: function onClick() {
                 return updatePath(index, doc);
               },
               className: "sb_block1",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
                 children: doc.question
               })
             }, index);
           })
         })]
       })]
-    }), showData && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+    }), showData && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
       className: "sb_page",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
         className: "sb_page_top",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_mui_icons_material_ArrowBackIosNew__WEBPACK_IMPORTED_MODULE_6__["default"], {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_mui_icons_material_ArrowBackIosNew__WEBPACK_IMPORTED_MODULE_7__["default"], {
           onClick: function onClick() {
             return window.location.reload();
           },
           color: "primary",
           className: "hover"
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
         className: "sb_page_bottom",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
           className: "sb_grid_container",
           children: data.map(function (doc, index) {
-            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
               onClick: function onClick() {
                 return history.push("/services/".concat(doc.servicetype, "/").concat(doc.id));
               },
               className: "sb_block",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
                 className: "sb_block_top",
                 children: [doc.title, " "]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
                 className: "sb_block_bottom",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
                   className: "sb_block_bottom_imgCon",
-                  children: doc.image != "" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
+                  children: doc.image != "" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("img", {
                     className: "sb_block_bottom_imgCon_img",
                     src: "/storage/".concat(doc.image)
                   })
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
                   className: "sb_block_bottom_text",
                   children: [doc.description, " "]
                 })]
               })]
-            }, index);
+            }, index + Math.random() * 1000);
           })
         })
       })]
@@ -16113,41 +16062,43 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 var initialState = {
   user: null,
-  profile: [],
-  handle: null,
-  bookDays: [],
-  guests: []
+  isAdmin: false
 };
 
 var reducer = function reducer(state, action) {
   // console.log(action)
   switch (action.type) {
-    case 'SET_USER':
+    case "SET_USER":
       return _objectSpread(_objectSpread({}, state), {}, {
         user: action.user
       });
 
-    case 'SET_HANDLE':
+    case "SET_ADMIN":
+      return _objectSpread(_objectSpread({}, state), {}, {
+        isAdmin: action.isAdmin
+      });
+
+    case "SET_HANDLE":
       return _objectSpread(_objectSpread({}, state), {}, {
         handle: action.handle
       });
 
-    case 'SET_GUESTS':
+    case "SET_GUESTS":
       return _objectSpread(_objectSpread({}, state), {}, {
         guests: action.guests
       });
 
-    case 'SET_BOOK_DAYS':
+    case "SET_BOOK_DAYS":
       return _objectSpread(_objectSpread({}, state), {}, {
         bookDays: action.bookDays
       });
 
-    case 'SET_PROFILEPOP':
+    case "SET_PROFILEPOP":
       return _objectSpread(_objectSpread({}, state), {}, {
         profilepop: action.profilepop
       });
 
-    case 'SET_PROFILE':
+    case "SET_PROFILE":
       return _objectSpread(_objectSpread({}, state), {}, {
         profile: action.profile
       });

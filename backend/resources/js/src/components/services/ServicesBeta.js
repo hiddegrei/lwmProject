@@ -5,8 +5,10 @@ import "../../assets/css/ServicesBeta.css";
 import http from "../../axios/http";
 import ServiceSideBar from "./ServiceSideBar";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
+import { useStateValue } from "../../Stateprovider";
 
 function ServicesBeta(props) {
+    const [{ user, isAdmin }, dispatch] = useStateValue();
     const service = useParams();
     const history = useHistory();
     const [elements, setElements] = useState([]);
@@ -14,36 +16,27 @@ function ServicesBeta(props) {
     const [showData, setShowData] = useState(false);
     const [loading, setLoading] = useState(true);
     const [topText, setTopText] = useState(["What are you looking for?"]);
-    const [qs, setQs] = useState([
-        { id: "lunch", data: [["Order lunch"]] },
-        {
-            id: "laptop",
-            data: [
-                ["Hardware for your office space"],
-                ["Something for your laptop?", "Something for your phone?"],
-            ],
-        },
-        { id: "visitor", data: [["Register a visitor"]] },
-        { id: "issue", data: [["Report an issue"]] },
-    ]);
-    const [curQsIndex, setCurQsIndex] = useState();
+
     const [step, setStep] = useState(1);
     const [curQs, setCurQs] = useState([]);
 
-    const [keyIndex, setKeyIndex] = useState(0);
-
     useEffect(() => {
         getAll();
-    }, [service]);
+        console.log("hi");
+    }, []);
 
     function getAll() {
         http.get(`/serviceguide`).then((res) => {
             setElements(res.data);
-            firstQs();
+
             setLoading(false);
             console.log(res.data);
         });
     }
+
+    useEffect(() => {
+        firstQs();
+    }, [elements]);
 
     function firstQs() {
         // qs.map((doc) => {
@@ -54,16 +47,7 @@ function ServicesBeta(props) {
 
         setCurQs(arr);
     }
-    function updateStep() {
-        let step2 = step - 1;
-        setStep(step2);
 
-        if (step2 === 1) {
-            firstQs();
-        } else {
-            setCurQs(qs[curQsIndex].data[step2]);
-        }
-    }
     function fetchService(key) {
         http.get(`/services/search/${key}`).then((res) => {
             setData(res.data);
@@ -71,38 +55,6 @@ function ServicesBeta(props) {
             setLoading(false);
             setShowData(true);
         });
-    }
-
-    function isEmpty(obj) {
-        for (var prop in obj) {
-            if (Object.prototype.hasOwnProperty.call(obj, prop)) {
-                return false;
-            }
-        }
-
-        return JSON.stringify(obj) === JSON.stringify({});
-    }
-
-    function updateQs(index) {
-        if (step === 1) {
-            setKeyIndex(index);
-        }
-        setCurQsIndex(index);
-        if (qs[index].data.length >= step + 1) {
-            setCurQs(qs[index].data[step]);
-            setStep(step + 1);
-            // setCurQsIndex(index)
-        } else {
-            setLoading(true);
-            console.log("hi");
-            if (step === 1) {
-                fetchService(qs[index].id);
-            } else {
-                fetchService(qs[keyIndex].id);
-            }
-
-            console.log(index);
-        }
     }
 
     function updatePath(index, doc) {
@@ -124,12 +76,14 @@ function ServicesBeta(props) {
             {!showData && (
                 <div className="sb">
                     <div className="sb_top">{topText[0]}</div>
-                    <div
-                        onClick={() => history.push("/servicebeta/edit")}
-                        className="btn btn-warning sshow_btn"
-                    >
-                        Edit
-                    </div>
+                    {isAdmin === 1 && (
+                        <div
+                            onClick={() => history.push("/servicebeta/edit")}
+                            className="btn btn-warning sshow_btn"
+                        >
+                            Edit
+                        </div>
+                    )}
                     <div className="sb_mid ">
                         {step > 1 && (
                             <ArrowBackIosNewIcon
@@ -183,7 +137,7 @@ function ServicesBeta(props) {
                         <div className="sb_grid_container">
                             {data.map((doc, index) => (
                                 <div
-                                    key={index}
+                                    key={index + Math.random() * 1000}
                                     onClick={() =>
                                         history.push(
                                             `/services/${doc.servicetype}/${doc.id}`

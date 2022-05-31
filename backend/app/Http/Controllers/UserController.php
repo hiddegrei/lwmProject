@@ -20,6 +20,9 @@ class UserController extends Controller
         return response()->json(User::get());
         // return "hoi";
     }
+    public function isAdmin(){
+        return auth()->user()->admin;
+    }
 
     public function authUser(){
        

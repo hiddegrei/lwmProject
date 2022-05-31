@@ -83,6 +83,7 @@ Route::post('/api/serviceguide/update/{serviceGuide}',[ServiceGuideController::c
 Route::get('/api/user/auth',[UserController::class, 'authUser']);
 Route::get('/api/allusers',[UserController::class, 'allUsers']);
 Route::post('/api/user/logout',[UserController::class, 'logout']);
+Route::get('/api/user/isadmin',[UserController::class, 'isAdmin']);
 
 //submit serivce request
 Route::get('/api/submitservicerequest',[SubmitRequestController::class, 'index']);

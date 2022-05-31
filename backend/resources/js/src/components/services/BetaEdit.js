@@ -37,6 +37,7 @@ export default function BetaEdit() {
                 setQs("");
                 setIsEnd("");
                 setServiceKey("");
+                history.push("/servicebeta");
             })
             .catch((err) => console.log(err));
     }
