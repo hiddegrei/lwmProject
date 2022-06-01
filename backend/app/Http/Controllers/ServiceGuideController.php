@@ -115,8 +115,9 @@ class ServiceGuideController extends Controller
      * @param  \App\Models\ServiceGuide  $serviceGuide
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ServiceGuide $serviceGuide)
+    public function remove( $serviceGuide)
     {
-        //
+        // dd($serviceGuide);
+       ServiceGuide::destroy($serviceGuide);
     }
 }

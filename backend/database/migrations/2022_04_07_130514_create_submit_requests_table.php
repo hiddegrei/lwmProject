@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string("title")->nullable();
             $table->string("image")->nullable();
             $table->string("description")->nullable();
-            $table->json('dropdowns')->nullalbe();
+            $table->json('dropdowns')->nullable();
             $table->json('questions')->nullable();
             $table->boolean('approved')->default(false);
             $table->boolean('approved_status')->default(false);

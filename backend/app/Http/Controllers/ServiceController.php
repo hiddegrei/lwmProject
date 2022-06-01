@@ -144,10 +144,23 @@ dd($data);
 
     public function searchKey($key)
     {
-        $service = Service::query()
-   ->where('title', 'LIKE', "%{$key}%") 
-   ->orWhere('description', 'LIKE', "%{$key}%") 
-   ->get();
+        
+//         $service = Service::query()
+//    ->where('title', 'LIKE', '%'.$key.'%') 
+//    ->orWhere('description', 'LIKE', '%'.$key.'%') 
+//    ->get();
+
+
+
+// split on 1+ whitespace & ignore empty (eg. trailing space)
+$searchValues = preg_split('/\s+/', $key, -1, PREG_SPLIT_NO_EMPTY); 
+
+$service = Service::where(function ($q) use ($searchValues) {
+  foreach ($searchValues as $value) {
+    $q->orWhere('title', 'like', "%{$value}%")
+    ->orWhere('description', 'like', "%{$value}%");
+  }
+})->get();
 
    return $service;
 
@@ -167,4 +180,6 @@ dd($data);
 //        $services = Service::search('valen')->get();
 //        return $services;
     }
+
+   
 }

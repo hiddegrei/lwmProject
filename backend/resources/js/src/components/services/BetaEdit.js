@@ -74,6 +74,14 @@ export default function BetaEdit() {
                 .catch((err) => console.log(err));
         });
     }
+
+    function removeElm(id) {
+        http.post(`/serviceguide/remove/${id}`)
+            .then((res) => {
+                history.push("/servicebeta");
+            })
+            .catch((err) => console.log(err));
+    }
     return (
         <div className="be">
             <div className="be_grid_container">
@@ -116,6 +124,14 @@ export default function BetaEdit() {
                                 }
                                 className="be_con_inp"
                             ></input>
+                        </div>
+                        <div className="be_con">
+                            <div
+                                onClick={() => removeElm(doc.id)}
+                                className="btn btn-danger sshow_btn"
+                            >
+                                remove
+                            </div>
                         </div>
                     </div>
                 ))}

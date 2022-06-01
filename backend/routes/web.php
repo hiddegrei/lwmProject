@@ -78,6 +78,7 @@ Route::get('/api/serviceguide',[ServiceGuideController::class, 'index']);
 Route::post('/api/serviceguide/show',[ServiceGuideController::class, 'show']);
 Route::post('/api/serviceguide/create',[ServiceGuideController::class, 'create']);
 Route::post('/api/serviceguide/update/{serviceGuide}',[ServiceGuideController::class, 'update']);
+Route::post('/api/serviceguide/remove/{serviceGuide}',[ServiceGuideController::class, 'remove']);
 
 
 Route::get('/api/user/auth',[UserController::class, 'authUser']);

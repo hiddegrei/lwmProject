@@ -13652,24 +13652,12 @@ function Navbar(props) {
             children: "Car ticket"
           })]
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
         className: "dropdown",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
           className: "dropbtn navbar-item px-4 text-decoration-none navHover text-muted",
           children: "Knowledge"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-          className: "dropdown-content",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Link, {
-            to: "#",
-            children: "Book of all"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Link, {
-            to: "#",
-            children: "Book of nothing"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Link, {
-            to: "#",
-            children: "Book of Book"
-          })]
-        })]
+        })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
         className: "dropdown",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
@@ -13709,63 +13697,24 @@ function Navbar(props) {
             children: "create service"
           })]
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
         className: "dropdown",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
           className: "dropbtn navbar-item px-4 text-decoration-none navHover text-muted",
           children: "System Status"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-          className: "dropdown-content",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Link, {
-            to: "#",
-            children: "Business support"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Link, {
-            to: "#",
-            children: "Facilities"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Link, {
-            to: "#",
-            children: "Finance"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Link, {
-            to: "#",
-            children: "Home office"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Link, {
-            to: "#",
-            children: "HR Payroll"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Link, {
-            to: "#",
-            children: "IT services"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Link, {
-            to: "#",
-            children: "Masterdata"
-          })]
-        })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
         className: "dropdown",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
           className: "dropbtn navbar-item px-4 text-decoration-none navHover text-muted",
           children: "GRC"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-          className: "dropdown-content",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Link, {
-            to: "#",
-            children: "Wat is GRC?"
-          })
-        })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
         className: "dropdown",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
           className: "dropbtn navbar-item px-4 text-decoration-none navHover text-muted",
           children: "Cart"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-          className: "dropdown-content",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Link, {
-            to: "#",
-            children: "Items"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Link, {
-            to: "#",
-            children: "Buy"
-          })]
-        })]
+        })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
         className: "dropdown",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
@@ -13792,6 +13741,7 @@ function Navbar(props) {
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
           className: "dropdown-content",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
+            className: "text-dark",
             onClick: logout,
             children: "logout"
           })
@@ -14066,6 +14016,14 @@ function BetaEdit() {
     });
   }
 
+  function removeElm(id) {
+    _axios_http__WEBPACK_IMPORTED_MODULE_1__["default"].post("/serviceguide/remove/".concat(id)).then(function (res) {
+      history.push("/servicebeta");
+    })["catch"](function (err) {
+      return console.log(err);
+    });
+  }
+
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
     className: "be",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
@@ -14127,6 +14085,15 @@ function BetaEdit() {
               },
               className: "be_con_inp"
             })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+            className: "be_con",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+              onClick: function onClick() {
+                return removeElm(doc.id);
+              },
+              className: "btn btn-danger sshow_btn",
+              children: "remove"
+            })
           })]
         });
       })
@@ -14324,7 +14291,7 @@ function Services(props) {
   }, []);
 
   function fetchAllUsers() {
-    _axios_http__WEBPACK_IMPORTED_MODULE_4__["default"].get('/allusers').then(function (res) {
+    _axios_http__WEBPACK_IMPORTED_MODULE_4__["default"].get("/allusers").then(function (res) {
       console.log(res.data);
       setUsersData(res.data);
     });
@@ -14389,7 +14356,7 @@ function Services(props) {
     // createImage(files[0]);
     setImage(file[0]);
   } //
-  //questions 
+  //questions
 
 
   function addQuestion() {
@@ -14424,27 +14391,27 @@ function Services(props) {
     var fData = new FormData();
 
     if (image) {
-      fData.append('image', image);
+      fData.append("image", image);
     }
 
-    fData.append('title', title);
-    fData.append('description', description);
-    fData.append('servicetype', serviceType);
-    fData.append('dropdowns', JSON.stringify(dropdowns));
+    fData.append("title", title);
+    fData.append("description", description);
+    fData.append("servicetype", serviceType);
+    fData.append("dropdowns", JSON.stringify(dropdowns));
 
     if (needsApproval) {
       var needsApprovalFrom = document.getElementById("needs_approval_from").value;
-      fData.append('needs_approval_from', needsApprovalFrom);
+      fData.append("needs_approval_from", needsApprovalFrom);
     }
 
     if (questions.length >= 1) {
-      fData.append('questions', JSON.stringify(questions));
+      fData.append("questions", JSON.stringify(questions));
     }
 
-    fData.append('opened_by', +openedBy);
-    fData.append('opened_for', +openedFor); //   {image:image, title:title, description: description, servicetype: serviceType, dropdowns: dropdowns,needs_approval_from:needsApprovalFrom,opened_by:openedBy,opened_for:openedFor }
+    fData.append("opened_by", +openedBy);
+    fData.append("opened_for", +openedFor); //   {image:image, title:title, description: description, servicetype: serviceType, dropdowns: dropdowns,needs_approval_from:needsApprovalFrom,opened_by:openedBy,opened_for:openedFor }
 
-    _axios_http__WEBPACK_IMPORTED_MODULE_4__["default"].post('/services/create', fData).then(function (res) {
+    _axios_http__WEBPACK_IMPORTED_MODULE_4__["default"].post("/services/create", fData).then(function (res) {
       console.log(res);
     })["catch"](function (err) {
       return console.log(err);
@@ -14556,14 +14523,14 @@ function Services(props) {
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
           className: "create_add_dropdown_container_items ",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
             onClick: addQuestion,
             className: "create_add_dropdown_container_item btn btn-primary bold hoverr",
-            children: " add question +"
-          }), questions.length >= 1 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+            children: [" ", "add question +"]
+          }), questions.length >= 1 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
             onClick: removeQuestion,
             className: "create_add_dropdown_container_item btn btn-primary bold hoverr",
-            children: " remove question -"
+            children: [" ", "remove question -"]
           })]
         }), questions.map(function (doc, index) {
           return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
@@ -14588,9 +14555,9 @@ function Services(props) {
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("select", {
               id: "serviceType",
               name: "serviceType",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("option", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("option", {
                 value: "businesssupport",
-                children: "Business support "
+                children: ["Business support", " "]
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("option", {
                 value: "facilities",
                 children: "Facilities"
@@ -14628,14 +14595,14 @@ function Services(props) {
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
           className: "create_add_dropdown_container_items ",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
             onClick: addDropDown,
             className: "create_add_dropdown_container_item btn btn-primary bold hoverr",
-            children: " add dropdown +"
-          }), dropdowns.length >= 1 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+            children: [" ", "add dropdown +"]
+          }), dropdowns.length >= 1 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
             onClick: removeDropDown,
             className: "create_add_dropdown_container_item btn btn-primary bold hoverr",
-            children: " remove dropdown -"
+            children: [" ", "remove dropdown -"]
           })]
         }), dropdowns.map(function (doc, index) {
           return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
@@ -14677,10 +14644,10 @@ function Services(props) {
           });
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
           className: "row pt-4",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("button", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("button", {
             onClick: createService,
             className: "btn btn-primary mb-4",
-            children: " create service"
+            children: [" ", "create service"]
           })
         })]
       })
@@ -14957,7 +14924,7 @@ function Services(props) {
   }
 
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    _axios_http__WEBPACK_IMPORTED_MODULE_2__["default"].get('/allusers').then(function (res) {
+    _axios_http__WEBPACK_IMPORTED_MODULE_2__["default"].get("/allusers").then(function (res) {
       setUsersData(res.data);
     });
   }, []);
@@ -14975,15 +14942,15 @@ function Services(props) {
 
     // let serviceType = document.getElementById("serviceType").value;
     var fData = new FormData();
-    fData.append('opened_by', user === null || user === void 0 ? void 0 : user.id);
+    fData.append("opened_by", user === null || user === void 0 ? void 0 : user.id);
 
     if (questionsAnswers.length >= 1) {
-      fData.append('questions', JSON.stringify(questionsAnswers));
+      fData.append("questions", JSON.stringify(questionsAnswers));
     }
 
-    fData.append('title', data === null || data === void 0 ? void 0 : (_data$service = data.service) === null || _data$service === void 0 ? void 0 : _data$service.title);
-    fData.append('image', data === null || data === void 0 ? void 0 : (_data$service2 = data.service) === null || _data$service2 === void 0 ? void 0 : _data$service2.image);
-    fData.append('description', data === null || data === void 0 ? void 0 : (_data$service3 = data.service) === null || _data$service3 === void 0 ? void 0 : _data$service3.description);
+    fData.append("title", data === null || data === void 0 ? void 0 : (_data$service = data.service) === null || _data$service === void 0 ? void 0 : _data$service.title);
+    fData.append("image", data === null || data === void 0 ? void 0 : (_data$service2 = data.service) === null || _data$service2 === void 0 ? void 0 : _data$service2.image);
+    fData.append("description", data === null || data === void 0 ? void 0 : (_data$service3 = data.service) === null || _data$service3 === void 0 ? void 0 : _data$service3.description);
 
     if ((data === null || data === void 0 ? void 0 : (_data$service4 = data.service) === null || _data$service4 === void 0 ? void 0 : _data$service4.dropdowns.length) >= 1) {
       var dropdowns = [];
@@ -14998,20 +14965,20 @@ function Services(props) {
         });
       }
 
-      fData.append('dropdowns', JSON.stringify(dropdowns));
+      fData.append("dropdowns", JSON.stringify(dropdowns));
     }
 
     if (data !== null && data !== void 0 && (_data$checks$ = data.checks[0]) !== null && _data$checks$ !== void 0 && _data$checks$.needs_approval_from) {
       var _data$checks$2;
 
-      fData.append('needs_approval_from', data === null || data === void 0 ? void 0 : (_data$checks$2 = data.checks[0]) === null || _data$checks$2 === void 0 ? void 0 : _data$checks$2.needs_approval_from);
+      fData.append("needs_approval_from", data === null || data === void 0 ? void 0 : (_data$checks$2 = data.checks[0]) === null || _data$checks$2 === void 0 ? void 0 : _data$checks$2.needs_approval_from);
     }
 
     if (data !== null && data !== void 0 && (_data$checks$3 = data.checks[0]) !== null && _data$checks$3 !== void 0 && _data$checks$3.opened_for) {
-      fData.append('opened_for', document.getElementById("opened_for").value);
+      fData.append("opened_for", document.getElementById("opened_for").value);
     }
 
-    _axios_http__WEBPACK_IMPORTED_MODULE_2__["default"].post('/submitservicerequest', fData).then(function (res) {
+    _axios_http__WEBPACK_IMPORTED_MODULE_2__["default"].post("/submitservicerequest", fData).then(function (res) {
       console.log(res);
       history.push("/services");
     })["catch"](function (err) {
@@ -15197,7 +15164,7 @@ function ServiceSideBar(_ref) {
       className: "serviceSide_h",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
         onClick: function onClick() {
-          return history.push('/services');
+          return history.push("/services");
         },
         children: "Services"
       })
@@ -15246,7 +15213,7 @@ function ServiceSideBar(_ref) {
         className: "serviceSide_item",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
           className: "serviceSide_item_text",
-          children: "HR  Payroll"
+          children: "HR Payroll"
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
         onClick: function onClick() {
@@ -21235,7 +21202,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".be{\r\n    \r\n    width:100%;\r\n}\r\n.be_con{\r\n    display:flex;\r\n    flex-direction: column;\r\n    margin-bottom: 10px;\r\n\r\n}\r\n.be_con_title{\r\n    display:flex;\r\n    font-weight: bold;\r\n\r\n}\r\n.be_con_inp{\r\n    display:flex;\r\n\r\n}\r\n.be_item{\r\n    display:flex;\r\n    flex-direction: column;\r\n    border:1px solid black;\r\n    margin-bottom: 10px;\r\n}\r\n.be_grid_container {\r\n    display: grid;\r\n    /* grid-template: 25fr/ auto auto auto auto ; */\r\n    /* grid-template-rows: 25fr 25fr 25fr 25fr ; */\r\n    /* grid-auto-columns: 25fr; */\r\n    grid-template-columns: repeat(4, 23%);\r\n    gap: 2%;\r\n    padding: 10px;\r\n    margin-left: auto;\r\n    margin-right: auto;\r\n    /* border:1px solid black; */\r\n    width: 100%;\r\n}\r\n\r\n.be_block {\r\n    display: flex;\r\n    flex-direction: column;\r\n    /* max-width: 300px; */\r\n    /* width:25fr; */\r\n    /* min-height: 200px; */\r\n    height: -webkit-fit-content;\r\n    height: -moz-fit-content;\r\n    height: fit-content;\r\n    border: 1px solid #ddd;\r\n    border-radius: 10px;\r\n    color: black;\r\n    transition: transform .2s;\r\n    width:-webkit-fit-content;\r\n    width:-moz-fit-content;\r\n    width:fit-content;\r\n   \r\n    /* Animation */\r\n\r\n\r\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".be{\r\n    \r\n    width:100%;\r\n}\r\n.be_con{\r\n    display:flex;\r\n    flex-direction: column;\r\n    margin-bottom: 10px;\r\n\r\n}\r\n.be_con_title{\r\n    display:flex;\r\n    font-weight: bold;\r\n\r\n}\r\n.be_con_inp{\r\n    display:flex;\r\n\r\n}\r\n.be_item{\r\n    display:flex;\r\n    flex-direction: column;\r\n    border:1px solid black;\r\n    margin-bottom: 10px;\r\n}\r\n.be_grid_container {\r\n    display: grid;\r\n    /* grid-template: 25fr/ auto auto auto auto ; */\r\n    /* grid-template-rows: 25fr 25fr 25fr 25fr ; */\r\n    /* grid-auto-columns: 25fr; */\r\n    grid-template-columns: repeat(4, 23%);\r\n    gap: 2%;\r\n    padding: 10px;\r\n    margin-left: auto;\r\n    margin-right: auto;\r\n    /* border:1px solid black; */\r\n    width: 100%;\r\n}\r\n\r\n.be_block {\r\n    display: flex;\r\n    flex-direction: column;\r\n    /* max-width: 300px; */\r\n    /* width:25fr; */\r\n    /* min-height: 200px; */\r\n    height: -webkit-fit-content;\r\n    height: -moz-fit-content;\r\n    height: fit-content;\r\n    border: 1px solid #ddd;\r\n    border-radius: 10px;\r\n    color: black;\r\n    transition: transform .2s;\r\n    width:-webkit-fit-content;\r\n    width:-moz-fit-content;\r\n    width:fit-content;\r\n    padding:10px;\r\n   \r\n    /* Animation */\r\n\r\n\r\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -21283,7 +21250,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".navbar {\r\n    display: flex;\r\n    height: -webkit-fit-content;\r\n    height: -moz-fit-content;\r\n    height: fit-content;\r\n    width: 100%;\r\n    position: -webkit-sticky;\r\n    position: sticky;\r\n    background-color: #00385A;\r\n    color: white;\r\n    top: 0;\r\n    z-index: 10;\r\n    /* margin-bottom: 50px; */\r\n}\r\n\r\n.navbar_brand {\r\n    display: flex;\r\n    width: 20%;\r\n    align-items: center left;\r\n    /* border:1px solid black; */\r\n}\r\n\r\n.navbar-item_img {\r\n    display: flex;\r\n    max-height: 90%;\r\n    width: auto;\r\n    margin-left: 10px;\r\n}\r\n\r\n.navbar_menu {\r\n    display: flex;\r\n    width: 65%;\r\n    align-items: center;\r\n    justify-content: space-between;\r\n    /* border:1px solid black; */\r\n}\r\n\r\n.navbar_user {\r\n    display: flex;\r\n    width: 15%;\r\n    align-items: center;\r\n    place-content: center;\r\n}\r\n\r\n.dropbtn {\r\n    /* background-color: #04AA6D; */\r\n    color: white;\r\n    /* padding: 16px;\r\n   font-size: 16px; */\r\n    border: none;\r\n    background-color: #00385A;\r\n    font-weight: bold;\r\n}\r\n\r\n.dropdown {\r\n    position: relative;\r\n    display: inline-block;\r\n}\r\n\r\n.dropdown-content {\r\n    display: none;\r\n    position: absolute;\r\n    background-color: #f1f1f1;\r\n    min-width: 160px;\r\n    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);\r\n    z-index: 1;\r\n    font-weight: 600;\r\n}\r\n\r\n.dropdown-content a {\r\n    color: black;\r\n    padding: 12px 16px;\r\n    text-decoration: none;\r\n    display: block;\r\n}\r\n\r\n.dropdown-content a:hover {\r\n    background-color: #ddd;\r\n}\r\n\r\n.dropdown:hover .dropdown-content {\r\n    display: block;\r\n}\r\n\r\n.dropdown:hover .dropbtn {\r\n    /* background-color: #3e8e41; */\r\n}\r\n\r\n#americanFlag {\r\n    width: 5%;\r\n}\r\n\r\n.navHover:hover {\r\n    color: orange !important;\r\n}\r\n\r\n.navbar_search {\r\n    display: flex;\r\n    width: 200px;\r\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".navbar {\r\n    display: flex;\r\n    height: -webkit-fit-content;\r\n    height: -moz-fit-content;\r\n    height: fit-content;\r\n    width: 100%;\r\n    position: -webkit-sticky;\r\n    position: sticky;\r\n    background-color: #00385A;\r\n    color: white;\r\n    top: 0;\r\n    z-index: 10;\r\n    /* margin-bottom: 50px; */\r\n}\r\n\r\n.navbar_brand {\r\n    display: flex;\r\n    width: 20%;\r\n    align-items: center left;\r\n    /* border:1px solid black; */\r\n}\r\n\r\n.navbar-item_img {\r\n    display: flex;\r\n    max-height: 90%;\r\n    width: auto;\r\n    margin-left: 10px;\r\n}\r\n\r\n.navbar_menu {\r\n    display: flex;\r\n    width: 65%;\r\n    align-items: center;\r\n    justify-content: space-between;\r\n    /* border:1px solid black; */\r\n}\r\n\r\n.navbar_user {\r\n    display: flex;\r\n    width: 15%;\r\n    align-items: center;\r\n    place-content: center;\r\n}\r\n\r\n.dropbtn {\r\n    /* background-color: #04AA6D; */\r\n    color: white;\r\n    /* padding: 16px;\r\n   font-size: 16px; */\r\n    border: none;\r\n    background-color: #00385A;\r\n    font-weight: bold;\r\n}\r\n\r\n.dropdown {\r\n    position: relative;\r\n    display: inline-block;\r\n}\r\n\r\n.dropdown-content {\r\n    display: none;\r\n    position: absolute;\r\n    background-color: #f1f1f1;\r\n    min-width: 160px;\r\n    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);\r\n    z-index: 1;\r\n    font-weight: 600;\r\n}\r\n\r\n.dropdown-content a {\r\n    color: black;\r\n    padding: 12px 16px;\r\n    text-decoration: none;\r\n    display: block;\r\n}\r\n\r\n.dropdown-content a:hover {\r\n    background-color: #ddd;\r\n}\r\n\r\n.dropdown:hover .dropdown-content {\r\n    display: block;\r\n}\r\n\r\n\r\n\r\n#americanFlag {\r\n    width: 5%;\r\n}\r\n\r\n.navHover:hover {\r\n    color: orange !important;\r\n}\r\n\r\n.navbar_search {\r\n    display: flex;\r\n    width: 200px;\r\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

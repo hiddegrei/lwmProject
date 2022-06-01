@@ -59,11 +59,11 @@ function Navbar(props) {
                     <button className="dropbtn navbar-item px-4 text-decoration-none navHover text-muted">
                         Knowledge
                     </button>
-                    <div className="dropdown-content">
+                    {/* <div className="dropdown-content">
                         <Link to="#">Book of all</Link>
                         <Link to="#">Book of nothing</Link>
                         <Link to="#">Book of Book</Link>
-                    </div>
+                    </div> */}
                 </div>
 
                 <div className="dropdown">
@@ -92,7 +92,7 @@ function Navbar(props) {
                     <button className="dropbtn navbar-item px-4 text-decoration-none navHover text-muted">
                         System Status
                     </button>
-                    <div className="dropdown-content">
+                    {/* <div className="dropdown-content">
                         <Link to="#">Business support</Link>
                         <Link to="#">Facilities</Link>
                         <Link to="#">Finance</Link>
@@ -100,26 +100,26 @@ function Navbar(props) {
                         <Link to="#">HR Payroll</Link>
                         <Link to="#">IT services</Link>
                         <Link to="#">Masterdata</Link>
-                    </div>
+                    </div> */}
                 </div>
 
                 <div className="dropdown">
                     <button className="dropbtn navbar-item px-4 text-decoration-none navHover text-muted">
                         GRC
                     </button>
-                    <div className="dropdown-content">
+                    {/* <div className="dropdown-content">
                         <Link to="#">Wat is GRC?</Link>
-                    </div>
+                    </div> */}
                 </div>
 
                 <div className="dropdown">
                     <button className="dropbtn navbar-item px-4 text-decoration-none navHover text-muted">
                         Cart
                     </button>
-                    <div className="dropdown-content">
+                    {/* <div className="dropdown-content">
                         <Link to="#">Items</Link>
                         <Link to="#">Buy</Link>
-                    </div>
+                    </div> */}
                 </div>
 
                 <div className="dropdown">
@@ -143,7 +143,9 @@ function Navbar(props) {
                         hi , {user?.name}
                     </button>
                     <div className="dropdown-content">
-                        <a onClick={logout}>logout</a>
+                        <a className="text-dark" onClick={logout}>
+                            logout
+                        </a>
                     </div>
                 </div>
             </div>
