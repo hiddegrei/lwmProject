@@ -14012,76 +14012,41 @@ function BetaEdit(props) {
     });
   }
 
-  function check(val, index) {
-    console.log(index);
-
-    if (val.path_index === elm.path_index && val.main_index === elm.main_index) {}
-  }
-
   function changeQs(elm, value) {
     var newArr = _toConsumableArray(data);
 
     for (var i = 0; i < data.length; i++) {
-      if (data[i].path_index === elm.path_index && data[i].main_index === elm.main_index) {
+      if (data[i].id === elm.id) {
+        console.log("hi");
         newArr[i].question = value;
       }
     }
 
     setData(newArr);
-
-    var newArr2 = _toConsumableArray(curQs);
-
-    for (var _i2 = 0; _i2 < newArr2.length; _i2++) {
-      if (newArr2[_i2].path_index === elm.path_index && newArr2[_i2].main_index === elm.main_index) {
-        newArr2[_i2].question = value;
-      }
-    }
-
-    setCurQs(newArr2);
   }
 
   function changeSk(elm, value) {
     var newArr = _toConsumableArray(data);
 
     for (var i = 0; i < data.length; i++) {
-      if (data[i].path_index === elm.path_index && data[i].main_index === elm.main_index) {
+      if (data[i].id === elm.id) {
         newArr[i].service_key = value;
       }
     }
 
     setData(newArr);
-
-    var newArr2 = _toConsumableArray(curQs);
-
-    for (var _i3 = 0; _i3 < newArr2.length; _i3++) {
-      if (newArr2[_i3].path_index === elm.path_index && newArr2[_i3].main_index === elm.main_index) {
-        newArr2[_i3].service_key = value;
-      }
-    }
-
-    setCurQs(newArr2);
   }
 
   function changeIsEnd(elm, value) {
     var newArr = _toConsumableArray(data);
 
     for (var i = 0; i < data.length; i++) {
-      if (data[i].path_index === elm.path_index && data[i].main_index === elm.main_index) {
+      if (data[i].id === elm.id) {
         newArr[i].is_end = value;
       }
     }
 
     setData(newArr);
-
-    var newArr2 = _toConsumableArray(curQs);
-
-    for (var _i4 = 0; _i4 < newArr2.length; _i4++) {
-      if (newArr2[_i4].path_index === elm.path_index && newArr2[_i4].main_index === elm.main_index) {
-        newArr2[_i4].is_end = value;
-      }
-    }
-
-    setCurQs(newArr2);
   }
 
   function saveChanges() {
@@ -14093,7 +14058,7 @@ function BetaEdit(props) {
       fData.append("is_end", doc.is_end);
       fData.append("service_key", doc.service_key);
       _axios_http__WEBPACK_IMPORTED_MODULE_2__["default"].post("/serviceguide/update/".concat(doc.id), fData).then(function (res) {
-        console.log(res);
+        // console.log(res);
         history.push("/servicebeta");
       })["catch"](function (err) {
         return console.log(err);
@@ -14112,8 +14077,7 @@ function BetaEdit(props) {
   function getAll() {
     _axios_http__WEBPACK_IMPORTED_MODULE_2__["default"].get("/serviceguide").then(function (res) {
       setData(res.data);
-      setLoading(false);
-      console.log(res.data);
+      setLoading(false); // console.log(res.data);
     });
   }
 
@@ -14129,8 +14093,8 @@ function BetaEdit(props) {
     // });
     var arr = data.filter(function (doc) {
       return doc.path_index === 0;
-    });
-    console.log(arr);
+    }); // console.log(arr);
+
     setCurQs(arr);
   }
 
@@ -14138,8 +14102,8 @@ function BetaEdit(props) {
     if (doc.is_end) {} else {
       var arr = data.filter(function (elm) {
         return elm.main_index === doc.main_index && elm.path_index === doc.path_index + 1;
-      });
-      console.log(arr);
+      }); // console.log(arr);
+
       setMoving(true);
       setCurQs(arr);
     }

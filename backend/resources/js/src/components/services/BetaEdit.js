@@ -51,37 +51,22 @@ function BetaEdit(props) {
             .catch((err) => console.log(err));
     }
 
-    function check(val, index) {
-        console.log(index);
-        if (
-            val.path_index === elm.path_index &&
-            val.main_index === elm.main_index
-        ) {
-        }
-    }
+    
     function changeQs(elm, value) {
+       
         let newArr = [...data];
 
         for (let i = 0; i < data.length; i++) {
             if (
-                data[i].path_index === elm.path_index &&
-                data[i].main_index === elm.main_index
+                data[i].id === elm.id
             ) {
+                console.log("hi")
                 newArr[i].question = value;
             }
         }
         setData(newArr);
 
-        let newArr2 = [...curQs];
-        for (let i = 0; i < newArr2.length; i++) {
-            if (
-                newArr2[i].path_index === elm.path_index &&
-                newArr2[i].main_index === elm.main_index
-            ) {
-                newArr2[i].question = value;
-            }
-        }
-        setCurQs(newArr2);
+       
 
     
     }
@@ -90,48 +75,29 @@ function BetaEdit(props) {
 
         for (let i = 0; i < data.length; i++) {
             if (
-                data[i].path_index === elm.path_index &&
-                data[i].main_index === elm.main_index
+                data[i].id === elm.id
             ) {
                 newArr[i].service_key = value;
             }
         }
         setData(newArr);
 
-        let newArr2 = [...curQs];
-        for (let i = 0; i < newArr2.length; i++) {
-            if (
-                newArr2[i].path_index === elm.path_index &&
-                newArr2[i].main_index === elm.main_index
-            ) {
-                newArr2[i].service_key = value;
-            }
-        }
-        setCurQs(newArr2);
+       
     }
     function changeIsEnd(elm, value) {
         let newArr = [...data];
 
         for (let i = 0; i < data.length; i++) {
             if (
-                data[i].path_index === elm.path_index &&
-                data[i].main_index === elm.main_index
+                
+                data[i].id === elm.id
             ) {
                 newArr[i].is_end = value;
             }
         }
         setData(newArr);
 
-        let newArr2 = [...curQs];
-        for (let i = 0; i < newArr2.length; i++) {
-            if (
-                newArr2[i].path_index === elm.path_index &&
-                newArr2[i].main_index === elm.main_index
-            ) {
-                newArr2[i].is_end = value;
-            }
-        }
-        setCurQs(newArr2);
+       
     }
 
     function saveChanges() {
@@ -144,7 +110,7 @@ function BetaEdit(props) {
             fData.append("service_key", doc.service_key);
             http.post(`/serviceguide/update/${doc.id}`, fData)
                 .then((res) => {
-                    console.log(res);
+                    // console.log(res);
                     history.push("/servicebeta");
                 })
                 .catch((err) => console.log(err));
@@ -164,7 +130,7 @@ function BetaEdit(props) {
             setData(res.data);
 
             setLoading(false);
-            console.log(res.data);
+            // console.log(res.data);
         });
     }
 
@@ -179,7 +145,7 @@ function BetaEdit(props) {
         //     arr.push(doc.data[0][0]);
         // });
         let arr = data.filter((doc) => doc.path_index === 0);
-        console.log(arr);
+        // console.log(arr);
 
         setCurQs(arr);
     }
@@ -192,7 +158,7 @@ function BetaEdit(props) {
                     elm.main_index === doc.main_index &&
                     elm.path_index === doc.path_index + 1
             );
-            console.log(arr);
+            // console.log(arr);
             setMoving(true);
             setCurQs(arr);
         }
