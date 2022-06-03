@@ -13882,13 +13882,15 @@ function Searchbar(classOverride) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ BetaEdit)
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _axios_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../axios/http */ "./resources/js/src/axios/http.js");
-/* harmony import */ var _assets_css_BetaEdit_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../assets/css/BetaEdit.css */ "./resources/js/src/assets/css/BetaEdit.css");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
+/* harmony import */ var _assets_css_BetaEdit_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../assets/css/BetaEdit.css */ "./resources/js/src/assets/css/BetaEdit.css");
+/* harmony import */ var _axios_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../axios/http */ "./resources/js/src/axios/http.js");
+/* harmony import */ var _ServiceSideBar__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ServiceSideBar */ "./resources/js/src/components/services/ServiceSideBar.js");
+/* harmony import */ var _Stateprovider__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../Stateprovider */ "./resources/js/src/Stateprovider.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -13915,48 +13917,80 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
-function BetaEdit() {
+
+
+
+
+function BetaEdit(props) {
+  var _useStateValue = (0,_Stateprovider__WEBPACK_IMPORTED_MODULE_4__.useStateValue)(),
+      _useStateValue2 = _slicedToArray(_useStateValue, 2),
+      _useStateValue2$ = _useStateValue2[0],
+      user = _useStateValue2$.user,
+      isAdmin = _useStateValue2$.isAdmin,
+      dispatch = _useStateValue2[1];
+
+  var service = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_6__.useParams)();
+  var history = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_6__.useHistory)();
+
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
       _useState2 = _slicedToArray(_useState, 2),
       data = _useState2[0],
-      setData = _useState2[1];
+      setData = _useState2[1]; // const [data, setData] = useState([]);
 
-  var history = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_4__.useHistory)();
 
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
       _useState4 = _slicedToArray(_useState3, 2),
-      mainIndex = _useState4[0],
-      setMainIndex = _useState4[1];
+      showData = _useState4[0],
+      setShowData = _useState4[1];
 
-  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(true),
       _useState6 = _slicedToArray(_useState5, 2),
-      pathIndex = _useState6[0],
-      setPathIndex = _useState6[1];
+      loading = _useState6[0],
+      setLoading = _useState6[1];
 
-  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(["What are you looking for?"]),
       _useState8 = _slicedToArray(_useState7, 2),
-      qs = _useState8[0],
-      setQs = _useState8[1];
+      topText = _useState8[0],
+      setTopText = _useState8[1];
 
-  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
+  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
       _useState10 = _slicedToArray(_useState9, 2),
-      isEnd = _useState10[0],
-      setIsEnd = _useState10[1];
+      moving = _useState10[0],
+      setMoving = _useState10[1];
 
-  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
+  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
       _useState12 = _slicedToArray(_useState11, 2),
-      serviceKey = _useState12[0],
-      setServiceKey = _useState12[1];
+      curQs = _useState12[0],
+      setCurQs = _useState12[1];
+
+  var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
+      _useState14 = _slicedToArray(_useState13, 2),
+      mainIndex = _useState14[0],
+      setMainIndex = _useState14[1];
+
+  var _useState15 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
+      _useState16 = _slicedToArray(_useState15, 2),
+      pathIndex = _useState16[0],
+      setPathIndex = _useState16[1];
+
+  var _useState17 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
+      _useState18 = _slicedToArray(_useState17, 2),
+      qs = _useState18[0],
+      setQs = _useState18[1];
+
+  var _useState19 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
+      _useState20 = _slicedToArray(_useState19, 2),
+      isEnd = _useState20[0],
+      setIsEnd = _useState20[1];
+
+  var _useState21 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
+      _useState22 = _slicedToArray(_useState21, 2),
+      serviceKey = _useState22[0],
+      setServiceKey = _useState22[1];
 
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     getAll();
   }, []);
-
-  function getAll() {
-    _axios_http__WEBPACK_IMPORTED_MODULE_1__["default"].get("/serviceguide").then(function (res) {
-      setData(res.data);
-    });
-  }
 
   function createNew() {
     var fData = new FormData();
@@ -13965,7 +13999,7 @@ function BetaEdit() {
     fData.append("question", qs);
     fData.append("is_end", isEnd);
     fData.append("service_key", serviceKey);
-    _axios_http__WEBPACK_IMPORTED_MODULE_1__["default"].post("/serviceguide/create", fData).then(function (res) {
+    _axios_http__WEBPACK_IMPORTED_MODULE_2__["default"].post("/serviceguide/create", fData).then(function (res) {
       console.log(res);
       setMainIndex("");
       setPathIndex("");
@@ -13978,25 +14012,76 @@ function BetaEdit() {
     });
   }
 
-  function changeQs(index, value) {
-    var newArr = _toConsumableArray(data);
+  function check(val, index) {
+    console.log(index);
 
-    newArr[index].question = value;
-    setData(newArr);
+    if (val.path_index === elm.path_index && val.main_index === elm.main_index) {}
   }
 
-  function changeSk(index, value) {
+  function changeQs(elm, value) {
     var newArr = _toConsumableArray(data);
 
-    newArr[index].service_key = value;
+    for (var i = 0; i < data.length; i++) {
+      if (data[i].path_index === elm.path_index && data[i].main_index === elm.main_index) {
+        newArr[i].question = value;
+      }
+    }
+
     setData(newArr);
+
+    var newArr2 = _toConsumableArray(curQs);
+
+    for (var _i2 = 0; _i2 < newArr2.length; _i2++) {
+      if (newArr2[_i2].path_index === elm.path_index && newArr2[_i2].main_index === elm.main_index) {
+        newArr2[_i2].question = value;
+      }
+    }
+
+    setCurQs(newArr2);
   }
 
-  function changeIsEnd(index, value) {
+  function changeSk(elm, value) {
     var newArr = _toConsumableArray(data);
 
-    newArr[index].is_end = value;
+    for (var i = 0; i < data.length; i++) {
+      if (data[i].path_index === elm.path_index && data[i].main_index === elm.main_index) {
+        newArr[i].service_key = value;
+      }
+    }
+
     setData(newArr);
+
+    var newArr2 = _toConsumableArray(curQs);
+
+    for (var _i3 = 0; _i3 < newArr2.length; _i3++) {
+      if (newArr2[_i3].path_index === elm.path_index && newArr2[_i3].main_index === elm.main_index) {
+        newArr2[_i3].service_key = value;
+      }
+    }
+
+    setCurQs(newArr2);
+  }
+
+  function changeIsEnd(elm, value) {
+    var newArr = _toConsumableArray(data);
+
+    for (var i = 0; i < data.length; i++) {
+      if (data[i].path_index === elm.path_index && data[i].main_index === elm.main_index) {
+        newArr[i].is_end = value;
+      }
+    }
+
+    setData(newArr);
+
+    var newArr2 = _toConsumableArray(curQs);
+
+    for (var _i4 = 0; _i4 < newArr2.length; _i4++) {
+      if (newArr2[_i4].path_index === elm.path_index && newArr2[_i4].main_index === elm.main_index) {
+        newArr2[_i4].is_end = value;
+      }
+    }
+
+    setCurQs(newArr2);
   }
 
   function saveChanges() {
@@ -14007,7 +14092,7 @@ function BetaEdit() {
       fData.append("question", doc.question);
       fData.append("is_end", doc.is_end);
       fData.append("service_key", doc.service_key);
-      _axios_http__WEBPACK_IMPORTED_MODULE_1__["default"].post("/serviceguide/update/".concat(doc.id), fData).then(function (res) {
+      _axios_http__WEBPACK_IMPORTED_MODULE_2__["default"].post("/serviceguide/update/".concat(doc.id), fData).then(function (res) {
         console.log(res);
         history.push("/servicebeta");
       })["catch"](function (err) {
@@ -14017,77 +14102,124 @@ function BetaEdit() {
   }
 
   function removeElm(id) {
-    _axios_http__WEBPACK_IMPORTED_MODULE_1__["default"].post("/serviceguide/remove/".concat(id)).then(function (res) {
+    _axios_http__WEBPACK_IMPORTED_MODULE_2__["default"].post("/serviceguide/remove/".concat(id)).then(function (res) {
       history.push("/servicebeta");
     })["catch"](function (err) {
       return console.log(err);
     });
   }
 
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+  function getAll() {
+    _axios_http__WEBPACK_IMPORTED_MODULE_2__["default"].get("/serviceguide").then(function (res) {
+      setData(res.data);
+      setLoading(false);
+      console.log(res.data);
+    });
+  }
+
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    if (!moving) {
+      firstQs();
+    }
+  }, [data]);
+
+  function firstQs() {
+    // qs.map((doc) => {
+    //     arr.push(doc.data[0][0]);
+    // });
+    var arr = data.filter(function (doc) {
+      return doc.path_index === 0;
+    });
+    console.log(arr);
+    setCurQs(arr);
+  }
+
+  function updatePath(index, doc) {
+    if (doc.is_end) {} else {
+      var arr = data.filter(function (elm) {
+        return elm.main_index === doc.main_index && elm.path_index === doc.path_index + 1;
+      });
+      console.log(arr);
+      setMoving(true);
+      setCurQs(arr);
+    }
+  }
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
     className: "be",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+    children: [loading && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+      children: "loading..."
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
       className: "be_grid_container",
-      children: data.map(function (doc, index) {
-        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+      children: curQs.map(function (doc, index) {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
           className: "be_block",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
             className: "be_con",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
               className: "be_con_title",
               children: "main index"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
               className: "be_con_inp",
               children: doc.main_index
             })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
             className: "be_con",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
               className: "be_con_title",
               children: "path index"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
               className: "be_con_inp",
               children: doc.path_index
             })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
             className: "be_con",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
               className: "be_con_title",
               children: "question"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
               value: doc.question,
               onChange: function onChange(e) {
-                return changeQs(index, e.target.value);
+                return changeQs(doc, e.target.value);
               },
               className: "be_con_inp"
             })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
             className: "be_con",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
               className: "be_con_title",
               children: "service key"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
               value: doc.service_key,
               onChange: function onChange(e) {
-                return changeSk(index, e.target.value);
+                return changeSk(doc, e.target.value);
               },
               className: "be_con_inp"
             })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
             className: "be_con",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
               className: "be_con_title",
               children: "is end"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
               value: doc.is_end,
               onChange: function onChange(e) {
-                return changeIsEnd(index, e.target.value);
+                return changeIsEnd(doc, e.target.value);
               },
               className: "be_con_inp"
             })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
             className: "be_con",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+              onClick: function onClick() {
+                return updatePath(index, doc);
+              },
+              className: "btn btn-danger sshow_btn",
+              children: "next"
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+            className: "be_con",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
               onClick: function onClick() {
                 return removeElm(doc.id);
               },
@@ -14097,77 +14229,79 @@ function BetaEdit() {
           })]
         });
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
       className: "be_con",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
         className: "be_con_title",
         children: "main index"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
         value: mainIndex,
         onChange: function onChange(e) {
           return setMainIndex(e.target.value);
         },
         className: "be_con_inp"
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
       className: "be_con",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
         className: "be_con_title",
         children: "path index"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
         value: pathIndex,
         onChange: function onChange(e) {
           return setPathIndex(e.target.value);
         },
         className: "be_con_inp"
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
       className: "be_con",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
         className: "be_con_title",
         children: "question"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
         value: qs,
         onChange: function onChange(e) {
           return setQs(e.target.value);
         },
         className: "be_con_inp"
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
       className: "be_con",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
         className: "be_con_title",
         children: "is end"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
         value: isEnd,
         onChange: function onChange(e) {
           return setIsEnd(e.target.value);
         },
         className: "be_con_inp"
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
       className: "be_con",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
         className: "be_con_title",
         children: "service key"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
         value: serviceKey,
         onChange: function onChange(e) {
           return setServiceKey(e.target.value);
         },
         className: "be_con_inp"
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
       onClick: createNew,
       className: "btn btn-warning sshow_btn",
       children: "create"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
       onClick: saveChanges,
       className: "btn btn-warning sshow_btn",
       children: "save"
     })]
   });
 }
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (BetaEdit);
 
 /***/ }),
 

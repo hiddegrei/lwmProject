@@ -1,11 +1,25 @@
-import React, { useEffect, useState } from "react";
-import http from "../../axios/http";
-import "../../assets/css/BetaEdit.css";
+import React, { useLayoutEffect, useEffect, useState } from "react";
 import { useParams, useHistory } from "react-router-dom";
+import "../../assets/css/BetaEdit.css";
 
-export default function BetaEdit() {
-    const [data, setData] = useState([]);
+import http from "../../axios/http";
+import ServiceSideBar from "./ServiceSideBar";
+import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
+import { useStateValue } from "../../Stateprovider";
+
+function BetaEdit(props) {
+    const [{ user, isAdmin }, dispatch] = useStateValue();
+    const service = useParams();
     const history = useHistory();
+    const [data, setData] = useState([]);
+    // const [data, setData] = useState([]);
+    const [showData, setShowData] = useState(false);
+    const [loading, setLoading] = useState(true);
+    const [topText, setTopText] = useState(["What are you looking for?"]);
+
+    const [moving, setMoving] = useState(false);
+    const [curQs, setCurQs] = useState([]);
+
     const [mainIndex, setMainIndex] = useState();
     const [pathIndex, setPathIndex] = useState();
     const [qs, setQs] = useState();
@@ -15,11 +29,6 @@ export default function BetaEdit() {
     useEffect(() => {
         getAll();
     }, []);
-    function getAll() {
-        http.get(`/serviceguide`).then((res) => {
-            setData(res.data);
-        });
-    }
 
     function createNew() {
         const fData = new FormData();
@@ -42,20 +51,87 @@ export default function BetaEdit() {
             .catch((err) => console.log(err));
     }
 
-    function changeQs(index, value) {
-        let newArr = [...data];
-        newArr[index].question = value;
-        setData(newArr);
+    function check(val, index) {
+        console.log(index);
+        if (
+            val.path_index === elm.path_index &&
+            val.main_index === elm.main_index
+        ) {
+        }
     }
-    function changeSk(index, value) {
+    function changeQs(elm, value) {
         let newArr = [...data];
-        newArr[index].service_key = value;
+
+        for (let i = 0; i < data.length; i++) {
+            if (
+                data[i].path_index === elm.path_index &&
+                data[i].main_index === elm.main_index
+            ) {
+                newArr[i].question = value;
+            }
+        }
         setData(newArr);
+
+        let newArr2 = [...curQs];
+        for (let i = 0; i < newArr2.length; i++) {
+            if (
+                newArr2[i].path_index === elm.path_index &&
+                newArr2[i].main_index === elm.main_index
+            ) {
+                newArr2[i].question = value;
+            }
+        }
+        setCurQs(newArr2);
+
+    
     }
-    function changeIsEnd(index, value) {
+    function changeSk(elm, value) {
         let newArr = [...data];
-        newArr[index].is_end = value;
+
+        for (let i = 0; i < data.length; i++) {
+            if (
+                data[i].path_index === elm.path_index &&
+                data[i].main_index === elm.main_index
+            ) {
+                newArr[i].service_key = value;
+            }
+        }
         setData(newArr);
+
+        let newArr2 = [...curQs];
+        for (let i = 0; i < newArr2.length; i++) {
+            if (
+                newArr2[i].path_index === elm.path_index &&
+                newArr2[i].main_index === elm.main_index
+            ) {
+                newArr2[i].service_key = value;
+            }
+        }
+        setCurQs(newArr2);
+    }
+    function changeIsEnd(elm, value) {
+        let newArr = [...data];
+
+        for (let i = 0; i < data.length; i++) {
+            if (
+                data[i].path_index === elm.path_index &&
+                data[i].main_index === elm.main_index
+            ) {
+                newArr[i].is_end = value;
+            }
+        }
+        setData(newArr);
+
+        let newArr2 = [...curQs];
+        for (let i = 0; i < newArr2.length; i++) {
+            if (
+                newArr2[i].path_index === elm.path_index &&
+                newArr2[i].main_index === elm.main_index
+            ) {
+                newArr2[i].is_end = value;
+            }
+        }
+        setCurQs(newArr2);
     }
 
     function saveChanges() {
@@ -82,10 +158,61 @@ export default function BetaEdit() {
             })
             .catch((err) => console.log(err));
     }
+
+    function getAll() {
+        http.get(`/serviceguide`).then((res) => {
+            setData(res.data);
+
+            setLoading(false);
+            console.log(res.data);
+        });
+    }
+
+    useEffect(() => {
+        if (!moving) {
+            firstQs();
+        }
+    }, [data]);
+
+    function firstQs() {
+        // qs.map((doc) => {
+        //     arr.push(doc.data[0][0]);
+        // });
+        let arr = data.filter((doc) => doc.path_index === 0);
+        console.log(arr);
+
+        setCurQs(arr);
+    }
+
+    function updatePath(index, doc) {
+        if (doc.is_end) {
+        } else {
+            let arr = data.filter(
+                (elm) =>
+                    elm.main_index === doc.main_index &&
+                    elm.path_index === doc.path_index + 1
+            );
+            console.log(arr);
+            setMoving(true);
+            setCurQs(arr);
+        }
+    }
     return (
         <div className="be">
+            {/* <div className="sb_mid ">
+                        {step > 1 && (
+                            <ArrowBackIosNewIcon
+                                onClick={() => {
+                                    updateStep();
+                                }}
+                                color="primary"
+                                className="hover"
+                            />
+                        )}
+                    </div> */}
+            {loading && <div>loading...</div>}
             <div className="be_grid_container">
-                {data.map((doc, index) => (
+                {curQs.map((doc, index) => (
                     <div className="be_block">
                         <div className="be_con">
                             <div className="be_con_title">main index</div>
@@ -99,9 +226,7 @@ export default function BetaEdit() {
                             <div className="be_con_title">question</div>
                             <input
                                 value={doc.question}
-                                onChange={(e) =>
-                                    changeQs(index, e.target.value)
-                                }
+                                onChange={(e) => changeQs(doc, e.target.value)}
                                 className="be_con_inp"
                             ></input>
                         </div>
@@ -110,7 +235,7 @@ export default function BetaEdit() {
                             <input
                                 value={doc.service_key}
                                 onChange={(e) =>
-                                    changeSk(index, e.target.value)
+                                    changeSk(doc, e.target.value)
                                 }
                                 className="be_con_inp"
                             ></input>
@@ -120,10 +245,18 @@ export default function BetaEdit() {
                             <input
                                 value={doc.is_end}
                                 onChange={(e) =>
-                                    changeIsEnd(index, e.target.value)
+                                    changeIsEnd(doc, e.target.value)
                                 }
                                 className="be_con_inp"
                             ></input>
+                        </div>
+                        <div className="be_con">
+                            <div
+                                onClick={() => updatePath(index, doc)}
+                                className="btn btn-danger sshow_btn"
+                            >
+                                next
+                            </div>
                         </div>
                         <div className="be_con">
                             <div
@@ -189,6 +322,9 @@ export default function BetaEdit() {
             <div onClick={saveChanges} className="btn btn-warning sshow_btn">
                 save
             </div>
+            {/* {loading&&<div className='sb_loading'>Loading...</div>} */}
         </div>
     );
 }
+
+export default BetaEdit;
