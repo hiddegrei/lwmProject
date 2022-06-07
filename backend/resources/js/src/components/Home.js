@@ -1,18 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React, {useEffect, useState} from "react";
 import http from "../axios/http";
 import "../assets/css/Home.css";
 import Searchbar from "./Searchbar";
-import { Link } from "react-router-dom";
-import { useStateValue } from "../Stateprovider";
+import {Link} from "react-router-dom";
+import {useStateValue} from "../Stateprovider";
 import HelpIcon from "@mui/icons-material/Help";
 
 function Home(props) {
-    const [{ user }, dispatch] = useStateValue();
+    const [{user}, dispatch] = useStateValue();
     const [users, setUsers] = useState([]);
     const [input, setInput] = useState("");
     const [myTickets, setMyTickets] = useState([]);
     const [showMaintenance, setShowMaintenance] = useState(false);
-    const [maintenanceArr,setMaintenanceArr]=useState(["Current: none","Upcoming:","August 7th","April 24th"])
+    const [maintenanceArr, setMaintenanceArr] = useState(["Current: none", "Upcoming:", "August 7th", "April 24th"])
 
     useEffect(() => {
         fetchMyTickets();
@@ -25,28 +25,28 @@ function Home(props) {
         });
     }
 
-    useEffect(()=>{
-        window.addEventListener('click',checkClick);
-        return()=>{
-            window.removeEventListener('click',checkClick)
+    useEffect(() => {
+        window.addEventListener('click', checkClick);
+        return () => {
+            window.removeEventListener('click', checkClick)
         }
-    },[])
-    function checkClick(e){
+    }, [])
+
+    function checkClick(e) {
         setShowMaintenance(false)
     }
 
-    return (
-        <div className="home">
+    return (<div className="home">
             <div className="home_background"></div>
-            <div className="maintenance_block" onClick={(e)=>{
+            <div className="maintenance_block" onClick={(e) => {
                 e.stopPropagation();
-                setShowMaintenance(!showMaintenance)}}>Maintenance▼</div>
-                {showMaintenance&&<div className="maintenance_results">
-                    {maintenanceArr.map((doc)=>(
-                        <div className="maintenance_results_elm">{doc}</div>
-                    ))}
+                setShowMaintenance(!showMaintenance)
+            }}>Maintenance▼
+            </div>
+            {showMaintenance && <div className="maintenance_results">
+                {maintenanceArr.map((doc) => (<div className="maintenance_results_elm">{doc}</div>))}
 
-                    </div>}
+            </div>}
 
             <div className="home_firstBlock_top">
                 <div className="home_firstBlock_top_greet_container">
@@ -77,20 +77,6 @@ function Home(props) {
                         </div>
                     </Link>
 
-                    <Link to="/services">
-                        <div className="home_firstBlock_bottom_grid_item">
-                            <div className="home_firstBlock_bottom_grid_item_imgCon">
-                                <img
-                                    src="/img/customer-service.png"
-                                    className="home_firstBlock_bottom_grid_item_imgCon_img"
-                                ></img>
-                            </div>
-                            <div className="home_firstBlock_bottom_grid_item_text">
-                                services
-                            </div>
-                        </div>
-                    </Link>
-
                     <Link to="/services/businesssupport">
                         <div className="home_firstBlock_bottom_grid_item">
                             <div className="home_firstBlock_bottom_grid_item_imgCon">
@@ -105,16 +91,30 @@ function Home(props) {
                         </div>
                     </Link>
 
-                    <Link to="/services/businesssupport">
-                        <div className="home_firstBlock_bottom_grid_item">
+                    <Link to="/servicebeta">
+                        <div className="home_firstBlock_center_grid_item">
                             <div className="home_firstBlock_bottom_grid_item_imgCon">
                                 <img
-                                    src="/img/statutory.png"
+                                    src="https://www.seekpng.com/png/full/30-306339_hand-emoji-clipart-shake-handshake-emoji.png"
                                     className="home_firstBlock_bottom_grid_item_imgCon_img"
                                 ></img>
                             </div>
                             <div className="home_firstBlock_bottom_grid_item_text">
-                                Statutory sick pay
+                                Help with finding services
+                            </div>
+                        </div>
+                    </Link>
+
+                    <Link to="/services">
+                        <div className="home_firstBlock_bottom_grid_item">
+                            <div className="home_firstBlock_bottom_grid_item_imgCon">
+                                <img
+                                    src="/img/customer-service.png"
+                                    className="home_firstBlock_bottom_grid_item_imgCon_img"
+                                ></img>
+                            </div>
+                            <div className="home_firstBlock_bottom_grid_item_text">
+                                Service quick find
                             </div>
                         </div>
                     </Link>
@@ -143,7 +143,7 @@ function Home(props) {
                         </div>
                         <div className="home_grid_block_row">
                             <div className="home_grid_block_row_imgCon">
-                                <HelpIcon />
+                                <HelpIcon/>
                             </div>
                             <div className="home_grid_block_row_text">
                                 Accessing payroll information
@@ -151,7 +151,7 @@ function Home(props) {
                         </div>
                         <div className="home_grid_block_row">
                             <div className="home_grid_block_row_imgCon">
-                                <HelpIcon />
+                                <HelpIcon/>
                             </div>
                             <div className="home_grid_block_row_text">
                                 Guide to installing desktop applications
@@ -159,7 +159,7 @@ function Home(props) {
                         </div>
                         <div className="home_grid_block_row">
                             <div className="home_grid_block_row_imgCon">
-                                <HelpIcon />
+                                <HelpIcon/>
                             </div>
                             <div className="home_grid_block_row_text">
                                 Where to find SSP
@@ -167,7 +167,7 @@ function Home(props) {
                         </div>
                         <div className="home_grid_block_row">
                             <div className="home_grid_block_row_imgCon">
-                                <HelpIcon />
+                                <HelpIcon/>
                             </div>
                             <div className="home_grid_block_row_text">
                                 Where do I request employee verification?
@@ -177,8 +177,7 @@ function Home(props) {
 
                     <div className="home_grid_block">
                         <div className="home_grid_block_h">My tickets</div>
-                        {myTickets.map((ticket) => (
-                            <div className="home_grid_block_row">
+                        {myTickets.map((ticket) => (<div className="home_grid_block_row">
                                 <div className="home_grid_block_row_imgCon">
                                     <img
                                         className="home_grid_block_row_img"
@@ -188,8 +187,7 @@ function Home(props) {
                                 <div className="home_grid_block_row_text">
                                     {ticket.description}
                                 </div>
-                            </div>
-                        ))}
+                            </div>))}
                     </div>
                 </div>
                 {/* <div className="home_block2_row">
@@ -284,8 +282,7 @@ function Home(props) {
         </div> */}
             </div>
             {/* <div className="position-fixed bottom-0 end-0"></div> */}
-        </div>
-    );
+        </div>);
 }
 
 export default Home;

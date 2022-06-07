@@ -51,9 +51,9 @@ function BetaEdit(props) {
             .catch((err) => console.log(err));
     }
 
-    
+
     function changeQs(elm, value) {
-       
+
         let newArr = [...data];
 
         for (let i = 0; i < data.length; i++) {
@@ -66,9 +66,9 @@ function BetaEdit(props) {
         }
         setData(newArr);
 
-       
 
-    
+
+
     }
     function changeSk(elm, value) {
         let newArr = [...data];
@@ -82,14 +82,14 @@ function BetaEdit(props) {
         }
         setData(newArr);
 
-       
+
     }
     function changeIsEnd(elm, value) {
         let newArr = [...data];
 
         for (let i = 0; i < data.length; i++) {
             if (
-                
+
                 data[i].id === elm.id
             ) {
                 newArr[i].is_end = value;
@@ -97,7 +97,7 @@ function BetaEdit(props) {
         }
         setData(newArr);
 
-       
+
     }
 
     function saveChanges() {

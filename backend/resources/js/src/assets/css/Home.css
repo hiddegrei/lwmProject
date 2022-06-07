@@ -166,6 +166,30 @@ a {
     align-items: center;
 }
 
+.home_firstBlock_center_grid_item {
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    height: 250px;
+    border-right: 1px solid #ddd;
+    background-color: #FDFD00FF;
+    transition: transform .2s; /* Animation */
+    color: black;
+    place-content: center;
+    align-items: center;
+}
+
+.home_firstBlock_center_grid_item:hover {
+    transform: scale(1.2);
+    cursor: pointer;
+    /* border:1px solid #ddd; */
+    border: 3px solid black;
+    border-radius: 20px;
+    /* z-index: 100; */
+    background-color: #FFFF00FF;
+    align-content: center;
+}
+
 .home_firstBlock_bottom_grid_item:hover {
     transform: scale(1.2);
     cursor: pointer;
