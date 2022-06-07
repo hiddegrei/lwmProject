@@ -30,10 +30,10 @@ function BetaEdit(props) {
         getAll();
     }, []);
 
-    function createNew() {
+    function createNew(path,main) {
         const fData = new FormData();
-        fData.append("main_index", mainIndex);
-        fData.append("path_index", pathIndex);
+        fData.append("main_index", main);
+        fData.append("path_index", path);
         fData.append("question", qs);
         fData.append("is_end", isEnd);
         fData.append("service_key", serviceKey);
@@ -51,53 +51,36 @@ function BetaEdit(props) {
             .catch((err) => console.log(err));
     }
 
-
     function changeQs(elm, value) {
-
         let newArr = [...data];
 
         for (let i = 0; i < data.length; i++) {
-            if (
-                data[i].id === elm.id
-            ) {
-                console.log("hi")
+            if (data[i].id === elm.id) {
+                console.log("hi");
                 newArr[i].question = value;
             }
         }
         setData(newArr);
-
-
-
-
     }
     function changeSk(elm, value) {
         let newArr = [...data];
 
         for (let i = 0; i < data.length; i++) {
-            if (
-                data[i].id === elm.id
-            ) {
+            if (data[i].id === elm.id) {
                 newArr[i].service_key = value;
             }
         }
         setData(newArr);
-
-
     }
     function changeIsEnd(elm, value) {
         let newArr = [...data];
 
         for (let i = 0; i < data.length; i++) {
-            if (
-
-                data[i].id === elm.id
-            ) {
+            if (data[i].id === elm.id) {
                 newArr[i].is_end = value;
             }
         }
         setData(newArr);
-
-
     }
 
     function saveChanges() {
@@ -150,7 +133,7 @@ function BetaEdit(props) {
         setCurQs(arr);
     }
 
-    function updatePath(index, doc) {
+    function updatePathNext(index, doc) {
         if (doc.is_end) {
         } else {
             let arr = data.filter(
@@ -162,6 +145,38 @@ function BetaEdit(props) {
             setMoving(true);
             setCurQs(arr);
         }
+    }
+    function updatePathPrev() {
+        let arr=[]
+
+        if(curQs[0].path_index===1){
+            arr = data.filter(
+                (elm) =>
+                   
+                    elm.path_index === 0
+            );
+
+        }else{
+            arr = data.filter(
+                (elm) =>
+                    elm.main_index === curQs[0].main_index &&
+                    elm.path_index === curQs[0].path_index - 1
+            );
+        }
+        if(arr.length>0){
+            setMoving(true);
+            setCurQs(arr);
+
+        }
+        
+             
+            
+                
+
+            
+            // console.log(arr);
+            
+        
     }
     return (
         <div className="be">
@@ -177,17 +192,25 @@ function BetaEdit(props) {
                         )}
                     </div> */}
             {loading && <div>loading...</div>}
+            <div className="be_con">
+                            <div
+                                onClick={() => updatePathPrev()}
+                                className="btn btn-danger sshow_btn"
+                            >
+                                previous
+                            </div>
+                        </div>
             <div className="be_grid_container">
                 {curQs.map((doc, index) => (
                     <div className="be_block">
-                        <div className="be_con">
+                        {/* <div className="be_con">
                             <div className="be_con_title">main index</div>
                             <div className="be_con_inp">{doc.main_index}</div>
                         </div>
                         <div className="be_con">
                             <div className="be_con_title">path index</div>
                             <div className="be_con_inp">{doc.path_index}</div>
-                        </div>
+                        </div> */}
                         <div className="be_con">
                             <div className="be_con_title">question</div>
                             <input
@@ -200,9 +223,7 @@ function BetaEdit(props) {
                             <div className="be_con_title">service key</div>
                             <input
                                 value={doc.service_key}
-                                onChange={(e) =>
-                                    changeSk(doc, e.target.value)
-                                }
+                                onChange={(e) => changeSk(doc, e.target.value)}
                                 className="be_con_inp"
                             ></input>
                         </div>
@@ -218,7 +239,7 @@ function BetaEdit(props) {
                         </div>
                         <div className="be_con">
                             <div
-                                onClick={() => updatePath(index, doc)}
+                                onClick={() => updatePathNext(index, doc)}
                                 className="btn btn-danger sshow_btn"
                             >
                                 next
@@ -234,9 +255,46 @@ function BetaEdit(props) {
                         </div>
                     </div>
                 ))}
+                <div className="be_block">
+                   
+
+                    <div className="be_con">
+                        <div className="be_con_title">question</div>
+                        <input
+                            value={qs}
+                            onChange={(e) => setQs(e.target.value)}
+                            className="be_con_inp"
+                        ></input>
+                    </div>
+
+                    <div className="be_con">
+                        <div className="be_con_title">is end</div>
+                        <input
+                            value={isEnd}
+                            onChange={(e) => setIsEnd(e.target.value)}
+                            className="be_con_inp"
+                        ></input>
+                    </div>
+
+                    <div className="be_con">
+                        <div className="be_con_title">service key</div>
+                        <input
+                            value={serviceKey}
+                            onChange={(e) => setServiceKey(e.target.value)}
+                            className="be_con_inp"
+                        ></input>
+                    </div>
+
+                    <div
+                        onClick={()=>createNew(curQs[0].path_index,curQs[0].main_index)}
+                        className="btn btn-warning sshow_btn"
+                    >
+                        create
+                    </div>
+                </div>
             </div>
 
-            <div className="be_con">
+            {/* <div className="be_con">
                 <div className="be_con_title">main index</div>
                 <input
                     value={mainIndex}
@@ -283,10 +341,10 @@ function BetaEdit(props) {
 
             <div onClick={createNew} className="btn btn-warning sshow_btn">
                 create
-            </div>
+            </div> */}
 
             <div onClick={saveChanges} className="btn btn-warning sshow_btn">
-                save
+                save changes
             </div>
             {/* {loading&&<div className='sb_loading'>Loading...</div>} */}
         </div>
