@@ -13992,10 +13992,10 @@ function BetaEdit(props) {
     getAll();
   }, []);
 
-  function createNew() {
+  function createNew(path, main) {
     var fData = new FormData();
-    fData.append("main_index", mainIndex);
-    fData.append("path_index", pathIndex);
+    fData.append("main_index", main);
+    fData.append("path_index", path);
     fData.append("question", qs);
     fData.append("is_end", isEnd);
     fData.append("service_key", serviceKey);
@@ -14098,7 +14098,7 @@ function BetaEdit(props) {
     setCurQs(arr);
   }
 
-  function updatePath(index, doc) {
+  function updatePathNext(index, doc) {
     if (doc.is_end) {} else {
       var arr = data.filter(function (elm) {
         return elm.main_index === doc.main_index && elm.path_index === doc.path_index + 1;
@@ -14109,34 +14109,45 @@ function BetaEdit(props) {
     }
   }
 
+  function updatePathPrev() {
+    var arr = [];
+
+    if (curQs[0].path_index === 1) {
+      arr = data.filter(function (elm) {
+        return elm.path_index === 0;
+      });
+    } else {
+      arr = data.filter(function (elm) {
+        return elm.main_index === curQs[0].main_index && elm.path_index === curQs[0].path_index - 1;
+      });
+    }
+
+    if (arr.length > 0) {
+      setMoving(true);
+      setCurQs(arr);
+    } // console.log(arr);
+
+  }
+
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
     className: "be",
     children: [loading && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
       children: "loading..."
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+      className: "be_con",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+        onClick: function onClick() {
+          return updatePathPrev();
+        },
+        className: "btn btn-danger sshow_btn",
+        children: "previous"
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
       className: "be_grid_container",
-      children: curQs.map(function (doc, index) {
+      children: [curQs.map(function (doc, index) {
         return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
           className: "be_block",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-            className: "be_con",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-              className: "be_con_title",
-              children: "main index"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-              className: "be_con_inp",
-              children: doc.main_index
-            })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-            className: "be_con",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-              className: "be_con_title",
-              children: "path index"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-              className: "be_con_inp",
-              children: doc.path_index
-            })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
             className: "be_con",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
               className: "be_con_title",
@@ -14176,7 +14187,7 @@ function BetaEdit(props) {
             className: "be_con",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
               onClick: function onClick() {
-                return updatePath(index, doc);
+                return updatePathNext(index, doc);
               },
               className: "btn btn-danger sshow_btn",
               children: "next"
@@ -14192,75 +14203,56 @@ function BetaEdit(props) {
             })
           })]
         });
-      })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-      className: "be_con",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-        className: "be_con_title",
-        children: "main index"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
-        value: mainIndex,
-        onChange: function onChange(e) {
-          return setMainIndex(e.target.value);
-        },
-        className: "be_con_inp"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+        className: "be_block",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+          className: "be_con",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+            className: "be_con_title",
+            children: "question"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
+            value: qs,
+            onChange: function onChange(e) {
+              return setQs(e.target.value);
+            },
+            className: "be_con_inp"
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+          className: "be_con",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+            className: "be_con_title",
+            children: "is end"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
+            value: isEnd,
+            onChange: function onChange(e) {
+              return setIsEnd(e.target.value);
+            },
+            className: "be_con_inp"
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+          className: "be_con",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+            className: "be_con_title",
+            children: "service key"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
+            value: serviceKey,
+            onChange: function onChange(e) {
+              return setServiceKey(e.target.value);
+            },
+            className: "be_con_inp"
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+          onClick: function onClick() {
+            return createNew(curQs[0].path_index, curQs[0].main_index);
+          },
+          className: "btn btn-warning sshow_btn",
+          children: "create"
+        })]
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-      className: "be_con",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-        className: "be_con_title",
-        children: "path index"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
-        value: pathIndex,
-        onChange: function onChange(e) {
-          return setPathIndex(e.target.value);
-        },
-        className: "be_con_inp"
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-      className: "be_con",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-        className: "be_con_title",
-        children: "question"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
-        value: qs,
-        onChange: function onChange(e) {
-          return setQs(e.target.value);
-        },
-        className: "be_con_inp"
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-      className: "be_con",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-        className: "be_con_title",
-        children: "is end"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
-        value: isEnd,
-        onChange: function onChange(e) {
-          return setIsEnd(e.target.value);
-        },
-        className: "be_con_inp"
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-      className: "be_con",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-        className: "be_con_title",
-        children: "service key"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
-        value: serviceKey,
-        onChange: function onChange(e) {
-          return setServiceKey(e.target.value);
-        },
-        className: "be_con_inp"
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-      onClick: createNew,
-      className: "btn btn-warning sshow_btn",
-      children: "create"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
       onClick: saveChanges,
       className: "btn btn-warning sshow_btn",
-      children: "save"
+      children: "save changes"
     })]
   });
 }
