@@ -203,7 +203,7 @@ setPathIndexs({mainIndex:doc.main_index,pathIndex:doc.path_index + 1})
             <div className="be_con">
                             <div
                                 onClick={() => updatePathPrev()}
-                                className="btn btn-danger sshow_btn"
+                                className="btn btn-primary sshow_btn"
                             >
                                 previous
                             </div>
@@ -248,7 +248,7 @@ setPathIndexs({mainIndex:doc.main_index,pathIndex:doc.path_index + 1})
                         <div className="be_con">
                             <div
                                 onClick={() => updatePathNext(index, doc)}
-                                className="btn btn-danger sshow_btn"
+                                className="btn btn-info sshow_btn"
                             >
                                 next
                             </div>
