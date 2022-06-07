@@ -140,7 +140,7 @@ function Navbar(props) {
                 <div className="dropdown">
                     <button className="dropbtn navbar-item px-4 text-decoration-none navHover">
                         {" "}
-                        hi , {user?.name}
+                        Hello, {user?.name}
                     </button>
                     <div className="dropdown-content">
                         <a className="text-dark" onClick={logout}>

@@ -52,7 +52,7 @@ function Home(props) {
             <div className="home_firstBlock_top_greet_container">
                 <div className="home_firstBlock_top_greetUser">
                     {" "}
-                    Hi {user?.name} , need service?
+                    Hi {user?.name}, need service?
                 </div>
                 <div className="home_firstBlock_top_input">
                     <Searchbar/>
@@ -72,7 +72,7 @@ function Home(props) {
                             ></img>
                         </div>
                         <div className="home_firstBlock_bottom_grid_item_text">
-                            todos
+                            Todos
                         </div>
                     </div>
                 </Link>
@@ -139,7 +139,7 @@ function Home(props) {
             <div className="home_grid_container">
                 <div className="home_grid_block">
                     <div className="home_grid_block_h">
-                        Knowledge center
+                        Well known questions
                     </div>
                     <div className="home_grid_block_row">
                         <div className="home_grid_block_row_imgCon">

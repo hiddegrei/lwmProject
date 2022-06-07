@@ -45,7 +45,7 @@ function Searchbar(classOverride) {
     return (
         <div className="sbar">
             <input
-                placeholder="search"
+                placeholder="Search for services"
                 className="sbar_input"
                 size="7"
                 value={query}
