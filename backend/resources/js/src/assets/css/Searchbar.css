@@ -1,7 +1,8 @@
 .query-results {
     position: absolute;
     top: inherit;
-    margin-top: 30px;
+    margin-top: 45px;
+    margin-left: 10px;
     outline-color: black;
     background-color: #f1f1f1;
     min-width: 160px;

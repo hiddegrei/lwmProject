@@ -72,7 +72,7 @@ function Home(props) {
                             ></img>
                         </div>
                         <div className="home_firstBlock_bottom_grid_item_text">
-                            todos
+                            Todos
                         </div>
                     </div>
                 </Link>
