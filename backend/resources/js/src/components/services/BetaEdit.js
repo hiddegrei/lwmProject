@@ -22,9 +22,10 @@ function BetaEdit(props) {
 
     const [mainIndex, setMainIndex] = useState();
     const [pathIndex, setPathIndex] = useState();
-    const [qs, setQs] = useState();
-    const [isEnd, setIsEnd] = useState();
-    const [serviceKey, setServiceKey] = useState();
+    const [qs, setQs] = useState("");
+    const [isEnd, setIsEnd] = useState("");
+    const [serviceKey, setServiceKey] = useState("");
+    const [pathIndexs,setPathIndexs]=useState({mainIndex:0,pathIndex:0})
 
     useEffect(() => {
         getAll();
@@ -32,8 +33,8 @@ function BetaEdit(props) {
 
     function createNew(path,main) {
         const fData = new FormData();
-        fData.append("main_index", main);
-        fData.append("path_index", path);
+        fData.append("main_index", pathIndexs.mainIndex);
+        fData.append("path_index", pathIndexs.pathIndex);
         fData.append("question", qs);
         fData.append("is_end", isEnd);
         fData.append("service_key", serviceKey);
@@ -41,8 +42,8 @@ function BetaEdit(props) {
         http.post("/serviceguide/create", fData)
             .then((res) => {
                 console.log(res);
-                setMainIndex("");
-                setPathIndex("");
+                // setMainIndex("");
+                // setPathIndex("");
                 setQs("");
                 setIsEnd("");
                 setServiceKey("");
@@ -144,6 +145,11 @@ function BetaEdit(props) {
             // console.log(arr);
             setMoving(true);
             setCurQs(arr);
+            if(arr.length===0){
+setPathIndexs({mainIndex:doc.main_index,pathIndex:doc.path_index + 1})
+            }else{
+                setPathIndexs({mainIndex:doc.main_index,pathIndex:doc.path_index+1})
+            }
         }
     }
     function updatePathPrev() {
@@ -155,6 +161,7 @@ function BetaEdit(props) {
                    
                     elm.path_index === 0
             );
+            setPathIndexs({mainIndex:data.length,pathIndex:0})
 
         }else{
             arr = data.filter(
@@ -162,6 +169,7 @@ function BetaEdit(props) {
                     elm.main_index === curQs[0].main_index &&
                     elm.path_index === curQs[0].path_index - 1
             );
+            setPathIndexs({mainIndex:curQs[0].main_index,pathIndex:curQs[0].path_index - 1})
         }
         if(arr.length>0){
             setMoving(true);
@@ -267,14 +275,6 @@ function BetaEdit(props) {
                         ></input>
                     </div>
 
-                    <div className="be_con">
-                        <div className="be_con_title">is end</div>
-                        <input
-                            value={isEnd}
-                            onChange={(e) => setIsEnd(e.target.value)}
-                            className="be_con_inp"
-                        ></input>
-                    </div>
 
                     <div className="be_con">
                         <div className="be_con_title">service key</div>
@@ -285,8 +285,17 @@ function BetaEdit(props) {
                         ></input>
                     </div>
 
+                    <div className="be_con">
+                        <div className="be_con_title">is end</div>
+                        <input
+                            value={isEnd}
+                            onChange={(e) => setIsEnd(e.target.value)}
+                            className="be_con_inp"
+                        ></input>
+                    </div>
+
                     <div
-                        onClick={()=>createNew(curQs[0].path_index,curQs[0].main_index)}
+                        onClick={()=>createNew(curQs[0]?.path_index,curQs[0]?.main_index)}
                         className="btn btn-warning sshow_btn"
                     >
                         create

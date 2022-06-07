@@ -13973,20 +13973,28 @@ function BetaEdit(props) {
       pathIndex = _useState16[0],
       setPathIndex = _useState16[1];
 
-  var _useState17 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
+  var _useState17 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
       _useState18 = _slicedToArray(_useState17, 2),
       qs = _useState18[0],
       setQs = _useState18[1];
 
-  var _useState19 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
+  var _useState19 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
       _useState20 = _slicedToArray(_useState19, 2),
       isEnd = _useState20[0],
       setIsEnd = _useState20[1];
 
-  var _useState21 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
+  var _useState21 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
       _useState22 = _slicedToArray(_useState21, 2),
       serviceKey = _useState22[0],
       setServiceKey = _useState22[1];
+
+  var _useState23 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
+    mainIndex: 0,
+    pathIndex: 0
+  }),
+      _useState24 = _slicedToArray(_useState23, 2),
+      pathIndexs = _useState24[0],
+      setPathIndexs = _useState24[1];
 
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     getAll();
@@ -13994,15 +14002,15 @@ function BetaEdit(props) {
 
   function createNew(path, main) {
     var fData = new FormData();
-    fData.append("main_index", main);
-    fData.append("path_index", path);
+    fData.append("main_index", pathIndexs.mainIndex);
+    fData.append("path_index", pathIndexs.pathIndex);
     fData.append("question", qs);
     fData.append("is_end", isEnd);
     fData.append("service_key", serviceKey);
     _axios_http__WEBPACK_IMPORTED_MODULE_2__["default"].post("/serviceguide/create", fData).then(function (res) {
-      console.log(res);
-      setMainIndex("");
-      setPathIndex("");
+      console.log(res); // setMainIndex("");
+      // setPathIndex("");
+
       setQs("");
       setIsEnd("");
       setServiceKey("");
@@ -14106,6 +14114,18 @@ function BetaEdit(props) {
 
       setMoving(true);
       setCurQs(arr);
+
+      if (arr.length === 0) {
+        setPathIndexs({
+          mainIndex: doc.main_index,
+          pathIndex: doc.path_index + 1
+        });
+      } else {
+        setPathIndexs({
+          mainIndex: doc.main_index,
+          pathIndex: doc.path_index + 1
+        });
+      }
     }
   }
 
@@ -14116,9 +14136,17 @@ function BetaEdit(props) {
       arr = data.filter(function (elm) {
         return elm.path_index === 0;
       });
+      setPathIndexs({
+        mainIndex: data.length,
+        pathIndex: 0
+      });
     } else {
       arr = data.filter(function (elm) {
         return elm.main_index === curQs[0].main_index && elm.path_index === curQs[0].path_index - 1;
+      });
+      setPathIndexs({
+        mainIndex: curQs[0].main_index,
+        pathIndex: curQs[0].path_index - 1
       });
     }
 
@@ -14221,18 +14249,6 @@ function BetaEdit(props) {
           className: "be_con",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
             className: "be_con_title",
-            children: "is end"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
-            value: isEnd,
-            onChange: function onChange(e) {
-              return setIsEnd(e.target.value);
-            },
-            className: "be_con_inp"
-          })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-          className: "be_con",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-            className: "be_con_title",
             children: "service key"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
             value: serviceKey,
@@ -14241,9 +14257,23 @@ function BetaEdit(props) {
             },
             className: "be_con_inp"
           })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+          className: "be_con",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+            className: "be_con_title",
+            children: "is end"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
+            value: isEnd,
+            onChange: function onChange(e) {
+              return setIsEnd(e.target.value);
+            },
+            className: "be_con_inp"
+          })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
           onClick: function onClick() {
-            return createNew(curQs[0].path_index, curQs[0].main_index);
+            var _curQs$, _curQs$2;
+
+            return createNew((_curQs$ = curQs[0]) === null || _curQs$ === void 0 ? void 0 : _curQs$.path_index, (_curQs$2 = curQs[0]) === null || _curQs$2 === void 0 ? void 0 : _curQs$2.main_index);
           },
           className: "btn btn-warning sshow_btn",
           children: "create"
