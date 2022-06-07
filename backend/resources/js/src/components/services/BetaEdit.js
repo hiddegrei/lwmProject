@@ -25,13 +25,16 @@ function BetaEdit(props) {
     const [qs, setQs] = useState("");
     const [isEnd, setIsEnd] = useState("");
     const [serviceKey, setServiceKey] = useState("");
-    const [pathIndexs,setPathIndexs]=useState({mainIndex:0,pathIndex:0})
+    const [pathIndexs, setPathIndexs] = useState({
+        mainIndex: 0,
+        pathIndex: 0,
+    });
 
     useEffect(() => {
         getAll();
     }, []);
 
-    function createNew(path,main) {
+    function createNew(path, main) {
         const fData = new FormData();
         fData.append("main_index", pathIndexs.mainIndex);
         fData.append("path_index", pathIndexs.pathIndex);
@@ -74,11 +77,19 @@ function BetaEdit(props) {
         setData(newArr);
     }
     function changeIsEnd(elm, value) {
+        console.log(elm,value)
         let newArr = [...data];
 
         for (let i = 0; i < data.length; i++) {
             if (data[i].id === elm.id) {
-                newArr[i].is_end = value;
+                if(value==='true'){
+                    newArr[i].is_end = 1;
+
+                }else{
+                    newArr[i].is_end = 0;
+
+                }
+                
             }
         }
         setData(newArr);
@@ -145,46 +156,42 @@ function BetaEdit(props) {
             // console.log(arr);
             setMoving(true);
             setCurQs(arr);
-            if(arr.length===0){
-setPathIndexs({mainIndex:doc.main_index,pathIndex:doc.path_index + 1})
-            }else{
-                setPathIndexs({mainIndex:doc.main_index,pathIndex:doc.path_index+1})
+            if (arr.length === 0) {
+                setPathIndexs({
+                    mainIndex: doc.main_index,
+                    pathIndex: doc.path_index + 1,
+                });
+            } else {
+                setPathIndexs({
+                    mainIndex: doc.main_index,
+                    pathIndex: doc.path_index + 1,
+                });
             }
         }
     }
     function updatePathPrev() {
-        let arr=[]
+        let arr = [];
 
-        if(curQs[0].path_index===1){
-            arr = data.filter(
-                (elm) =>
-                   
-                    elm.path_index === 0
-            );
-            setPathIndexs({mainIndex:data.length,pathIndex:0})
-
-        }else{
+        if (curQs[0].path_index === 1) {
+            arr = data.filter((elm) => elm.path_index === 0);
+            setPathIndexs({ mainIndex: data.length, pathIndex: 0 });
+        } else {
             arr = data.filter(
                 (elm) =>
                     elm.main_index === curQs[0].main_index &&
                     elm.path_index === curQs[0].path_index - 1
             );
-            setPathIndexs({mainIndex:curQs[0].main_index,pathIndex:curQs[0].path_index - 1})
+            setPathIndexs({
+                mainIndex: curQs[0].main_index,
+                pathIndex: curQs[0].path_index - 1,
+            });
         }
-        if(arr.length>0){
+        if (arr.length > 0) {
             setMoving(true);
             setCurQs(arr);
-
         }
-        
-             
-            
-                
 
-            
-            // console.log(arr);
-            
-        
+        // console.log(arr);
     }
     return (
         <div className="be">
@@ -200,14 +207,15 @@ setPathIndexs({mainIndex:doc.main_index,pathIndex:doc.path_index + 1})
                         )}
                     </div> */}
             {loading && <div>loading...</div>}
+            {pathIndexs.pathIndex!=0&&
             <div className="be_con">
-                            <div
-                                onClick={() => updatePathPrev()}
-                                className="btn btn-primary sshow_btn"
-                            >
-                                previous
-                            </div>
-                        </div>
+                <div
+                    onClick={() => updatePathPrev()}
+                    className="btn btn-primary sshow_btn"
+                >
+                    previous
+                </div>
+            </div>}
             <div className="be_grid_container">
                 {curQs.map((doc, index) => (
                     <div className="be_block">
@@ -236,14 +244,23 @@ setPathIndexs({mainIndex:doc.main_index,pathIndex:doc.path_index + 1})
                             ></input>
                         </div>
                         <div className="be_con">
-                            <div className="be_con_title">is end</div>
-                            <input
+                            <div className="be_con_title">end of path?</div>
+                            {/* <input
                                 value={doc.is_end}
                                 onChange={(e) =>
                                     changeIsEnd(doc, e.target.value)
                                 }
                                 className="be_con_inp"
-                            ></input>
+                            ></input> */}
+                            <select onChange={(e) =>
+                                    changeIsEnd(doc, e.target.value)
+                                } value={doc.is_end===1?true:false} id={doc.id}>
+                            
+                                        <option value={true}>true</option>
+                                        <option value={false}>false</option>
+                                       
+                                   
+                                </select>
                         </div>
                         <div className="be_con">
                             <div
@@ -264,8 +281,6 @@ setPathIndexs({mainIndex:doc.main_index,pathIndex:doc.path_index + 1})
                     </div>
                 ))}
                 <div className="be_block">
-                   
-
                     <div className="be_con">
                         <div className="be_con_title">question</div>
                         <input
@@ -274,7 +289,6 @@ setPathIndexs({mainIndex:doc.main_index,pathIndex:doc.path_index + 1})
                             className="be_con_inp"
                         ></input>
                     </div>
-
 
                     <div className="be_con">
                         <div className="be_con_title">service key</div>
@@ -295,7 +309,12 @@ setPathIndexs({mainIndex:doc.main_index,pathIndex:doc.path_index + 1})
                     </div>
 
                     <div
-                        onClick={()=>createNew(curQs[0]?.path_index,curQs[0]?.main_index)}
+                        onClick={() =>
+                            createNew(
+                                curQs[0]?.path_index,
+                                curQs[0]?.main_index
+                            )
+                        }
                         className="btn btn-warning sshow_btn"
                     >
                         create

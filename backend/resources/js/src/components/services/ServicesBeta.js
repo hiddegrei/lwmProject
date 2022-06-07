@@ -19,6 +19,10 @@ function ServicesBeta(props) {
 
     const [step, setStep] = useState(1);
     const [curQs, setCurQs] = useState([]);
+    const [pathIndexs, setPathIndexs] = useState({
+        mainIndex: 0,
+        pathIndex: 0,
+    });
 
     useEffect(() => {
         getAll();
@@ -27,7 +31,7 @@ function ServicesBeta(props) {
 
     function getAll() {
         http.get(`/serviceguide`).then((res) => {
-            setElements(res.data);
+            setData(res.data);
 
             setLoading(false);
             console.log(res.data);
@@ -36,13 +40,13 @@ function ServicesBeta(props) {
 
     useEffect(() => {
         firstQs();
-    }, [elements]);
+    }, [data]);
 
     function firstQs() {
         // qs.map((doc) => {
         //     arr.push(doc.data[0][0]);
         // });
-        let arr = elements.filter((doc) => doc.path_index === 0);
+        let arr = data.filter((doc) => doc.path_index === 0);
         console.log(arr);
 
         setCurQs(arr);
@@ -57,19 +61,67 @@ function ServicesBeta(props) {
         });
     }
 
-    function updatePath(index, doc) {
+    // function updatePath(index, doc) {
+    //     if (doc.is_end) {
+    //         fetchService(doc.service_key);
+    //     } else {
+    //         let arr = elements.filter(
+    //             (elm) =>
+    //                 elm.main_index === doc.main_index &&
+    //                 elm.path_index === doc.path_index + 1
+    //         );
+    //         console.log(arr);
+
+    //         setCurQs(arr);
+    //     }
+    // }
+    function updatePathNext(index, doc) {
         if (doc.is_end) {
-            fetchService(doc.service_key);
         } else {
-            let arr = elements.filter(
+            let arr = data.filter(
                 (elm) =>
                     elm.main_index === doc.main_index &&
                     elm.path_index === doc.path_index + 1
             );
-            console.log(arr);
+            // console.log(arr);
+            
+            setCurQs(arr);
+            if (arr.length === 0) {
+                setPathIndexs({
+                    mainIndex: doc.main_index,
+                    pathIndex: doc.path_index + 1,
+                });
+            } else {
+                setPathIndexs({
+                    mainIndex: doc.main_index,
+                    pathIndex: doc.path_index + 1,
+                });
+            }
+        }
+    }
+    function updatePathPrev() {
+        let arr = [];
 
+        if (curQs[0].path_index === 1) {
+            arr = data.filter((elm) => elm.path_index === 0);
+            setPathIndexs({ mainIndex: data.length, pathIndex: 0 });
+        } else {
+            arr = data.filter(
+                (elm) =>
+                    elm.main_index === curQs[0].main_index &&
+                    elm.path_index === curQs[0].path_index - 1
+            );
+            setPathIndexs({
+                mainIndex: curQs[0].main_index,
+                pathIndex: curQs[0].path_index - 1,
+            });
+        }
+        if (arr.length > 0) {
+           
             setCurQs(arr);
         }
+
+        // console.log(arr);
     }
     return (
         <div className="sb_main">
@@ -85,10 +137,10 @@ function ServicesBeta(props) {
                         </div>
                     )}
                     <div className="sb_mid ">
-                        {step > 1 && (
+                        {pathIndexs.pathIndex > 0 && (
                             <ArrowBackIosNewIcon
                                 onClick={() => {
-                                    updateStep();
+                                    updatePathPrev();
                                 }}
                                 color="primary"
                                 className="hover"
@@ -102,7 +154,7 @@ function ServicesBeta(props) {
                             {curQs.map((doc, index) => (
                                 <div
                                     key={index}
-                                    onClick={() => updatePath(index, doc)}
+                                    onClick={() => updatePathNext(index, doc)}
                                     className="sb_block1"
                                 >
                                     <p>{doc.question}</p>

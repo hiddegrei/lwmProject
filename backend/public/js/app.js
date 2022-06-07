@@ -14046,11 +14046,17 @@ function BetaEdit(props) {
   }
 
   function changeIsEnd(elm, value) {
+    console.log(elm, value);
+
     var newArr = _toConsumableArray(data);
 
     for (var i = 0; i < data.length; i++) {
       if (data[i].id === elm.id) {
-        newArr[i].is_end = value;
+        if (value === 'true') {
+          newArr[i].is_end = 1;
+        } else {
+          newArr[i].is_end = 0;
+        }
       }
     }
 
@@ -14161,7 +14167,7 @@ function BetaEdit(props) {
     className: "be",
     children: [loading && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
       children: "loading..."
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+    }), pathIndexs.pathIndex != 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
       className: "be_con",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
         onClick: function onClick() {
@@ -14203,13 +14209,20 @@ function BetaEdit(props) {
             className: "be_con",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
               className: "be_con_title",
-              children: "is end"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
-              value: doc.is_end,
+              children: "end of path?"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("select", {
               onChange: function onChange(e) {
                 return changeIsEnd(doc, e.target.value);
               },
-              className: "be_con_inp"
+              value: doc.is_end === 1 ? true : false,
+              id: doc.id,
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("option", {
+                value: true,
+                children: "true"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("option", {
+                value: false,
+                children: "false"
+              })]
             })]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
             className: "be_con",
@@ -15604,6 +15617,14 @@ function ServicesBeta(props) {
       curQs = _useState14[0],
       setCurQs = _useState14[1];
 
+  var _useState15 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
+    mainIndex: 0,
+    pathIndex: 0
+  }),
+      _useState16 = _slicedToArray(_useState15, 2),
+      pathIndexs = _useState16[0],
+      setPathIndexs = _useState16[1];
+
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     getAll();
     console.log("hi");
@@ -15611,7 +15632,7 @@ function ServicesBeta(props) {
 
   function getAll() {
     _axios_http__WEBPACK_IMPORTED_MODULE_2__["default"].get("/serviceguide").then(function (res) {
-      setElements(res.data);
+      setData(res.data);
       setLoading(false);
       console.log(res.data);
     });
@@ -15619,13 +15640,13 @@ function ServicesBeta(props) {
 
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     firstQs();
-  }, [elements]);
+  }, [data]);
 
   function firstQs() {
     // qs.map((doc) => {
     //     arr.push(doc.data[0][0]);
     // });
-    var arr = elements.filter(function (doc) {
+    var arr = data.filter(function (doc) {
       return doc.path_index === 0;
     });
     console.log(arr);
@@ -15638,18 +15659,68 @@ function ServicesBeta(props) {
       setLoading(false);
       setShowData(true);
     });
+  } // function updatePath(index, doc) {
+  //     if (doc.is_end) {
+  //         fetchService(doc.service_key);
+  //     } else {
+  //         let arr = elements.filter(
+  //             (elm) =>
+  //                 elm.main_index === doc.main_index &&
+  //                 elm.path_index === doc.path_index + 1
+  //         );
+  //         console.log(arr);
+  //         setCurQs(arr);
+  //     }
+  // }
+
+
+  function updatePathNext(index, doc) {
+    if (doc.is_end) {} else {
+      var arr = data.filter(function (elm) {
+        return elm.main_index === doc.main_index && elm.path_index === doc.path_index + 1;
+      }); // console.log(arr);
+
+      setCurQs(arr);
+
+      if (arr.length === 0) {
+        setPathIndexs({
+          mainIndex: doc.main_index,
+          pathIndex: doc.path_index + 1
+        });
+      } else {
+        setPathIndexs({
+          mainIndex: doc.main_index,
+          pathIndex: doc.path_index + 1
+        });
+      }
+    }
   }
 
-  function updatePath(index, doc) {
-    if (doc.is_end) {
-      fetchService(doc.service_key);
-    } else {
-      var arr = elements.filter(function (elm) {
-        return elm.main_index === doc.main_index && elm.path_index === doc.path_index + 1;
+  function updatePathPrev() {
+    var arr = [];
+
+    if (curQs[0].path_index === 1) {
+      arr = data.filter(function (elm) {
+        return elm.path_index === 0;
       });
-      console.log(arr);
-      setCurQs(arr);
+      setPathIndexs({
+        mainIndex: data.length,
+        pathIndex: 0
+      });
+    } else {
+      arr = data.filter(function (elm) {
+        return elm.main_index === curQs[0].main_index && elm.path_index === curQs[0].path_index - 1;
+      });
+      setPathIndexs({
+        mainIndex: curQs[0].main_index,
+        pathIndex: curQs[0].path_index - 1
+      });
     }
+
+    if (arr.length > 0) {
+      setCurQs(arr);
+    } // console.log(arr);
+
   }
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
@@ -15667,9 +15738,9 @@ function ServicesBeta(props) {
         children: "Edit"
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
         className: "sb_mid ",
-        children: step > 1 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_mui_icons_material_ArrowBackIosNew__WEBPACK_IMPORTED_MODULE_7__["default"], {
+        children: pathIndexs.pathIndex > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_mui_icons_material_ArrowBackIosNew__WEBPACK_IMPORTED_MODULE_7__["default"], {
           onClick: function onClick() {
-            updateStep();
+            updatePathPrev();
           },
           color: "primary",
           className: "hover"
@@ -15683,7 +15754,7 @@ function ServicesBeta(props) {
           children: curQs.map(function (doc, index) {
             return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
               onClick: function onClick() {
-                return updatePath(index, doc);
+                return updatePathNext(index, doc);
               },
               className: "sb_block1",
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
