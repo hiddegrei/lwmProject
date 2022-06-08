@@ -14052,7 +14052,7 @@ function BetaEdit(props) {
 
     for (var i = 0; i < data.length; i++) {
       if (data[i].id === elm.id) {
-        if (value === 'true') {
+        if (value === "true") {
           newArr[i].is_end = 1;
         } else {
           newArr[i].is_end = 0;
@@ -14218,10 +14218,10 @@ function BetaEdit(props) {
               id: doc.id,
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("option", {
                 value: true,
-                children: "true"
+                children: "True"
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("option", {
                 value: false,
-                children: "false"
+                children: "False"
               })]
             })]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {

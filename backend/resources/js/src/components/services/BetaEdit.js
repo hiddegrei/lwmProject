@@ -77,19 +77,16 @@ function BetaEdit(props) {
         setData(newArr);
     }
     function changeIsEnd(elm, value) {
-        console.log(elm,value)
+        console.log(elm, value);
         let newArr = [...data];
 
         for (let i = 0; i < data.length; i++) {
             if (data[i].id === elm.id) {
-                if(value==='true'){
+                if (value === "true") {
                     newArr[i].is_end = 1;
-
-                }else{
+                } else {
                     newArr[i].is_end = 0;
-
                 }
-                
             }
         }
         setData(newArr);
@@ -207,15 +204,16 @@ function BetaEdit(props) {
                         )}
                     </div> */}
             {loading && <div>loading...</div>}
-            {pathIndexs.pathIndex!=0&&
-            <div className="be_con">
-                <div
-                    onClick={() => updatePathPrev()}
-                    className="btn btn-primary sshow_btn"
-                >
-                    previous
+            {pathIndexs.pathIndex != 0 && (
+                <div className="be_con">
+                    <div
+                        onClick={() => updatePathPrev()}
+                        className="btn btn-primary sshow_btn"
+                    >
+                        previous
+                    </div>
                 </div>
-            </div>}
+            )}
             <div className="be_grid_container">
                 {curQs.map((doc, index) => (
                     <div className="be_block">
@@ -252,15 +250,16 @@ function BetaEdit(props) {
                                 }
                                 className="be_con_inp"
                             ></input> */}
-                            <select onChange={(e) =>
+                            <select
+                                onChange={(e) =>
                                     changeIsEnd(doc, e.target.value)
-                                } value={doc.is_end===1?true:false} id={doc.id}>
-                            
-                                        <option value={true}>true</option>
-                                        <option value={false}>false</option>
-                                       
-                                   
-                                </select>
+                                }
+                                value={doc.is_end === 1 ? true : false}
+                                id={doc.id}
+                            >
+                                <option value={true}>True</option>
+                                <option value={false}>False</option>
+                            </select>
                         </div>
                         <div className="be_con">
                             <div
