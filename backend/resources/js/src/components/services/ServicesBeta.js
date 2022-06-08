@@ -76,7 +76,8 @@ function ServicesBeta(props) {
     //     }
     // }
     function updatePathNext(index, doc) {
-        if (doc.is_end) {
+        if (doc.is_end === 1) {
+            fetchService(doc.service_key);
         } else {
             let arr = data.filter(
                 (elm) =>
@@ -84,7 +85,7 @@ function ServicesBeta(props) {
                     elm.path_index === doc.path_index + 1
             );
             // console.log(arr);
-            
+
             setCurQs(arr);
             if (arr.length === 0) {
                 setPathIndexs({
@@ -117,7 +118,6 @@ function ServicesBeta(props) {
             });
         }
         if (arr.length > 0) {
-           
             setCurQs(arr);
         }
 

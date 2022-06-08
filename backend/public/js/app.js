@@ -13978,7 +13978,7 @@ function BetaEdit(props) {
       qs = _useState18[0],
       setQs = _useState18[1];
 
-  var _useState19 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
+  var _useState19 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(1),
       _useState20 = _slicedToArray(_useState19, 2),
       isEnd = _useState20[0],
       setIsEnd = _useState20[1];
@@ -14002,7 +14002,10 @@ function BetaEdit(props) {
 
   function createNew(path, main) {
     var fData = new FormData();
-    fData.append("main_index", pathIndexs.mainIndex);
+    var lenMain = data.filter(function (doc) {
+      return doc.path_index === 0;
+    }).length;
+    fData.append("main_index", pathIndexs.pathIndex === 0 ? lenMain : pathIndexs.mainIndex);
     fData.append("path_index", pathIndexs.pathIndex);
     fData.append("question", qs);
     fData.append("is_end", isEnd);
@@ -14275,12 +14278,18 @@ function BetaEdit(props) {
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
             className: "be_con_title",
             children: "is end"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
-            value: isEnd,
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("select", {
             onChange: function onChange(e) {
               return setIsEnd(e.target.value);
             },
-            className: "be_con_inp"
+            value: isEnd,
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("option", {
+              value: 1,
+              children: "True"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("option", {
+              value: 0,
+              children: "False"
+            })]
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
           onClick: function onClick() {
@@ -15675,7 +15684,9 @@ function ServicesBeta(props) {
 
 
   function updatePathNext(index, doc) {
-    if (doc.is_end) {} else {
+    if (doc.is_end === 1) {
+      fetchService(doc.service_key);
+    } else {
       var arr = data.filter(function (elm) {
         return elm.main_index === doc.main_index && elm.path_index === doc.path_index + 1;
       }); // console.log(arr);

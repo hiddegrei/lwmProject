@@ -23,7 +23,7 @@ function BetaEdit(props) {
     const [mainIndex, setMainIndex] = useState();
     const [pathIndex, setPathIndex] = useState();
     const [qs, setQs] = useState("");
-    const [isEnd, setIsEnd] = useState("");
+    const [isEnd, setIsEnd] = useState(1);
     const [serviceKey, setServiceKey] = useState("");
     const [pathIndexs, setPathIndexs] = useState({
         mainIndex: 0,
@@ -36,7 +36,12 @@ function BetaEdit(props) {
 
     function createNew(path, main) {
         const fData = new FormData();
-        fData.append("main_index", pathIndexs.mainIndex);
+        let lenMain = data.filter((doc) => doc.path_index === 0).length;
+
+        fData.append(
+            "main_index",
+            pathIndexs.pathIndex === 0 ? lenMain : pathIndexs.mainIndex
+        );
         fData.append("path_index", pathIndexs.pathIndex);
         fData.append("question", qs);
         fData.append("is_end", isEnd);
@@ -300,11 +305,18 @@ function BetaEdit(props) {
 
                     <div className="be_con">
                         <div className="be_con_title">is end</div>
-                        <input
+                        {/* <input
                             value={isEnd}
                             onChange={(e) => setIsEnd(e.target.value)}
                             className="be_con_inp"
-                        ></input>
+                        ></input> */}
+                        <select
+                            onChange={(e) => setIsEnd(e.target.value)}
+                            value={isEnd}
+                        >
+                            <option value={1}>True</option>
+                            <option value={0}>False</option>
+                        </select>
                     </div>
 
                     <div
