@@ -16,9 +16,17 @@ body {
   margin-left: auto;
   margin-right: auto;
   /* background-image: linear-gradient(to right, #1E90FF , #B0E0E6); */
-  
+  -ms-overflow-style: none;
+    scrollbar-width: none;
+    
+    overflow-y: scroll;
   
 }
+.app::-webkit-scrollbar {
+  display: none;
+}
+
+
 .app_body{
   display:flex;
   width:80%;

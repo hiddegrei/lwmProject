@@ -10,8 +10,19 @@ a {
     margin-left: auto;
     margin-right: auto;
     margin-top: 5%;
+ 
 
+}
+.home::-webkit-scrollbar {
+    display: none;
+}
 
+/* Hide scrollbar for IE, Edge and Firefox */
+.home {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
 }
 
 .home_background {
