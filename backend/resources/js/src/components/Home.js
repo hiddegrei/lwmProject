@@ -1,18 +1,23 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import http from "../axios/http";
 import "../assets/css/Home.css";
 import Searchbar from "./Searchbar";
-import {Link} from "react-router-dom";
-import {useStateValue} from "../Stateprovider";
+import { Link } from "react-router-dom";
+import { useStateValue } from "../Stateprovider";
 import HelpIcon from "@mui/icons-material/Help";
 
 function Home(props) {
-    const [{user}, dispatch] = useStateValue();
+    const [{ user }, dispatch] = useStateValue();
     const [users, setUsers] = useState([]);
     const [input, setInput] = useState("");
     const [myTickets, setMyTickets] = useState([]);
     const [showMaintenance, setShowMaintenance] = useState(false);
-    const [maintenanceArr, setMaintenanceArr] = useState(["Current: none", "Upcoming:", "August 7th", "April 24th"])
+    const [maintenanceArr, setMaintenanceArr] = useState([
+        "Current: none",
+        "Upcoming:",
+        "August 7th",
+        "April 24th",
+    ]);
 
     useEffect(() => {
         fetchMyTickets();
@@ -26,171 +31,181 @@ function Home(props) {
     }
 
     useEffect(() => {
-        window.addEventListener('click', checkClick);
+        window.addEventListener("click", checkClick);
         return () => {
-            window.removeEventListener('click', checkClick)
-        }
-    }, [])
+            window.removeEventListener("click", checkClick);
+        };
+    }, []);
 
     function checkClick(e) {
-        setShowMaintenance(false)
+        setShowMaintenance(false);
     }
 
-    return (<div className="home">
-        <div className="home_background"></div>
-        <div className="maintenance_block" onClick={(e) => {
-            e.stopPropagation();
-            setShowMaintenance(!showMaintenance)
-        }}>Maintenance▼
-        </div>
-        {showMaintenance && <div className="maintenance_results">
-            {maintenanceArr.map((doc) => (<div className="maintenance_results_elm">{doc}</div>))}
-
-        </div>}
-
-        <div className="home_firstBlock_top">
-            <div className="home_firstBlock_top_greet_container">
-                <div className="home_firstBlock_top_greetUser">
-                    {" "}
-                    Hi {user?.name}, need service?
-                </div>
-                <div className="home_firstBlock_top_input">
-                    <Searchbar/>
-                </div>
-
-                {/*<input placeholder={`What are you looking for`} className="home_firstBlock_top_input" onChange={(e) => setInput(e.target.value)} value={input}></input>*/}
+    return (
+        <div className="home">
+            <div className="home_background"></div>
+            <div
+                className="maintenance_block"
+                onClick={(e) => {
+                    e.stopPropagation();
+                    setShowMaintenance(!showMaintenance);
+                }}
+            >
+                Maintenance▼
             </div>
-        </div>
-        <div className="home_firstBlock_bottom">
-            <div className="home_firstBlock_bottom_grid">
-                <Link to="/todos">
-                    <div className="home_firstBlock_bottom_grid_item">
-                        <div className="home_firstBlock_bottom_grid_item_imgCon">
-                            <img
-                                src="/img/checklist.png"
-                                className="home_firstBlock_bottom_grid_item_imgCon_img"
-                            ></img>
-                        </div>
-                        <div className="home_firstBlock_bottom_grid_item_text">
-                            Todos
-                        </div>
-                    </div>
-                </Link>
-
-                <Link to="/services/businesssupport">
-                    <div className="home_firstBlock_bottom_grid_item">
-                        <div className="home_firstBlock_bottom_grid_item_imgCon">
-                            <img
-                                src="/img/salary.png"
-                                className="home_firstBlock_bottom_grid_item_imgCon_img"
-                            ></img>
-                        </div>
-                        <div className="home_firstBlock_bottom_grid_item_text">
-                            T&E
-                        </div>
-                    </div>
-                </Link>
-
-                <Link to="/servicebeta">
-                    <div className="home_firstBlock_center_grid_item">
-                        <div className="home_firstBlock_bottom_grid_item_imgCon">
-                            <img
-                                src="https://www.seekpng.com/png/full/30-306339_hand-emoji-clipart-shake-handshake-emoji.png"
-                                className="home_firstBlock_bottom_grid_item_imgCon_img"
-                            ></img>
-                        </div>
-                        <div className="home_firstBlock_bottom_grid_item_text">
-                            Help with finding services
-                        </div>
-                    </div>
-                </Link>
-
-                <Link to="/services">
-                    <div className="home_firstBlock_bottom_grid_item">
-                        <div className="home_firstBlock_bottom_grid_item_imgCon">
-                            <img
-                                src="/img/customer-service.png"
-                                className="home_firstBlock_bottom_grid_item_imgCon_img"
-                            ></img>
-                        </div>
-                        <div className="home_firstBlock_bottom_grid_item_text">
-                            Service quick find
-                        </div>
-                    </div>
-                </Link>
-
-                <Link to="/services/businesssupport">
-                    <div className="home_firstBlock_bottom_grid_item">
-                        <div className="home_firstBlock_bottom_grid_item_imgCon">
-                            <img
-                                src="/img/shield.png"
-                                className="home_firstBlock_bottom_grid_item_imgCon_img"
-                            ></img>
-                        </div>
-                        <div className="home_firstBlock_bottom_grid_item_text">
-                            Security request
-                        </div>
-                    </div>
-                </Link>
-            </div>
-        </div>
-
-        <div className="home_block2">
-            <div className="home_grid_container">
-                <div className="home_grid_block">
-                    <div className="home_grid_block_h">
-                        Well known questions
-                    </div>
-                    <div className="home_grid_block_row">
-                        <div className="home_grid_block_row_imgCon">
-                            <HelpIcon/>
-                        </div>
-                        <div className="home_grid_block_row_text">
-                            Accessing payroll information
-                        </div>
-                    </div>
-                    <div className="home_grid_block_row">
-                        <div className="home_grid_block_row_imgCon">
-                            <HelpIcon/>
-                        </div>
-                        <div className="home_grid_block_row_text">
-                            Guide to installing desktop applications
-                        </div>
-                    </div>
-                    <div className="home_grid_block_row">
-                        <div className="home_grid_block_row_imgCon">
-                            <HelpIcon/>
-                        </div>
-                        <div className="home_grid_block_row_text">
-                            Where to find SSP
-                        </div>
-                    </div>
-                    <div className="home_grid_block_row">
-                        <div className="home_grid_block_row_imgCon">
-                            <HelpIcon/>
-                        </div>
-                        <div className="home_grid_block_row_text">
-                            Where do I request employee verification?
-                        </div>
-                    </div>
+            {showMaintenance && (
+                <div className="maintenance_results">
+                    {maintenanceArr.map((doc) => (
+                        <div className="maintenance_results_elm">{doc}</div>
+                    ))}
                 </div>
+            )}
 
-                <div className="home_grid_block">
-                    <div className="home_grid_block_h">My tickets</div>
-                    {myTickets.map((ticket) => (<div className="home_grid_block_row">
-                        <div className="home_grid_block_row_imgCon">
-                            <img
-                                className="home_grid_block_row_img"
-                                src={`/storage/${ticket.image}`}
-                            />
-                        </div>
-                        <div className="home_grid_block_row_text">
-                            {ticket.description}
-                        </div>
-                    </div>))}
+            <div className="home_firstBlock_top">
+                <div className="home_firstBlock_top_greet_container">
+                    <div className="home_firstBlock_top_greetUser">
+                        {" "}
+                        Hi {user?.name}, need service?
+                    </div>
+                    <div className="home_firstBlock_top_input">
+                        <Searchbar />
+                    </div>
+
+                    {/*<input placeholder={`What are you looking for`} className="home_firstBlock_top_input" onChange={(e) => setInput(e.target.value)} value={input}></input>*/}
                 </div>
             </div>
-            {/* <div className="home_block2_row">
+            <div className="home_firstBlock_bottom">
+                <div className="home_firstBlock_bottom_grid">
+                    <Link to="/todos">
+                        <div className="home_firstBlock_bottom_grid_item">
+                            <div className="home_firstBlock_bottom_grid_item_imgCon">
+                                <img
+                                    src="/img/checklist.png"
+                                    className="home_firstBlock_bottom_grid_item_imgCon_img"
+                                ></img>
+                            </div>
+                            <div className="home_firstBlock_bottom_grid_item_text">
+                                Todos
+                            </div>
+                        </div>
+                    </Link>
+
+                    <Link to="/services/businesssupport">
+                        <div className="home_firstBlock_bottom_grid_item">
+                            <div className="home_firstBlock_bottom_grid_item_imgCon">
+                                <img
+                                    src="/img/salary.png"
+                                    className="home_firstBlock_bottom_grid_item_imgCon_img"
+                                ></img>
+                            </div>
+                            <div className="home_firstBlock_bottom_grid_item_text">
+                                T&E
+                            </div>
+                        </div>
+                    </Link>
+
+                    <Link to="/servicebeta">
+                        <div className="home_firstBlock_center_grid_item">
+                            <div className="home_firstBlock_bottom_grid_item_imgCon">
+                                <img
+                                    src="/img/handshake.png"
+                                    className="home_firstBlock_bottom_grid_item_imgCon_img"
+                                ></img>
+                            </div>
+                            <div className="home_firstBlock_bottom_grid_item_text">
+                                service guide
+                            </div>
+                        </div>
+                    </Link>
+
+                    <Link to="/services">
+                        <div className="home_firstBlock_bottom_grid_item">
+                            <div className="home_firstBlock_bottom_grid_item_imgCon">
+                                <img
+                                    src="/img/customer-service.png"
+                                    className="home_firstBlock_bottom_grid_item_imgCon_img"
+                                ></img>
+                            </div>
+                            <div className="home_firstBlock_bottom_grid_item_text">
+                                Service quick find
+                            </div>
+                        </div>
+                    </Link>
+
+                    <Link to="/services/businesssupport">
+                        <div className="home_firstBlock_bottom_grid_item">
+                            <div className="home_firstBlock_bottom_grid_item_imgCon">
+                                <img
+                                    src="/img/shield.png"
+                                    className="home_firstBlock_bottom_grid_item_imgCon_img"
+                                ></img>
+                            </div>
+                            <div className="home_firstBlock_bottom_grid_item_text">
+                                Security request
+                            </div>
+                        </div>
+                    </Link>
+                </div>
+            </div>
+
+            <div className="home_block2">
+                <div className="home_grid_container">
+                    <div className="home_grid_block">
+                        <div className="home_grid_block_h">
+                            Well known questions
+                        </div>
+                        <div className="home_grid_block_row">
+                            <div className="home_grid_block_row_imgCon">
+                                <HelpIcon />
+                            </div>
+                            <div className="home_grid_block_row_text">
+                                Accessing payroll information
+                            </div>
+                        </div>
+                        <div className="home_grid_block_row">
+                            <div className="home_grid_block_row_imgCon">
+                                <HelpIcon />
+                            </div>
+                            <div className="home_grid_block_row_text">
+                                Guide to installing desktop applications
+                            </div>
+                        </div>
+                        <div className="home_grid_block_row">
+                            <div className="home_grid_block_row_imgCon">
+                                <HelpIcon />
+                            </div>
+                            <div className="home_grid_block_row_text">
+                                Where to find SSP
+                            </div>
+                        </div>
+                        <div className="home_grid_block_row">
+                            <div className="home_grid_block_row_imgCon">
+                                <HelpIcon />
+                            </div>
+                            <div className="home_grid_block_row_text">
+                                Where do I request employee verification?
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="home_grid_block">
+                        <div className="home_grid_block_h">My tickets</div>
+                        {myTickets.map((ticket) => (
+                            <div className="home_grid_block_row">
+                                <div className="home_grid_block_row_imgCon">
+                                    <img
+                                        className="home_grid_block_row_img"
+                                        src={`/storage/${ticket.image}`}
+                                    />
+                                </div>
+                                <div className="home_grid_block_row_text">
+                                    {ticket.description}
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+                {/* <div className="home_block2_row">
             <div className="home_block2_row_item">
                 <div className="home_block2_row_item_header">
                     🔊Announchemnt
@@ -280,9 +295,10 @@ function Home(props) {
                 </div>
             </div>
         </div> */}
+            </div>
+            {/* <div className="position-fixed bottom-0 end-0"></div> */}
         </div>
-        {/* <div className="position-fixed bottom-0 end-0"></div> */}
-    </div>);
+    );
 }
 
 export default Home;

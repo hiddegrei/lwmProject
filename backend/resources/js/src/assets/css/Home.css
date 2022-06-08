@@ -173,7 +173,7 @@ a {
     width: 250px;
     height: 250px;
     border-right: 1px solid #ddd;
-    background-color: #FDFD00FF;
+    background-color: #1E90FF;
     transition: transform .2s; /* Animation */
     color: black;
     place-content: center;
@@ -187,7 +187,7 @@ a {
     border: 3px solid black;
     border-radius: 20px;
     /* z-index: 100; */
-    background-color: #FFFF00FF;
+    background-color: #1E90FF;
     align-content: center;
 }
 
