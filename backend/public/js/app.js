@@ -13609,8 +13609,9 @@ function Navbar(props) {
   }
 
   function logout() {
-    _axios_http__WEBPACK_IMPORTED_MODULE_2__["default"].post("/user/logout").then(function (res) {});
-    location.reload();
+    _axios_http__WEBPACK_IMPORTED_MODULE_2__["default"].post("/user/logout").then(function (res) {
+      location.reload();
+    });
   }
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
@@ -15020,7 +15021,9 @@ function Services(props) {
 
   var _useStateValue = (0,_Stateprovider__WEBPACK_IMPORTED_MODULE_3__.useStateValue)(),
       _useStateValue2 = _slicedToArray(_useStateValue, 2),
-      user = _useStateValue2[0].user,
+      _useStateValue2$ = _useStateValue2[0],
+      user = _useStateValue2$.user,
+      isAdmin = _useStateValue2$.isAdmin,
       dispatch = _useStateValue2[1];
 
   var history = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_5__.useHistory)();
@@ -15164,7 +15167,7 @@ function Services(props) {
           onClick: submitRequest,
           className: "btn btn-primary sshow_btn ",
           children: "submit request"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+        }), isAdmin === 1 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
           onClick: editService,
           className: "btn btn-warning sshow_btn",
           children: "Edit"

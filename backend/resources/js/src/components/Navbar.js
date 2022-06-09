@@ -22,8 +22,9 @@ function Navbar(props) {
     }
 
     function logout() {
-        http.post("/user/logout").then((res) => {});
-        location.reload();
+        http.post("/user/logout").then((res) => {
+            location.reload();
+        });
     }
 
     return (

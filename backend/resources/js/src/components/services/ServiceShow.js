@@ -5,7 +5,7 @@ import http from "../../axios/http";
 import { useStateValue } from "../../Stateprovider";
 
 function Services(props) {
-    const [{ user }, dispatch] = useStateValue();
+    const [{ user, isAdmin }, dispatch] = useStateValue();
     const history = useHistory();
     const serviceid = useParams();
     const [data, setData] = useState([]);
@@ -126,12 +126,14 @@ function Services(props) {
                     >
                         submit request
                     </div>
-                    <div
-                        onClick={editService}
-                        className="btn btn-warning sshow_btn"
-                    >
-                        Edit
-                    </div>
+                    {isAdmin === 1 && (
+                        <div
+                            onClick={editService}
+                            className="btn btn-warning sshow_btn"
+                        >
+                            Edit
+                        </div>
+                    )}
                     <Link to="/servicebeta">
                         <div className="btn btn-danger sshow_btn">Cancel</div>
                     </Link>

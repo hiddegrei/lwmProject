@@ -124,7 +124,11 @@ dd($data);
 
     public function edit(Service $service)
     {
-        return $service;
+        // dd(auth()->user()->admin);
+        if(auth()->user()->admin==true){
+ return $service;
+        }
+       
 
     }
 
@@ -138,7 +142,10 @@ dd($data);
            
 
         ]);
-        $service->update($data);
+        if(auth()->user()->admin==true){
+  $service->update($data);
+        }
+       
         
     }
 
